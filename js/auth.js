@@ -30,6 +30,7 @@ signUpForm.addEventListener('submit', (e) => {
 
             db.collection('accounts').doc(userUid).set(account);
             alert("Usuario Creado!");
+            data.user.sendEmailVerification();
             signUpForm.reset();
         })
             .catch(function (error) {
@@ -76,15 +77,36 @@ logInForm.addEventListener('submit', (e) => {
     const email = signInForm['email'].value;
     const password = signInForm['password'].value;
 
+
     //Sing up the user
-    auth.signInWithEmailAndPassword(email, password).then(cred => {
+
+    auth.signInWithEmailAndPassword(email, password).then(function (data) {
+
+        const userUid = data.user.uid;
+
+        if(data.user.emailVerified){ // note difference on this line
+            alert("Sesion Iniciada" + userUid);
+
+            signUpForm.reset();
+          }else
+            alert("Verifica tu correo");
 
 
-        alert("Sesion Iniciada");
-        signUpForm.reset();
 
 
 
+
+    }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+        if (errorCode === "auth/user-not-found") {
+            alert("El usuario o contraseña no es correcto");
+        } else
+            alert("El usuario o contraseña no es correcto");
+        console.log(errorCode);
+        // ...
     });
 
 

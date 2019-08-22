@@ -1,18 +1,13 @@
-//getUserData
-db.collection('accounts').get().then(snapshot =>{
-    console.log(snapshot.docs);
-});
-
-
+//
 
 //listen for status changes
-auth.onAuthStateChanged(user =>{
-    if(user){
-       // console.log("Sesion Activa"+user.email);
-    }else{
-       // console.log("Sesion Finalizada");
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log("Sesion Activa: " + user.email);
+    } else {
+        console.log("Sesion Finalizada");
     }
-    
+
 })
 
 
@@ -56,7 +51,7 @@ signUpForm.addEventListener('submit', (e) => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                if(errorMessage ==="The email address is already in use by another account."){
+                if (errorMessage === "The email address is already in use by another account.") {
                     alert("Ya existe una cuenta de usuario asociada a ese correo electrónico");
                 }
             });
@@ -101,11 +96,14 @@ logInForm.addEventListener('submit', (e) => {
 
         const userUid = data.user.uid;
 
-        if(data.user.emailVerified){ // note difference on this line
-            alert("Sesion Iniciada" + userUid);
+        if (data.user.emailVerified) { // note difference on this line
+
+
+            userDataLogin(userUid);
+
 
             signUpForm.reset();
-          }else
+        } else
             alert("Verifica tu correo");
 
 
@@ -117,11 +115,12 @@ logInForm.addEventListener('submit', (e) => {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+        console.log(errorMessage);
         if (errorCode === "auth/user-not-found") {
             alert("El usuario o contraseña no es correcto");
         } else
             alert("El usuario o contraseña no es correcto");
-        console.log(errorCode);
+
         // ...
     });
 

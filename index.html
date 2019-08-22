@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TransCo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="" id="signInForm">
+        <h1>Login</h1>
+        <div class="textbox">
+            <input id="email" type="text" class="form-control" placeholder="email" name="" value="">
+        </div>
+        <div class="textbox">
+            <input id="password" type="password" class="form-control" placeholder="contraseña" name="" value="">
+        </div><br>
+        <input type="submit" id="sigin" class="btn btn-warning" type="submit">Iniciar sesión</a><br><br>
+
+    </form>
+
+    <form action="" id="signUpForm">
+        <h1>Registro</h1>
+        <div class="textbox">
+            <input id="e-mail" type="email" class="form-control" placeholder="e-mail" name="" value="">
+        </div>
+        <div class="textbox">
+            <input id="contrasena" type="password" class="form-control" placeholder="contraseña" name="" value="">
+        </div>
+        <input type="submit" id="btnRegistroExitoso" class="btn btn-warning">Registrar</a>
+    </form>
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAfBP-f2wIfuPEUYxtReX-t9vBTbF3FNyw",
+            authDomain: "transco-app.firebaseapp.com",
+            databaseURL: "https://transco-app.firebaseio.com",
+            projectId: "transco-app",
+            storageBucket: "transco-app.appspot.com",
+            messagingSenderId: "1083610102020",
+            appId: "1:1083610102020:web:5e66b194d0447709"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        //Make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+      
+
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

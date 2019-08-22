@@ -11,53 +11,158 @@
 </head>
 
 <body>
-    <form action="" id="signInForm">
-        <h1>Login</h1>
-        <div class="textbox">
-            <input id="email" type="text" class="form-control" placeholder="email" name="" value="" required>
+    <nav class="z-depth-0 grey lighten-3" class="modal">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">
+                <img src="img/Captura.PNG" style="width: 180px; height: 120px;height: 60px; margin-top:5px;">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-inicio">Inico</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-IniciarSesion">Iniciar Sesión</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-registrar">Registro</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-balance">Balance General</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-crear">Crear Vehículo</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-salir">Salir</a>
+                </li>
+            </ul>         
         </div>
-        <div class="textbox">
-            <input id="password" type="password" class="form-control" placeholder="contraseña" name="" value=""
-                required>
-        </div><br>
-        <input type="submit" id="sigin" class="btn btn-warning" type="submit" value="Iniciar sesión"></a><br><br>
-        <a href="#" id="salir" class="btn btn-warning">Cerrar Sesion</a>
-    </form>
+    </nav>
 
-    <form action="" id="signUpForm">
-        <h1>Registro</h1>
-        <div class="textbox">
-            <input id="e-mail" type="email" class="form-control" placeholder="E-mail" name="" value="" required>
+    <!--Opción inicio-->
+    <div class="container" style="margin-top:40px;">
+        <ul class="collapsible z-depth-0 guides" style="border: none;">
+            <li>
+                <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
+                <div class="collapsible-body white">Marca del Camión</div>
+                <div class="collapsible-body white">Capacidad Máxima</div>
+            </li>
+            <li>
+                <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
+                <div class="collapsible-body white">Marca del Camión</div>
+                <div class="collapsible-body white">Capacidad Máxima</div>
+            </li>
+            <li>
+                <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
+                <div class="collapsible-body white">Marca del Camión</div>
+                <div class="collapsible-body white">Capacidad Máxima</div>
+            </li>
+        </ul>
+    </div>
+    <!--Opcion IniciarSesión-->
+    <div id="modal-IniciarSesion" class="modal">
+        <div class="modal-content">
+            <h3>Crear Usuario</h3><br>
+            <form id="signInForm">
+                <div class="input-field">
+                    <input type="email" id="email" required>
+                    <label for="create-email">E-mail</label>
+                </div>
+                
+                <div class="input-field">
+                    <input type="password" id="password" required>
+                    <label for="create-contrasena1">Contraseña</label>
+                </div>
+                <button id="signIn" type="submit" class="btn yellow darken-2 z-depth-0">Iniciar Sesión</button>
+            </form>
         </div>
-        <div class="textbox">
-            <input id="nombreUsuario" type="text" class="form-control" placeholder="Nombre Completo" name="" value=""
-                required>
+    </div>
+    <!--Opción Registrar-->
+    <div id="modal-registrar" class="modal">
+        <div class="modal-content">
+            <h3>Crear Usuario</h3><br>
+            <form id="signUpForm">
+                <div class="input-field">
+                    <input type="email" id="e-mail" required>
+                    <label for="create-email">E-mail</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="nombreUsuario" required>
+                    <label for="create-nombreCompleto">Nombre Completo</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="cedulaUsuario" required>
+                    <label for="create-cedula">Cédula</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="numeroCelular" required>
+                    <label for="create-numeroCelular">Numero Celular</label>
+                </div>
+                <div class="input-field">
+                    <select id="rolUsuario" required>
+                        <option value="Conductor">Conductor</option>
+                        <option value="Propietario">Propietario</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="contrasena1" required>
+                    <label for="create-contrasena1">Contraseña</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="contrasena2" required>
+                    <label for="create-contrasena2">Confirmar Contraseña</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Crear</button>
+            </form>
         </div>
-        <div class="textbox">
-            <input id="cedulaUsuario" type="number" class="form-control" placeholder="CC" name="" value="" required>
+    </div>
+    <!--Balance General-->
+    <div id="modal-balance" class="modal">
+        <div class="modal-content center-align">
+            <h4>Balance General</h4>
+            <div class="account-details"></div>
         </div>
-        <div class="textbox">
-            <input id="numeroDeCelular" type="number" class="form-control" placeholder="Celular" name="" value=""
-                required>
+    </div>
+    <!--Crear Camion-->
+    <div id="modal-crear" class="modal">
+        <div class="modal-content">
+            <h3>Crear Vehículo</h3><br>
+            <form id="update-form">
+                <img src="img/logo.PNG" alt="">
+                <div class="input-field">
+                    <input type="text" id="placa">
+                    <label for="update-placa">Placa</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="marca">
+                    <label for="update-marca">Marca</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="numeroEjes">
+                    <label for="update-numEjes">Numeros de Ejes</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="capacidadCarga">
+                    <label for="update-ceapacidadCarga">Capacidad de Carga</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="matriculaTrailer">
+                    <label for="update-matriculaTrailer">Matricula Trailer</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="kilometraje">
+                    <label for="update-kilometraje">Kilometraje</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="conductorActual">
+                    <label for="update-conductorActual">Conductor Actual</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Actualizar</button>
+            </form>
         </div>
-        <select id="rolUsuario">
-            <option> </option>
-            <option value="Conductor">Conductor</option>
-            <option value="Propietario">Propietario</option>
-        </select>
-        <div class="textbox">
-            <input id="contrasena1" type="password" class="form-control" placeholder="Contraseña" name="" value=""
-                required>
-        </div>
-        <div class="textbox">
-            <input id="contrasena2" type="password" class="form-control" placeholder="Confirme contraseña" name=""
-                value="" required>
-        </div>
-        <input type="submit" id="btnRegistroExitoso" class="btn btn-warning" value="Registrar"></a>
-    </form>
-
-
-
+    </div>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>

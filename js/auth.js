@@ -1,3 +1,22 @@
+//getUserData
+db.collection('accounts').get().then(snapshot =>{
+    console.log(snapshot.docs);
+});
+
+
+
+//listen for status changes
+auth.onAuthStateChanged(user =>{
+    if(user){
+       // console.log("Sesion Activa"+user.email);
+    }else{
+       // console.log("Sesion Finalizada");
+    }
+    
+})
+
+
+
 //SignUp
 const signUpForm = document.querySelector("#signUpForm");
 signUpForm.addEventListener('submit', (e) => {
@@ -37,8 +56,9 @@ signUpForm.addEventListener('submit', (e) => {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                alert(errorMessage);
-                // ...
+                if(errorMessage ==="The email address is already in use by another account."){
+                    alert("Ya existe una cuenta de usuario asociada a ese correo electrónico");
+                }
             });
 
 
@@ -54,17 +74,14 @@ signUpForm.addEventListener('submit', (e) => {
 });
 
 //LogOut
-// const logOut = document.querySelector("#id");
-// logOut.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     auth.signOut().then(() => {
-//         alert("Sesion Cerrada!");
+const logOut = document.querySelector("#salir");
+
+logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut();
 
 
-//     });
-
-
-// });
+});
 
 
 //SignIn
@@ -100,7 +117,6 @@ logInForm.addEventListener('submit', (e) => {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
         if (errorCode === "auth/user-not-found") {
             alert("El usuario o contraseña no es correcto");
         } else

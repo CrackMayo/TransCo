@@ -5,20 +5,48 @@ signUpForm.addEventListener('submit', (e) => {
 
     //Get user info
     const email = signUpForm['e-mail'].value;
-    const password = signUpForm['contrasena'].value;
+    const nombreUsuario = signUpForm['nombreUsuario'].value;
+    const cedulaUsuario = signUpForm['cedulaUsuario'].value;
+    const numeroCelular = signUpForm['numeroDeCelular'].value;
+    const tipoUsuario = signUpForm['rolUsuario'].value;
+    const password1 = signUpForm['contrasena1'].value;
+    const password2 = signUpForm['contrasena2'].value;
 
-    //Sing up the user
-    auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    if (password1 === password2) {
+        //Sing up the user
+        auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
+
+            const userUid = data.user.uid;
+
+            // set account  doc  
+            const account = {
+                userId: userUid,
+                nombre: nombreUsuario,
+                cedula: cedulaUsuario,
+                celular: numeroCelular,
+                rol: tipoUsuario
+
+            }
+
+            db.collection('accounts').doc(userUid).set(account);
+            alert("Usuario Creado!");
+            signUpForm.reset();
+        })
+            .catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+                // ...
+            });
 
 
-        alert("Usuario Creado!");
-        signUpForm.reset();
 
 
 
-    });
 
-
+    } else
+        alert("Las contraseñas no coinciden");
 
 
 
@@ -58,7 +86,6 @@ logInForm.addEventListener('submit', (e) => {
 
 
     });
-
 
 
 

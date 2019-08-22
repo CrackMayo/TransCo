@@ -19,19 +19,36 @@
         <div class="textbox">
             <input id="password" type="password" class="form-control" placeholder="contraseña" name="" value="">
         </div><br>
-        <input type="submit" id="sigin" class="btn btn-warning" type="submit">Iniciar sesión</a><br><br>
+        <input type="submit" id="sigin" class="btn btn-warning" type="submit" value="Iniciar sesión"></a><br><br>
 
     </form>
 
     <form action="" id="signUpForm">
         <h1>Registro</h1>
         <div class="textbox">
-            <input id="e-mail" type="email" class="form-control" placeholder="e-mail" name="" value="">
+            <input id="e-mail" type="email" class="form-control" placeholder="E-mail" name="" value="" required>
         </div>
         <div class="textbox">
-            <input id="contrasena" type="password" class="form-control" placeholder="contraseña" name="" value="">
+            <input id="nombreUsuario" type="text" class="form-control" placeholder="Nombre Completo" name="" value="" required>
         </div>
-        <input type="submit" id="btnRegistroExitoso" class="btn btn-warning">Registrar</a>
+        <div class="textbox">
+            <input id="cedulaUsuario" type="number" class="form-control" placeholder="CC" name="" value="" required>
+        </div>
+        <div class="textbox">
+            <input id="numeroDeCelular" type="number" class="form-control" placeholder="Celular" name="" value="" required>
+        </div>
+        <select id="rolUsuario">
+            <option> </option>
+            <option value="Conductor">Conductor</option>
+            <option value="Propietario">Propietario</option>
+        </select>
+        <div class="textbox">
+            <input id="contrasena1" type="password" class="form-control" placeholder="Contraseña" name="" value="" required>
+        </div>
+        <div class="textbox">
+                <input id="contrasena2" type="password" class="form-control" placeholder="Confirme contraseña" name="" value="" required>
+        </div>
+        <input type="submit" id="btnRegistroExitoso" class="btn btn-warning" value="Registrar"></a>
     </form>
 
 

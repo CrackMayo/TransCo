@@ -33,7 +33,7 @@
                     <a href="#" class="grey-text modal-trigger" data-target="modal-crear">Crear Vehículo</a>
                 </li>
                 <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-salir">Salir</a>
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-salir" onclick="logOut() ">Salir</a>
                 </li>
             </ul>         
         </div>
@@ -62,7 +62,7 @@
     <!--Opcion IniciarSesión-->
     <div id="modal-IniciarSesion" class="modal">
         <div class="modal-content">
-            <h3>Crear Usuario</h3><br>
+            <h3>Iniciar Sesion</h3><br>
             <form id="signInForm">
                 <div class="input-field">
                     <input type="email" id="email" required>
@@ -73,7 +73,7 @@
                     <input type="password" id="password" required>
                     <label for="create-contrasena1">Contraseña</label>
                 </div>
-                <button id="signIn" type="submit" class="btn yellow darken-2 z-depth-0">Iniciar Sesión</button>
+                <button id="signIn" type="submit" class="btn yellow darken-2 z-depth-0" onclick="singIn()">Iniciar Sesión</button>
             </form>
         </div>
     </div>
@@ -112,7 +112,7 @@
                     <input type="password" id="contrasena2" required>
                     <label for="create-contrasena2">Confirmar Contraseña</label>
                 </div>
-                <button class="btn yellow darken-2 z-depth-0">Crear</button>
+                <button class="btn yellow darken-2 z-depth-0" onclick="signUp()">Crear</button>
             </form>
         </div>
     </div>

@@ -9,35 +9,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="grey lighte-3">
-    <nav class="z-depth-0 grey lighten-3" class="modal">
-        <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">
-                <img src="img/Logo.PNG" style="width: 180px; height: 120px;height: 60px; margin-top:-10px;">
-            </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-inicio">Inico</a>
-                </li>
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-IniciarSesion">Iniciar Sesión</a>
-                </li>
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-registrar">Registro</a>
-                </li>
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-balance">Balance General</a>
-                </li>
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-crear">Crear Vehículo</a>
-                </li>
-                <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-salir">Salir</a>
-                </li>
-            </ul>         
-        </div>
+<body>
+    <!-- Image and text -->    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="img/Logo.PNG" alt="transco">
+        </a>      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Balance general</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Crear vehículo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Salir</a>
+            </li>
+        </div>        
+        <div class="secundary-menu btn-group dropleft">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            TransCo
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Inicio</a>
+                <a class="dropdown-item" href="#">Iniciar sesión</a>
+                <a class="dropdown-item" href="#">Registro</a>
+                <a class="dropdown-item" href="#">Balance general</a>
+                <a class="dropdown-item" href="#">Crear vehículo</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Salir</a>
+            </div>
+        </div>  
     </nav>
 
     <!--Opción inicio-->
@@ -169,6 +184,9 @@
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->

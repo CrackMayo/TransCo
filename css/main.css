@@ -36,6 +36,10 @@ section{
     margin-top: 2%;
 }
 
+.input-account-recovery-div{
+    margin-bottom: 12%;
+}
+
 #logo{
     width: 100px;
     height: 60px;
@@ -44,6 +48,14 @@ section{
 #icono-sign-in{
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+#create-truck{
+    padding-top: 2%;
+}
+
+#account-recovery{
+    padding-top: 5%;
 }
 
 #forgot-password{
@@ -109,6 +121,16 @@ section{
     margin-left: 25%;
 }
 
+#container-account-recovery{
+    background-color: white;
+    display: block;
+    width: 50%;
+    height: 63%;
+    text-align: center;
+    margin-left: 25%;
+    padding: 0% 10% 0% 10%;
+}
+
 #title-register{   
     font-size: 2rem;
     margin-left: 10%;
@@ -146,8 +168,21 @@ section{
         width: 97%;
     }
 
+    #input-create-truck-kilometraje{
+        margin-bottom: 9%;
+    }
+
+    #container-account-recovery{
+        width: 70%;
+        margin-left: 15%;
+    }
+
     #input-register-password2{
         margin-bottom: 5%;
+    }
+
+    #create-truck{
+        padding-top: 15%;
     }
 
     #container-register{
@@ -183,5 +218,27 @@ section{
 
     .btn-sign-in{
         margin-bottom: 15%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    #icono-sign-in {
+        width: 55%;
+    }
+
+    #register {
+        padding-top: 5%;
+    }
+
+    #create-truck {
+        padding-top: 3%;
+    }
+
+    #container-register {
+        height: 85%;
+    }
+
+    #container-account-recovery{
+        height: 53%;
     }
 }

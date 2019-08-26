@@ -35,7 +35,7 @@
                     <a class="nav-link" href="#">Balance general</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Crear vehículo</a>
+                    <a class="nav-link" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="change_page('sign-in','section-initial-page');">Salir</a>
@@ -50,7 +50,7 @@
                     <a class="dropdown-item" href="#">Iniciar sesión</a>
                     <a class="dropdown-item" href="#">Registro</a>
                     <a class="dropdown-item" href="#">Balance general</a>
-                    <a class="dropdown-item" href="#">Crear vehículo</a>
+                    <a class="dropdown-item" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" onclick="change_page('sign-in','section-initial-page');">Salir</a>
                 </div>
@@ -89,10 +89,10 @@
                 <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-sign-in-password', 'span-sign-in');"><span id="span-sign-in" class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div class="btn-sign-in">
-                <a onclick="change_page('register','sign-in')"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
+                <a onclick="change_page('account-recovery','sign-in')"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
                 <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','sign-in')">Ingresar</button>                
             </div>         
-            <div onclick="change_page('register','sign-in')"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
+            <div onclick="change_page('account-recovery','sign-in')"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
             <div id="div-sign-up-link" onclick="change_page('register','sign-in')">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
@@ -111,10 +111,10 @@
                 <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo" aria-label="Nombre completo" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-nip" type="text" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="addon-wrapping">
+                <input id="input-register-nip" type="number" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-phone" type="text" class="form-control" placeholder="Número celular" aria-label="Número celular" aria-describedby="addon-wrapping">
+                <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular" aria-label="Número celular" aria-describedby="addon-wrapping">
             </div>
             <div class="dropdown-register btn-group">
                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -139,90 +139,56 @@
             </div>
         </div>
     </section>
-    <!--Opción Registrar-->
-    <div id="modal-registrar" class="modal">
-        <div class="modal-content">
-            <h3>Crear Usuario</h3><br>
-            <form id="signUpForm">
-                <div class="input-field">
-                    <input type="email" id="e-mail" required>
-                    <label for="create-email">E-mail</label>
+    <section id="create-truck" class="invisible">
+        <div id="container-register">
+            <div id="container-title-register">
+                <img src="img/Logo.PNG" id="icono-register"> 
+                <span id="title-register">TransCo</span>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa" aria-label="Placa" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-nip" type="number" class="form-control" placeholder="Ejes" aria-label="Cédula" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-truck-capacidad-carga" type="number" class="form-control" placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">                
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-truck-matricula-trailer" type="text" class="form-control" placeholder="Matricula del trailer" aria-label="Matricula del trailer" aria-describedby="addon-wrapping">
+            </div>            
+            <div class="dropdown-register btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="dropdown-register-text">Seleccionar...</span>
+                </button>
+                <div class="dropdown-register dropdown-menu">
+                    <a class="dropdown-item" onclick="dropdown_register('');"></a>
                 </div>
-                <div class="input-field">
-                    <input type="text" id="nombreUsuario" required>
-                    <label for="create-nombreCompleto">Nombre Completo</label>
-                </div>
-                <div class="input-field">
-                    <input type="number" id="cedulaUsuario" required>
-                    <label for="create-cedula">Cédula</label>
-                </div>
-                <div class="input-field">
-                    <input type="number" id="numeroCelular" required>
-                    <label for="create-numeroCelular">Numero Celular</label>
-                </div>
-                <div class="input-field">
-                    <select id="rolUsuario" required>
-                        <option value="Conductor">Conductor</option>
-                        <option value="Propietario">Propietario</option>
-                    </select>
-                </div>
-                <div class="input-field">
-                    <input type="password" id="contrasena1" required>
-                    <label for="create-contrasena1">Contraseña</label>
-                </div>
-                <div class="input-field">
-                    <input type="password" id="contrasena2" required>
-                    <label for="create-contrasena2">Confirmar Contraseña</label>
-                </div>
-                <button class="btn yellow darken-2 z-depth-0">Crear</button>
-            </form>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping">
+            </div>            
+            <div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','create-truck')">Cancelar</button>                
+                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','create-truck')">Crear</button>                
+            </div>
         </div>
-    </div>
-    <!--Balance General-->
-    <div id="modal-balance" class="modal">
-        <div class="modal-content center-align">
-            <h4>Balance General</h4>
-            <div class="account-details"></div>
+    </section>
+    <section id="account-recovery" class="invisible">
+        <div id="container-account-recovery">
+            <img src="img/Logo.PNG" id="icono-sign-in">
+            <div class="input-account-recovery-div input-group flex-nowrap">
+                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="addon-wrapping">
+            </div>
+            <div class="btn-account-recovery">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','account-recovery')">Cancelar</button>                
+                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','account-recovery')">Recuperar</button>                
+            </div>
         </div>
-    </div>
-    <!--Crear Camion-->
-    <div id="modal-crear" class="modal">
-        <div class="modal-content">
-            <h3>Crear Vehículo</h3><br>
-            <form id="update-form">
-                <img src="img/logo.PNG" alt="">
-                <div class="input-field">
-                    <input type="text" id="placa">
-                    <label for="update-placa">Placa</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" id="marca">
-                    <label for="update-marca">Marca</label>
-                </div>
-                <div class="input-field">
-                    <input type="number" id="numeroEjes">
-                    <label for="update-numEjes">Numeros de Ejes</label>
-                </div>
-                <div class="input-field">
-                    <input type="number" id="capacidadCarga">
-                    <label for="update-ceapacidadCarga">Capacidad de Carga</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" id="matriculaTrailer">
-                    <label for="update-matriculaTrailer">Matricula Trailer</label>
-                </div>
-                <div class="input-field">
-                    <input type="number" id="kilometraje">
-                    <label for="update-kilometraje">Kilometraje</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" id="conductorActual">
-                    <label for="update-conductorActual">Conductor Actual</label>
-                </div>
-                <button class="btn yellow darken-2 z-depth-0">Actualizar</button>
-            </form>
-        </div>
-    </div>
+    </section>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->

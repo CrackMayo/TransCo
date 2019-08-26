@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/all.css">
 </head>
 
 <body>
-    <section id="section-initial-page" style="display: none">
+    <section id="section-initial-page" class="invisible">
         <!-- Image and text -->    
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
@@ -37,7 +38,7 @@
                     <a class="nav-link" href="#">Crear vehículo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Salir</a>
+                    <a class="nav-link" onclick="change_page('sign-in','section-initial-page');">Salir</a>
                 </li>
             </div>        
             <div class="secundary-menu btn-group dropleft">
@@ -51,7 +52,7 @@
                     <a class="dropdown-item" href="#">Balance general</a>
                     <a class="dropdown-item" href="#">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Salir</a>
+                    <a class="dropdown-item" onclick="change_page('sign-in','section-initial-page');">Salir</a>
                 </div>
             </div>  
         </nav>
@@ -81,21 +82,58 @@
         <div id="container-sign-in">
             <img src="img/Logo.PNG" id="icono-sign-in">
             <div class="input-group flex-nowrap">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                <input id="input-sign-in-username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                <input id="input-sign-in-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-sign-in-password', 'span-sign-in');"><span id="span-sign-in" class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div class="btn-sign-in">
-                <a href="#"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
-                <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>                
+                <a onclick="change_page('register','sign-in')"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
+                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','sign-in')">Ingresar</button>                
             </div>         
-            <a href="#"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></a>   
-            <div id="div-sign-up-link">
-                <a href="#">
-                    <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
-                </a>
+            <div onclick="change_page('register','sign-in')"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
+            <div id="div-sign-up-link" onclick="change_page('register','sign-in')">
+                <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
+        </div>
+    </section>
+    <section id="register" class="invisible">
+        <div id="container-register">
+            <div id="container-title-register">
+                <img src="img/Logo.PNG" id="icono-register"> 
+                <span id="title-register">TransCo</span>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-email" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo" aria-label="Nombre completo" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-nip" type="text" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-phone" type="text" class="form-control" placeholder="Número celular" aria-label="Número celular" aria-describedby="addon-wrapping">
+            </div>
+            <div class="dropdown-register btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="dropdown-register-text">Seleccionar...</span>
+                </button>
+                <div class="dropdown-register dropdown-menu">
+                    <a class="dropdown-item" onclick="dropdown_register('Conductor');">Conductor</a>
+                    <a class="dropdown-item" onclick="dropdown_register('Propietario');">Propietario</a>
+                </div>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-register-password1', 'span-look-register1');"><span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-register-password2" type="password" class="form-control" placeholder="Repita su contraseña" aria-label="Repita su contraseña" aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-register-password2', 'span-look-register2');"><span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+            </div>  
+            <!-- &#xf070 no-look &#xf06e look r fa-eye  -->
         </div>
     </section>
     <!--Opción Registrar-->

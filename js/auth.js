@@ -1,4 +1,40 @@
-//
+
+
+
+function cargarDepartamentos() {
+
+    var departamentos = document.getElementById("departamentos");
+
+
+    db.collection('departments').get().then(snapshot => {
+
+        snapshot.forEach(function (child) {
+            var departamento = child.id;
+            departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
+
+        });
+    })
+
+
+
+}
+
+function cities(departamento) {
+
+
+    var ciudades = document.getElementById("ciudades");
+    ciudades.options.length = 0;
+    db.collection('departments').doc(departamento.value).get().then(snap => {
+
+        var ciudad = snap.data();
+        for (let i in ciudad) {
+            ciudades.options[ciudades.options.length] = new Option(ciudad[i], ciudad[i]);
+
+        }
+
+    });
+
+}
 
 //listen for status changes
 auth.onAuthStateChanged(user => {
@@ -84,7 +120,7 @@ function passwordRecovery() {
 //SignIn
 
 function singIn() {
-    
+
 
     //Get user info
     const email = signInForm['email'].value;
@@ -97,7 +133,7 @@ function singIn() {
 
         const userUid = data.user.uid;
 
-        if (data.user.emailVerified) { 
+        if (data.user.emailVerified) {
 
 
             userDataLogin(userUid);
@@ -122,7 +158,7 @@ function singIn() {
         } else
             alert("El usuario o contraseña no es correcto");
 
-        
+
     });
 
 

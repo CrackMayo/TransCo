@@ -24,7 +24,8 @@
                     <a href="#" class="grey-text modal-trigger" data-target="modal-IniciarSesion">Iniciar Sesión</a>
                 </li>
                 <li class="logged-in">
-                    <a href="#" class="grey-text modal-trigger" data-target="modal-registrar">Registro</a>
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-registrar"
+                        onClick="cargarDepartamentos();">Registro</a>
                 </li>
                 <li class="logged-in">
                     <a href="#" class="grey-text modal-trigger" data-target="modal-balance">Balance General</a>
@@ -35,7 +36,7 @@
                 <li class="logged-in">
                     <a href="#" class="grey-text modal-trigger" data-target="modal-salir" onclick="logOut() ">Salir</a>
                 </li>
-            </ul>         
+            </ul>
         </div>
     </nav>
 
@@ -68,12 +69,13 @@
                     <input type="email" id="email" required>
                     <label for="create-email">E-mail</label>
                 </div>
-                
+
                 <div class="input-field">
                     <input type="password" id="password" required>
                     <label for="create-contrasena1">Contraseña</label>
                 </div>
-                <button id="signIn" type="submit" class="btn yellow darken-2 z-depth-0" onclick="singIn()">Iniciar Sesión</button>
+                <button id="signIn" type="submit" class="btn yellow darken-2 z-depth-0" onclick="singIn()">Iniciar
+                    Sesión</button>
             </form>
         </div>
     </div>
@@ -102,6 +104,16 @@
                     <select id="rolUsuario" required>
                         <option value="Conductor">Conductor</option>
                         <option value="Propietario">Propietario</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <select id="departamentos" required onchange="cities(this);">
+                        <option value="Seleccionar" selected disabled hidden>Seleccionar</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <select id="ciudades" required>
+                        <option value="Seleccionar" selected disabled hidden>Seleccionar</option>
                     </select>
                 </div>
                 <div class="input-field">
@@ -162,7 +174,7 @@
         </div>
     </div>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>

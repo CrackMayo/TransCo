@@ -95,9 +95,13 @@ section{
     margin-bottom: 5%;
 }
 
+#input-register-password2{
+    margin-bottom: 5%;
+}
+
 #container-register{
     width: 50%;
-    height: 90%;
+    height: 96%;
     display: block;
     background-color: white;
     text-align: center;
@@ -140,6 +144,25 @@ section{
     #icono-sign-in {
         margin-top: 22%;
         width: 97%;
+    }
+
+    #input-register-password2{
+        margin-bottom: 5%;
+    }
+
+    #container-register{
+        width: 80%;
+        height: 80%;
+        margin-left: 10%;
+    }
+
+    #container-sign-in {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    #register {
+        padding-top: 18%;
     }
 
     #forgot-password-responsive{

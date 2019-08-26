@@ -1,4 +1,40 @@
-//
+
+
+
+function cargarDepartamentos() {
+
+    var departamentos = document.getElementById("departamentos");
+
+
+    db.collection('departments').get().then(snapshot => {
+
+        snapshot.forEach(function (child) {
+            var departamento = child.id;
+            departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
+
+        });
+    })
+
+
+
+}
+
+function cities(departamento) {
+
+
+    var ciudades = document.getElementById("ciudades");
+    ciudades.options.length = 0;
+    db.collection('departments').doc(departamento.value).get().then(snap => {
+
+        var ciudad = snap.data();
+        for (let i in ciudad) {
+            ciudades.options[ciudades.options.length] = new Option(ciudad[i], ciudad[i]);
+
+        }
+
+    });
+
+}
 
 //listen for status changes
 auth.onAuthStateChanged(user => {
@@ -13,15 +49,12 @@ auth.onAuthStateChanged(user => {
 
 
 //SignUp
-const signUpForm = document.querySelector("#signUpForm");
-signUpForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    //Get user info
+function signUp() {
+    //Get user info Form
     const email = signUpForm['e-mail'].value;
     const nombreUsuario = signUpForm['nombreUsuario'].value;
     const cedulaUsuario = signUpForm['cedulaUsuario'].value;
-    const numeroCelular = signUpForm['numeroDeCelular'].value;
+    const numeroCelular = signUpForm['numeroCelular'].value;
     const tipoUsuario = signUpForm['rolUsuario'].value;
     const password1 = signUpForm['contrasena1'].value;
     const password2 = signUpForm['contrasena2'].value;
@@ -45,6 +78,7 @@ signUpForm.addEventListener('submit', (e) => {
             db.collection('accounts').doc(userUid).set(account);
             alert("Usuario Creado!");
             data.user.sendEmailVerification();
+            logOut();
             signUpForm.reset();
         })
             .catch(function (error) {
@@ -66,24 +100,27 @@ signUpForm.addEventListener('submit', (e) => {
 
 
 
-});
+}
 
 //LogOut
-const logOut = document.querySelector("#salir");
-
-logOut.addEventListener('click', (e) => {
-    e.preventDefault();
+function logOut() {
     auth.signOut();
+}
 
+//Password Recovery
+function passwordRecovery() {
+    passwordRecovery = document.getElementById("passwordRecoveryForm");
+    const email = passwordRecovery['emailRecovery'].value;
+    console.log(email);
+    firebase.auth().sendPasswordResetEmail(email);
+}
 
-});
 
 
 //SignIn
 
-const logInForm = document.querySelector("#signInForm");
-logInForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+function singIn() {
+
 
     //Get user info
     const email = signInForm['email'].value;
@@ -96,7 +133,7 @@ logInForm.addEventListener('submit', (e) => {
 
         const userUid = data.user.uid;
 
-        if (data.user.emailVerified) { // note difference on this line
+        if (data.user.emailVerified) {
 
 
             userDataLogin(userUid);
@@ -121,10 +158,10 @@ logInForm.addEventListener('submit', (e) => {
         } else
             alert("El usuario o contraseña no es correcto");
 
-        // ...
+
     });
 
 
 
 
-});
+}

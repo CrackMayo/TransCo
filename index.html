@@ -52,7 +52,7 @@
                     <a class="dropdown-item" href="#">Balance general</a>
                     <a class="dropdown-item" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" onclick="change_page('sign-in','section-initial-page');">Salir</a>
+                    <a class="dropdown-item" onclick="logOut();">Salir</a>
                 </div>
             </div>  
         </nav>
@@ -90,9 +90,9 @@
             </div>
             <div class="btn-sign-in">
                 <a onclick="change_page('account-recovery','sign-in')"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','sign-in')">Ingresar</button>                
+                <button type="button" class="btn btn-secondary btn-sm" onclick="singIn();">Ingresar</button>                
             </div>         
-            <div onclick="change_page('account-recovery','sign-in')"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
+            <div onclick="change_page('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
             <div id="div-sign-up-link" onclick="change_page('register','sign-in')">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
@@ -118,7 +118,7 @@
             </div>
             <div class="dropdown-register btn-group">
                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="dropdown-register-text">Seleccionar...</span>
+                <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
                 </button>
                 <div class="dropdown-register dropdown-menu">
                     <a class="dropdown-item" onclick="dropdown_register('Conductor');">Conductor</a>
@@ -135,7 +135,7 @@
             </div>  
             <div>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','register')">Cancelar</button>                
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','register')">Registrarse</button>                
+                <button type="button" class="btn btn-secondary btn-sm" onclick="signUp();">Registrarse</button>                
             </div>
         </div>
     </section>
@@ -185,7 +185,7 @@
             </div>
             <div class="btn-account-recovery">
                 <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','account-recovery')">Cancelar</button>                
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','account-recovery')">Recuperar</button>                
+                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">Recuperar</button>                
             </div>
         </div>
     </section>

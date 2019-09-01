@@ -1,5 +1,5 @@
 
-
+var idUsuario;
 
 function cargarDepartamentos() {
 
@@ -97,11 +97,6 @@ function signUp() {
                 }
             });
 
-
-
-
-
-
     } else
         alert("Las contraseñas no coinciden");
 
@@ -139,7 +134,7 @@ function singIn() {
     auth.signInWithEmailAndPassword(email, password).then(function (data) {
 
         const userUid = data.user.uid;
-
+        idUsuario = userUid;
         if (data.user.emailVerified) {
 
             userDataLogin(userUid);
@@ -147,11 +142,6 @@ function singIn() {
            
         } else
             alert("Verifica tu correo");
-
-
-
-
-
 
     }).catch(function (error) {
         // Handle Errors here.
@@ -165,9 +155,6 @@ function singIn() {
 
 
     });
-
-
-
 
 }
 

@@ -67,3 +67,30 @@ function crearCamion() {
         console.error("Error: ", error);
     });
 }
+
+
+
+function obtenerCamion(){
+
+    var label1 = document.getElementById("truck1");
+    
+    var label2 = document.getElementById("truck2");
+    
+    var label3 = document.getElementById("truck3");
+    console.log("1");
+
+    db.collection('accounts').doc(idUsuario).collection('camiones').get().then(snapshot => {
+        console.log("2");
+        snapshot.forEach(function (child) {
+            label1.innerHTML = "Placa: " + child.id;
+            label2.innerHTML = "Marca: " + child.data().marcaCabezote;
+            label3.innerHTML = "Capacidad Max: " + child.data().capacidadCarga;
+            console.log("3");
+            
+        });
+    })
+
+
+
+
+}

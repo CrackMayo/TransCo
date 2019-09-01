@@ -138,6 +138,7 @@ function singIn() {
         if (data.user.emailVerified) {
 
             userDataLogin(userUid);
+            obtenerCamion();
             change_page('section-initial-page', 'sign-in');
            
         } else

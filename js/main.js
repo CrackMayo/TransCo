@@ -43,7 +43,7 @@ function btnLook(id, span) {
 
 function crearCamion() {
 
-
+    var imagen = document.getElementById("files").files[0];
     var placa = document.getElementById("input-create-truck-placa").value;
     var marca = document.getElementById("input-create-truck-marca").value;
     var numEjes = document.getElementById("input-create-ejes").value;
@@ -57,12 +57,20 @@ function crearCamion() {
         numeroEjes: numEjes,
         capacidadCarga: numMaxToneladas,
         placaTrailer: matriculaTrailer,
-        kilometraje: km
+        kilometraje: km,
+
     }
 
 
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
         console.log("Creado");
+        var url = uploadImageTruck(imagen, placa);
+
+        console.log(url);
+        db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url }).then(function () {
+            console.log("Document successfully updated!");
+        });
+
     }).catch(function (error) {
         console.error("Error: ", error);
     });
@@ -70,12 +78,12 @@ function crearCamion() {
 
 
 
-function obtenerCamion(){
+function obtenerCamion() {
 
     var label1 = document.getElementById("truck1");
-    
+
     var label2 = document.getElementById("truck2");
-    
+
     var label3 = document.getElementById("truck3");
     console.log("1");
 
@@ -86,25 +94,34 @@ function obtenerCamion(){
             label2.innerHTML = "Marca: " + child.data().marcaCabezote;
             label3.innerHTML = "Capacidad Max: " + child.data().capacidadCarga;
             console.log("3");
-            
+
         });
     })
 }
 
-function uploadFile(){
-      
+function uploadImageTruck(imagen, placa) {
+
     // Created a Storage Reference with root dir
     var storageRef = storage.ref();
     // Get the file from DOM
-    var file = document.getElementById("files").files[0];
+    var file = imagen;
     console.log(file);
-    
+
     //dynamically set reference to the file name
-    var thisRef = storageRef.child(file.name);
+    var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
 
     //put request upload file to firebase storage
-    thisRef.put(file).then(function(snapshot) {
-       alert("File Uploaded")
-       console.log('Uploaded a blob or file!');
+    thisRef.put(file).then(function (snapshot) {
+        alert("File Uploaded");
+        console.log('Uploaded a blob or file!');
+        thisRef.getDownloadURL().then(function (url) {
+            console.log(thisRef.fullPath);
+            return url;
+        }).catch(function (error) {
+
+            console.log(error);
+        });
+
+
     });
-  }
+}

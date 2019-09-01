@@ -89,8 +89,22 @@ function obtenerCamion(){
             
         });
     })
-
-
-
-
 }
+
+function uploadFile(){
+      
+    // Created a Storage Reference with root dir
+    var storageRef = storage.ref();
+    // Get the file from DOM
+    var file = document.getElementById("files").files[0];
+    console.log(file);
+    
+    //dynamically set reference to the file name
+    var thisRef = storageRef.child(file.name);
+
+    //put request upload file to firebase storage
+    thisRef.put(file).then(function(snapshot) {
+       alert("File Uploaded")
+       console.log('Uploaded a blob or file!');
+    });
+  }

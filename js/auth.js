@@ -1,6 +1,3 @@
-
-
-
 function cargarDepartamentos() {
 
     var departamentos = document.getElementById("departamentos");
@@ -8,45 +5,34 @@ function cargarDepartamentos() {
 
     db.collection('departments').get().then(snapshot => {
 
-        snapshot.forEach(function (child) {
+        snapshot.forEach(function(child) {
             var departamento = child.id;
             departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
-
         });
     })
-
-
-
 }
 
-function cities(departamento) {
+function cargarMunicipios(departamento) {
 
-
-    var ciudades = document.getElementById("ciudades");
-    ciudades.options.length = 0;
+    var municipios = document.getElementById("ciudades");
+    municipios.options.length = 0;
     db.collection('departments').doc(departamento.value).get().then(snap => {
 
-        var ciudad = snap.data();
-        for (let i in ciudad) {
-            ciudades.options[ciudades.options.length] = new Option(ciudad[i], ciudad[i]);
-
+        var municipio = snap.data();
+        for (let i in municipio) {
+            municipios.options[municipios.options.length] = new Option(municipio[i], municipio[i]);
         }
-
     });
-
 }
 
-//listen for status changes
+//listen for status changes user login
 auth.onAuthStateChanged(user => {
     if (user) {
         console.log("Sesion Activa: " + user.email);
     } else {
         console.log("Sesion Finalizada");
     }
-
 })
-
-
 
 //SignUp
 function signUp() {
@@ -60,35 +46,33 @@ function signUp() {
     const password2 = document.getElementById("input-register-password2").value;
     if (password1 === password2) {
         //Sing up the user
-        auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
+        auth.createUserWithEmailAndPassword(email, password1).then(function(data) {
 
-            const userUid = data.user.uid;
+                const userUid = data.user.uid;
 
-            // set account  doc  
-            const account = {
-                userId: userUid,
-                nombre: nombreUsuario,
-                cedula: cedulaUsuario,
-                celular: numeroCelular,
-                rol: tipoUsuario
+                // set account  doc  
+                const account = {
+                    userId: userUid,
+                    nombre: nombreUsuario,
+                    cedula: cedulaUsuario,
+                    celular: numeroCelular,
+                    rol: tipoUsuario
 
-            }
+                }
 
+                db.collection('accounts').doc(userUid).set(account).then(function() {
+                    console.log("Creado");
+                }).catch(function(error) {
+                    console.error("Error: ", error);
+                });
 
+                alert("Usuario Creado!");
+                data.user.sendEmailVerification();
+                changePage('section-initial-page', 'register');
+                userDataLogin(userUid);
 
-            db.collection('accounts').doc(userUid).set(account).then(function () {
-                console.log("Creado");
-            }).catch(function (error) {
-                console.error("Error: ", error);
-            });
-
-            alert("Usuario Creado!");
-            data.user.sendEmailVerification();
-            change_page('section-initial-page', 'register');
-            userDataLogin(userUid);
-
-        })
-            .catch(function (error) {
+            })
+            .catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -96,38 +80,25 @@ function signUp() {
                     alert("Ya existe una cuenta de usuario asociada a ese correo electrónico");
                 }
             });
-
-
-
-
-
-
     } else
         alert("Las contraseñas no coinciden");
-
-
-
 }
 
 //LogOut
 function logOut() {
     auth.signOut();
-    change_page('sign-in','section-initial-page');
+    changePage('sign-in', 'section-initial-page');
 }
 
 //Password Recovery
 function passwordRecovery() {
-    change_page('sign-in', 'account-recovery');
+    changePage('sign-in', 'account-recovery');
     const email = document.getElementById("input-account-recovery-username").value;
     console.log(firebase.auth().sendPasswordResetEmail(email));
 }
 
-
-
 //SignIn
-
 function singIn() {
-
 
     //Get user info
     const email = document.getElementById("input-sign-in-username").value;
@@ -136,24 +107,18 @@ function singIn() {
 
     //Sing up the user
 
-    auth.signInWithEmailAndPassword(email, password).then(function (data) {
+    auth.signInWithEmailAndPassword(email, password).then(function(data) {
 
         const userUid = data.user.uid;
 
         if (data.user.emailVerified) {
 
             userDataLogin(userUid);
-            change_page('section-initial-page', 'sign-in');
-           
+            changePage('section-initial-page', 'sign-in');
+
         } else
             alert("Verifica tu correo");
-
-
-
-
-
-
-    }).catch(function (error) {
+    }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -162,16 +127,5 @@ function singIn() {
             alert("El usuario o contraseña no es correcto");
         } else
             alert("El usuario o contraseña no es correcto");
-
-
     });
-
-
-
-
-}
-
-async function writeDocument(obj) {
-    var writeOperation = await db.collection("cities").doc("LA").set(obj);
-    //now this code is reached after that async write
 }

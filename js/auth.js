@@ -1,6 +1,13 @@
 
 var idUsuario;
 
+var userInfo = {
+    nombreUser: null,
+    cedulaUser: null,
+    celularUser: null,
+    rolUser: null
+};
+
 function cargarDepartamentos() {
 
     var departamentos = document.getElementById("departamentos");
@@ -39,7 +46,13 @@ function cities(departamento) {
 //listen for status changes
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Sesion Activa: " + user.email);
+        console.log(user.email);
+        const userUid = user.uid;
+        userDataLogin(userUid);
+
+        change_page('section-initial-page', 'sign-in');
+
+
     } else {
         console.log("Sesion Finalizada");
     }
@@ -107,7 +120,7 @@ function signUp() {
 //LogOut
 function logOut() {
     auth.signOut();
-    change_page('sign-in','section-initial-page');
+    change_page('sign-in', 'section-initial-page');
 }
 
 //Password Recovery
@@ -140,7 +153,7 @@ function singIn() {
             userDataLogin(userUid);
             obtenerCamion();
             change_page('section-initial-page', 'sign-in');
-           
+
         } else
             alert("Verifica tu correo");
 

@@ -6,9 +6,18 @@ function userDataLogin(userId) {
         var cedula = snap.data().cedula;
         var celular = snap.data().celular;
         var rol = snap.data().rol;
-        alert("nombre: " + nombre + " cedula: " + cedula + " celular: " + celular + " rol: " + rol);
-    });
+        
+        if( rol === "Conductor"){
+            var navElements  =[document.getElementById("generalBalance2"),document.getElementById("generalBalance1"),
+            document.getElementById("createTruck2"),document.getElementById("createTruck1")] ;
 
+            for(let i = 0; i<= navElements.length;i++){
+                navElements[i].classList.add("invisible");
+            }
+        }
+       
+    });
+    
 }
 
 function change_page(idIn, idOut) {

@@ -25,20 +25,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" data-target="modal-IniciarSesion">Inicio<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Registro</a>
-                </li>
-                <li class="nav-item">
+                <li id="generalBalance1"class="nav-item">
                     <a class="nav-link" href="#">Balance general</a>
                 </li>
-                <li class="nav-item">
+                <li id="createTruck1"class="nav-item">
                     <a class="nav-link" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="change_page('sign-in','section-initial-page');">Salir</a>
+                    <a class="nav-link" onclick="change_page('sign-in','section-initial-page'), logOut() ">Salir</a>
                 </li>
             </div>        
             <div class="secundary-menu btn-group dropleft">
@@ -47,10 +41,8 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inicio</a>
-                    <a class="dropdown-item" href="#">Iniciar sesión</a>
-                    <a class="dropdown-item" href="#">Registro</a>
-                    <a class="dropdown-item" href="#">Balance general</a>
-                    <a class="dropdown-item" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
+                    <a id="generalBalance2" class="dropdown-item" href="#">Balance general</a>
+                    <a id="createTruck2" class="dropdown-item" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" onclick="logOut();">Salir</a>
                 </div>

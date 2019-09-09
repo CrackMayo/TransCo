@@ -1,12 +1,5 @@
-
 var idUsuario;
 
-var userInfo = {
-    nombreUser: null,
-    cedulaUser: null,
-    celularUser: null,
-    rolUser: null
-};
 
 function cargarDepartamentos() {
 
@@ -43,12 +36,15 @@ function cities(departamento) {
 
 }
 
-//listen for status changes
+// Listen for status changes
 auth.onAuthStateChanged(user => {
     if (user) {
+        
         console.log(user.email);
         const userUid = user.uid;
+        idUsuario = userUid;
         userDataLogin(userUid);
+        obtenerCamion();
 
         change_page('section-initial-page', 'sign-in');
 
@@ -61,9 +57,9 @@ auth.onAuthStateChanged(user => {
 
 
 
-//SignUp
+
 function signUp() {
-    //Get user info Form
+    // Get user info Form
     const email = document.getElementById("input-register-email").value;
     const nombreUsuario = document.getElementById("input-register-name").value;
     const cedulaUsuario = document.getElementById("input-register-nip").value;
@@ -72,12 +68,12 @@ function signUp() {
     const password1 = document.getElementById("input-register-password1").value;
     const password2 = document.getElementById("input-register-password2").value;
     if (password1 === password2) {
-        //Sing up the user
+        // Sing up the user
         auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
 
             const userUid = data.user.uid;
 
-            // set account  doc  
+            // Set account  doc  
             const account = {
                 userId: userUid,
                 nombre: nombreUsuario,
@@ -110,20 +106,20 @@ function signUp() {
                 }
             });
 
-    } else
+    } else {
         alert("Las contraseñas no coinciden");
-
+    }
 
 
 }
 
-//LogOut
+
 function logOut() {
     auth.signOut();
     change_page('sign-in', 'section-initial-page');
 }
 
-//Password Recovery
+
 function passwordRecovery() {
     change_page('sign-in', 'account-recovery');
     const email = document.getElementById("input-account-recovery-username").value;
@@ -132,17 +128,17 @@ function passwordRecovery() {
 
 
 
-//SignIn
+
 
 function singIn() {
 
 
-    //Get user info
+    // Get user info
     const email = document.getElementById("input-sign-in-username").value;
     const password = document.getElementById("input-sign-in-password").value;
 
 
-    //Sing up the user
+    // Sing up the user
 
     auth.signInWithEmailAndPassword(email, password).then(function (data) {
 
@@ -154,8 +150,9 @@ function singIn() {
             obtenerCamion();
             change_page('section-initial-page', 'sign-in');
 
-        } else
+        } else {
             alert("Verifica tu correo");
+        }
 
     }).catch(function (error) {
         // Handle Errors here.
@@ -164,15 +161,10 @@ function singIn() {
         console.log(errorMessage);
         if (errorCode === "auth/user-not-found") {
             alert("El usuario o contraseña no es correcto");
-        } else
+        } else {
             alert("El usuario o contraseña no es correcto");
-
+        }
 
     });
 
-}
-
-async function writeDocument(obj) {
-    var writeOperation = await db.collection("cities").doc("LA").set(obj);
-    //now this code is reached after that async write
 }

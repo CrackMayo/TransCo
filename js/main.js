@@ -6,18 +6,18 @@ function userDataLogin(userId) {
         var cedula = snap.data().cedula;
         var celular = snap.data().celular;
         var rol = snap.data().rol;
-        
-        if( rol === "Conductor"){
-            var navElements  =[document.getElementById("generalBalance2"),document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"),document.getElementById("createTruck1")] ;
 
-            for(let i = 0; i<= navElements.length;i++){
+        if (rol === "Conductor") {
+            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
+            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
+
+            for (let i = 0; i <= navElements.length; i++) {
                 navElements[i].classList.add("invisible");
             }
         }
-       
+
     });
-    
+
 }
 
 function change_page(idIn, idOut) {
@@ -76,9 +76,10 @@ function crearCamion() {
         var url = uploadImageTruck(imagen, placa);
 
         console.log(url);
-        db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url }).then(function () {
-            console.log("Document successfully updated!");
-        });
+        db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url })
+            .then(function () {
+                console.log("Document successfully updated!");
+            });
 
     }).catch(function (error) {
         console.error("Error: ", error);
@@ -99,7 +100,7 @@ function obtenerCamion() {
     db.collection('accounts').doc(idUsuario).collection('camiones').get().then(snapshot => {
         console.log("2");
         snapshot.forEach(function (child) {
-            label1.innerHTML = "Placa: " + child.id;
+            label1.innerHTML = "Placa: " + child.id + "<input type='button' value='modificar' onclick='updateTruck("+child.id+")'></input>";
             label2.innerHTML = "Marca: " + child.data().marcaCabezote;
             label3.innerHTML = "Capacidad Max: " + child.data().capacidadCarga;
             console.log("3");
@@ -133,4 +134,9 @@ function uploadImageTruck(imagen, placa) {
 
 
     });
+}
+
+function updateTruck(placa){
+    console.log(placa);
+
 }

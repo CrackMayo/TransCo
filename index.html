@@ -15,47 +15,52 @@
 
 <body>
     <section id="section-initial-page" class="invisible">
-        <!-- Image and text -->    
+        <!-- Image and text -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
                 <img id="logo" src="img/Logo.PNG" alt="transco">
-            </a>      
+            </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" data-target="modal-IniciarSesion">Inicio<span class="sr-only">(current)</span></a>
-                </li>
-                <li id="generalBalance1"class="nav-item">
-                    <a class="nav-link" href="#">Balance general</a>
-                </li>
-                <li id="createTruck1"class="nav-item">
-                    <a class="nav-link" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" onclick="change_page('sign-in','section-initial-page'), logOut() ">Salir</a>
-                </li>
-            </div>        
+                    <li class="nav-item active">
+                        <a class="nav-link" data-target="modal-IniciarSesion">
+                            Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" href="#">Balance general</a>
+                    </li>
+                    <li id="createTruck1" class="nav-item">
+                        <a class="nav-link" onclick="change_page('create-truck','section-initial-page');">
+                            Crear vehículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="change_page('sign-in','section-initial-page'), logOut() ">
+                            Salir</a>
+                    </li>
+            </div>
             <div class="secundary-menu btn-group dropleft">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                TransCo
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    TransCo
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inicio</a>
                     <a id="generalBalance2" class="dropdown-item" href="#">Balance general</a>
-                    <a id="createTruck2" class="dropdown-item" onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
+                    <a id="createTruck2" class="dropdown-item"
+                        onclick="change_page('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" onclick="logOut();">Salir</a>
                 </div>
-            </div>  
+            </div>
         </nav>
-    
+
         <!--Opción inicio-->
         <div class="container" style="margin-top:40px;">
             <ul class="collapsible z-depth-0 guides" style="border: none;">
                 <li>
-                    <div id="truck1" class="collapsible-header grey lighten-4">Placa Vehículo</div>
+                    <div id="truck1" class="collapsible-header grey lighten-4">Placa Vehículo </div>
                     <div id="truck2" class="collapsible-body white">Marca del Camión</div>
-                    <div id="truck3"class="collapsible-body white">Capacidad Máxima</div>
+                    <div id="truck3" class="collapsible-body white">Capacidad Máxima</div>
                 </li>
                 <li>
                     <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
@@ -74,17 +79,25 @@
         <div id="container-sign-in">
             <img src="img/Logo.PNG" id="icono-sign-in">
             <div class="input-group flex-nowrap">
-                <input id="input-sign-in-username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                <input id="input-sign-in-username" type="text" class="form-control" placeholder="Username"
+                    aria-label="Username" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-sign-in-password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
-                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-sign-in-password', 'span-sign-in');"><span id="span-sign-in" class="far fa-eye" aria-hidden="true"></span></button>
+                <input id="input-sign-in-password" type="password" class="form-control" placeholder="Password"
+                    aria-label="Password" aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary"
+                    onclick="btnLook('input-sign-in-password', 'span-sign-in');"><span id="span-sign-in"
+                        class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div class="btn-sign-in">
-                <a onclick="change_page('account-recovery','sign-in')"><span id="forgot-password">¿Has olvidado tu contraseña?</span></a>   
-                <button type="button" class="btn btn-secondary btn-sm" onclick="singIn();">Ingresar</button>                
-            </div>         
-            <div onclick="change_page('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has olvidado tu contraseña?</span></div>
+                <a onclick="change_page('account-recovery','sign-in')"><span id="forgot-password">
+                        ¿Has olvidado tu
+                        contraseña?</span></a>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="singIn();">Ingresar</button>
+            </div>
+            <div onclick="change_page('account-recovery','sign-in');"><span id="forgot-password-responsive">
+                    ¿Has
+                    olvidado tu contraseña?</span></div>
             <div id="div-sign-up-link" onclick="change_page('register','sign-in')">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
@@ -93,24 +106,29 @@
     <section id="register" class="invisible">
         <div id="container-register">
             <div id="container-title-register">
-                <img src="img/Logo.PNG" id="icono-register"> 
+                <img src="img/Logo.PNG" id="icono-register">
                 <span id="title-register">TransCo</span>
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-email" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="addon-wrapping">
+                <input id="input-register-email" type="text" class="form-control" placeholder="E-mail"
+                    aria-label="E-mail" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo" aria-label="Nombre completo" aria-describedby="addon-wrapping">
+                <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo"
+                    aria-label="Nombre completo" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-nip" type="number" class="form-control" placeholder="Cédula" aria-label="Cédula" aria-describedby="addon-wrapping">
+                <input id="input-register-nip" type="number" class="form-control" placeholder="Cédula"
+                    aria-label="Cédula" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular" aria-label="Número celular" aria-describedby="addon-wrapping">
+                <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular"
+                    aria-label="Número celular" aria-describedby="addon-wrapping">
             </div>
             <div class="dropdown-register btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
                 </button>
                 <div class="dropdown-register dropdown-menu">
                     <a class="dropdown-item" onclick="dropdown_register('Conductor');">Conductor</a>
@@ -118,57 +136,75 @@
                 </div>
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="addon-wrapping">
-                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-register-password1', 'span-look-register1');"><span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
+                <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
+                    aria-label="Contraseña" aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary"
+                    onclick="btnLook('input-register-password1', 'span-look-register1');">
+                    <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-password2" type="password" class="form-control" placeholder="Repita su contraseña" aria-label="Repita su contraseña" aria-describedby="addon-wrapping">
-                <button type="button" class="btn-look btn btn-secondary" onclick="btnLook('input-register-password2', 'span-look-register2');"><span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
-            </div>  
+                <input id="input-register-password2" type="password" class="form-control"
+                    placeholder="Repita su contraseña" aria-label="Repita su contraseña"
+                    aria-describedby="addon-wrapping">
+                <button type="button" class="btn-look btn btn-secondary"
+                    onclick="btnLook('input-register-password2', 'span-look-register2');">
+                    <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+            </div>
             <div>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','register')">Cancelar</button>                
-                <button type="button" class="btn btn-secondary btn-sm" onclick="signUp();">Registrarse</button>                
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('sign-in','register')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="signUp();">Registrarse</button>
             </div>
         </div>
     </section>
     <section id="create-truck" class="invisible">
         <div id="container-register">
             <div id="container-title-register">
-                <img src="img/Logo.PNG" id="icono-register"> 
+                <img src="img/Logo.PNG" id="icono-register">
                 <span id="title-register">TransCo</span>
             </div>
             <div class="input-group flex-nowrap">
                 <input type="file" id="files" name="files[]" multiple />
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa" aria-label="Placa" aria-describedby="addon-wrapping">
+                <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
+                    aria-label="Placa" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="addon-wrapping">
+                <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
+                    aria-label="Marca" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes" aria-describedby="addon-wrapping">
+                <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes"
+                    aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-truck-capacidad-carga" type="number" class="form-control" placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">                
+                <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
+                    placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-truck-matricula-trailer" type="text" class="form-control" placeholder="Matricula del trailer" aria-label="Matricula del trailer" aria-describedby="addon-wrapping">
-            </div>            
+                <input id="input-create-truck-matricula-trailer" type="text" class="form-control"
+                    placeholder="Matricula del trailer" aria-label="Matricula del trailer"
+                    aria-describedby="addon-wrapping">
+            </div>
             <div class="dropdown-register btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="dropdown-register-text">Seleccionar...</span>
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span id="dropdown-register-text">Seleccionar...</span>
                 </button>
                 <div class="dropdown-register dropdown-menu">
                     <a class="dropdown-item" onclick="dropdown_register('');"></a>
                 </div>
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-create-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping">
-            </div>            
+                <input id="input-create-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje"
+                    aria-label="Kilometraje" aria-describedby="addon-wrapping">
+            </div>
             <div>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','create-truck')">Cancelar</button>                
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('section-initial-page','create-truck'), crearCamion();">Crear</button>                
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('section-initial-page','create-truck')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('section-initial-page','create-truck'), crearCamion();">Crear</button>
             </div>
         </div>
     </section>
@@ -176,11 +212,14 @@
         <div id="container-account-recovery">
             <img src="img/Logo.PNG" id="icono-sign-in">
             <div class="input-account-recovery-div input-group flex-nowrap">
-                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="addon-wrapping">
+                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail"
+                    aria-label="E-mail" aria-describedby="addon-wrapping">
             </div>
             <div class="btn-account-recovery">
-                <button type="button" class="btn btn-secondary btn-sm" onclick="change_page('sign-in','account-recovery')">Cancelar</button>                
-                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">Recuperar</button>                
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('sign-in','account-recovery')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
+                    Recuperar</button>
             </div>
         </div>
     </section>
@@ -192,9 +231,15 @@
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -217,7 +262,7 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
         const storage = firebase.storage();
-      
+
     </script>
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>

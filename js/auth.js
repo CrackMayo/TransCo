@@ -49,9 +49,10 @@ auth.onAuthStateChanged(user => {
         console.log(user.email);
         const userUid = user.uid;
         userDataLogin(userUid);
+        idUsuario = userUid;
 
         change_page('section-initial-page', 'sign-in');
-
+        obtenerCamion();
 
     } else {
         console.log("Sesion Finalizada");

@@ -89,20 +89,40 @@ function crearCamion() {
 
 function obtenerCamion() {
 
-    var label1 = document.getElementById("truck1");
-
-    var label2 = document.getElementById("truck2");
-
-    var label3 = document.getElementById("truck3");
-    console.log("1");
+    
+  
 
     db.collection('accounts').doc(idUsuario).collection('camiones').get().then(snapshot => {
-        console.log("2");
+        let lista = document.getElementById("listaCamiones");
+
         snapshot.forEach(function (child) {
-            label1.innerHTML = "Placa: " + child.id;
-            label2.innerHTML = "Marca: " + child.data().marcaCabezote;
-            label3.innerHTML = "Capacidad Max: " + child.data().capacidadCarga;
-            console.log("3");
+            
+            lista.innerHTML = lista.innerHTML + "<li>" + "<div class='tab-content' id='myTabContent'>" +
+                "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
+                    "<div class='container-fluid'>" +
+                      "<div class='card post mt-4'>"+
+                            "<div class='card-footer'>" +
+                                    "<center>" + "<p id='placaCabezote' class='post-text'>"+"<span class='ht'>" +  "Placa Cabezote" + "</span>"
+                                    + "TN345" + "</p>" + "</center>"
+                            +"</div>" +
+                          "<img class='post-img card-img' src='img/fotoviascamiones_2.png'>" +
+                          "<div class='card-body'>"+
+                             "<div class='action-btns'>" +
+                               "<center>" + "<span>" +                         
+                                    "<i class='material-icons'>" + "share" + "</i>" +"<span class='val'>" +  "View" + "</span>" +
+                            "</span>" + "</center>"+ 
+                             "</div>" +
+                          "</div>" +
+                          "<div class='card-footer'>"+
+                               "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga" + "</span>" 
+                               +"345"+"</p>" +
+                               "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje"+"</span>"+" 345" + "</p>"
+                               +"<p id='marca' class='post-text'>" + "<span class='ht'>"+"Marca Cabezote"+"</span>"+"345"+"</p>"+
+                               "<p id='numEjes' class='post-text'>" +"<span class='ht'>" +"Numero de Ejes"+"</span>"+ "345"+"</p>"+
+                               "<p id='placaTrailer' class='post-text'>"+"<span class='ht'>"+"Placa Trailer"+"</span>"+ "345"+"</p>"+
+                          "</div>"+
+                      "</div>"+
+        "</li>"
 
         });
     })

@@ -47,7 +47,6 @@ auth.onAuthStateChanged(user => {
         obtenerCamion();
 
         change_page('section-initial-page', 'sign-in');
-        obtenerCamion();
 
     } else {
         console.log("Sesion Finalizada");

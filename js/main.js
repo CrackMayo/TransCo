@@ -74,24 +74,31 @@ function crearCamion() {
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
 
          uploadImageTruck(imagen, placa);
+
         
     }).catch(function (error) {
         console.error("Error: ", error);
     });
+
+    obtenerCamion();
 }
 
 
 
 function obtenerCamion() {
-
+    let lista = document.getElementById("listaCamiones");
+    lista.innerHTML = "";
     
   
 
     db.collection('accounts').doc(idUsuario).collection('camiones').get().then(snapshot => {
-        let lista = document.getElementById("listaCamiones");
+        
+
 
         snapshot.forEach(function (child) {
             
+            
+
             lista.innerHTML = lista.innerHTML + "<li id='"+child.id+"'>" + "<div class='tab-content' id='myTabContent'>" +
                 "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
                     "<div class='container-fluid'>" +
@@ -100,11 +107,11 @@ function obtenerCamion() {
                                     "<center>" + "<p id='placaCabezote' class='post-text'>"+"<span class='ht'>" +  "Placa Cabezote: " + "</span>"
                                     + ""+child.id+"" + "</p>" + "</center>"
                             +"</div>" +
-                          "<img class='post-img card-img' src='img/fotoviascamiones_2.png'>" +
+                          "<img class='post-img card-img' src='"+child.data().imagenCamion+"'>" +
                           "<div class='card-body'>"+
                              "<div class='action-btns'>" +
                                "<center>" + "<span>" +                         
-                                    "<i class='material-icons'>" + "share" + "</i>" +"<span class='val'>" +  "View" + "</span>" +
+                                    "<i onclick='loadTruck(" + '"'+child.id+'"' + ");' class='material-icons'>" + "share" + "</i>" +"<span class='val'>" +  "View" + "</span>" +
                             "</span>" + "</center>"+ 
                              "</div>" +
                           "</div>" +
@@ -163,6 +170,8 @@ function uploadImageTruck(imagen, placa) {
 }
 
 function loadTruck(placa) {
+
+    console.log(placa);
     change_page('update-truck', 'section-initial-page');
 
 
@@ -215,6 +224,8 @@ function updateTruck() {
     });
 
     alert("Datos Actualizado");
+
+    change_page('section-initial-page', 'update-truck');
 
     obtenerCamion();
 

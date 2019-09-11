@@ -97,13 +97,13 @@ function obtenerCamion() {
 
         snapshot.forEach(function (child) {
             
-            lista.innerHTML = lista.innerHTML + "<li>" + "<div class='tab-content' id='myTabContent'>" +
+            lista.innerHTML = lista.innerHTML + "<li id='"+child.id+"'>" + "<div class='tab-content' id='myTabContent'>" +
                 "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
                     "<div class='container-fluid'>" +
                       "<div class='card post mt-4'>"+
                             "<div class='card-footer'>" +
-                                    "<center>" + "<p id='placaCabezote' class='post-text'>"+"<span class='ht'>" +  "Placa Cabezote" + "</span>"
-                                    + "TN345" + "</p>" + "</center>"
+                                    "<center>" + "<p id='placaCabezote' class='post-text'>"+"<span class='ht'>" +  "Placa Cabezote: " + "</span>"
+                                    + ""+child.id+"" + "</p>" + "</center>"
                             +"</div>" +
                           "<img class='post-img card-img' src='img/fotoviascamiones_2.png'>" +
                           "<div class='card-body'>"+
@@ -114,12 +114,12 @@ function obtenerCamion() {
                              "</div>" +
                           "</div>" +
                           "<div class='card-footer'>"+
-                               "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga" + "</span>" 
-                               +"345"+"</p>" +
-                               "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje"+"</span>"+" 345" + "</p>"
-                               +"<p id='marca' class='post-text'>" + "<span class='ht'>"+"Marca Cabezote"+"</span>"+"345"+"</p>"+
-                               "<p id='numEjes' class='post-text'>" +"<span class='ht'>" +"Numero de Ejes"+"</span>"+ "345"+"</p>"+
-                               "<p id='placaTrailer' class='post-text'>"+"<span class='ht'>"+"Placa Trailer"+"</span>"+ "345"+"</p>"+
+                               "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>" 
+                               +""+child.data().capacidadCarga+""+"</p>" +
+                               "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: "+"</span>"+""+child.data().kilometraje+"" + "</p>"
+                               +"<p id='marca' class='post-text'>" + "<span class='ht'>"+"Marca Cabezote: "+"</span>"+""+child.data().marcaCabezote+""+"</p>"+
+                               "<p id='numEjes' class='post-text'>" +"<span class='ht'>" +"Numero de Ejes: "+"</span>"+ ""+child.data().numeroEjes+""+"</p>"+
+                               "<p id='placaTrailer' class='post-text'>"+"<span class='ht'>"+"Placa Trailer: "+"</span>"+ ""+child.data().placaTrailer+""+"</p>"+
                           "</div>"+
                       "</div>"+
         "</li>"

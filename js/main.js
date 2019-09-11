@@ -6,18 +6,18 @@ function userDataLogin(userId) {
         var cedula = snap.data().cedula;
         var celular = snap.data().celular;
         var rol = snap.data().rol;
-        
-        if( rol === "Conductor"){
-            var navElements  =[document.getElementById("generalBalance2"),document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"),document.getElementById("createTruck1")] ;
 
-            for(let i = 0; i<= navElements.length;i++){
+        if (rol === "Conductor") {
+            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
+            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
+
+            for (let i = 0; i < navElements.length; i++) {
                 navElements[i].classList.add("invisible");
             }
         }
-       
+
     });
-    
+
 }
 
 function change_page(idIn, idOut) {
@@ -72,14 +72,9 @@ function crearCamion() {
 
 
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
-        console.log("Creado");
-        var url = uploadImageTruck(imagen, placa);
 
-        console.log(url);
-        db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url }).then(function () {
-            console.log("Document successfully updated!");
-        });
-
+         uploadImageTruck(imagen, placa);
+        
     }).catch(function (error) {
         console.error("Error: ", error);
     });
@@ -130,11 +125,12 @@ function obtenerCamion() {
 
 function uploadImageTruck(imagen, placa) {
 
+    var url = 5;
     // Created a Storage Reference with root dir
     var storageRef = storage.ref();
     // Get the file from DOM
     var file = imagen;
-    console.log(file);
+    // console.log(file);
 
     //dynamically set reference to the file name
     var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
@@ -143,14 +139,85 @@ function uploadImageTruck(imagen, placa) {
     thisRef.put(file).then(function (snapshot) {
         alert("File Uploaded");
         console.log('Uploaded a blob or file!');
-        thisRef.getDownloadURL().then(function (url) {
-            console.log(thisRef.fullPath);
-            return url;
-        }).catch(function (error) {
 
-            console.log(error);
+        snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            url = DownloadURL;
+
+            db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url })
+                .then(function () {
+                    console.log("Document successfully updated!");
+                    console.log(url);
+
+                }).catch(function (error) {
+
+                    console.log(error);
+                });
+
+
+
         });
 
-
+    
     });
+
+}
+
+function loadTruck(placa) {
+    change_page('update-truck', 'section-initial-page');
+
+
+    var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
+    document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
+        , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
+
+    updateElements[0].disabled = true;
+
+    db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).get().then(snapshot => {
+
+
+        updateElements[0].value = snapshot.id;
+        updateElements[1].value = snapshot.data().marcaCabezote;
+        updateElements[2].value = snapshot.data().numeroEjes;
+        updateElements[3].value = snapshot.data().capacidadCarga;
+        updateElements[4].value = snapshot.data().placaTrailer;
+        updateElements[5].value = snapshot.data().kilometraje;
+
+
+
+    })
+
+}
+
+
+function updateTruck() {
+    var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
+    document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
+        , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
+
+
+
+
+    const truck = {
+        marcaCabezote: updateElements[1].value,
+        numeroEjes: updateElements[2].value,
+        capacidadCarga: updateElements[3].value,
+        placaTrailer: updateElements[4].value,
+        kilometraje: updateElements[5].value,
+
+    }
+
+
+
+    db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
+        console.log("Actualizado");
+    }).catch(function (error) {
+        console.error("Error: ", error);
+    });
+
+    alert("Datos Actualizado");
+
+    obtenerCamion();
+
+
+
 }

@@ -72,15 +72,9 @@ function crearCamion() {
 
 
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
-        console.log("Creado");
-        var url = uploadImageTruck(imagen, placa);
 
-        console.log(url);
-        db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url })
-            .then(function () {
-                console.log("Document successfully updated!");
-            });
-
+         uploadImageTruck(imagen, placa);
+        
     }).catch(function (error) {
         console.error("Error: ", error);
     });
@@ -111,11 +105,12 @@ function obtenerCamion() {
 
 function uploadImageTruck(imagen, placa) {
 
+    var url = 5;
     // Created a Storage Reference with root dir
     var storageRef = storage.ref();
     // Get the file from DOM
     var file = imagen;
-    console.log(file);
+    // console.log(file);
 
     //dynamically set reference to the file name
     var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
@@ -124,27 +119,38 @@ function uploadImageTruck(imagen, placa) {
     thisRef.put(file).then(function (snapshot) {
         alert("File Uploaded");
         console.log('Uploaded a blob or file!');
-        thisRef.getDownloadURL().then(function (url) {
-            console.log(thisRef.fullPath);
-            return url;
-        }).catch(function (error) {
 
-            console.log(error);
+        snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            url = DownloadURL;
+
+            db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url })
+                .then(function () {
+                    console.log("Document successfully updated!");
+                    console.log(url);
+
+                }).catch(function (error) {
+
+                    console.log(error);
+                });
+
+
+
         });
 
-
+    
     });
+
 }
 
 function loadTruck(placa) {
     change_page('update-truck', 'section-initial-page');
-    
+
 
     var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
     document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
-        updateElements[0].disabled = true;
+    updateElements[0].disabled = true;
 
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).get().then(snapshot => {
 
@@ -168,7 +174,7 @@ function updateTruck() {
     document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
-        
+
 
 
     const truck = {

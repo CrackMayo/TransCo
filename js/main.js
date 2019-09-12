@@ -1,4 +1,3 @@
-//getUserData
 function userDataLogin(userId) {
 
     db.collection('accounts').doc(userId).get().then(snap => {

@@ -34,7 +34,6 @@ auth.onAuthStateChanged(user => {
     }
 })
 
-//SignUp
 function signUp() {
     //Get user info Form
     const email = document.getElementById("input-register-email").value;
@@ -80,24 +79,23 @@ function signUp() {
                     alert("Ya existe una cuenta de usuario asociada a ese correo electrónico");
                 }
             });
-    } else
+    } else{
         alert("Las contraseñas no coinciden");
+    }
+       
 }
 
-//LogOut
 function logOut() {
     auth.signOut();
     changePage('sign-in', 'section-initial-page');
 }
 
-//Password Recovery
 function passwordRecovery() {
     changePage('sign-in', 'account-recovery');
     const email = document.getElementById("input-account-recovery-username").value;
     console.log(firebase.auth().sendPasswordResetEmail(email));
 }
 
-//SignIn
 function singIn() {
 
     //Get user info
@@ -116,8 +114,9 @@ function singIn() {
             userDataLogin(userUid);
             changePage('section-initial-page', 'sign-in');
 
-        } else
+        } else{
             alert("Verifica tu correo");
+        } 
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -125,7 +124,9 @@ function singIn() {
         console.log(errorMessage);
         if (errorCode === "auth/user-not-found") {
             alert("El usuario o contraseña no es correcto");
-        } else
+        } else{
             alert("El usuario o contraseña no es correcto");
+        }
+            
     });
 }

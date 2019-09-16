@@ -8,7 +8,7 @@ function cargarDepartamentos() {
 
     db.collection('departments').get().then(snapshot => {
 
-        snapshot.forEach(function(child) {
+        snapshot.forEach(function (child) {
             var departamento = child.id;
             departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
         });
@@ -31,14 +31,18 @@ function cargarMunicipios(departamento) {
 // Listen for status changes
 auth.onAuthStateChanged(user => {
     if (user) {
-        
-        console.log(user.email);
-        const userUid = user.uid;
-        idUsuario = userUid;
-        userDataLogin(userUid);
-        obtenerCamion();
 
-        changePage('section-initial-page', 'sign-in');
+        console.log(user.email);
+        const userUid = user.email;
+        idUsuario = userUid;
+
+        if (user.emailVerified) {
+            userDataLogin(userUid);
+            obtenerCamion();
+
+            changePage('section-initial-page', 'sign-in');
+        }
+
 
     } else {
         console.log("Sesion Finalizada");
@@ -54,34 +58,49 @@ function signUp() {
     const tipoUsuario = document.getElementById("dropdown-register-text").innerHTML;
     const password1 = document.getElementById("input-register-password1").value;
     const password2 = document.getElementById("input-register-password2").value;
+    
+    var emailUser = email.toLowerCase();
     if (password1 === password2) {
         // Sing up the user
         auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
 
             const userUid = data.user.uid;
-
+            var account = null;
             // Set account  doc  
-            const account = {
-                userId: userUid,
-                nombre: nombreUsuario,
-                cedula: cedulaUsuario,
-                celular: numeroCelular,
-                rol: tipoUsuario
+            if (tipoUsuario === "Conductor") {
+                account = {
+                    userId: userUid,
+                    nombre: nombreUsuario,
+                    cedula: cedulaUsuario,
+                    celular: numeroCelular,
+                    rol: tipoUsuario,
+                    conVehiculo: false
+                }
+            } else {
+                account = {
+                    userId: userUid,
+                    nombre: nombreUsuario,
+                    cedula: cedulaUsuario,
+                    celular: numeroCelular,
+                    rol: tipoUsuario
+                }
             }
 
-                db.collection('accounts').doc(userUid).set(account).then(function() {
-                    console.log("Creado");
-                }).catch(function(error) {
-                    console.error("Error: ", error);
-                });
 
-                alert("Usuario Creado!");
-                data.user.sendEmailVerification();
-                changePage('section-initial-page', 'register');
-                userDataLogin(userUid);
 
-            })
-            .catch(function(error) {
+            db.collection('accounts').doc(emailUser).set(account).then(function () {
+            }).catch(function (error) {
+                console.error("Error: ", error);
+            });
+
+            alert("Usuario Creado!");
+            data.user.sendEmailVerification();
+            changePage('section-initial-page', 'register');
+            userDataLogin(emailUser);
+
+
+        })
+            .catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -89,10 +108,10 @@ function signUp() {
                     alert("Ya existe una cuenta de usuario asociada a ese correo electrónico");
                 }
             });
-    } else{
+    } else {
         alert("Las contraseñas no coinciden");
     }
-       
+
 }
 
 function logOut() {
@@ -114,15 +133,15 @@ function singIn() {
 
 
     // Get user info
-    const email = document.getElementById("input-sign-in-username").value;
+    var email = document.getElementById("input-sign-in-username").value.toLowerCase();
     const password = document.getElementById("input-sign-in-password").value;
 
 
     // Sing up the user
 
-    auth.signInWithEmailAndPassword(email, password).then(function(data) {
+    auth.signInWithEmailAndPassword(email, password).then(function (data) {
 
-        const userUid = data.user.uid;
+        const userUid = email;
         idUsuario = userUid;
         if (data.user.emailVerified) {
 

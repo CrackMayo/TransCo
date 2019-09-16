@@ -3,9 +3,6 @@ function userDataLogin(userId) {
     lista.innerHTML = "";
 
     db.collection('accounts').doc(userId).get().then(snap => {
-        var nombre = snap.data().nombre;
-        var cedula = snap.data().cedula;
-        var celular = snap.data().celular;
         var rol = snap.data().rol;
 
         if (rol === "Conductor") {
@@ -15,6 +12,7 @@ function userDataLogin(userId) {
             for (let i = 0; i < navElements.length; i++) {
                 navElements[i].classList.add("invisible");
             }
+
         } else {
             var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
             document.getElementById("createTruck2"), document.getElementById("createTruck1")];
@@ -127,12 +125,49 @@ function crearCamion() {
 }
 
 
+function getDriverTruck() {
+    let lista = document.getElementById("listaCamiones");
+    lista.innerHTML = "";
+    db.collection('accounts').doc(idUsuario).get().then(snap => {
+        let boss = snap.data().jefe;
+        let truck = snap.data().vehiculo;
+        db.collection('accounts').doc(boss).collection('camiones').doc(truck).get().then(child => {
+
+                lista.innerHTML = lista.innerHTML + "<li id='" + child.id + "'>" + "<div class='tab-content' id='myTabContent'>" +
+                    "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
+                    "<div class='container-fluid'>" +
+                    "<div class='card post mt-4'>" +
+                    "<div class='card-footer'>" +
+                    "<center>" + "<p id='placaCabezote' class='post-text'>" + "<span class='ht'>" + "Placa Cabezote: " + "</span>"
+                    + "" + child.id + "" + "</p>" + "</center>"
+                    + "</div>" +
+                    "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
+                    "<div class='card-body'>" +
+                    "<div class='action-btns'>" +
+                    "<center>" + "<span>" +
+                    "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
+                    "</span>" + "</center>" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='card-footer'>" +
+                    "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
+                    + "" + child.data().capacidadCarga + "" + "</p>" +
+                    "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
+                    + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
+                    "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
+                    "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</li>"
+
+        })
+    });
+
+}
 
 function obtenerCamion() {
     let lista = document.getElementById("listaCamiones");
     lista.innerHTML = "";
-
-
 
     db.collection('accounts').doc(idUsuario).collection('camiones').get().then(snapshot => {
 

@@ -38,9 +38,25 @@ auth.onAuthStateChanged(user => {
 
         if (user.emailVerified) {
             userDataLogin(userUid);
-            obtenerCamion();
+            db.collection('accounts').doc(userUid).get().then(snap => {
+                var rol = snap.data().rol;
+                if (rol == "Conductor") {
 
-            changePage('section-initial-page', 'sign-in');
+                    if (snap.data().conVehiculo) {
+                        getDriverTruck();
+                        changePage('section-initial-page', 'sign-in');
+                    } else {
+                        changePage('section-initial-page', 'sign-in');
+                    }
+
+
+                } else {
+                    obtenerCamion();
+                    changePage('section-initial-page', 'sign-in');
+                }
+
+            });
+
         }
 
 
@@ -58,7 +74,7 @@ function signUp() {
     const tipoUsuario = document.getElementById("dropdown-register-text").innerHTML;
     const password1 = document.getElementById("input-register-password1").value;
     const password2 = document.getElementById("input-register-password2").value;
-    
+
     var emailUser = email.toLowerCase();
     if (password1 === password2) {
         // Sing up the user

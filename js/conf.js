@@ -6,4 +6,4 @@ var _0xa774=['transco-app','transco-app.appspot.com','1083610102020','initialize
 var firebaseConfig={'apiKey':_0xc385('0x0'),'authDomain':_0xc385('0x1'),'databaseURL':_0xc385('0x2'),
 'projectId':_0xc385('0x3'),'storageBucket':_0xc385('0x4'),'messagingSenderId':_0xc385('0x5'),
 'appId':'1:1083610102020:web:5e66b194d0447709'};firebase[_0xc385('0x6')]
-(firebaseConfig);const auth=firebase['auth']();const db=firebase['firestore']();
+(firebaseConfig);const auth=firebase['auth']();const db=firebase['firestore']();const storage=firebase['storage']();

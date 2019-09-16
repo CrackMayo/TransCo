@@ -1,3 +1,6 @@
+var idUsuario;
+
+
 function cargarDepartamentos() {
 
     var departamentos = document.getElementById("departamentos");
@@ -25,17 +28,25 @@ function cargarMunicipios(departamento) {
     });
 }
 
-//listen for status changes user login
+// Listen for status changes
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log("Sesion Activa: " + user.email);
+        
+        console.log(user.email);
+        const userUid = user.uid;
+        idUsuario = userUid;
+        userDataLogin(userUid);
+        obtenerCamion();
+
+        changePage('section-initial-page', 'sign-in');
+
     } else {
         console.log("Sesion Finalizada");
     }
 })
 
 function signUp() {
-    //Get user info Form
+    // Get user info Form
     const email = document.getElementById("input-register-email").value;
     const nombreUsuario = document.getElementById("input-register-name").value;
     const cedulaUsuario = document.getElementById("input-register-nip").value;
@@ -44,20 +55,19 @@ function signUp() {
     const password1 = document.getElementById("input-register-password1").value;
     const password2 = document.getElementById("input-register-password2").value;
     if (password1 === password2) {
-        //Sing up the user
-        auth.createUserWithEmailAndPassword(email, password1).then(function(data) {
+        // Sing up the user
+        auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
 
-                const userUid = data.user.uid;
+            const userUid = data.user.uid;
 
-                // set account  doc  
-                const account = {
-                    userId: userUid,
-                    nombre: nombreUsuario,
-                    cedula: cedulaUsuario,
-                    celular: numeroCelular,
-                    rol: tipoUsuario
-
-                }
+            // Set account  doc  
+            const account = {
+                userId: userUid,
+                nombre: nombreUsuario,
+                cedula: cedulaUsuario,
+                celular: numeroCelular,
+                rol: tipoUsuario
+            }
 
                 db.collection('accounts').doc(userUid).set(account).then(function() {
                     console.log("Creado");
@@ -96,37 +106,44 @@ function passwordRecovery() {
     console.log(firebase.auth().sendPasswordResetEmail(email));
 }
 
+
+
+
+
 function singIn() {
 
-    //Get user info
+
+    // Get user info
     const email = document.getElementById("input-sign-in-username").value;
     const password = document.getElementById("input-sign-in-password").value;
 
 
-    //Sing up the user
+    // Sing up the user
 
     auth.signInWithEmailAndPassword(email, password).then(function(data) {
 
         const userUid = data.user.uid;
-
+        idUsuario = userUid;
         if (data.user.emailVerified) {
 
             userDataLogin(userUid);
             changePage('section-initial-page', 'sign-in');
 
-        } else{
+        } else {
             alert("Verifica tu correo");
-        } 
-    }).catch(function(error) {
+        }
+
+    }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorMessage);
         if (errorCode === "auth/user-not-found") {
             alert("El usuario o contraseña no es correcto");
-        } else{
+        } else {
             alert("El usuario o contraseña no es correcto");
         }
-            
+
     });
+
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TransCo</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,24 +24,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" data-target="modal-IniciarSesion">Inicio<span
-                                class="sr-only">(current)</span></a>
+                        <a class="nav-link" data-target="modal-IniciarSesion">
+                            Inicio<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Registro</a>
-                    </li>
-                    <li class="nav-item">
+                    <li id="generalBalance1" class="nav-item">
                         <a class="nav-link" href="#">Balance general</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="changePage('create-truck','section-initial-page');">Crear
-                            vehículo</a>
+                    <li id="createTruck1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-truck','section-initial-page');">
+                            Crear vehículo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="changePage('sign-in','section-initial-page');">Salir</a>
+                        <a class="nav-link" onclick="changePage('sign-in','section-initial-page'), logOut() ">
+                            Salir</a>
                     </li>
             </div>
             <div class="secundary-menu btn-group dropleft">
@@ -50,11 +46,9 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inicio</a>
-                    <a class="dropdown-item" href="#">Iniciar sesión</a>
-                    <a class="dropdown-item" href="#">Registro</a>
-                    <a class="dropdown-item" href="#">Balance general</a>
-                    <a class="dropdown-item" onclick="changePage('create-truck','section-initial-page');">Crear
-                        vehículo</a>
+                    <a id="generalBalance2" class="dropdown-item" href="#">Balance general</a>
+                    <a id="createTruck2" class="dropdown-item"
+                        onclick="changePage('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" onclick="logOut();">Salir</a>
                 </div>
@@ -62,23 +56,9 @@
         </nav>
 
         <!--Opción inicio-->
-        <div class="container" style="margin-top:40px;">
-            <ul class="collapsible z-depth-0 guides" style="border: none;">
-                <li>
-                    <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
-                    <div class="collapsible-body white">Marca del Camión</div>
-                    <div class="collapsible-body white">Capacidad Máxima</div>
-                </li>
-                <li>
-                    <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
-                    <div class="collapsible-body white">Marca del Camión</div>
-                    <div class="collapsible-body white">Capacidad Máxima</div>
-                </li>
-                <li>
-                    <div class="collapsible-header grey lighten-4">Placa Vehículo</div>
-                    <div class="collapsible-body white">Marca del Camión</div>
-                    <div class="collapsible-body white">Capacidad Máxima</div>
-                </li>
+        <div  class="container" style="margin-top:40px;">
+            <ul id="listaCamiones" class="collapsible z-depth-0 guides" style="border: none;">
+                
             </ul>
         </div>
     </section>
@@ -144,16 +124,16 @@
                 <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
                     aria-label="Contraseña" aria-describedby="addon-wrapping">
                 <button type="button" class="btn-look btn btn-secondary"
-                    onclick="btnLook('input-register-password1', 'span-look-register1');"><span id="span-look-register1"
-                        class="far fa-eye" aria-hidden="true"></span></button>
+                    onclick="btnLook('input-register-password1', 'span-look-register1');">
+                    <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div class="input-group flex-nowrap">
                 <input id="input-register-password2" type="password" class="form-control"
                     placeholder="Repita su contraseña" aria-label="Repita su contraseña"
                     aria-describedby="addon-wrapping">
                 <button type="button" class="btn-look btn btn-secondary"
-                    onclick="btnLook('input-register-password2', 'span-look-register2');"><span id="span-look-register2"
-                        class="far fa-eye" aria-hidden="true"></span></button>
+                    onclick="btnLook('input-register-password2', 'span-look-register2');">
+                    <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
             </div>
             <div>
                 <button type="button" class="btn btn-secondary btn-sm"
@@ -169,6 +149,9 @@
                 <span id="title-register">TransCo</span>
             </div>
             <div class="input-group flex-nowrap">
+                <input type="file" id="files" name="files[]" multiple />
+            </div>
+            <div class="input-group flex-nowrap">
                 <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
                     aria-label="Placa" aria-describedby="addon-wrapping">
             </div>
@@ -177,8 +160,8 @@
                     aria-label="Marca" aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
-                <input id="input-register-ejes" type="number" class="form-control" placeholder="Ejes"
-                    aria-label="Cédula" aria-describedby="addon-wrapping">
+                <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes"
+                    aria-describedby="addon-wrapping">
             </div>
             <div class="input-group flex-nowrap">
                 <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
@@ -206,7 +189,7 @@
                 <button type="button" class="btn btn-secondary btn-sm"
                     onclick="changePage('section-initial-page','create-truck')">Cancelar</button>
                 <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','create-truck')">Crear</button>
+                    onclick="crearCamion();">Crear</button>
             </div>
         </div>
     </section>
@@ -220,10 +203,57 @@
             <div class="btn-account-recovery">
                 <button type="button" class="btn btn-secondary btn-sm"
                     onclick="changePage('sign-in','account-recovery')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">Recuperar</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
+                    Recuperar</button>
             </div>
         </div>
     </section>
+
+    <section id="update-truck" class="invisible">
+        <div id="container-register">
+            <div id="container-title-register">
+                <img src="img/Logo.PNG" id="icono-register">
+                <span id="title-register">Actualizar</span>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input type="file" id="files" name="files[]" multiple />
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-update-truck-placa" type="text" class="form-control" placeholder="Placa"
+                    aria-label="Placa" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-update-truck-marca" type="text" class="form-control" placeholder="Marca"
+                    aria-label="Marca" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-update-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes"
+                    aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-update-truck-capacidad-carga" type="number" class="form-control"
+                    placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-update-truck-matricula-trailer" type="text" class="form-control"
+                    placeholder="Matricula del trailer" aria-label="Matricula del trailer"
+                    aria-describedby="addon-wrapping">
+            </div>
+            
+            <div class="input-group flex-nowrap">
+                <input id="input-update-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje"
+                    aria-label="Kilometraje" aria-describedby="addon-wrapping">
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="changePage('section-initial-page','update-truck')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="changePage('section-initial-page','update-truck'), updateTruck();">Actualizar</button>
+            </div>
+        </div>
+    </section>
+
+
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -231,6 +261,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -240,7 +271,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
     <script src="js/main.js"></script>
     <script src="js/conf.js"></script>
     <script src="js/auth.js"></script>

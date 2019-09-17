@@ -279,7 +279,48 @@
         </section>
 
 
-    
+    <section id="create-spend" class="invisible">
+        <div id="container-register">
+                <span id="title-register">Crear Gasto</span>
+                <br>
+            <div id="container-title-register">
+                <img src="img/Logo.PNG" id="icono-register">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input type="file" id="files" name="files[]" multiple />
+            </div>
+            <br>
+            <p>Categoria</p>
+            <div class="input-group flex-nowrap">
+                     
+                    <select name="type" id="input-create-spend-categoria" class="form-control" aria-describedby="addon-wrapping">
+                        <option value="combustible">Combustible</option>
+                        <option value="pasajes">Peajes</option>
+                        <option value="auxilioViaje">Auxilio de Viaje</option>
+                        <option value="parqueadero">Parqueadero</option>
+                        <option value="otros">Otro</option>
+                   </select>
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-spend-descripcion" type="text" class="form-control" placeholder="Descripción"
+                    aria-label="Descripción" aria-describedby="addon-wrapping">
+            </div>            
+            <div class="input-group flex-nowrap">
+                <input id="input-create-spend-fecha" type="date" class="form-control" placeholder="Fecha" aria-label="Fecha"
+                    aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input id="input-create-spend-total" type="number" class="form-control"
+                    placeholder="Monto Total" aria-label="Monto Total" aria-describedby="addon-wrapping">
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('section-initial-page','create-spend')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="change_page('section-initial-page','create-spend')">Crear</button>
+            </div>
+        </div>
+    </section>
     <section id="account-recovery" class="invisible">
         <div id="container-account-recovery">
             <img src="img/Logo.PNG" id="icono-sign-in">

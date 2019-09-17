@@ -28,7 +28,12 @@
                             Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li id="generalBalance1" class="nav-item">
-                        <a class="nav-link" href="#">Balance general</a>
+                        <a class="nav-link" onclick="changePage('create-truck','section-initial-page');">
+                            Balance general</a>
+                    </li>
+                    <li id="createTravel" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','section-initial-page');">
+                            Crear Viaje</a>
                     </li>
                     <li id="createTruck1" class="nav-item">
                         <a class="nav-link" onclick="changePage('create-truck','section-initial-page');">
@@ -47,6 +52,8 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inicio</a>
                     <a id="generalBalance2" class="dropdown-item" href="#">Balance general</a>
+                    <a  id="createTravel" class="dropdown-item" 
+                    onclick="changePage('create-travel','section-initial-page');">Crear Viaje</a>
                     <a id="createTruck2" class="dropdown-item"
                         onclick="changePage('create-truck','section-initial-page');">Crear vehículo</a>
                     <div class="dropdown-divider"></div>
@@ -187,6 +194,92 @@
             </div>
         </div>
     </section>
+
+    <section id="create-travel" class="invisible">
+        <br><br>
+            <div id="container-register">
+                    <span id="title-register">Crear Viaje</span>
+                    <br>
+                <br>
+                <p>Lugar de Origen</p>
+                <p id="size-string-travel">Departamento</p>
+                <div class="input-group flex-nowrap">
+                         
+                        <select name="type" id="input-create-travel-departmento" class="form-control" 
+                            aria-describedby="addon-wrapping">
+                            <option value="otros">Otro</option>
+                       </select>
+                </div>
+                <p id="size-string-travel">Municipio</p>
+                <div class="input-group flex-nowrap">
+                         
+                        <select name="type" id="input-create-travel-cityo" class="form-control" 
+                            aria-describedby="addon-wrapping">
+                            <option value="otros">Otro</option>
+                       </select>
+                </div>
+                <br><br>
+                <p>Lugar de Destino</p>
+                <p id="size-string-travel">Departamento</p>
+                <div class="input-group flex-nowrap">
+                         
+                        <select name="type" id="input-create-travel-departmentd" class="form-control" 
+                            aria-describedby="addon-wrapping">
+                            <option value="otros">Otro</option>
+                       </select>
+                </div>
+                <p id="size-string-travel">Municipio</p>
+                <div class="input-group flex-nowrap">
+                        <select name="type" id="input-create-travel-cityd" class="form-control" 
+                        aria-describedby="addon-wrapping">
+                            <option value="otros">Otro</option>
+                       </select>
+                </div>
+                <br>
+                <p id="size-string-travel">Fecha Salida</p>
+                <div class="input-group flex-nowrap">
+                        <input id="input-create-travel-dateout" type="date" class="form-control" 
+                         aria-describedby="addon-wrapping">
+                </div>
+                <br>
+                <p id="size-string-travel">Fecha Regreso</p>
+                <div class="input-group flex-nowrap">
+                            <input id="input-create-travel-datein" type="date" class="form-control" 
+                             aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-description" type="text" class="form-control" placeholder="Empresa"
+                        aria-label="Empresa" aria-describedby="addon-wrapping">
+                </div>            
+                
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-amoung" type="number" class="form-control"
+                        placeholder="Flete" aria-label="Flete" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                        <input id="input-create-travel-output" type="number" class="form-control"
+                            placeholder="Anticipo" aria-label="Anticipo" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap">
+                            <input id="input-create-travel-weight" type="number" class="form-control"
+                                placeholder="Numero de toneladas" aria-label="Numero de toneladas" 
+                                aria-describedby="addon-wrapping">
+                </div>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="change_page('section-initial-page','create-travel')">Cancelar</button>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="change_page('section-initial-page','create-travel')">Crear</button>
+                </div>
+                <br>
+            </div>
+            <br>
+            <br>
+        </section>
+
+
+    
     <section id="account-recovery" class="invisible">
         <div id="container-account-recovery">
             <img src="img/Logo.PNG" id="icono-sign-in">

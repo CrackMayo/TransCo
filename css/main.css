@@ -121,7 +121,15 @@ section {
     padding: 2% 10% 0% 10%;
     margin-left: 25%;
 }
-
+#container-register {
+    width: 50%;
+    height: auto;
+    display: block;
+    background-color: white;
+    text-align: center;
+    padding: 2% 10% 0% 10%;
+    margin-left: 25%;
+}
 #container-account-recovery {
     background-color: white;
     display: block;
@@ -136,7 +144,9 @@ section {
     font-size: 2rem;
     margin-left: 10%;
 }
-
+#size-string-travel {
+    text-align: left;
+}
 #forgot-password-responsive {
     display: none;
     color: black;

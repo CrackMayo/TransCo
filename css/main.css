@@ -139,7 +139,10 @@ section {
     margin-left: 25%;
     padding: 0% 10% 0% 10%;
 }
-
+.position-element{
+    text-align: left;
+    right:50%;
+}
 #title-register {
     font-size: 2rem;
     margin-left: 10%;

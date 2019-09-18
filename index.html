@@ -28,7 +28,7 @@
                             Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li id="generalBalance1" class="nav-item">
-                        <a class="nav-link" onclick="changePage('create-truck','section-initial-page');">
+                        <a class="nav-link" onclick="changePage('create-balance','section-initial-page');">
                             Balance general</a>
                     </li>
                     <li id="createTravel" class="nav-item">
@@ -51,7 +51,8 @@
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Inicio</a>
-                    <a id="generalBalance2" class="dropdown-item" href="#">Balance general</a>
+                    <a id="generalBalance2" class="dropdown-item"
+                     onclick="changePage('create-balance','section-initial-page');">Balance general</a>
                     <a  id="createTravel" class="dropdown-item" 
                     onclick="changePage('create-travel','section-initial-page');">Crear Viaje</a>
                     <a id="createTruck2" class="dropdown-item"
@@ -198,7 +199,7 @@
     <section id="create-travel" class="invisible">
         <br><br>
             <div id="container-register">
-                    <span id="title-register">Crear Viaje</span>
+                    <span id="title-register">Legalización</span>
                     <br>
                 <br>
                 <p>Lugar de Origen</p>
@@ -236,17 +237,12 @@
                        </select>
                 </div>
                 <br>
-                <p id="size-string-travel">Fecha Salida</p>
+                <p id="size-string-travel">Fecha de Manifiesto de Carga</p>
                 <div class="input-group flex-nowrap">
                         <input id="input-create-travel-dateout" type="date" class="form-control" 
                          aria-describedby="addon-wrapping">
                 </div>
                 <br>
-                <p id="size-string-travel">Fecha Regreso</p>
-                <div class="input-group flex-nowrap">
-                            <input id="input-create-travel-datein" type="date" class="form-control" 
-                             aria-describedby="addon-wrapping">
-                </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-travel-description" type="text" class="form-control" placeholder="Empresa"
                         aria-label="Empresa" aria-describedby="addon-wrapping">
@@ -267,10 +263,10 @@
                 </div>
                 <br>
                 <div>
-                    <button type="button" class="btn btn-secondary btn-sm"
-                        onclick="change_page('section-initial-page','create-travel')">Cancelar</button>
-                    <button type="button" class="btn btn-secondary btn-sm"
-                        onclick="change_page('section-initial-page','create-travel')">Crear</button>
+                        <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('section-initial-page','create-travel')">Cancelar</button>
+                        <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('create-balance','create-travel')">Siguiente</button>
                 </div>
                 <br>
             </div>
@@ -278,11 +274,75 @@
             <br>
         </section>
 
+        <section id="create-balance" class="invisible">
+            <br><br>
+                <div id="container-register">
+                        <span id="title-register">Balance General</span>
+                        <br><br>
+                        
+                                <p id="city1" class="post-text"><span class="ht">Ciudad de Salida</span> medelllin</p>
+                                <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso</span> medellin</p>        
+                                <p id="date1" class="post-text"><span class="ht">Fecha de Salida</span> 345.    </p>
+                                <p id="company" class="post-text"><span class="ht">    Fecha de Regreso</span> 345</p>
+                                <p id="advance" class="post-text"><span class="ht">Adelanto</span> 345.    </p>
+                                <p id="weigth" class="post-text"><span class="ht">    Numero de Toneladas</span> 345</p>
+                        
+                        
+                    <br>
+                    <div>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('create-spend','create-balance')">Añadir Gasto</button>
+                    </div>
+
+                    <table>
+                            <tr>
+                              <th>Comprobante</th>
+                              <th>Categoria</th>
+                              <th>Descripción</th>
+                              <th>Fecha</th>
+                              <th>Valor</th>
+                            </tr>
+                            <tr id="full-value">
+                                    <td>img</td>
+                                    <td>Mantenimiento</td>
+                                    <td>Reparación motor</td>
+                                    <td>15/09/2019</td>
+                                    <td>1.500.000</td>
+                                    
+                                </tr>
+                    </table>
+                    <br>
+                    
+                    <div>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                            onclick="changePage('section-initial-page','create-balance')">Cancelar</button>
+                    </div>
+                    <br>
+                </div>
+                
+            </section>
+            <section id="account-recovery" class="invisible">
+                <div id="container-account-recovery">
+                    <img src="img/Logo.PNG" id="icono-sign-in">
+                    <div class="input-account-recovery-div input-group flex-nowrap">
+                        <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail"
+                            aria-label="E-mail" aria-describedby="addon-wrapping">
+                    </div>
+                    <div class="btn-account-recovery">
+                        <button type="button" class="btn btn-secondary btn-sm"
+                            onclick="changePage('sign-in','account-recovery')">Cancelar</button>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
+                            Recuperar</button>
+                    </div>
+                </div>
+            </section>
+
 
     <section id="create-spend" class="invisible">
+        <br><br>
         <div id="container-register">
-                <span id="title-register">Crear Gasto</span>
-                <br>
+                <span id="title-register">Gasto</span>
+                <br><br>
             <div id="container-title-register">
                 <img src="img/Logo.PNG" id="icono-register">
             </div>
@@ -313,12 +373,14 @@
                 <input id="input-create-spend-total" type="number" class="form-control"
                     placeholder="Monto Total" aria-label="Monto Total" aria-describedby="addon-wrapping">
             </div>
+            <br>
             <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="change_page('section-initial-page','create-spend')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="change_page('section-initial-page','create-spend')">Crear</button>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="changePage('create-balance','create-spend')">Cancelar</button>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="changePage('create-balance','create-spend')">Crar Gasto</button>
             </div>
+            <br>
         </div>
     </section>
     <section id="account-recovery" class="invisible">

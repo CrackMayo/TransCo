@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.css">
 </head>
@@ -44,33 +45,37 @@
                             Salir</a>
                     </li>
             </div>
-            <div class="secundary-menu btn-group dropleft">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    TransCo
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Inicio</a>
-                    <a id="generalBalance2" class="dropdown-item"
-                     onclick="changePage('create-balance','section-initial-page');">Balance general</a>
-                    <a  id="createTravel" class="dropdown-item" 
-                    onclick="changePage('create-travel','section-initial-page');">Crear Viaje</a>
-                    <a id="createTruck2" class="dropdown-item"
-                        onclick="changePage('create-truck','section-initial-page');">Crear vehículo</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" onclick="logOut();">Salir</a>
-                </div>
-            </div>
+            <!-- <div class="secundary-menu">
+                <li class="nav-item">
+                    
+                </li>
+                
+            </div> -->
+            <a>
+                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" 
+                onclick="openNav('main_menu');">
+            </a>
         </nav>
-
-        <!--Opción inicio-->
-        <div class="container" style="margin-top:40px;">
-            <ul id="listaCamiones" class="collapsible z-depth-0 guides" style="border: none;">
-
-            </ul>
+        <div id="mySidenav_main_menu" class="sidenav ">
+            <img src="img/Logo.PNG" id="menu-icon" alt="logo">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="closeNav('main_menu');">Cuenta</span>
+            <span class="span_sidenav"
+                onclick="changePage('create-truck','section-initial-page');closeNav('main_menu');"
+                id="createTruck2">Crear vehículo</span>            
+            <span class="span_sidenav" onclick="closeNav('main_menu');"id="generalBalance2">Balance general</span>
+            <div class="line_menu"></div>            
+            <span class="span_sidenav" onclick="logOut();closeNav('main_menu');">Log out</span>
+        </div>
+        <div id="main_main_menu">
+            <!--Opción inicio-->
+            <div  class="container" style="margin-top:40px;">
+                <ul id="listaCamiones" class="collapsible z-depth-0 guides" style="border: none;"></ul>
+            </div>
         </div>
     </section>
-    <section id="sign-in">
+    <section id="sign-in" class="">
         <div id="container-sign-in">
             <img src="img/Logo.PNG" id="icono-sign-in">
             <div class="input-group flex-nowrap">

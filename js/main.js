@@ -10,7 +10,7 @@ function userDataLogin(userId) {
             document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
             for (let i = 0; i < navElements.length; i++) {
-                navElements[i].classList.add("invisible");
+                navElements[i].classList.add("invisible","font-invisible");
             }
 
         } else {
@@ -18,12 +18,33 @@ function userDataLogin(userId) {
             document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
             for (let i = 0; i < navElements.length; i++) {
-                navElements[i].classList.remove("invisible");
+                navElements[i].classList.remove("invisible","font-invisible");
             }
         }
 
     });
 
+}
+
+function openNav(section) {
+    document.getElementById("mySidenav_" + section).style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav(section) {
+    document.getElementById("mySidenav_" + section).style.width = "0";
+} 
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav(section) {
+    document.getElementById("mySidenav_" + section).style.width = "250px";
+    // document.getElementById("main_" + section).style.marginLeft = "450px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav(section) {
+    document.getElementById("mySidenav_" + section).style.width = "0";
+    // document.getElementById("main_" + section).style.marginLeft = "0";
 }
 
 function changePage(idIn, idOut) {

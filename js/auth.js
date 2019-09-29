@@ -127,6 +127,7 @@ function signUp() {
     } else {
         alert("Las contraseñas no coinciden");
     }
+    return false;
 
 }
 

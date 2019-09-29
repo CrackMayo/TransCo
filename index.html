@@ -107,58 +107,64 @@
         </div>
     </section>
     <section id="register" class="invisible">
-        <div id="container-register">
-            <div id="container-title-register">
-                <img src="img/Logo.PNG" id="icono-register">
-                <span id="title-register">TransCo</span>
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-email" type="text" class="form-control" placeholder="E-mail"
-                    aria-label="E-mail" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo"
-                    aria-label="Nombre completo" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-nip" type="number" class="form-control" placeholder="Cédula"
-                    aria-label="Cédula" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular"
-                    aria-label="Número celular" aria-describedby="addon-wrapping">
-            </div>
-            <div class="dropdown-register btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
-                </button>
-                <div class="dropdown-register dropdown-menu">
-                    <a class="dropdown-item" onclick="dropdownRegister('Conductor');">Conductor</a>
-                    <a class="dropdown-item" onclick="dropdownRegister('Propietario');">Propietario</a>
+        <form class="form-group" onsubmit="return signUp();">
+
+            <div id="container-register">
+                <div id="container-title-register">
+                    <img src="img/Logo.PNG" id="icono-register">
+                    <span id="title-register">TransCo</span>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-email" type="email" class="form-control" placeholder="E-mail"
+                        aria-label="E-mail" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-name" type="text" class="form-control" placeholder="Nombre completo"
+                        aria-label="Nombre completo" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-nip" type="number" class="form-control" placeholder="Cédula"
+                        aria-label="Cédula" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular"
+                        aria-label="Número celular" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="dropdown-register btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
+                    </button>
+                    <div class="dropdown-register dropdown-menu">
+                        <a class="dropdown-item" onclick="dropdownRegister('Conductor');">Conductor</a>
+                        <a class="dropdown-item" onclick="dropdownRegister('Propietario');">Propietario</a>
+                    </div>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
+                        aria-label="Contraseña" aria-describedby="addon-wrapping" required>
+                    <button type="button" class="btn-look btn btn-secondary"
+                        onclick="btnLook('input-register-password1', 'span-look-register1');">
+                        <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-password2" type="password" class="form-control"
+                        placeholder="Repita su contraseña" aria-label="Repita su contraseña"
+                        aria-describedby="addon-wrapping" required>
+                    <button type="button" class="btn-look btn btn-secondary"
+                        onclick="btnLook('input-register-password2', 'span-look-register2');">
+                        <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('sign-in','register')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>
                 </div>
             </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
-                    aria-label="Contraseña" aria-describedby="addon-wrapping">
-                <button type="button" class="btn-look btn btn-secondary"
-                    onclick="btnLook('input-register-password1', 'span-look-register1');">
-                    <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-register-password2" type="password" class="form-control"
-                    placeholder="Repita su contraseña" aria-label="Repita su contraseña"
-                    aria-describedby="addon-wrapping">
-                <button type="button" class="btn-look btn btn-secondary"
-                    onclick="btnLook('input-register-password2', 'span-look-register2');">
-                    <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
-            </div>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('sign-in','register')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="signUp();">Registrarse</button>
-            </div>
-        </div>
+
+
+
+        </form>
     </section>
     <section id="create-truck" class="invisible">
         <div id="container-register">
@@ -355,7 +361,7 @@
                 <div class="btn-account-recovery">
                     <button type="button" class="btn btn-secondary btn-sm"
                         onclick="changePage('sign-in','account-recovery')">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary btn-sm" >
+                    <button type="submit" class="btn btn-secondary btn-sm">
                         Recuperar</button>
                 </div>
             </div>

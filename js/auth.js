@@ -139,6 +139,7 @@ function passwordRecovery() {
     changePage('sign-in', 'account-recovery');
     const email = document.getElementById("input-account-recovery-username").value;
     console.log(firebase.auth().sendPasswordResetEmail(email));
+    return false;
 }
 
 

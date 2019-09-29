@@ -344,19 +344,25 @@
 
     </section>
     <section id="account-recovery" class="invisible">
-        <div id="container-account-recovery">
-            <img src="img/Logo.PNG" id="icono-sign-in">
-            <div class="input-account-recovery-div input-group flex-nowrap">
-                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail"
-                    aria-label="E-mail" aria-describedby="addon-wrapping">
+
+        <form class="form-group" onsubmit="return passwordRecovery()">
+            <div id="container-account-recovery">
+                <img src="img/Logo.PNG" id="icono-sign-in">
+                <div class="input-account-recovery-div input-group flex-nowrap">
+                    <input id="input-account-recovery-username" type="email" class="form-control" placeholder="E-mail"
+                        aria-label="E-mail" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="btn-account-recovery">
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('sign-in','account-recovery')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" >
+                        Recuperar</button>
+                </div>
             </div>
-            <div class="btn-account-recovery">
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('sign-in','account-recovery')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
-                    Recuperar</button>
-            </div>
-        </div>
+
+
+        </form>
+
     </section>
 
 
@@ -406,7 +412,7 @@
             <br>
         </div>
     </section>
-    <section id="account-recovery" class="invisible">
+    <!-- <section id="account-recovery" class="invisible">
         <div id="container-account-recovery">
             <img src="img/Logo.PNG" id="icono-sign-in">
             <div class="input-account-recovery-div input-group flex-nowrap">
@@ -416,11 +422,11 @@
             <div class="btn-account-recovery">
                 <button type="button" class="btn btn-secondary btn-sm"
                     onclick="changePage('sign-in','account-recovery')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
+                <button type="button" class="btn btn-secondary btn-sm">
                     Recuperar</button>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="update-truck" class="invisible">
         <div id="container-register">

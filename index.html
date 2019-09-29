@@ -157,7 +157,7 @@
                 <span id="title-register">TransCo</span>
             </div>
             <div class="input-group flex-nowrap">
-                <input type="file" id="files" name="files[]" multiple />
+                <input type="file" id="files" accept="image/*" name="files[]" multiple/>
             </div>
             <div class="input-group flex-nowrap">
                 <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
@@ -204,7 +204,7 @@
                 <br>
                 <p>Lugar de Origen</p>
                 <p id="size-string-travel">Departamento</p>
-                <div class="input-group flex-nowrap">
+                <div id="OriginDepto" class="input-group flex-nowrap">
                          
                         <select name="type" id="input-create-travel-departmento" class="form-control" 
                             aria-describedby="addon-wrapping">
@@ -295,22 +295,34 @@
                     </div>
 
                     <table>
+                            <thead>
                             <tr>
-                              <th>Comprobante</th>
-                              <th>Categoria</th>
-                              <th>Descripción</th>
-                              <th>Fecha</th>
-                              <th>Valor</th>
+                                    <th>Comprobante</th>
+                                    <th>Categoria</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha</th>
+                                    <th>Valor</th>
                             </tr>
-                            <tr id="full-value">
+                            </thead>
+                            <tbody>
+                            <tr>
                                     <td>img</td>
                                     <td>Mantenimiento</td>
                                     <td>Reparación motor</td>
                                     <td>15/09/2019</td>
                                     <td>1.500.000</td>
-                                    
-                                </tr>
-                    </table>
+                            </tr>
+                            <tr>
+                                    <td>img</td>
+                                    <td>Mantenimiento</td>
+                                    <td>Reparación motor</td>
+                                    <td>15/09/2019</td>
+                                    <td>1.500.000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                
                     <br>
                     
                     <div>

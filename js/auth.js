@@ -180,5 +180,6 @@ function singIn() {
         }
 
     });
+    return false;
 
 }

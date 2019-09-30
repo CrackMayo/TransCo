@@ -80,13 +80,17 @@ function btnLook(id, span) {
 function crearCamion() {
 
     var imagen = document.getElementById("files").files[0];
-    var placa = document.getElementById("input-create-truck-placa").value;
+    var placa = document.getElementById("input-create-truck-placa").value.toUpperCase();
     var marca = document.getElementById("input-create-truck-marca").value;
     var numEjes = document.getElementById("input-create-ejes").value;
     var numMaxToneladas = document.getElementById("input-create-truck-capacidad-carga").value;
-    var matriculaTrailer = document.getElementById("input-create-truck-matricula-trailer").value;
+    var matriculaTrailer = document.getElementById("input-create-truck-matricula-trailer").value.toUpperCase();
     var emailConductor = document.getElementById("emailConductor").value.toLowerCase();
     var km = document.getElementById("input-create-truck-kilometraje").value;
+
+    isPlate(placa);
+    isPlate(matriculaTrailer);
+    
 
     if (isFileImage(imagen)) {
         const usersRef = db.collection('accounts').doc(emailConductor);
@@ -367,4 +371,33 @@ function isFileImage(file) {
     return file && file['type'].split('/')[0] === 'image';
 }
 
+function isPlate(placa) {
+    let placaLetras = placa.substring(0, 3);
+    let placaNumeros = placa.substring(3, 6);
+    let letras = false;
+    let numerosP = false;
 
+    var letras_mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    var numeros = "0123456789";
+
+    for (i = 0; i < placaLetras.length; i++) {
+        if (letras_mayusculas.indexOf(placaLetras.charAt(i), 0) != -1) {
+            letras = true;
+        }else{
+            letras = false;
+            break;
+        }
+    }
+    for (i = 0; i < placaNumeros.length; i++) {
+        if (numeros.indexOf(placaNumeros.charAt(i), 0) != -1) {
+            numerosP= true;
+        }else{
+            numerosP = false;
+            break;
+        }
+    }
+
+    if(!numerosP || !letras){
+        alert("Alguna de las placas es incorrecta");
+    }
+}

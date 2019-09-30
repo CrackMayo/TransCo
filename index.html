@@ -100,7 +100,7 @@
 
             <div onclick="changePage('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has
                     olvidado tu contraseña?</span></div>
-            <div id="div-sign-up-link" onclick="changePage('register','sign-in')">
+            <div id="div-sign-up-link" onclick="changePage('register','sign-in'); cargarDepartamentos()">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
 
@@ -131,36 +131,59 @@
                         aria-label="Número celular" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="dropdown-register btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <span id="dropdown-register-text">Seleccionar Tipo Usuario</span>
-                    </button>
-                    <div class="dropdown-register dropdown-menu">
-                        <a class="dropdown-item" onclick="dropdownRegister('Conductor');">Conductor</a>
-                        <a class="dropdown-item" onclick="dropdownRegister('Propietario');">Propietario</a>
+                    <p>Seleccionar Tipo Usuario:</p>
+                    <div class="input-group flex-nowrap">
+
+                        <select name="type" id="select-register-rol" class="form-control"
+                            aria-describedby="addon-wrapping" required>
+                            <option></option>
+                            <option value="Conductor">Conductor</option>
+                            <option value="Propietario">Propietario</option>
+
+                        </select>
                     </div>
                 </div>
-                <div class="input-group flex-nowrap">
-                    <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
-                        aria-label="Contraseña" aria-describedby="addon-wrapping" required>
-                    <button type="button" class="btn-look btn btn-secondary"
-                        onclick="btnLook('input-register-password1', 'span-look-register1');">
-                        <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
+                <div class="dropdown-register btn-group">
+                    <p>Departamento:</p>
+                    <div class="input-group flex-nowrap">
+
+                        <select name="type" id="select-register-departaments" class="form-control"
+                            aria-describedby="addon-wrapping"  onchange="cargarMunicipios(this);" required>
+                            <option></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group flex-nowrap">
-                    <input id="input-register-password2" type="password" class="form-control"
-                        placeholder="Repita su contraseña" aria-label="Repita su contraseña"
-                        aria-describedby="addon-wrapping" required>
-                    <button type="button" class="btn-look btn btn-secondary"
-                        onclick="btnLook('input-register-password2', 'span-look-register2');">
-                        <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+                <div class="dropdown-register btn-group">
+                    <p>Municipio:</p>
+                    <div class="input-group flex-nowrap">
+
+                        <select name="type" id="select-register-municipality" class="form-control"
+                            aria-describedby="addon-wrapping" required>
+                            <option></option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <button type="button" class="btn btn-secondary btn-sm"
-                        onclick="changePage('sign-in','register')">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>
+                    <div class="input-group flex-nowrap">
+                        <input id="input-register-password1" type="password" class="form-control"
+                            placeholder="Contraseña" aria-label="Contraseña" aria-describedby="addon-wrapping" required>
+                        <button type="button" class="btn-look btn btn-secondary"
+                            onclick="btnLook('input-register-password1', 'span-look-register1');">
+                            <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="input-group flex-nowrap">
+                        <input id="input-register-password2" type="password" class="form-control"
+                            placeholder="Repita su contraseña" aria-label="Repita su contraseña"
+                            aria-describedby="addon-wrapping" required>
+                        <button type="button" class="btn-look btn btn-secondary"
+                            onclick="btnLook('input-register-password2', 'span-look-register2');">
+                            <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary btn-sm"
+                            onclick="changePage('sign-in','register')">Cancelar</button>
+                        <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>
+                    </div>
                 </div>
-            </div>
 
 
 

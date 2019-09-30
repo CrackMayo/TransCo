@@ -3,7 +3,7 @@ var idUsuario;
 
 function cargarDepartamentos() {
 
-    var departamentos = document.getElementById("departamentos");
+    var departamentos = document.getElementById("select-register-departaments");
 
 
     db.collection('departments').get().then(snapshot => {
@@ -16,8 +16,7 @@ function cargarDepartamentos() {
 }
 
 function cargarMunicipios(departamento) {
-
-    var municipios = document.getElementById("ciudades");
+    var municipios = document.getElementById("select-register-municipality");
     municipios.options.length = 0;
     db.collection('departments').doc(departamento.value).get().then(snap => {
 
@@ -71,7 +70,9 @@ function signUp() {
     const nombreUsuario = document.getElementById("input-register-name").value;
     const cedulaUsuario = document.getElementById("input-register-nip").value;
     const numeroCelular = document.getElementById("input-register-phone").value;
-    const tipoUsuario = document.getElementById("dropdown-register-text").innerHTML;
+    const tipoUsuario = document.getElementById("select-register-rol").value;
+    const departamentoUsuario = document.getElementById("select-register-departaments").value;
+    const municipioUsuario = document.getElementById("select-register-municipality").value;
     const password1 = document.getElementById("input-register-password1").value;
     const password2 = document.getElementById("input-register-password2").value;
 
@@ -90,6 +91,8 @@ function signUp() {
                     cedula: cedulaUsuario,
                     celular: numeroCelular,
                     rol: tipoUsuario,
+                    departamento: departamentoUsuario,
+                    municipio: municipioUsuario,
                     conVehiculo: false
                 }
             } else {
@@ -98,7 +101,9 @@ function signUp() {
                     nombre: nombreUsuario,
                     cedula: cedulaUsuario,
                     celular: numeroCelular,
-                    rol: tipoUsuario
+                    rol: tipoUsuario,
+                    departamento: departamentoUsuario,
+                    municipio: municipioUsuario
                 }
             }
 

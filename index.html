@@ -148,7 +148,7 @@
                     <div class="input-group flex-nowrap">
 
                         <select name="type" id="select-register-departaments" class="form-control"
-                            aria-describedby="addon-wrapping"  onchange="cargarMunicipios(this);" required>
+                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this);" required>
                             <option></option>
                         </select>
                     </div>
@@ -163,27 +163,27 @@
                         </select>
                     </div>
                 </div>
-                    <div class="input-group flex-nowrap">
-                        <input id="input-register-password1" type="password" class="form-control"
-                            placeholder="Contraseña" aria-label="Contraseña" aria-describedby="addon-wrapping" required>
-                        <button type="button" class="btn-look btn btn-secondary"
-                            onclick="btnLook('input-register-password1', 'span-look-register1');">
-                            <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
-                    </div>
-                    <div class="input-group flex-nowrap">
-                        <input id="input-register-password2" type="password" class="form-control"
-                            placeholder="Repita su contraseña" aria-label="Repita su contraseña"
-                            aria-describedby="addon-wrapping" required>
-                        <button type="button" class="btn-look btn btn-secondary"
-                            onclick="btnLook('input-register-password2', 'span-look-register2');">
-                            <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-secondary btn-sm"
-                            onclick="changePage('sign-in','register')">Cancelar</button>
-                        <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>
-                    </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-password1" type="password" class="form-control" placeholder="Contraseña"
+                        aria-label="Contraseña" aria-describedby="addon-wrapping" required>
+                    <button type="button" class="btn-look btn btn-secondary"
+                        onclick="btnLook('input-register-password1', 'span-look-register1');">
+                        <span id="span-look-register1" class="far fa-eye" aria-hidden="true"></span></button>
                 </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-password2" type="password" class="form-control"
+                        placeholder="Repita su contraseña" aria-label="Repita su contraseña"
+                        aria-describedby="addon-wrapping" required>
+                    <button type="button" class="btn-look btn btn-secondary"
+                        onclick="btnLook('input-register-password2', 'span-look-register2');">
+                        <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('sign-in','register')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>
+                </div>
+            </div>
 
 
 
@@ -195,43 +195,48 @@
                 <img src="img/Logo.PNG" id="icono-register">
                 <span id="title-register">TransCo</span>
             </div>
-            <div class="input-group flex-nowrap">
-                <input type="file" id="files" accept="image/*" name="files[]" multiple />
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
-                    aria-label="Placa" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
-                    aria-label="Marca" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes"
-                    aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
-                    placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-truck-matricula-trailer" type="text" class="form-control"
-                    placeholder="Matricula del trailer" aria-label="Matricula del trailer"
-                    aria-describedby="addon-wrapping">
-            </div>
-            <div class="dropdown-register btn-group">
-                <input id="emailConductor" type="text" class="form-control" placeholder="Correo Conductor"
-                    aria-label="Correo Conductor" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje"
-                    aria-label="Kilometraje" aria-describedby="addon-wrapping">
-            </div>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','create-truck')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="crearCamion();">Crear</button>
-            </div>
+            <form onsubmit=" return crearCamion()">
+                <div class="input-group flex-nowrap">
+                    <input type="file" id="files" accept="image/*" name="files[]" multiple />
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
+                        aria-label="Placa" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
+                        aria-label="Marca" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes"
+                        aria-label="Ejes" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
+                        placeholder="Capacidad de carga" aria-label="Capacidad de carga"
+                        aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-truck-matricula-trailer" type="text" class="form-control"
+                        placeholder="Matricula del trailer" aria-label="Matricula del trailer"
+                        aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="dropdown-register btn-group">
+                    <input id="emailConductor" type="email" class="form-control" placeholder="Correo Conductor"
+                        aria-label="Correo Conductor" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-truck-kilometraje" type="number" class="form-control"
+                        placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping" required>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('section-initial-page','create-truck')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Crear</button>
+                </div>
+
+            </form>
+
         </div>
     </section>
 

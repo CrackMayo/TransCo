@@ -10,7 +10,7 @@ function userDataLogin(userId) {
             document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
             for (let i = 0; i < navElements.length; i++) {
-                navElements[i].classList.add("invisible","font-invisible");
+                navElements[i].classList.add("invisible", "font-invisible");
             }
 
         } else {
@@ -18,7 +18,7 @@ function userDataLogin(userId) {
             document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
             for (let i = 0; i < navElements.length; i++) {
-                navElements[i].classList.remove("invisible","font-invisible");
+                navElements[i].classList.remove("invisible", "font-invisible");
             }
         }
 
@@ -33,7 +33,7 @@ function openNav(section) {
 /* Set the width of the side navigation to 0 */
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
-} 
+}
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav(section) {
@@ -89,7 +89,6 @@ function crearCamion() {
     var km = document.getElementById("input-create-truck-kilometraje").value;
 
     const usersRef = db.collection('accounts').doc(emailConductor);
-    console.log(emailConductor);
     usersRef.get()
         .then((docSnapshot) => {
             if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
@@ -108,7 +107,11 @@ function crearCamion() {
                 //Create Truck Owner
                 db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
 
-                    uploadImageTruck(imagen, placa);
+                    if (imagen != null) {
+                        uploadImageTruck(imagen, placa);
+                    } else {
+                        setDefaultImagen(placa);
+                    }
 
 
                 }).catch(function (error) {
@@ -125,12 +128,15 @@ function crearCamion() {
 
                 }
 
-                console.log(dataDrivers);
-
                 db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
 
-                    uploadImageTruck(imagen, placa);
-
+                    // if(imagen != null){
+                    //     uploadImageTruck(imagen, placa);
+                    // }else {
+                    //     var imagenDefault = new Image();
+                    //     imagenDefault.src = 'img/defaultTruck.jpg';
+                    //     uploadImageTruck(imagenDefault, placa);
+                    // }
 
                 }).catch(function (error) {
                     console.error("Error: ", error);
@@ -142,7 +148,7 @@ function crearCamion() {
         })
 
 
-
+    return false;
 }
 
 
@@ -154,32 +160,32 @@ function getDriverTruck() {
         let truck = snap.data().vehiculo;
         db.collection('accounts').doc(boss).collection('camiones').doc(truck).get().then(child => {
 
-                lista.innerHTML = lista.innerHTML + "<li id='" + child.id + "'>" + "<div class='tab-content' id='myTabContent'>" +
-                    "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
-                    "<div class='container-fluid'>" +
-                    "<div class='card post mt-4'>" +
-                    "<div class='card-footer'>" +
-                    "<center>" + "<p id='placaCabezote' class='post-text'>" + "<span class='ht'>" + "Placa Cabezote: " + "</span>"
-                    + "" + child.id + "" + "</p>" + "</center>"
-                    + "</div>" +
-                    "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
-                    "<div class='card-body'>" +
-                    "<div class='action-btns'>" +
-                    "<center>" + "<span>" +
-                    "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
-                    "</span>" + "</center>" +
-                    "</div>" +
-                    "</div>" +
-                    "<div class='card-footer'>" +
-                    "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
-                    + "" + child.data().capacidadCarga + "" + "</p>" +
-                    "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
-                    + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
-                    "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
-                    "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
-                    "</div>" +
-                    "</div>" +
-                    "</li>"
+            lista.innerHTML = lista.innerHTML + "<li id='" + child.id + "'>" + "<div class='tab-content' id='myTabContent'>" +
+                "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
+                "<div class='container-fluid'>" +
+                "<div class='card post mt-4'>" +
+                "<div class='card-footer'>" +
+                "<center>" + "<p id='placaCabezote' class='post-text'>" + "<span class='ht'>" + "Placa Cabezote: " + "</span>"
+                + "" + child.id + "" + "</p>" + "</center>"
+                + "</div>" +
+                "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
+                "<div class='card-body'>" +
+                "<div class='action-btns'>" +
+                "<center>" + "<span>" +
+                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
+                "</span>" + "</center>" +
+                "</div>" +
+                "</div>" +
+                "<div class='card-footer'>" +
+                "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
+                + "" + child.data().capacidadCarga + "" + "</p>" +
+                "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
+                + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
+                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
+                "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
+                "</div>" +
+                "</div>" +
+                "</li>"
 
         })
     });
@@ -242,8 +248,6 @@ function uploadImageTruck(imagen, placa) {
 
     //dynamically set reference to the file name
     var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
-
-    console.log(thisRef);
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -333,6 +337,27 @@ function updateTruck() {
     changePage('section-initial-page', 'update-truck');
 
     obtenerCamion();
+
+
+
+}
+
+
+function setDefaultImagen(placa) {
+
+    let url = "https://firebasestorage.googleapis.com/v0/b/transco-app.appspot.com/o/defaultImages%2FdefaultTruck.jpg?alt=media&token=693a652c-bfce-422d-a942-0daec69aab26";
+
+    db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).update({ "imagenCamion": url })
+        .then(function () {
+            console.log("Document successfully updated!");
+            changePage('section-initial-page', 'create-truck');
+            obtenerCamion();
+
+        }).catch(function (error) {
+
+            console.log(error);
+        });
+
 
 
 

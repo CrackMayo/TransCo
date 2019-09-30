@@ -88,64 +88,63 @@ function crearCamion() {
     var emailConductor = document.getElementById("emailConductor").value.toLowerCase();
     var km = document.getElementById("input-create-truck-kilometraje").value;
 
-    const usersRef = db.collection('accounts').doc(emailConductor);
-    usersRef.get()
-        .then((docSnapshot) => {
-            if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
+    if (isFileImage(imagen)) {
+        const usersRef = db.collection('accounts').doc(emailConductor);
+        usersRef.get()
+            .then((docSnapshot) => {
+                if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
 
-                const truck = {
-                    placaCabezote: placa,
-                    marcaCabezote: marca,
-                    numeroEjes: numEjes,
-                    capacidadCarga: numMaxToneladas,
-                    placaTrailer: matriculaTrailer,
-                    conductorActual: emailConductor,
-                    kilometraje: km,
+                    const truck = {
+                        placaCabezote: placa,
+                        marcaCabezote: marca,
+                        numeroEjes: numEjes,
+                        capacidadCarga: numMaxToneladas,
+                        placaTrailer: matriculaTrailer,
+                        conductorActual: emailConductor,
+                        kilometraje: km,
 
-                }
-
-                //Create Truck Owner
-                db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
-
-                    if (imagen != null) {
-                        uploadImageTruck(imagen, placa);
-                    } else {
-                        setDefaultImagen(placa);
                     }
 
+                    //Create Truck Owner
+                    db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
 
-                }).catch(function (error) {
-                    console.error("Error: ", error);
-                });
-
-                //Update Trucks drivers
-
-                dataDrivers = {
-                    conVehiculo: true,
-                    vehiculo: truck.placaCabezote,
-                    jefe: idUsuario
+                        if (imagen != null) {
+                            uploadImageTruck(imagen, placa);
+                        } else {
+                            setDefaultImagen(placa);
+                        }
 
 
+                    }).catch(function (error) {
+                        console.error("Error: ", error);
+                    });
+
+                    //Update Trucks drivers
+
+                    dataDrivers = {
+                        conVehiculo: true,
+                        vehiculo: truck.placaCabezote,
+                        jefe: idUsuario
+
+
+                    }
+
+                    db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
+
+
+                    }).catch(function (error) {
+                        console.error("Error: ", error);
+                    });
+
+                } else {
+                    console.log("Conductor no disponible");
                 }
+            })
+    } else {
+        alert("Se debe seleccionar una imagen.");
+    }
 
-                db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
 
-                    // if(imagen != null){
-                    //     uploadImageTruck(imagen, placa);
-                    // }else {
-                    //     var imagenDefault = new Image();
-                    //     imagenDefault.src = 'img/defaultTruck.jpg';
-                    //     uploadImageTruck(imagenDefault, placa);
-                    // }
-
-                }).catch(function (error) {
-                    console.error("Error: ", error);
-                });
-
-            } else {
-                console.log("Conductor no disponible");
-            }
-        })
 
 
     return false;
@@ -361,6 +360,11 @@ function setDefaultImagen(placa) {
 
 
 
+}
+
+
+function isFileImage(file) {
+    return file && file['type'].split('/')[0] === 'image';
 }
 
 

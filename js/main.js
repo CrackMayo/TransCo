@@ -189,7 +189,9 @@ function obtenerCamion() {
                 "<div class='card-body'>" +
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
-                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
+                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Modificar" + "</span>" +
+                "</span>" +  "<span>" +
+                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
                 "</div>" +
@@ -251,6 +253,12 @@ function uploadImageTruck(imagen, placa) {
 
     });
 
+}
+function viewTruck(){
+    changePage('view-truck', 'section-initial-page');
+}
+function changeLegalization(){
+    changePage('create-travel', 'view-truck');
 }
 
 function loadTruck(placa) {

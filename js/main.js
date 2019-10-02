@@ -88,64 +88,79 @@ function crearCamion() {
     var emailConductor = document.getElementById("emailConductor").value.toLowerCase();
     var km = document.getElementById("input-create-truck-kilometraje").value;
 
-    isPlate(placa);
-    isPlate(matriculaTrailer);
-    
 
-    if (isFileImage(imagen)) {
-        const usersRef = db.collection('accounts').doc(emailConductor);
-        usersRef.get()
-            .then((docSnapshot) => {
-                if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
+    if (!isPlate(placa)) {
+        alert("La placa del cabezote no cumple con su respectivo formato");
+    } else if (!isPlate(matriculaTrailer)) {
+        alert("La placa del trailer no cumple con su respectivo formato");
+    } else {
+        if (isFileImage(imagen)) {
+            const usersRef = db.collection('accounts').doc(emailConductor);
+            usersRef.get()
+                .then((docSnapshot) => {
+                    if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
 
-                    const truck = {
-                        placaCabezote: placa,
-                        marcaCabezote: marca,
-                        numeroEjes: numEjes,
-                        capacidadCarga: numMaxToneladas,
-                        placaTrailer: matriculaTrailer,
-                        conductorActual: emailConductor,
-                        kilometraje: km,
+                        const truck = {
+                            placaCabezote: placa,
+                            marcaCabezote: marca,
+                            numeroEjes: numEjes,
+                            capacidadCarga: numMaxToneladas,
+                            placaTrailer: matriculaTrailer,
+                            conductorActual: emailConductor,
+                            kilometraje: km,
 
-                    }
-
-                    //Create Truck Owner
-                    db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
-
-                        if (imagen != null) {
-                            uploadImageTruck(imagen, placa);
-                        } else {
-                            setDefaultImagen(placa);
                         }
 
+                        //Create Truck Owner
+                        const ownerRef = db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa);
+                        ownerRef.get()
+                            .then((docSnapshot) => {
+                                if (docSnapshot.exists) {
+                                    alert("Ya existe un vehículo con la placa cabezote ingresada")
+                                    return;
+                                } else {
+                                    ownerRef.set(truck).then(function () {
 
-                    }).catch(function (error) {
-                        console.error("Error: ", error);
-                    });
-
-                    //Update Trucks drivers
-
-                    dataDrivers = {
-                        conVehiculo: true,
-                        vehiculo: truck.placaCabezote,
-                        jefe: idUsuario
+                                        if (imagen != null) {
+                                            uploadImageTruck(imagen, placa);
+                                        } else {
+                                            setDefaultImagen(placa);
+                                        }
 
 
+                                    }).catch(function (error) {
+                                        console.error("Error: ", error);
+                                    });
+
+                                    //Update Trucks drivers
+
+                                    dataDrivers = {
+                                        conVehiculo: true,
+                                        vehiculo: truck.placaCabezote,
+                                        jefe: idUsuario
+
+
+                                    }
+
+                                    db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
+
+
+                                    }).catch(function (error) {
+                                        console.error("Error: ", error);
+                                    });
+                                }
+                            })
+
+
+
+                    } else {
+                        console.log("Conductor no disponible");
                     }
+                })
+        } else {
+            alert("Se debe seleccionar un archivo tipo imagen.");
+        }
 
-                    db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
-
-
-                    }).catch(function (error) {
-                        console.error("Error: ", error);
-                    });
-
-                } else {
-                    console.log("Conductor no disponible");
-                }
-            })
-    } else {
-        alert("Se debe seleccionar una imagen.");
     }
 
 
@@ -316,7 +331,7 @@ function updateTruck() {
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
 
-
+    isPlate(updateElements[4].value);
 
     const truck = {
         marcaCabezote: updateElements[1].value,
@@ -331,6 +346,7 @@ function updateTruck() {
 
     db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
         console.log("Actualizado");
+        changePage('section-initial-page', 'update-truck');
     }).catch(function (error) {
         console.error("Error: ", error);
     });
@@ -341,7 +357,7 @@ function updateTruck() {
 
     obtenerCamion();
 
-
+    return false;
 
 }
 
@@ -368,7 +384,15 @@ function setDefaultImagen(placa) {
 
 
 function isFileImage(file) {
-    return file && file['type'].split('/')[0] === 'image';
+
+    if (!file) {
+        return true;
+    } else if (file['type'].split('/')[0] === 'image') {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function isPlate(placa) {
@@ -383,21 +407,23 @@ function isPlate(placa) {
     for (i = 0; i < placaLetras.length; i++) {
         if (letras_mayusculas.indexOf(placaLetras.charAt(i), 0) != -1) {
             letras = true;
-        }else{
+        } else {
             letras = false;
             break;
         }
     }
     for (i = 0; i < placaNumeros.length; i++) {
         if (numeros.indexOf(placaNumeros.charAt(i), 0) != -1) {
-            numerosP= true;
-        }else{
+            numerosP = true;
+        } else {
             numerosP = false;
             break;
         }
     }
 
-    if(!numerosP || !letras){
-        alert("Alguna de las placas es incorrecta");
+    if (!numerosP || !letras) {
+        return false;
+    } else {
+        return true;
     }
 }

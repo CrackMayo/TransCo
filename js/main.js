@@ -410,3 +410,38 @@ function isPlate(placa) {
         alert("Alguna de las placas es incorrecta");
     }
 }
+
+
+
+function createSettlement(){
+
+let departOriginL = document.getElementById("input-create-travel-departmento").value;
+let cityOriginL = document.getElementById("input-create-travel-cityo").value;
+let departDestinL = document.getElementById("input-create-travel-departmentd").value;
+let cityDestinL = document.getElementById("input-create-travel-cityd").value;
+let dateTravelL = document.getElementById("input-create-travel-dateout").value;
+let companyL = document.getElementById("input-create-travel-description").value;
+let freightL = document.getElementById("input-create-travel-amoung").value;
+let advanceL = document.getElementById("input-create-travel-output").value;
+let nTonsL = document.getElementById("input-create-travel-weight").value;
+
+changePage('create-balance','create-travel');
+
+let city1Elem = document.getElementById("city1");
+let city2Elem = document.getElementById("city2");
+let date1Elem = document.getElementById("date1");
+let companyElem = document.getElementById("company");
+let advanceElem = document.getElementById("advance");
+let weigthElem = document.getElementById("weigth");
+
+city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
+city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
+date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
+companyElem.innerHTML = companyElem.innerHTML + companyL;
+advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
+weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
+
+
+
+    return false;
+}

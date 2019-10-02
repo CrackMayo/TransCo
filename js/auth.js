@@ -1,9 +1,9 @@
 var idUsuario;
 
 
-function cargarDepartamentos() {
+function cargarDepartamentos(idElemDep) {
 
-    var departamentos = document.getElementById("select-register-departaments");
+    var departamentos = document.getElementById(idElemDep);
 
 
     db.collection('departments').get().then(snapshot => {
@@ -15,8 +15,8 @@ function cargarDepartamentos() {
     })
 }
 
-function cargarMunicipios(departamento) {
-    var municipios = document.getElementById("select-register-municipality");
+function cargarMunicipios(departamento,idElemCity) {
+    var municipios = document.getElementById(idElemCity);
     municipios.options.length = 0;
     db.collection('departments').doc(departamento.value).get().then(snap => {
 

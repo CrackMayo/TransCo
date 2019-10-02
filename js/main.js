@@ -4,22 +4,31 @@ function userDataLogin(userId) {
 
     db.collection('accounts').doc(userId).get().then(snap => {
         var rol = snap.data().rol;
+        let conVehiculo = snap.data().conVehiculo;
+        var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
+        document.getElementById("createTruck2"), document.getElementById("createTruck1"),
+        document.getElementById("createTravel1"),document.getElementById("createTravel2")];
 
         if (rol === "Conductor") {
-            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
-            for (let i = 0; i < navElements.length; i++) {
+
+            for (let i = 0; i < navElements.length - 1; i++) {
                 navElements[i].classList.add("invisible", "font-invisible");
             }
 
-        } else {
-            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
+            if (!conVehiculo) {
+                navElements[4].classList.add("invisible", "font-invisible");
+                navElements[5].classList.add("invisible", "font-invisible");
+            }
 
-            for (let i = 0; i < navElements.length; i++) {
+        } else {
+
+            for (let i = 0; i < navElements.length - 1; i++) {
                 navElements[i].classList.remove("invisible", "font-invisible");
             }
+
+            navElements[4].classList.add("invisible", "font-invisible");
+            navElements[5].classList.add("invisible", "font-invisible");
         }
 
     });
@@ -90,7 +99,7 @@ function crearCamion() {
 
     isPlate(placa);
     isPlate(matriculaTrailer);
-    
+
 
     if (isFileImage(imagen)) {
         const usersRef = db.collection('accounts').doc(emailConductor);
@@ -383,21 +392,21 @@ function isPlate(placa) {
     for (i = 0; i < placaLetras.length; i++) {
         if (letras_mayusculas.indexOf(placaLetras.charAt(i), 0) != -1) {
             letras = true;
-        }else{
+        } else {
             letras = false;
             break;
         }
     }
     for (i = 0; i < placaNumeros.length; i++) {
         if (numeros.indexOf(placaNumeros.charAt(i), 0) != -1) {
-            numerosP= true;
-        }else{
+            numerosP = true;
+        } else {
             numerosP = false;
             break;
         }
     }
 
-    if(!numerosP || !letras){
+    if (!numerosP || !letras) {
         alert("Alguna de las placas es incorrecta");
     }
 }

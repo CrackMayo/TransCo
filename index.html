@@ -31,8 +31,10 @@
                         <a class="nav-link" onclick="changePage('create-balance','section-initial-page');">
                             Balance general</a>
                     </li>
-                    <li id="createTravel" class="nav-item">
-                        <a class="nav-link" onclick="changePage('create-travel','section-initial-page');">
+                    <li id="createTravel1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','section-initial-page');
+                        cargarDepartamentos('input-create-travel-departmento');
+                        cargarDepartamentos('input-create-travel-departmentd')">
                             Crear Viaje</a>
                     </li>
                     <li id="createTruck1" class="nav-item">
@@ -65,6 +67,11 @@
                 id="createTruck2">Crear vehículo</span>
             <span class="span_sidenav" onclick="closeNav('main_menu');" id="generalBalance2">Balance general</span>
             <div class="line_menu"></div>
+            <span class="span_sidenav"
+                onclick="changePage('create-travel','section-initial-page');closeNav('main_menu');
+                cargarDepartamentos('input-create-travel-departmento');
+                cargarDepartamentos('input-create-travel-departmentd')"
+                id="createTravel2">Crear Viaje</span>
             <span class="span_sidenav" onclick="logOut();closeNav('main_menu');">Log out</span>
         </div>
         <div id="main_main_menu">
@@ -100,7 +107,7 @@
 
             <div onclick="changePage('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has
                     olvidado tu contraseña?</span></div>
-            <div id="div-sign-up-link" onclick="changePage('register','sign-in'); cargarDepartamentos()">
+            <div id="div-sign-up-link" onclick="changePage('register','sign-in'); cargarDepartamentos('select-register-departaments')">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
 
@@ -148,7 +155,7 @@
                     <div class="input-group flex-nowrap">
 
                         <select name="type" id="select-register-departaments" class="form-control"
-                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this);" required>
+                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'select-register-municipality');" required>
                             <option></option>
                         </select>
                     </div>
@@ -251,8 +258,8 @@
             <div id="OriginDepto" class="input-group flex-nowrap">
 
                 <select name="type" id="input-create-travel-departmento" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
+                    aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'input-create-travel-cityo');">
+                    <option></option>
                 </select>
             </div>
             <p id="size-string-travel">Municipio</p>
@@ -260,7 +267,6 @@
 
                 <select name="type" id="input-create-travel-cityo" class="form-control"
                     aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
                 </select>
             </div>
             <br><br>
@@ -269,15 +275,14 @@
             <div class="input-group flex-nowrap">
 
                 <select name="type" id="input-create-travel-departmentd" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
+                    aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'input-create-travel-cityd');">
+                    <option></option>
                 </select>
             </div>
             <p id="size-string-travel">Municipio</p>
             <div class="input-group flex-nowrap">
                 <select name="type" id="input-create-travel-cityd" class="form-control"
                     aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
                 </select>
             </div>
             <br>

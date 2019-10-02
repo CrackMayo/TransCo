@@ -331,31 +331,35 @@ function updateTruck() {
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
 
-    isPlate(updateElements[4].value);
+    if (!isPlate(updateElements[4].value)) {
+        alert("La placa del trailer no cumple con su respectivo formato");
+    } else {
+        const truck = {
+            marcaCabezote: updateElements[1].value,
+            numeroEjes: updateElements[2].value,
+            capacidadCarga: updateElements[3].value,
+            placaTrailer: updateElements[4].value,
+            kilometraje: updateElements[5].value,
 
-    const truck = {
-        marcaCabezote: updateElements[1].value,
-        numeroEjes: updateElements[2].value,
-        capacidadCarga: updateElements[3].value,
-        placaTrailer: updateElements[4].value,
-        kilometraje: updateElements[5].value,
+        }
+
+
+
+        db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
+            console.log("Actualizado");
+            changePage('section-initial-page', 'update-truck');
+        }).catch(function (error) {
+            console.error("Error: ", error);
+        });
+
+        alert("Datos Actualizado");
+
+        changePage('section-initial-page', 'update-truck');
+
+        obtenerCamion();
+
 
     }
-
-
-
-    db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
-        console.log("Actualizado");
-        changePage('section-initial-page', 'update-truck');
-    }).catch(function (error) {
-        console.error("Error: ", error);
-    });
-
-    alert("Datos Actualizado");
-
-    changePage('section-initial-page', 'update-truck');
-
-    obtenerCamion();
 
     return false;
 

@@ -121,6 +121,18 @@
 [0930/155505.646:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0930/155505.649:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0930/155505.650:ERROR:crash_report_database_win.cc(469)] failed to stat report
+<<<<<<< HEAD
 [1002/093128.897:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1002/093128.897:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1002/093128.897:ERROR:crash_report_database_win.cc(469)] failed to stat report
+=======
+[1002/093246.898:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/093246.898:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/093246.898:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/101659.446:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/101659.446:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/101659.446:ERROR:crash_report_database_win.cc(469)] failed to stat report
+>>>>>>> FormsValidations
+[1002/115133.733:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/115133.734:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1002/115133.734:ERROR:crash_report_database_win.cc(469)] failed to stat report

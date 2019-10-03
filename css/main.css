@@ -223,6 +223,12 @@ section {
 #legalization-tolls{
     padding: 240px 0 0 0;
 }
+#legalization-fuel{
+    padding: 240px 0 0 0;
+}
+#legalization-parking{
+    padding: 240px 0 0 0;
+}
 .allListItms{
     width: 100%;
     float: left;
@@ -284,7 +290,7 @@ ul.allCard li .buttons button{
     width: 50px;
     height: 50px;
     float: left;
-    position: relative;
+    position: absolute;
     background: none;
     border: 0px;
     box-shadow: none;
@@ -309,12 +315,6 @@ ul.allCard li .buttons button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard li .buttons button.complete svg{
-    border-radius: 11px;
-    border: 1.5px solid orange;
-
-    transition: background-color 0.2s ease;
-}
 ul.allCard li .buttons button svg .fill{
     transition: fill 0.2s ease;
 }
@@ -324,6 +324,198 @@ ul.allCard li .buttons button.remove svg .fill{
 ul.allCard li .buttons button.remove:hover svg .fill{
     fill:#e85656;
 }
+
+
+
+.headerToDo1{
+    width:100%;
+    height: 244px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.headerToDo1 #inputCount1{
+    width: 100%;
+    height: 50px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0; 
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+
+}
+.headerToDo1 button{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 71%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+
+}
+.headerToDo1 button svg{
+    width: 16px;
+    height: 16px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+.headerToDo1 button svg .fill{
+    fill: orange;
+}
+#image-tolls1{
+    margin: auto;
+    display: block;
+}
+#select-file1{
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -18px;
+    top: -10px;
+    background:transparent;
+}
+#title-tolls1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+#select-file1 #file-tolls1{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+#legalization-fuel{
+    padding: 240px 0 0 0;
+}
+.allListItms1{
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+.allCard1{
+    width: 100%;
+    float: left;
+
+}
+ul.allCard1 li{
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;    
+}
+ul.allCard1 li:last-of-type{
+    margin: 0;
+}
+ul.allCard1 li .buttons1{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+ul.allCard1 li .contentCard1{
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top:0px;
+    left: 0;
+}
+ul.allCard1 li .contentCard1 .imageBasic1{
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/basicImage.png');
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+ul.allCard1 li .contentCard1 .valueBasic1{
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+ul.allCard1 li .buttons1 button{
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+ul.allCard1 li .buttons1 button:last-of-type:before{
+content: '';
+width: 1px;
+height: 30px;
+position: absolute;
+top: 10px;
+left: 0;
+background: #edf0f1;
+}
+ul.allCard1 li .buttons1 button svg{
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+ul.allCard1 li .buttons1 button svg .fill{
+    transition: fill 0.2s ease;
+}
+ul.allCard1 li .buttons1 button.remove1 svg .fill{
+    fill:#c0cecb;
+}
+ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
+    fill:#e85656;
+}
+
+
+
 .float{
 	position:fixed;
 	width:40px;

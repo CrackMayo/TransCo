@@ -142,6 +142,9 @@ section {
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
+.noFill{
+    fill: none;
+}
 .headerToDo #inputCount{
     width: 100%;
     height: 50px;
@@ -176,6 +179,7 @@ section {
     border: 0px;
     box-shadow: none;
     outline: none;
+    cursor: pointer;
 
 }
 .headerToDo button svg{
@@ -185,6 +189,9 @@ section {
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
+}
+.headerToDo button svg .fill{
+    fill: orange;
 }
 #image-tolls{
     margin: auto;
@@ -214,7 +221,12 @@ section {
 
 }
 #legalization-tolls{
-    padding: 270px 0 0 0;
+    padding: 240px 0 0 0;
+}
+.allListItms{
+    width: 100%;
+    float: left;
+    padding: 15px;
 }
 .allCard{
     width: 100%;
@@ -223,8 +235,94 @@ section {
 }
 ul.allCard li{
     width: 100%;
+    min-height: 50px;
     float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;    
+}
+ul.allCard li:last-of-type{
+    margin: 0;
+}
+ul.allCard li .imageBasic{
+    width: 100px;
+    height: 100px;
+}
+ul.allCard li .buttons{
+    width: 100px;
     height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+ul.allCard li .buttons button{
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: relative;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+ul.allCard li .buttons button:last-of-type:before{
+content: '';
+width: 1px;
+height: 30px;
+position: absolute;
+top: 10px;
+left: 0;
+background: #edf0f1;
+}
+ul.allCard li .buttons button svg{
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+ul.allCard li .buttons button.complete svg{
+    border-radius: 11px;
+    border: 1.5px solid orange;
+
+    transition: background-color 0.2s ease;
+}
+ul.allCard#completed li .buttons button.complete svg{
+    background: orange;
+    border: 0px;
+
+    
+}
+ul.allCard:not(#completed) li .buttons button.complete:hover svg{
+    background: rgba(243, 172, 19, 0.75);
+}
+ul.allCard:not(#completed) li .buttons button.complete:hover svg .fill{
+    fill: #fff;
+}
+ul.allCard#completed li .buttons button.complete svg .fill{
+    fill: #fff;
+}
+ul.allCard li .buttons button svg .fill{
+    transition: fill 0.2s ease;
+}
+ul.allCard li .buttons button.remove svg .fill{
+    fill:#c0cecb;
+}
+ul.allCard li .buttons button.remove:hover svg .fill{
+    fill:#e85656;
+}
+ul.allCard li .buttons button.complete svg .fill{
+    fill:orange;
 }
 .nav-link {
     padding: 0rem 1rem !important;

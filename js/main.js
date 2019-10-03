@@ -125,10 +125,8 @@ function crearCamion() {
 }
 
 document.getElementById('add').addEventListener('click',function(){
-    var image=document.getElementById('file-tolls').value;
     var value=document.getElementById('item').value;
 });
-
 function getDriverTruck() {
     let lista = document.getElementById("listaCamiones");
     lista.innerHTML = "";

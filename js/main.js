@@ -526,7 +526,30 @@ function accountInfo() {
     cityInfo.innerHTML = cityInfo.innerHTML + city;
     departamentInfo.innerHTML = departamentInfo.innerHTML + departament;
 
-    phoneUpdate.innerHTML = phoneUpdate.innerHTML + phoneInfo;
+    phoneUpdate.value = phone;
+}
+
+function accountUpdateInfo(fase) {
+    let selectDepartament = document.getElementById("select-account-departaments");
+    let selectCitys = document.getElementById("select-account-municipality");
+    console.log(selectDepartament.length);
+    if (fase === 1) {
+        for (let i = 0; i < selectDepartament.length; i++) {
+            if (departament === selectDepartament[i].value) {
+                selectDepartament.selectedIndex = i;
+                cargarMunicipios(selectDepartament, 'select-account-municipality');
+            }
+        }
+    } else {
+        console.log(selectCitys.length);
+        for (let i = 0; i < selectCitys.length; i++) {
+            if (city === selectCitys[i].value) {
+                selectCitys.selectedIndex = i;
+            }
+        }
+    }
+
+
 
 
 }

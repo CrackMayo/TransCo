@@ -11,7 +11,12 @@ function cargarDepartamentos(idElemDep) {
         snapshot.forEach(function (child) {
             var departamento = child.id;
             departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
+            
         });
+        if(idElemDep ==="select-account-departaments"){
+            accountUpdateInfo(1);
+        }
+        
     })
 }
 
@@ -23,6 +28,9 @@ function cargarMunicipios(departamento, idElemCity) {
         var municipio = snap.data();
         for (let i in municipio) {
             municipios.options[municipios.options.length] = new Option(municipio[i], municipio[i]);
+        }
+        if(idElemCity ==="select-account-municipality"){
+            accountUpdateInfo(2);
         }
     });
 }

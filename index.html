@@ -28,7 +28,7 @@
                             Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li id="generalBalance1" class="nav-item">
-                        <a class="nav-link" onclick="changePage('account','section-initial-page');">
+                        <a class="nav-link" onclick="changePage('account','section-initial-page');accountInfo();">
                             Cuenta</a>
                     </li>
                     <li id="generalBalance1" class="nav-item">
@@ -65,7 +65,7 @@
             <img src="img/Logo.PNG" id="menu-icon" alt="logo">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="changePage('account','section-initial-page');closeNav('main_menu');">Cuenta</span>
+            <span class="span_sidenav" onclick="changePage('account','section-initial-page');closeNav('main_menu');accountInfo();">Cuenta</span>
             <span class="span_sidenav"
                 onclick="changePage('create-truck','section-initial-page');closeNav('main_menu');"
                 id="createTruck2">Crear vehículo</span>
@@ -567,20 +567,20 @@
                     <img src="img/profile picture.png" id="img_profile_account" alt="profile">
                 </div>  
                 <div id="div_info_account">
-                    <a onclick="editAccount(true);"><img src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
-                    <span class="span_info_account">Nombre: </span>
+                    <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments');"><img src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
+                    <span id="nameInfo" class="span_info_account">Nombre: </span>
                     <br>
-                    <span class="span_info_account">Correo: </span>
+                    <span id="emailInfo" class="span_info_account">Correo: </span>
                     <br>
-                    <span class="span_info_account">Telefono: </span>
+                    <span id="phoneInfo" class="span_info_account">Telefono: </span>
                     <br>
-                    <span class="span_info_account">NIP: </span>
+                    <span id="nipInfo" class="span_info_account">NIP: </span>
                     <br>
-                    <span class="span_info_account">Tipo de cuenta: </span>
+                    <span id="typeAccInfo" class="span_info_account">Tipo de cuenta: </span>
                     <br>
-                    <span class="span_info_account">Ciudad: </span>
+                    <span id="cityInfo" class="span_info_account">Ciudad: </span>
                     <br>
-                    <span class="span_info_account">Departamento: </span>
+                    <span id="departamentInfo" class="span_info_account">Departamento: </span>
                 </div>
             </div>
         </div>        
@@ -603,8 +603,8 @@
                 <div class="dropdown-register btn-group">
                     <p>Departamento:</p>
                     <div class="input-group flex-nowrap">
-                        <select name="type" id="select-register-departaments" class="form-control"
-                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this);" required>
+                        <select name="type" id="select-account-departaments" class="form-control"
+                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'select-account-municipality');" required>
                             <option></option>
                         </select>
                     </div>
@@ -612,7 +612,7 @@
                 <div class="dropdown-register btn-group">
                     <p>Municipio:</p>
                     <div id="dropdown_account" class="input-group flex-nowrap">
-                        <select name="type" id="select-register-municipality" class="form-control"
+                        <select name="type" id="select-account-municipality" class="form-control"
                             aria-describedby="addon-wrapping" required>
                             <option></option>
                         </select>

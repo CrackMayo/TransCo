@@ -1,15 +1,35 @@
+var name;
+var email;
+var phone;
+var nip;
+var typeAccount;
+var city;
+var departament;
+
 function userDataLogin(userId) {
     let lista = document.getElementById("listaCamiones");
     lista.innerHTML = "";
 
-    db.collection('accounts').doc(userId).get().then(snap => {
-        var rol = snap.data().rol;
-        let conVehiculo = snap.data().conVehiculo;
-        var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
-        document.getElementById("createTruck2"), document.getElementById("createTruck1"),
-        document.getElementById("createTravel1"),document.getElementById("createTravel2")];
 
-        if (rol === "Conductor") {
+
+    db.collection('accounts').doc(userId).get().then(snap => {
+        name = snap.data().nombre;
+        email = snap.id;
+        phone = snap.data().celular;
+        nip = snap.data().cedula;
+        typeAccount = snap.data().rol;
+        city = snap.data().municipio;
+        departament = snap.data().departamento;
+
+        console.log("name: " + name + " email: " + email + " phone: " + phone + " nip: " + nip + " typeAccount: " + typeAccount +
+            " city: " + city + " departament: " + departament);
+
+        let conVehiculo = snap.data().conVehiculo;
+        let navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
+        document.getElementById("createTruck2"), document.getElementById("createTruck1"),
+        document.getElementById("createTravel1"), document.getElementById("createTravel2")];
+
+        if (typeAccount === "Conductor") {
 
 
             for (let i = 0; i < navElements.length - 1; i++) {
@@ -62,10 +82,10 @@ function changePage(idIn, idOut) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var modals = document.querySelectorAll('.modal');
+    let modals = document.querySelectorAll('.modal');
     M.Modal.init(modals);
 
-    var items = document.querySelectorAll('.collapsible');
+    let items = document.querySelectorAll('.collapsible');
     M.Collapsible.init(items);
 });
 
@@ -85,10 +105,10 @@ function btnLook(id, span) {
     }
 }
 
-function editAccount(ok){
-    if(ok){
+function editAccount(ok) {
+    if (ok) {
         document.getElementById("edit_account").classList.remove("invisible");
-    }else{
+    } else {
         document.getElementById("edit_account").className += " invisible";
     }
 }
@@ -96,14 +116,14 @@ function editAccount(ok){
 
 function crearCamion() {
 
-    var imagen = document.getElementById("files").files[0];
-    var placa = document.getElementById("input-create-truck-placa").value.toUpperCase();
-    var marca = document.getElementById("input-create-truck-marca").value;
-    var numEjes = document.getElementById("input-create-ejes").value;
-    var numMaxToneladas = document.getElementById("input-create-truck-capacidad-carga").value;
-    var matriculaTrailer = document.getElementById("input-create-truck-matricula-trailer").value.toUpperCase();
-    var emailConductor = document.getElementById("emailConductor").value.toLowerCase();
-    var km = document.getElementById("input-create-truck-kilometraje").value;
+    let imagen = document.getElementById("files").files[0];
+    let placa = document.getElementById("input-create-truck-placa").value.toUpperCase();
+    let marca = document.getElementById("input-create-truck-marca").value;
+    let numEjes = document.getElementById("input-create-ejes").value;
+    let numMaxToneladas = document.getElementById("input-create-truck-capacidad-carga").value;
+    let matriculaTrailer = document.getElementById("input-create-truck-matricula-trailer").value.toUpperCase();
+    let emailConductor = document.getElementById("emailConductor").value.toLowerCase();
+    let km = document.getElementById("input-create-truck-kilometraje").value;
 
 
     if (!isPlate(placa)) {
@@ -274,15 +294,15 @@ function uploadImageTruck(imagen, placa) {
 
 
 
-    var url = 0;
+    let url = 0;
     // Created a Storage Reference with root dir
-    var storageRef = storage.ref();
+    let storageRef = storage.ref();
     // Get the file from DOM
-    var file = imagen;
+    let file = imagen;
     // console.log(file);
 
     //dynamically set reference to the file name
-    var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
+    let thisRef = storageRef.child('/' + idUsuario + '/camiones/' + placa + '/' + imagen.name);
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -319,7 +339,7 @@ function loadTruck(placa) {
     changePage('update-truck', 'section-initial-page');
 
 
-    var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
+    let updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
     document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
@@ -343,7 +363,7 @@ function loadTruck(placa) {
 
 
 function updateTruck() {
-    var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
+    let updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),
     document.getElementById("input-update-ejes"), document.getElementById("input-update-truck-capacidad-carga")
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
@@ -422,8 +442,8 @@ function isPlate(placa) {
     let letras = false;
     let numerosP = false;
 
-    var letras_mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    var numeros = "0123456789";
+    let letras_mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    let numeros = "0123456789";
 
     for (i = 0; i < placaLetras.length; i++) {
         if (letras_mayusculas.indexOf(placaLetras.charAt(i), 0) != -1) {
@@ -451,35 +471,59 @@ function isPlate(placa) {
 
 
 
-function createSettlement(){
+function createSettlement() {
 
-let departOriginL = document.getElementById("input-create-travel-departmento").value;
-let cityOriginL = document.getElementById("input-create-travel-cityo").value;
-let departDestinL = document.getElementById("input-create-travel-departmentd").value;
-let cityDestinL = document.getElementById("input-create-travel-cityd").value;
-let dateTravelL = document.getElementById("input-create-travel-dateout").value;
-let companyL = document.getElementById("input-create-travel-description").value;
-let freightL = document.getElementById("input-create-travel-amoung").value;
-let advanceL = document.getElementById("input-create-travel-output").value;
-let nTonsL = document.getElementById("input-create-travel-weight").value;
+    let departOriginL = document.getElementById("input-create-travel-departmento").value;
+    let cityOriginL = document.getElementById("input-create-travel-cityo").value;
+    let departDestinL = document.getElementById("input-create-travel-departmentd").value;
+    let cityDestinL = document.getElementById("input-create-travel-cityd").value;
+    let dateTravelL = document.getElementById("input-create-travel-dateout").value;
+    let companyL = document.getElementById("input-create-travel-description").value;
+    let freightL = document.getElementById("input-create-travel-amoung").value;
+    let advanceL = document.getElementById("input-create-travel-output").value;
+    let nTonsL = document.getElementById("input-create-travel-weight").value;
 
-changePage('create-balance','create-travel');
+    changePage('create-balance', 'create-travel');
 
-let city1Elem = document.getElementById("city1");
-let city2Elem = document.getElementById("city2");
-let date1Elem = document.getElementById("date1");
-let companyElem = document.getElementById("company");
-let advanceElem = document.getElementById("advance");
-let weigthElem = document.getElementById("weigth");
+    let city1Elem = document.getElementById("city1");
+    let city2Elem = document.getElementById("city2");
+    let date1Elem = document.getElementById("date1");
+    let companyElem = document.getElementById("company");
+    let advanceElem = document.getElementById("advance");
+    let weigthElem = document.getElementById("weigth");
 
-city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
-city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
-date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
-companyElem.innerHTML = companyElem.innerHTML + companyL;
-advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
-weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
+    city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
+    city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
+    date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
+    companyElem.innerHTML = companyElem.innerHTML + companyL;
+    advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
+    weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
 
 
 
     return false;
+}
+
+
+function accountInfo() {
+    console.log("Account Info");
+    console.log("name:" + name);
+
+    let nameInfo = document.getElementById("nameInfo");
+    let emailInfo = document.getElementById("emailInfo");
+    let phoneInfo = document.getElementById("phoneInfo");
+    let nipInfo = document.getElementById("nipInfo");
+    let typeAccInfo = document.getElementById("typeAccInfo");
+    let cityInfo = document.getElementById("cityInfo");
+    let departamentInfo = document.getElementById("departamentInfo");
+
+    nameInfo.innerHTML = nameInfo.innerHTML + name;
+    emailInfo.innerHTML = emailInfo.innerHTML + email;
+    phoneInfo.innerHTML = phoneInfo.innerHTML + phone;
+    nipInfo.innerHTML = nipInfo.innerHTML + nip;
+    typeAccInfo.innerHTML = typeAccInfo.innerHTML + typeAccount;
+    cityInfo.innerHTML = cityInfo.innerHTML + city;
+    departamentInfo.innerHTML = departamentInfo.innerHTML + departament;
+
+
 }

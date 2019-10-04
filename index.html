@@ -570,29 +570,26 @@
                 <div id="div_info_account">
                     <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments');"><img
                             src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
-                    <span id="nameInfo" class="span_info_account">Nombre: </span>
+                    <span id="nameInfo" class="span_info_account"></span>
                     <br>
-                    <span id="emailInfo" class="span_info_account">Correo: </span>
+                    <span id="emailInfo" class="span_info_account"></span>
                     <br>
-                    <span id="phoneInfo" class="span_info_account">Telefono: </span>
+                    <span id="phoneInfo" class="span_info_account"></span>
                     <br>
-                    <span id="nipInfo" class="span_info_account">NIP: </span>
+                    <span id="nipInfo" class="span_info_account"></span>
                     <br>
-                    <span id="typeAccInfo" class="span_info_account">Tipo de cuenta: </span>
+                    <span id="typeAccInfo" class="span_info_account"></span>
                     <br>
-                    <span id="cityInfo" class="span_info_account">Ciudad: </span>
+                    <span id="cityInfo" class="span_info_account"></span>
                     <br>
-                    <span id="departamentInfo" class="span_info_account">Departamento: </span>
+                    <span id="departamentInfo" class="span_info_account"></span>
                 </div>
             </div>
         </div>
     </section>
     <section id="edit_account" class="invisible">
-        <div id="back_edit_account">
-            <p> </p>
-        </div>
         <div id="div_edit_account">
-            <form>
+            <form onsubmit="return updateAccountInfo()">
                 <div id="div_profile_picture">
                     <img src="img/profile picture.png" id="img_profile_account" alt="profile">
                     <button type="button" id="choose_profile_picture" class="btn btn-secondary">Elegir otra

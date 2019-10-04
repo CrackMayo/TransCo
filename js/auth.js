@@ -14,7 +14,7 @@ function cargarDepartamentos(idElemDep) {
             
         });
         if(idElemDep ==="select-account-departaments"){
-            accountUpdateInfo(1);
+            getAccountUpdateInfo(1);
         }
         
     })
@@ -30,7 +30,7 @@ function cargarMunicipios(departamento, idElemCity) {
             municipios.options[municipios.options.length] = new Option(municipio[i], municipio[i]);
         }
         if(idElemCity ==="select-account-municipality"){
-            accountUpdateInfo(2);
+            getAccountUpdateInfo(2);
         }
     });
 }

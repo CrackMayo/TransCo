@@ -382,12 +382,13 @@ function updateTruck() {
 
 
 
-        db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
-            console.log("Actualizado");
-            changePage('section-initial-page', 'update-truck');
-        }).catch(function (error) {
-            console.error("Error: ", error);
-        });
+        db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value)
+            .update(truck).then(function () {
+                console.log("Actualizado");
+                changePage('section-initial-page', 'update-truck');
+            }).catch(function (error) {
+                console.error("Error: ", error);
+            });
 
         alert("Datos Actualizado");
 
@@ -506,8 +507,6 @@ function createSettlement() {
 
 
 function accountInfo() {
-    console.log("Account Info");
-    console.log("name:" + name);
 
     let nameInfo = document.getElementById("nameInfo");
     let emailInfo = document.getElementById("emailInfo");
@@ -518,21 +517,20 @@ function accountInfo() {
     let departamentInfo = document.getElementById("departamentInfo");
     let phoneUpdate = document.getElementById("input-account-phone");
 
-    nameInfo.innerHTML = nameInfo.innerHTML + name;
-    emailInfo.innerHTML = emailInfo.innerHTML + email;
-    phoneInfo.innerHTML = phoneInfo.innerHTML + phone;
-    nipInfo.innerHTML = nipInfo.innerHTML + nip;
-    typeAccInfo.innerHTML = typeAccInfo.innerHTML + typeAccount;
-    cityInfo.innerHTML = cityInfo.innerHTML + city;
-    departamentInfo.innerHTML = departamentInfo.innerHTML + departament;
+    nameInfo.innerHTML = "Nombre: " + name;
+    emailInfo.innerHTML = "Correo: " + email;
+    phoneInfo.innerHTML = "Telefono: " + phone;
+    nipInfo.innerHTML = "NIP: " + nip;
+    typeAccInfo.innerHTML = "Tipo de cuenta: " + typeAccount;
+    cityInfo.innerHTML = "Ciudad: " + city;
+    departamentInfo.innerHTML = "Departamento: " + departament;
 
     phoneUpdate.value = phone;
 }
 
-function accountUpdateInfo(fase) {
+function getAccountUpdateInfo(fase) {
     let selectDepartament = document.getElementById("select-account-departaments");
     let selectCitys = document.getElementById("select-account-municipality");
-    console.log(selectDepartament.length);
     if (fase === 1) {
         for (let i = 0; i < selectDepartament.length; i++) {
             if (departament === selectDepartament[i].value) {
@@ -541,7 +539,6 @@ function accountUpdateInfo(fase) {
             }
         }
     } else {
-        console.log(selectCitys.length);
         for (let i = 0; i < selectCitys.length; i++) {
             if (city === selectCitys[i].value) {
                 selectCitys.selectedIndex = i;
@@ -549,7 +546,45 @@ function accountUpdateInfo(fase) {
         }
     }
 
+}
+
+function updateAccountInfo() {
+    let phoneUpdate = document.getElementById("input-account-phone").value;
+    let selectDepartamentUpdate = document.getElementById("select-account-departaments").value;
+    let selectCitysUpdate = document.getElementById("select-account-municipality").value;
+
+    console.log(" " + phoneUpdate + " " + selectDepartamentUpdate + " " + selectCitysUpdate);
+
+
+    let user = {
+        celular: phoneUpdate,
+        departamento: selectDepartamentUpdate,
+        municipio: selectCitysUpdate
+
+    }
 
 
 
+    db.collection('accounts').doc(idUsuario).update(user).then(function () {
+        console.log("Datos de usuario actualizados");
+        phone = phoneUpdate;
+        departament = selectDepartamentUpdate;
+        city = selectCitysUpdate;
+
+        
+        // userDataLogin(idUsuario);
+        accountInfo();
+        changePage('account', 'edit_account');
+    }).catch(function (error) {
+        console.error("Error: ", error);
+    });
+
+
+
+
+
+
+    
+
+    return false;
 }

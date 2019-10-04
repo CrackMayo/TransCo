@@ -730,7 +730,7 @@ let freightL = document.getElementById("input-create-travel-amoung").value;
 let advanceL = document.getElementById("input-create-travel-output").value;
 let nTonsL = document.getElementById("input-create-travel-weight").value;
 
-changePage('create-balance','create-travel');
+changePage('legalization-tolls','create-travel');
 
 let city1Elem = document.getElementById("city1");
 let city2Elem = document.getElementById("city2");
@@ -742,11 +742,12 @@ let weigthElem = document.getElementById("weigth");
 city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
 city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
 date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
-companyElem.innerHTML = companyElem.innerHTML + companyL;
+// companyElem.innerHTML = companyElem.innerHTML + companyL;
 advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
 weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
 
-
+console.log(" "+departOriginL + " "+cityOriginL + " "+departDestinL+" "+cityDestinL+ " "+dateTravelL+" "+companyL+
+" "+freightL+" "+advanceL+" "+nTonsL);
 
     return false;
 }

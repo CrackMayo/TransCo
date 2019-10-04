@@ -35,8 +35,10 @@
                         <a class="nav-link" onclick="changePage('create-balance','section-initial-page');">
                             Balance general</a>
                     </li>
-                    <li id="createTravel" class="nav-item">
-                        <a class="nav-link" onclick="changePage('create-travel','section-initial-page');">
+                    <li id="createTravel1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','section-initial-page');
+                        cargarDepartamentos('input-create-travel-departmento');
+                        cargarDepartamentos('input-create-travel-departmentd')">
                             Crear Viaje</a>
                     </li>
                     <li id="createTruck1" class="nav-item">
@@ -69,6 +71,9 @@
                 id="createTruck2">Crear vehículo</span>
             <span class="span_sidenav" onclick="closeNav('main_menu');" id="generalBalance2">Balance general</span>
             <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="changePage('create-travel','section-initial-page');closeNav('main_menu');
+                cargarDepartamentos('input-create-travel-departmento');
+                cargarDepartamentos('input-create-travel-departmentd')" id="createTravel2">Crear Viaje</span>
             <span class="span_sidenav" onclick="logOut();closeNav('main_menu');">Log out</span>
         </div>
         <div id="main_main_menu">
@@ -104,7 +109,8 @@
 
             <div onclick="changePage('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has
                     olvidado tu contraseña?</span></div>
-            <div id="div-sign-up-link" onclick="changePage('register','sign-in'); cargarDepartamentos()">
+            <div id="div-sign-up-link"
+                onclick="changePage('register','sign-in'); cargarDepartamentos('select-register-departaments')">
                 <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
             </div>
 
@@ -152,7 +158,8 @@
                     <div class="input-group flex-nowrap">
 
                         <select name="type" id="select-register-departaments" class="form-control"
-                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this);" required>
+                            aria-describedby="addon-wrapping"
+                            onchange="cargarMunicipios(this,'select-register-municipality');" required>
                             <option></option>
                         </select>
                     </div>
@@ -205,15 +212,15 @@
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
-                        aria-label="Placa" aria-describedby="addon-wrapping" required maxlength="6">
+                        aria-label="Placa" aria-describedby="addon-wrapping" required maxlength="6"  minlength="6">
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
-                        aria-label="Marca" aria-describedby="addon-wrapping" required>
+                        aria-label="Marca" aria-describedby="addon-wrapping" required maxlength="15">
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes"
-                        aria-label="Ejes" aria-describedby="addon-wrapping" required maxlength="6"> 
+                        aria-label="Ejes" aria-describedby="addon-wrapping" required maxlength="6">
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
@@ -223,7 +230,7 @@
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-matricula-trailer" type="text" class="form-control"
                         placeholder="Matricula del trailer" aria-label="Matricula del trailer"
-                        aria-describedby="addon-wrapping" required maxlength="6">
+                        aria-describedby="addon-wrapping" required maxlength="6" minlength="6">
                 </div>
                 <div class="dropdown-register btn-group">
                     <input id="emailConductor" type="email" class="form-control" placeholder="Correo Conductor"
@@ -249,73 +256,77 @@
             <span id="title-register">Legalización</span>
             <br>
             <br>
-            <p>Lugar de Origen</p>
-            <p id="size-string-travel">Departamento</p>
-            <div id="OriginDepto" class="input-group flex-nowrap">
 
-                <select name="type" id="input-create-travel-departmento" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
-                </select>
-            </div>
-            <p id="size-string-travel">Municipio</p>
-            <div class="input-group flex-nowrap">
+            <form onsubmit="return createSettlement()">
+                <p>Lugar de Origen</p>
+                <p id="size-string-travel">Departamento</p>
+                <div id="OriginDepto" class="input-group flex-nowrap">
 
-                <select name="type" id="input-create-travel-cityo" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
-                </select>
-            </div>
-            <br><br>
-            <p>Lugar de Destino</p>
-            <p id="size-string-travel">Departamento</p>
-            <div class="input-group flex-nowrap">
+                    <select name="type" id="input-create-travel-departmento" class="form-control"
+                        aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'input-create-travel-cityo');"
+                        required>
+                        <option></option>
+                    </select>
+                </div>
+                <p id="size-string-travel">Municipio</p>
+                <div class="input-group flex-nowrap">
 
-                <select name="type" id="input-create-travel-departmentd" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
-                </select>
-            </div>
-            <p id="size-string-travel">Municipio</p>
-            <div class="input-group flex-nowrap">
-                <select name="type" id="input-create-travel-cityd" class="form-control"
-                    aria-describedby="addon-wrapping">
-                    <option value="otros">Otro</option>
-                </select>
-            </div>
-            <br>
-            <p id="size-string-travel">Fecha de Manifiesto de Carga</p>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-travel-dateout" type="date" class="form-control"
-                    aria-describedby="addon-wrapping">
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-travel-description" type="text" class="form-control" placeholder="Empresa"
-                    aria-label="Empresa" aria-describedby="addon-wrapping">
-            </div>
+                    <select name="type" id="input-create-travel-cityo" class="form-control"
+                        aria-describedby="addon-wrapping" required>
+                    </select>
+                </div>
+                <br><br>
+                <p>Lugar de Destino</p>
+                <p id="size-string-travel">Departamento</p>
+                <div class="input-group flex-nowrap">
 
-            <div class="input-group flex-nowrap">
-                <input id="input-create-travel-amoung" type="number" class="form-control" placeholder="Flete"
-                    aria-label="Flete" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-travel-output" type="number" class="form-control" placeholder="Anticipo"
-                    aria-label="Anticipo" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-create-travel-weight" type="number" class="form-control"
-                    placeholder="Numero de toneladas" aria-label="Numero de toneladas"
-                    aria-describedby="addon-wrapping">
-            </div>
-            <br>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','create-travel')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('create-balance','create-travel')">Siguiente</button>
-            </div>
-            <br>
+                    <select name="type" id="input-create-travel-departmentd" class="form-control"
+                        aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'input-create-travel-cityd');"
+                        required>
+                        <option></option>
+                    </select>
+                </div>
+                <p id="size-string-travel">Municipio</p>
+                <div class="input-group flex-nowrap">
+                    <select name="type" id="input-create-travel-cityd" class="form-control"
+                        aria-describedby="addon-wrapping" required>
+                    </select>
+                </div>
+                <br>
+                <p id="size-string-travel">Fecha de Manifiesto de Carga</p>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-dateout" type="date" class="form-control"
+                        aria-describedby="addon-wrapping" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-description" type="text" class="form-control" placeholder="Empresa"
+                        aria-label="Empresa" aria-describedby="addon-wrapping" required>
+                </div>
+
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-amoung" type="number" class="form-control" placeholder="Flete"
+                        aria-label="Flete" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-output" type="number" class="form-control" placeholder="Anticipo"
+                        aria-label="Anticipo" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-create-travel-weight" type="number" class="form-control"
+                        placeholder="Numero de toneladas" aria-label="Numero de toneladas"
+                        aria-describedby="addon-wrapping" required>
+                </div>
+                <br>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('section-initial-page','create-travel')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Siguiente</button>
+                </div>
+                <br>
+
+            </form>
+
         </div>
         <br>
         <br>
@@ -326,12 +337,12 @@
             <span id="title-register">Balance General</span>
             <br><br>
 
-            <p id="city1" class="post-text"><span class="ht">Ciudad de Salida</span> medelllin</p>
-            <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso</span> medellin</p>
-            <p id="date1" class="post-text"><span class="ht">Fecha de Salida</span> 345. </p>
-            <p id="company" class="post-text"><span class="ht"> Fecha de Regreso</span> 345</p>
-            <p id="advance" class="post-text"><span class="ht">Adelanto</span> 345. </p>
-            <p id="weigth" class="post-text"><span class="ht"> Numero de Toneladas</span> 345</p>
+            <p id="city1" class="post-text"><span class="ht">Ciudad de Salida:  </span></p>
+            <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso:  </span></p>
+            <p id="date1" class="post-text"><span class="ht">Fecha de Salida:  </span></p>
+            <p id="company" class="post-text"><span class="ht"> Fecha de Regreso:  </span></p>
+            <p id="advance" class="post-text"><span class="ht">Adelanto:  </span></p>
+            <p id="weigth" class="post-text"><span class="ht"> Numero de Toneladas:  </span></p>
 
 
             <br>
@@ -447,47 +458,53 @@
         </div>
     </section>
     <section id="update-truck" class="invisible">
-        <div id="container-register">
-            <div id="container-title-register">
-                <img src="img/Logo.PNG" id="icono-register">
-                <span id="title-register">Actualizar</span>
-            </div>
-            <div class="input-group flex-nowrap">
-                <input type="file" id="files" name="files[]" multiple />
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-update-truck-placa" type="text" class="form-control" placeholder="Placa"
-                    aria-label="Placa" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-update-truck-marca" type="text" class="form-control" placeholder="Marca"
-                    aria-label="Marca" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-update-ejes" type="number" class="form-control" placeholder="Ejes" aria-label="Ejes"
-                    aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-update-truck-capacidad-carga" type="number" class="form-control"
-                    placeholder="Capacidad de carga" aria-label="Capacidad de carga" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group flex-nowrap">
-                <input id="input-update-truck-matricula-trailer" type="text" class="form-control"
-                    placeholder="Matricula del trailer" aria-label="Matricula del trailer"
-                    aria-describedby="addon-wrapping">
+        <form class="form-group" onsubmit="return  updateTruck()">
+            <div id="container-register">
+                <div id="container-title-register">
+                    <img src="img/Logo.PNG" id="icono-register">
+                    <span id="title-register">Actualizar Vehículo</span>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input type="file" id="files" name="files[]" multiple />
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-truck-placa" type="text" class="form-control" placeholder="Placa"
+                        aria-label="Placa" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-truck-marca" type="text" class="form-control" placeholder="Marca"
+                        aria-label="Marca" aria-describedby="addon-wrapping" required required maxlength="15">
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-ejes" type="number" class="form-control" placeholder="Ejes"
+                        aria-label="Ejes" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-truck-capacidad-carga" type="number" class="form-control"
+                        placeholder="Capacidad de carga" aria-label="Capacidad de carga"
+                        aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-truck-matricula-trailer" type="text" class="form-control"
+                        placeholder="Matricula del trailer" aria-label="Matricula del trailer"
+                        aria-describedby="addon-wrapping" required required maxlength="6" minlength="6">
+                </div>
+
+                <div class="input-group flex-nowrap">
+                    <input id="input-update-truck-kilometraje" type="number" class="form-control"
+                        placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping" required>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm"
+                        onclick="changePage('section-initial-page','update-truck')">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Actualizar</button>
+                </div>
             </div>
 
-            <div class="input-group flex-nowrap">
-                <input id="input-update-truck-kilometraje" type="number" class="form-control" placeholder="Kilometraje"
-                    aria-label="Kilometraje" aria-describedby="addon-wrapping">
-            </div>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','update-truck')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','update-truck'), updateTruck();">Actualizar</button>
-            </div>
-        </div>
+
+
+        </form>
+
     </section>
     <section id="account" class="invisible">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">

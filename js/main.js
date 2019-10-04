@@ -4,22 +4,31 @@ function userDataLogin(userId) {
 
     db.collection('accounts').doc(userId).get().then(snap => {
         var rol = snap.data().rol;
+        let conVehiculo = snap.data().conVehiculo;
+        var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
+        document.getElementById("createTruck2"), document.getElementById("createTruck1"),
+        document.getElementById("createTravel1"),document.getElementById("createTravel2")];
 
         if (rol === "Conductor") {
-            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
 
-            for (let i = 0; i < navElements.length; i++) {
+
+            for (let i = 0; i < navElements.length - 1; i++) {
                 navElements[i].classList.add("invisible", "font-invisible");
             }
 
-        } else {
-            var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
-            document.getElementById("createTruck2"), document.getElementById("createTruck1")];
+            if (!conVehiculo) {
+                navElements[4].classList.add("invisible", "font-invisible");
+                navElements[5].classList.add("invisible", "font-invisible");
+            }
 
-            for (let i = 0; i < navElements.length; i++) {
+        } else {
+
+            for (let i = 0; i < navElements.length - 1; i++) {
                 navElements[i].classList.remove("invisible", "font-invisible");
             }
+
+            navElements[4].classList.add("invisible", "font-invisible");
+            navElements[5].classList.add("invisible", "font-invisible");
         }
 
     });
@@ -96,64 +105,79 @@ function crearCamion() {
     var emailConductor = document.getElementById("emailConductor").value.toLowerCase();
     var km = document.getElementById("input-create-truck-kilometraje").value;
 
-    isPlate(placa);
-    isPlate(matriculaTrailer);
-    
 
-    if (isFileImage(imagen)) {
-        const usersRef = db.collection('accounts').doc(emailConductor);
-        usersRef.get()
-            .then((docSnapshot) => {
-                if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
+    if (!isPlate(placa)) {
+        alert("La placa del cabezote no cumple con su respectivo formato");
+    } else if (!isPlate(matriculaTrailer)) {
+        alert("La placa del trailer no cumple con su respectivo formato");
+    } else {
+        if (isFileImage(imagen)) {
+            const usersRef = db.collection('accounts').doc(emailConductor);
+            usersRef.get()
+                .then((docSnapshot) => {
+                    if (docSnapshot.exists && docSnapshot.data().conVehiculo === false) {
 
-                    const truck = {
-                        placaCabezote: placa,
-                        marcaCabezote: marca,
-                        numeroEjes: numEjes,
-                        capacidadCarga: numMaxToneladas,
-                        placaTrailer: matriculaTrailer,
-                        conductorActual: emailConductor,
-                        kilometraje: km,
+                        const truck = {
+                            placaCabezote: placa,
+                            marcaCabezote: marca,
+                            numeroEjes: numEjes,
+                            capacidadCarga: numMaxToneladas,
+                            placaTrailer: matriculaTrailer,
+                            conductorActual: emailConductor,
+                            kilometraje: km,
 
-                    }
-
-                    //Create Truck Owner
-                    db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa).set(truck).then(function () {
-
-                        if (imagen != null) {
-                            uploadImageTruck(imagen, placa);
-                        } else {
-                            setDefaultImagen(placa);
                         }
 
+                        //Create Truck Owner
+                        const ownerRef = db.collection('accounts').doc(idUsuario).collection('camiones').doc(placa);
+                        ownerRef.get()
+                            .then((docSnapshot) => {
+                                if (docSnapshot.exists) {
+                                    alert("Ya existe un vehículo con la placa cabezote ingresada")
+                                    return;
+                                } else {
+                                    ownerRef.set(truck).then(function () {
 
-                    }).catch(function (error) {
-                        console.error("Error: ", error);
-                    });
-
-                    //Update Trucks drivers
-
-                    dataDrivers = {
-                        conVehiculo: true,
-                        vehiculo: truck.placaCabezote,
-                        jefe: idUsuario
+                                        if (imagen != null) {
+                                            uploadImageTruck(imagen, placa);
+                                        } else {
+                                            setDefaultImagen(placa);
+                                        }
 
 
+                                    }).catch(function (error) {
+                                        console.error("Error: ", error);
+                                    });
+
+                                    //Update Trucks drivers
+
+                                    dataDrivers = {
+                                        conVehiculo: true,
+                                        vehiculo: truck.placaCabezote,
+                                        jefe: idUsuario
+
+
+                                    }
+
+                                    db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
+
+
+                                    }).catch(function (error) {
+                                        console.error("Error: ", error);
+                                    });
+                                }
+                            })
+
+
+
+                    } else {
+                        console.log("Conductor no disponible");
                     }
+                })
+        } else {
+            alert("Se debe seleccionar un archivo tipo imagen.");
+        }
 
-                    db.collection('accounts').doc(emailConductor).update(dataDrivers).then(function () {
-
-
-                    }).catch(function (error) {
-                        console.error("Error: ", error);
-                    });
-
-                } else {
-                    console.log("Conductor no disponible");
-                }
-            })
-    } else {
-        alert("Se debe seleccionar una imagen.");
     }
 
 
@@ -324,32 +348,37 @@ function updateTruck() {
         , document.getElementById("input-update-truck-matricula-trailer"), document.getElementById("input-update-truck-kilometraje")];
 
 
+    if (!isPlate(updateElements[4].value)) {
+        alert("La placa del trailer no cumple con su respectivo formato");
+    } else {
+        const truck = {
+            marcaCabezote: updateElements[1].value,
+            numeroEjes: updateElements[2].value,
+            capacidadCarga: updateElements[3].value,
+            placaTrailer: updateElements[4].value,
+            kilometraje: updateElements[5].value,
+
+        }
 
 
-    const truck = {
-        marcaCabezote: updateElements[1].value,
-        numeroEjes: updateElements[2].value,
-        capacidadCarga: updateElements[3].value,
-        placaTrailer: updateElements[4].value,
-        kilometraje: updateElements[5].value,
+
+        db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
+            console.log("Actualizado");
+            changePage('section-initial-page', 'update-truck');
+        }).catch(function (error) {
+            console.error("Error: ", error);
+        });
+
+        alert("Datos Actualizado");
+
+        changePage('section-initial-page', 'update-truck');
+
+        obtenerCamion();
+
 
     }
 
-
-
-    db.collection('accounts').doc(idUsuario).collection('camiones').doc(updateElements[0].value).update(truck).then(function () {
-        console.log("Actualizado");
-    }).catch(function (error) {
-        console.error("Error: ", error);
-    });
-
-    alert("Datos Actualizado");
-
-    changePage('section-initial-page', 'update-truck');
-
-    obtenerCamion();
-
-
+    return false;
 
 }
 
@@ -376,7 +405,15 @@ function setDefaultImagen(placa) {
 
 
 function isFileImage(file) {
-    return file && file['type'].split('/')[0] === 'image';
+
+    if (!file) {
+        return true;
+    } else if (file['type'].split('/')[0] === 'image') {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function isPlate(placa) {
@@ -391,21 +428,58 @@ function isPlate(placa) {
     for (i = 0; i < placaLetras.length; i++) {
         if (letras_mayusculas.indexOf(placaLetras.charAt(i), 0) != -1) {
             letras = true;
-        }else{
+        } else {
             letras = false;
             break;
         }
     }
     for (i = 0; i < placaNumeros.length; i++) {
         if (numeros.indexOf(placaNumeros.charAt(i), 0) != -1) {
-            numerosP= true;
-        }else{
+            numerosP = true;
+        } else {
             numerosP = false;
             break;
         }
     }
 
-    if(!numerosP || !letras){
-        alert("Alguna de las placas es incorrecta");
+    if (!numerosP || !letras) {
+        return false;
+    } else {
+        return true;
     }
+}
+
+
+
+function createSettlement(){
+
+let departOriginL = document.getElementById("input-create-travel-departmento").value;
+let cityOriginL = document.getElementById("input-create-travel-cityo").value;
+let departDestinL = document.getElementById("input-create-travel-departmentd").value;
+let cityDestinL = document.getElementById("input-create-travel-cityd").value;
+let dateTravelL = document.getElementById("input-create-travel-dateout").value;
+let companyL = document.getElementById("input-create-travel-description").value;
+let freightL = document.getElementById("input-create-travel-amoung").value;
+let advanceL = document.getElementById("input-create-travel-output").value;
+let nTonsL = document.getElementById("input-create-travel-weight").value;
+
+changePage('create-balance','create-travel');
+
+let city1Elem = document.getElementById("city1");
+let city2Elem = document.getElementById("city2");
+let date1Elem = document.getElementById("date1");
+let companyElem = document.getElementById("company");
+let advanceElem = document.getElementById("advance");
+let weigthElem = document.getElementById("weigth");
+
+city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
+city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
+date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
+companyElem.innerHTML = companyElem.innerHTML + companyL;
+advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
+weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
+
+
+
+    return false;
 }

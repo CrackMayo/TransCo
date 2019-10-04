@@ -123,223 +123,274 @@ function crearCamion() {
 
 
 }
-function legalizationTolls(){
-    var removeSVG='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
-var img1=document.getElementsByClassName('imageBasic');
-img1.src="/img/basicImage.png";
-document.getElementById('add').addEventListener('click',function(){
-    var value1=document.getElementById('inputCount').value;
-    if(value1){
-        addItemAllCard(value1);
-        var value1=document.getElementById('inputCount').value='';
-    } 
+function legalizationTolls() {
+    var removeSVG = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
+    var img1 = document.getElementsByClassName('imageBasic');
+    img1.src = "/img/basicImage.png";
+    document.getElementById('add').addEventListener('click', function () {
+        var value1 = document.getElementById('inputCount').value;
+        if (value1) {
+            addItemAllCard(value1);
+            var value1 = document.getElementById('inputCount').value = '';
+        }
 
-});
-function removeItem(){
-    var item=this.parentNode.parentNode;
-    var parent=item.parentNode;
-    parent.removeChild(item);
-}
-function addItemAllCard(text){
-    var list=document.getElementById("allCard");
-
-    var item=document.createElement('li');
-
-    var card=document.createElement('div');
-    card.classList.add('contentCard');
-    
-
-    var report=document.createElement('img');
-    report.classList.add('imageBasic');
-    report.innerHTML=img1;
-
-    var valueTolls=document.createElement('span');
-    valueTolls.classList.add('valueBasic');
-    valueTolls.innerText=text;
-
-    var buttons=document.createElement('div');
-    buttons.classList.add('buttons');
-
-    var remove=document.createElement('button');
-    remove.classList.add('remove');
-    remove.innerHTML=removeSVG;
-
-    remove.addEventListener('click', removeItem);
-
-    buttons.appendChild(remove);
-    item.appendChild(buttons);
-    card.appendChild(report);
-    card.appendChild(valueTolls);
-    item.appendChild(card);
-
-
-    list.insertBefore(item, list.childNodes[0]);
-
-}
-}
-
-function legalizationFuel(){
-    var removeSVG='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
-    var img2=document.getElementsByClassName('imageBasic1');
-img2.src="/img/basicImage.png";
-document.getElementById('add1').addEventListener('click',function(){
-    var value1=document.getElementById('inputCount1').value;
-    if(value1){
-        addItemAllCard(value1);
-        var value1=document.getElementById('inputCount1').value='';
-    } 
-
-});
-function removeItem1(){
-    var item1=this.parentNode.parentNode;
-    var parent1=item1.parentNode;
-    parent1.removeChild(item1);
-}
-function addItemAllCard(text1){
-    var list1=document.getElementById("allCard1");
-
-    var item1=document.createElement('li');
-
-    var card1=document.createElement('div');
-    card1.classList.add('contentCard1');
-    
-
-    var report1=document.createElement('img');
-    report1.classList.add('imageBasic1');
-    report1.innerHTML=img2;
-
-    var valueTolls1=document.createElement('span');
-    valueTolls1.classList.add('valueBasic1');
-    valueTolls1.innerText=text1;
-
-    var buttons1=document.createElement('div');
-    buttons1.classList.add('buttons1');
-
-    var remove1=document.createElement('button');
-    remove1.classList.add('remove1');
-    remove1.innerHTML=removeSVG;
-
-    remove1.addEventListener('click', removeItem1);
-
-    buttons1.appendChild(remove1);
-    item1.appendChild(buttons1);
-    card1.appendChild(report1);
-    card1.appendChild(valueTolls1);
-    item1.appendChild(card1);
-
-
-    list1.insertBefore(item1, list1.childNodes[0]);
-    }
-}
-
-function legalizationParking(){
-    var removeSVG='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
-    var img3=document.getElementsByClassName('imageBasic2');
-img3.src="/img/basicImage.png";
-document.getElementById('add2').addEventListener('click',function(){
-    var value2=document.getElementById('inputCount2').value;
-    if(value2){
-        addItemAllCard(value2);
-        var value2=document.getElementById('inputCount2').value='';
-    } 
-
-});
-function removeItem2(){
-    var item2=this.parentNode.parentNode;
-    var parent2=item2.parentNode;
-    parent2.removeChild(item2);
-}
-function addItemAllCard(text2){
-    var list2=document.getElementById("allCard2");
-
-    var item2=document.createElement('li');
-
-    var card2=document.createElement('div');
-    card2.classList.add('contentCard2');
-    
-
-    var report2=document.createElement('img');
-    report2.classList.add('imageBasic2');
-    report2.innerHTML=img3;
-
-    var valueTolls2=document.createElement('span');
-    valueTolls2.classList.add('valueBasic2');
-    valueTolls2.innerText=text2;
-
-    var buttons2=document.createElement('div');
-    buttons2.classList.add('buttons2');
-
-    var remove2=document.createElement('button');
-    remove2.classList.add('remove2');
-    remove2.innerHTML=removeSVG;
-
-    remove2.addEventListener('click', removeItem2);
-
-    buttons2.appendChild(remove2);
-    item2.appendChild(buttons2);
-    card2.appendChild(report2);
-    card2.appendChild(valueTolls2);
-    item2.appendChild(card2);
-
-
-    list2.insertBefore(item2, list2.childNodes[0]);
-    }
-}
-
-function legalizationWashed(){
-    var removeSVG='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
-    var img4=document.getElementsByClassName('imageBasic3');
-    img4.src="/img/basicImage.png";
-    document.getElementById('add3').addEventListener('click',function(){
-     var value3=document.getElementById('inputCount3').value;
-        if(value3){
-         addItemAllCard(value3);
-         var value3=document.getElementById('inputCount3').value='';
-        } 
     });
-function removeItem3(){
-    var item3=this.parentNode.parentNode;
-    var parent3=item3.parentNode;
-    parent3.removeChild(item3);
-}
-function addItemAllCard(text3){
-    var list3=document.getElementById("allCard3");
+    function removeItem() {
+        var item = this.parentNode.parentNode;
+        var parent = item.parentNode;
+        parent.removeChild(item);
+    }
+    function addItemAllCard(text) {
+        var list = document.getElementById("allCard");
 
-    var item3=document.createElement('li');
+        var item = document.createElement('li');
 
-    var card3=document.createElement('div');
-    card3.classList.add('contentCard3');
-    
-
-    var report3=document.createElement('img');
-    report3.classList.add('imageBasic3');
-    report3.innerHTML=img4;
-
-    var valueTolls3=document.createElement('span');
-    valueTolls3.classList.add('valueBasic3');
-    valueTolls3.innerText=text3;
-
-    var buttons3=document.createElement('div');
-    buttons3.classList.add('buttons3');
-
-    var remove3=document.createElement('button');
-    remove3.classList.add('remove3');
-    remove3.innerHTML=removeSVG;
-
-    remove3.addEventListener('click', removeItem3);
-
-    buttons3.appendChild(remove3);
-    item3.appendChild(buttons3);
-    card3.appendChild(report3);
-    card3.appendChild(valueTolls3);
-    item3.appendChild(card3);
+        var card = document.createElement('div');
+        card.classList.add('contentCard');
 
 
-    list3.insertBefore(item3, list3.childNodes[0]);
+        var report = document.createElement('img');
+        report.classList.add('imageBasic');
+        report.innerHTML = img1;
+
+        var valueTolls = document.createElement('span');
+        valueTolls.classList.add('valueBasic');
+        valueTolls.innerText = text;
+
+        var buttons = document.createElement('div');
+        buttons.classList.add('buttons');
+
+        var remove = document.createElement('button');
+        remove.classList.add('remove');
+        remove.innerHTML = removeSVG;
+
+        remove.addEventListener('click', removeItem);
+
+        buttons.appendChild(remove);
+        item.appendChild(buttons);
+        card.appendChild(report);
+        card.appendChild(valueTolls);
+        item.appendChild(card);
+
+
+        list.insertBefore(item, list.childNodes[0]);
+
     }
 }
 
+function legalizationFuel() {
+    var removeSVG = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
+    var img2 = document.getElementsByClassName('imageBasic1');
+    img2.src = "/img/basicImage.png";
+    document.getElementById('add1').addEventListener('click', function () {
+        var value1 = document.getElementById('inputCount1').value;
+        if (value1) {
+            addItemAllCard(value1);
+            var value1 = document.getElementById('inputCount1').value = '';
+        }
 
+    });
+    function removeItem1() {
+        var item1 = this.parentNode.parentNode;
+        var parent1 = item1.parentNode;
+        parent1.removeChild(item1);
+    }
+    function addItemAllCard(text1) {
+        var list1 = document.getElementById('allCard1');
+
+        var item1 = document.createElement('li');
+
+        var card1 = document.createElement('div');
+        card1.classList.add('contentCard1');
+
+
+        var report1 = document.createElement('img');
+        report1.classList.add('imageBasic1');
+        report1.innerHTML = img2;
+
+        var valueTolls1 = document.createElement('span');
+        valueTolls1.classList.add('valueBasic1');
+        valueTolls1.innerText = text1;
+
+        var buttons1 = document.createElement('div');
+        buttons1.classList.add('buttons1');
+
+        var remove1 = document.createElement('button');
+        remove1.classList.add('remove1');
+        remove1.innerHTML = removeSVG;
+
+        remove1.addEventListener('click', removeItem1);
+
+        buttons1.appendChild(remove1);
+        item1.appendChild(buttons1);
+        card1.appendChild(report1);
+        card1.appendChild(valueTolls1);
+        item1.appendChild(card1);
+
+
+        list1.insertBefore(item1, list1.childNodes[0]);
+    }
+}
+
+function legalizationParking() {
+    var removeSVG = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
+    var img3 = document.getElementsByClassName('imageBasic2');
+    img3.src = "/img/basicImage.png";
+    document.getElementById('add2').addEventListener('click', function () {
+        var value2 = document.getElementById('inputCount2').value;
+        if (value2) {
+            addItemAllCard(value2);
+            var value2 = document.getElementById('inputCount2').value = '';
+        }
+
+    });
+    function removeItem2() {
+        var item2 = this.parentNode.parentNode;
+        var parent2 = item2.parentNode;
+        parent2.removeChild(item2);
+    }
+    function addItemAllCard(text2) {
+        var list2 = document.getElementById('allCard2');
+
+        var item2 = document.createElement('li');
+
+        var card2 = document.createElement('div');
+        card2.classList.add('contentCard2');
+
+
+        var report2 = document.createElement('img');
+        report2.classList.add('imageBasic2');
+        report2.innerHTML = img3;
+
+        var valueTolls2 = document.createElement('span');
+        valueTolls2.classList.add('valueBasic2');
+        valueTolls2.innerText = text2;
+
+        var buttons2 = document.createElement('div');
+        buttons2.classList.add('buttons2');
+
+        var remove2 = document.createElement('button');
+        remove2.classList.add('remove2');
+        remove2.innerHTML = removeSVG;
+
+        remove2.addEventListener('click', removeItem2);
+
+        buttons2.appendChild(remove2);
+        item2.appendChild(buttons2);
+        card2.appendChild(report2);
+        card2.appendChild(valueTolls2);
+        item2.appendChild(card2);
+
+
+        list2.insertBefore(item2, list2.childNodes[0]);
+    }
+}
+
+function legalizationWashed() {
+    var removeSVG = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
+    var img4 = document.getElementsByClassName('imageBasic3');
+    img4.src = "/img/basicImage.png";
+    document.getElementById('add3').addEventListener('click', function () {
+        var value3 = document.getElementById('inputCount3').value;
+        if (value3) {
+            addItemAllCard(value3);
+            var value3 = document.getElementById('inputCount3').value = '';
+        }
+    });
+    function removeItem3() {
+        var item3 = this.parentNode.parentNode;
+        var parent3 = item3.parentNode;
+        parent3.removeChild(item3);
+    }
+    function addItemAllCard(text3) {
+        var list3 = document.getElementById('allCard3');
+
+        var item3 = document.createElement('li');
+
+        var card3 = document.createElement('div');
+        card3.classList.add('contentCard3');
+
+
+        var report3 = document.createElement('img');
+        report3.classList.add('imageBasic3');
+        report3.innerHTML = img4;
+
+        var valueTolls3 = document.createElement('span');
+        valueTolls3.classList.add('valueBasic3');
+        valueTolls3.innerText = text3;
+
+        var buttons3 = document.createElement('div');
+        buttons3.classList.add('buttons3');
+
+        var remove3 = document.createElement('button');
+        remove3.classList.add('remove3');
+        remove3.innerHTML = removeSVG;
+
+        remove3.addEventListener('click', removeItem3);
+
+        buttons3.appendChild(remove3);
+        item3.appendChild(buttons3);
+        card3.appendChild(report3);
+        card3.appendChild(valueTolls3);
+        item3.appendChild(card3);
+
+
+        list3.insertBefore(item3, list3.childNodes[0]);
+    }
+}
+
+function legalizationOthers() {
+    var removeSVG = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 22 22" style="enable-background:new 0 0 22 22;" xml:space="preserve"><rect class="noFill" width="22" height="22"/><g><g><path class="fill" d="M16.1,3.6h-1.9V3.3c0-1.3-1-2.3-2.3-2.3h-1.7C8.9,1,7.8,2,7.8,3.3v0.2H5.9c-1.3,0-2.3,1-2.3,2.3v1.3c0,0.5,0.4,0.9,0.9,1v10.5c0,1.3,1,2.3,2.3,2.3h8.5c1.3,0,2.3-1,2.3-2.3V8.2c0.5-0.1,0.9-0.5,0.9-1V5.9C18.4,4.6,17.4,3.6,16.1,3.6z M9.1,3.3c0-0.6,0.5-1.1,1.1-1.1h1.7c0.6,0,1.1,0.5,1.1,1.1v0.2H9.1V3.3z M16.3,18.7c0,0.6-0.5,1.1-1.1,1.1H6.7c-0.6,0-1.1-0.5-1.1-1.1V8.2h10.6L16.3,18.7L16.3,18.7z M17.2,7H4.8V5.9c0-0.6,0.5-1.1,1.1-1.1h10.2c0.6,0,1.1,0.5,1.1,1.1V7z"/></g><g><g><path class="fill" d="M11,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6v6.8C11.6,17.7,11.4,18,11,18z"/></g><g><path class="fill" d="M8,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8C7.4,10.2,7.7,10,8,10c0.4,0,0.6,0.3,0.6,0.6v6.8C8.7,17.7,8.4,18,8,18z"/></g><g><path class="fill" d="M14,18c-0.4,0-0.6-0.3-0.6-0.6v-6.8c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6v6.8C14.6,17.7,14.3,18,14,18z"/></g></g></g></svg>';
+    var img5 = document.getElementsByClassName('imageBasic4');
+    img5.src = "/img/basicImage.png";
+    document.getElementById('add4').addEventListener('click', function () {
+        var value4 = document.getElementById('inputCount4').value;
+        if (value4) {
+            addItemAllCard(value4);
+            var value4 = document.getElementById('inputCount4').value = '';
+        }
+    });
+    function removeItem4() {
+        var item4 = this.parentNode.parentNode;
+        var parent4 = item4.parentNode;
+        parent4.removeChild(item4);
+    }
+    function addItemAllCard(text4) {
+        var list4 = document.getElementById('allCard4');
+
+        var item4 = document.createElement('li');
+
+        var card4 = document.createElement('div');
+        card4.classList.add('contentCard4');
+
+
+        var report4 = document.createElement('img');
+        report4.classList.add('imageBasic4');
+        report4.innerHTML = img5;
+
+        var valueTolls4 = document.createElement('span');
+        valueTolls4.classList.add('valueBasic4');
+        valueTolls4.innerText = text4;
+
+        var buttons4 = document.createElement('div');
+        buttons4.classList.add('buttons4');
+
+        var remove4 = document.createElement('button');
+        remove4.classList.add('remove4');
+        remove4.innerHTML = removeSVG;
+
+        remove4.addEventListener('click', removeItem4);
+
+        buttons4.appendChild(remove4);
+        item4.appendChild(buttons4);
+        card4.appendChild(report4);
+        card4.appendChild(valueTolls4);
+        item4.appendChild(card4);
+
+
+        list4.insertBefore(item4, list4.childNodes[0]);
+    }
+}
 
 function getDriverTruck() {
     let lista = document.getElementById("listaCamiones");
@@ -349,32 +400,32 @@ function getDriverTruck() {
         let truck = snap.data().vehiculo;
         db.collection('accounts').doc(boss).collection('camiones').doc(truck).get().then(child => {
 
-                lista.innerHTML = lista.innerHTML + "<li id='" + child.id + "'>" + "<div class='tab-content' id='myTabContent'>" +
-                    "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
-                    "<div class='container-fluid'>" +
-                    "<div class='card post mt-4'>" +
-                    "<div class='card-footer'>" +
-                    "<center>" + "<p id='placaCabezote' class='post-text'>" + "<span class='ht'>" + "Placa Cabezote: " + "</span>"
-                    + "" + child.id + "" + "</p>" + "</center>"
-                    + "</div>" +
-                    "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
-                    "<div class='card-body'>" +
-                    "<div class='action-btns'>" +
-                    "<center>" + "<span>" +
-                    "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
-                    "</span>" + "</center>" +
-                    "</div>" +
-                    "</div>" +
-                    "<div class='card-footer'>" +
-                    "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
-                    + "" + child.data().capacidadCarga + "" + "</p>" +
-                    "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
-                    + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
-                    "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
-                    "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
-                    "</div>" +
-                    "</div>" +
-                    "</li>"
+            lista.innerHTML = lista.innerHTML + "<li id='" + child.id + "'>" + "<div class='tab-content' id='myTabContent'>" +
+                "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>" +
+                "<div class='container-fluid'>" +
+                "<div class='card post mt-4'>" +
+                "<div class='card-footer'>" +
+                "<center>" + "<p id='placaCabezote' class='post-text'>" + "<span class='ht'>" + "Placa Cabezote: " + "</span>"
+                + "" + child.id + "" + "</p>" + "</center>"
+                + "</div>" +
+                "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
+                "<div class='card-body'>" +
+                "<div class='action-btns'>" +
+                "<center>" + "<span>" +
+                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
+                "</span>" + "</center>" +
+                "</div>" +
+                "</div>" +
+                "<div class='card-footer'>" +
+                "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
+                + "" + child.data().capacidadCarga + "" + "</p>" +
+                "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
+                + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
+                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
+                "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
+                "</div>" +
+                "</div>" +
+                "</li>"
 
         })
     });
@@ -406,7 +457,7 @@ function obtenerCamion() {
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
                 "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Modificar" + "</span>" +
-                "</span>" +  "<span>" +
+                "</span>" + "<span>" +
                 "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
@@ -470,10 +521,10 @@ function uploadImageTruck(imagen, placa) {
     });
 
 }
-function viewTruck(){
+function viewTruck() {
     changePage('view-truck', 'section-initial-page');
 }
-function changeLegalization(){
+function changeLegalization() {
     changePage('create-travel', 'view-truck');
 }
 

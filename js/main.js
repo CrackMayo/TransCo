@@ -516,6 +516,7 @@ function accountInfo() {
     let typeAccInfo = document.getElementById("typeAccInfo");
     let cityInfo = document.getElementById("cityInfo");
     let departamentInfo = document.getElementById("departamentInfo");
+    let phoneUpdate = document.getElementById("input-account-phone");
 
     nameInfo.innerHTML = nameInfo.innerHTML + name;
     emailInfo.innerHTML = emailInfo.innerHTML + email;
@@ -524,6 +525,8 @@ function accountInfo() {
     typeAccInfo.innerHTML = typeAccInfo.innerHTML + typeAccount;
     cityInfo.innerHTML = cityInfo.innerHTML + city;
     departamentInfo.innerHTML = departamentInfo.innerHTML + departament;
+
+    phoneUpdate.innerHTML = phoneUpdate.innerHTML + phoneInfo;
 
 
 }

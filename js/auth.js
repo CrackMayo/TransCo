@@ -15,7 +15,7 @@ function cargarDepartamentos(idElemDep) {
     })
 }
 
-function cargarMunicipios(departamento,idElemCity) {
+function cargarMunicipios(departamento, idElemCity) {
     var municipios = document.getElementById(idElemCity);
     municipios.options.length = 0;
     db.collection('departments').doc(departamento.value).get().then(snap => {
@@ -110,6 +110,7 @@ function signUp() {
 
 
             db.collection('accounts').doc(emailUser).set(account).then(function () {
+                logOut();
             }).catch(function (error) {
                 console.error("Error: ", error);
             });
@@ -117,7 +118,8 @@ function signUp() {
             alert("Usuario Creado!");
             data.user.sendEmailVerification();
             changePage('section-initial-page', 'register');
-            userDataLogin(emailUser);
+
+            // userDataLogin(emailUser);
 
 
         })

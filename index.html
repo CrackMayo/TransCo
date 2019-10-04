@@ -8,7 +8,7 @@
     <title>TransCo</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.css">
@@ -65,7 +65,8 @@
             <img src="img/Logo.PNG" id="menu-icon" alt="logo">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="changePage('account','section-initial-page');closeNav('main_menu');accountInfo();">Cuenta</span>
+            <span class="span_sidenav"
+                onclick="changePage('account','section-initial-page');closeNav('main_menu');accountInfo();">Cuenta</span>
             <span class="span_sidenav"
                 onclick="changePage('create-truck','section-initial-page');closeNav('main_menu');"
                 id="createTruck2">Crear vehículo</span>
@@ -212,7 +213,7 @@
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa"
-                        aria-label="Placa" aria-describedby="addon-wrapping" required maxlength="6"  minlength="6">
+                        aria-label="Placa" aria-describedby="addon-wrapping" required maxlength="6" minlength="6">
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
@@ -337,12 +338,12 @@
             <span id="title-register">Balance General</span>
             <br><br>
 
-            <p id="city1" class="post-text"><span class="ht">Ciudad de Salida:  </span></p>
-            <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso:  </span></p>
-            <p id="date1" class="post-text"><span class="ht">Fecha de Salida:  </span></p>
-            <p id="company" class="post-text"><span class="ht"> Fecha de Regreso:  </span></p>
-            <p id="advance" class="post-text"><span class="ht">Adelanto:  </span></p>
-            <p id="weigth" class="post-text"><span class="ht"> Numero de Toneladas:  </span></p>
+            <p id="city1" class="post-text"><span class="ht">Ciudad de Salida: </span></p>
+            <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso: </span></p>
+            <p id="date1" class="post-text"><span class="ht">Fecha de Salida: </span></p>
+            <p id="company" class="post-text"><span class="ht"> Fecha de Regreso: </span></p>
+            <p id="advance" class="post-text"><span class="ht">Adelanto: </span></p>
+            <p id="weigth" class="post-text"><span class="ht"> Numero de Toneladas: </span></p>
 
 
             <br>
@@ -545,29 +546,30 @@
                 
             </div> -->
             <a>
-                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link"
-                    onclick="openNav('account');">
+                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" onclick="openNav('account');">
             </a>
         </nav>
         <div id="mySidenav_account" class="sidenav ">
             <img src="img/Logo.PNG" id="menu-icon" alt="logo">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('account')">&times;</a>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="changePage('section-initial-page','account');closeNav('account');">Menú principal</span>
-            <span class="span_sidenav"
-                onclick="changePage('create-truck','account');closeNav('account');"
+            <span class="span_sidenav" onclick="changePage('section-initial-page','account');closeNav('account');">Menú
+                principal</span>
+            <span class="span_sidenav" onclick="changePage('create-truck','account');closeNav('account');"
                 id="createTruck2">Crear vehículo</span>
             <span class="span_sidenav" onclick="closeNav('account');" id="generalBalance2">Balance general</span>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="changePage('sign-in','account');logOut();closeNav('account');">Log out</span>
+            <span class="span_sidenav" onclick="changePage('sign-in','account');logOut();closeNav('account');">Log
+                out</span>
         </div>
         <div id="main_account">
             <div id="div_account">
                 <div id="div_profile_picture">
                     <img src="img/profile picture.png" id="img_profile_account" alt="profile">
-                </div>  
+                </div>
                 <div id="div_info_account">
-                    <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments');"><img src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
+                    <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments');"><img
+                            src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
                     <span id="nameInfo" class="span_info_account">Nombre: </span>
                     <br>
                     <span id="emailInfo" class="span_info_account">Correo: </span>
@@ -583,46 +585,51 @@
                     <span id="departamentInfo" class="span_info_account">Departamento: </span>
                 </div>
             </div>
-        </div>        
+        </div>
     </section>
     <section id="edit_account" class="invisible">
-        <div id="back_edit_account">            
+        <div id="back_edit_account">
             <p> </p>
         </div>
         <div id="div_edit_account">
-            <div id="div_profile_picture">
-                <img src="img/profile picture.png" id="img_profile_account" alt="profile">
-                <button type="button" id="choose_profile_picture" class="btn btn-secondary">Elegir otra foto...</button>
-            </div>  
-            <div id="div_input_account">
-                <span>Número de celular</span>
-                <div class="input-group flex-nowrap">
-                    <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular"
-                        aria-label="Número celular" aria-describedby="addon-wrapping" required>
+            <form>
+                <div id="div_profile_picture">
+                    <img src="img/profile picture.png" id="img_profile_account" alt="profile">
+                    <button type="button" id="choose_profile_picture" class="btn btn-secondary">Elegir otra
+                        foto...</button>
                 </div>
-                <div class="dropdown-register btn-group">
-                    <p>Departamento:</p>
+                <div id="div_input_account">
+                    <span>Número de celular</span>
                     <div class="input-group flex-nowrap">
-                        <select name="type" id="select-account-departaments" class="form-control"
-                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this,'select-account-municipality');" required>
-                            <option></option>
-                        </select>
+                        <input id="input-account-phone" type="number" class="form-control" placeholder="Número celular"
+                            aria-label="Número celular" aria-describedby="addon-wrapping" required>
+                    </div>
+                    <div class="dropdown-register btn-group">
+                        <p>Departamento:</p>
+                        <div class="input-group flex-nowrap">
+                            <select name="type" id="select-account-departaments" class="form-control"
+                                aria-describedby="addon-wrapping"
+                                onchange="cargarMunicipios(this,'select-account-municipality');" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="dropdown-register btn-group">
+                        <p>Municipio:</p>
+                        <div id="dropdown_account" class="input-group flex-nowrap">
+                            <select name="type" id="select-account-municipality" class="form-control"
+                                aria-describedby="addon-wrapping" required>
+                                <option></option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="dropdown-register btn-group">
-                    <p>Municipio:</p>
-                    <div id="dropdown_account" class="input-group flex-nowrap">
-                        <select name="type" id="select-account-municipality" class="form-control"
-                            aria-describedby="addon-wrapping" required>
-                            <option></option>
-                        </select>
-                    </div>
+                <div id="btns_account">
+                    <button id="btn_save_account" type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-danger" onclick="editAccount(false);">Cancelar</button>
                 </div>
-            </div>
-            <div id="btns_account">
-                <button id="btn_save_account" type="button" class="btn btn-success">Guardar</button>
-                <button type="button" class="btn btn-danger" onclick="editAccount(false);">Cancelar</button>
-            </div>
+            </form>
+
         </div>
     </section>
 

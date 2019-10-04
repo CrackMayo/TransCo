@@ -164,6 +164,21 @@ section {
     padding-top: 2%;
 }
 
+#div_account{
+    background-color: white;
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+    padding: 4%;
+    display: flex;
+    position: relative;
+}
+
+#div_info_account{
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
 #account-recovery {
     padding-top: 5%;
 }
@@ -187,6 +202,10 @@ section {
     text-decoration: underline;
 }
 
+#img_profile_account{
+    width: 100%;
+}
+
 #container-sign-in {
     background-color: white;
     display: block;
@@ -200,6 +219,22 @@ section {
 #sign-in {
     align-items: center;
     padding-top: 5%;
+}
+
+#edit_profile_account{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 15%;
+    opacity: 0.5;
+}
+
+#edit_info_account{
+    position: absolute;
+    top: 3%;
+    right: 1%;
+    width: 3%;
+    opacity: 0.5; 
 }
 
 #register {
@@ -217,8 +252,61 @@ section {
     margin-bottom: 5%;
 }
 
+#btn_save_account{
+    margin-right: 10%;
+}
+
+#btns_account{
+    position: absolute;
+    display: flex;
+    bottom: 3%;
+    right: 4%;
+}
+
+#dropdown_account{
+    margin-left: 11%;
+}
+
 #input-register-password2 {
     margin-bottom: 5%;
+}
+
+#choose_profile_picture{
+    margin-left: 23px;
+    margin-top: 10%;
+}
+
+#div_input_account{
+    margin-left: 10%;
+    padding-top: 5%;
+}
+
+#div_edit_account{
+    background-color: white;
+    width: 80%;
+    margin: 10%;
+    position: fixed;
+    top: -10%;    
+    padding: 10% 10% 5% 10%;
+    display: flex;
+}
+
+/* #div_input_account{
+
+} */
+
+#back_edit_account{
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.4;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+#edit_account{
+    opacity: 1;
 }
 
 #container-register {
@@ -273,6 +361,11 @@ section {
     color: black;
 }
 
+#div_profile_picture{
+    width: 28%;
+    position: relative;
+}
+
 #menu-icon{
     width: 80%;
     margin-left: 10%;
@@ -300,7 +393,45 @@ section {
 
     #logo {
         height: 49px;
-        margin-top: -42%;
+        margin-top: -11%;
+    }
+
+    #dropdown_account{
+        margin-left: 16%;
+    }
+
+    #btns_account{
+        position: unset;
+        margin-top: 14%;
+    }
+
+    #choose_profile_picture{
+        width: 180%;
+        margin-left: -38px;
+    }
+
+    #div_edit_account{
+        width: 80%;
+        margin: 10%;
+        top: 10%;
+        padding: 10%;
+        display: block;
+    }
+
+    #div_profile_picture{
+        width: 50%;
+        margin: 0% 25%;
+        position: relative;
+    }
+
+    #div_account{
+        padding: 10%;
+        display: block;
+    }
+
+    #edit_info_account{
+        width: 7%;
+        right: 3%;
     }
 }
 

@@ -8,7 +8,7 @@
     <title>TransCo</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.css">
@@ -26,6 +26,10 @@
                     <li class="nav-item active">
                         <a class="nav-link" data-target="modal-IniciarSesion">
                             Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('account','section-initial-page');">
+                            Cuenta</a>
                     </li>
                     <li id="generalBalance1" class="nav-item">
                         <a class="nav-link" onclick="changePage('create-balance','section-initial-page');">
@@ -59,7 +63,7 @@
             <img src="img/Logo.PNG" id="menu-icon" alt="logo">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="closeNav('main_menu');">Cuenta</span>
+            <span class="span_sidenav" onclick="changePage('account','section-initial-page');closeNav('main_menu');">Cuenta</span>
             <span class="span_sidenav"
                 onclick="changePage('create-truck','section-initial-page');closeNav('main_menu');"
                 id="createTruck2">Crear vehículo</span>
@@ -74,7 +78,7 @@
             </div>
         </div>
     </section>
-    <section id="sign-in" class="">
+    <section id="sign-in">
         <div id="container-sign-in">
 
             <form class="form-group" onsubmit="return singIn()">
@@ -239,7 +243,6 @@
 
         </div>
     </section>
-
     <section id="create-travel" class="invisible">
         <br><br>
         <div id="container-register">
@@ -317,7 +320,6 @@
         <br>
         <br>
     </section>
-
     <section id="create-balance" class="invisible">
         <br><br>
         <div id="container-register">
@@ -398,8 +400,6 @@
         </form>
 
     </section>
-
-
     <section id="create-spend" class="invisible">
         <br><br>
         <div id="container-register">
@@ -446,22 +446,6 @@
             <br>
         </div>
     </section>
-    <!-- <section id="account-recovery" class="invisible">
-        <div id="container-account-recovery">
-            <img src="img/Logo.PNG" id="icono-sign-in">
-            <div class="input-account-recovery-div input-group flex-nowrap">
-                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail"
-                    aria-label="E-mail" aria-describedby="addon-wrapping">
-            </div>
-            <div class="btn-account-recovery">
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('sign-in','account-recovery')">Cancelar</button>
-                <button type="button" class="btn btn-secondary btn-sm">
-                    Recuperar</button>
-            </div>
-        </div>
-    </section> -->
-
     <section id="update-truck" class="invisible">
         <div id="container-register">
             <div id="container-title-register">
@@ -505,10 +489,128 @@
             </div>
         </div>
     </section>
+    <section id="account" class="invisible">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="img/Logo.PNG" alt="transco">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-target="modal-IniciarSesion">
+                            Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('section-initial-page','account');">
+                            Menu inicial</a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-balance','account');">
+                            Balance general</a>
+                    </li>
+                    <li id="createTravel" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','account');">
+                            Crear Viaje</a>
+                    </li>
+                    <li id="createTruck1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-truck','account');">
+                            Crear vehículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="changePage('sign-in','account'); logOut() ">
+                            Salir</a>
+                    </li>
+            </div>
+            <!-- <div class="secundary-menu">
+                <li class="nav-item">
+                    
+                </li>
+                
+            </div> -->
+            <a>
+                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link"
+                    onclick="openNav('account');">
+            </a>
+        </nav>
+        <div id="mySidenav_account" class="sidenav ">
+            <img src="img/Logo.PNG" id="menu-icon" alt="logo">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('account')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="changePage('section-initial-page','account');closeNav('account');">Menú principal</span>
+            <span class="span_sidenav"
+                onclick="changePage('create-truck','account');closeNav('account');"
+                id="createTruck2">Crear vehículo</span>
+            <span class="span_sidenav" onclick="closeNav('account');" id="generalBalance2">Balance general</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="changePage('sign-in','account');logOut();closeNav('account');">Log out</span>
+        </div>
+        <div id="main_account">
+            <div id="div_account">
+                <div id="div_profile_picture">
+                    <img src="img/profile picture.png" id="img_profile_account" alt="profile">
+                </div>  
+                <div id="div_info_account">
+                    <a onclick="editAccount(true);"><img src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
+                    <span class="span_info_account">Nombre: </span>
+                    <br>
+                    <span class="span_info_account">Correo: </span>
+                    <br>
+                    <span class="span_info_account">Telefono: </span>
+                    <br>
+                    <span class="span_info_account">NIP: </span>
+                    <br>
+                    <span class="span_info_account">Tipo de cuenta: </span>
+                    <br>
+                    <span class="span_info_account">Ciudad: </span>
+                    <br>
+                    <span class="span_info_account">Departamento: </span>
+                </div>
+            </div>
+        </div>        
+    </section>
+    <section id="edit_account" class="invisible">
+        <div id="back_edit_account">            
+            <p> </p>
+        </div>
+        <div id="div_edit_account">
+            <div id="div_profile_picture">
+                <img src="img/profile picture.png" id="img_profile_account" alt="profile">
+                <button type="button" id="choose_profile_picture" class="btn btn-secondary">Elegir otra foto...</button>
+            </div>  
+            <div id="div_input_account">
+                <div class="input-group flex-nowrap">
+                    <input id="input-register-phone" type="number" class="form-control" placeholder="Número celular"
+                        aria-label="Número celular" aria-describedby="addon-wrapping" required>
+                </div>
+                <div class="dropdown-register btn-group">
+                    <p>Departamento:</p>
+                    <div class="input-group flex-nowrap">
 
+                        <select name="type" id="select-register-departaments" class="form-control"
+                            aria-describedby="addon-wrapping" onchange="cargarMunicipios(this);" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdown-register btn-group">
+                    <p>Municipio:</p>
+                    <div id="dropdown_account" class="input-group flex-nowrap">
+
+                        <select name="type" id="select-register-municipality" class="form-control"
+                            aria-describedby="addon-wrapping" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="btns_account">
+                <button id="btn_save_account" type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-danger" onclick="editAccount(false);">Cancelar</button>
+            </div>
+        </div>
+    </section>
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>

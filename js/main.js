@@ -76,6 +76,14 @@ function btnLook(id, span) {
     }
 }
 
+function editAccount(ok){
+    if(ok){
+        document.getElementById("edit_account").classList.remove("invisible");
+    }else{
+        document.getElementById("edit_account").className += " invisible";
+    }
+}
+
 
 function crearCamion() {
 

@@ -1,3 +1,6 @@
+var spendings = [];
+
+
 function userDataLogin(userId) {
     let lista = document.getElementById("listaCamiones");
     lista.innerHTML = "";
@@ -7,7 +10,7 @@ function userDataLogin(userId) {
         let conVehiculo = snap.data().conVehiculo;
         var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
         document.getElementById("createTruck2"), document.getElementById("createTruck1"),
-        document.getElementById("createTravel1"),document.getElementById("createTravel2")];
+        document.getElementById("createTravel1"), document.getElementById("createTravel2")];
 
         if (rol === "Conductor") {
 
@@ -718,36 +721,90 @@ function isPlate(placa) {
 
 
 
-function createSettlement(){
+function createSettlement() {
 
-let departOriginL = document.getElementById("input-create-travel-departmento").value;
-let cityOriginL = document.getElementById("input-create-travel-cityo").value;
-let departDestinL = document.getElementById("input-create-travel-departmentd").value;
-let cityDestinL = document.getElementById("input-create-travel-cityd").value;
-let dateTravelL = document.getElementById("input-create-travel-dateout").value;
-let companyL = document.getElementById("input-create-travel-description").value;
-let freightL = document.getElementById("input-create-travel-amoung").value;
-let advanceL = document.getElementById("input-create-travel-output").value;
-let nTonsL = document.getElementById("input-create-travel-weight").value;
+    let departOriginL = document.getElementById("input-create-travel-departmento").value;
+    let cityOriginL = document.getElementById("input-create-travel-cityo").value;
+    let departDestinL = document.getElementById("input-create-travel-departmentd").value;
+    let cityDestinL = document.getElementById("input-create-travel-cityd").value;
+    let dateTravelL = document.getElementById("input-create-travel-dateout").value;
+    let companyL = document.getElementById("input-create-travel-description").value;
+    let freightL = document.getElementById("input-create-travel-amoung").value;
+    let advanceL = document.getElementById("input-create-travel-output").value;
+    let nTonsL = document.getElementById("input-create-travel-weight").value;
 
-changePage('legalization-tolls','create-travel');
+    changePage('legalization-tolls', 'create-travel');
 
-let city1Elem = document.getElementById("city1");
-let city2Elem = document.getElementById("city2");
-let date1Elem = document.getElementById("date1");
-let companyElem = document.getElementById("company");
-let advanceElem = document.getElementById("advance");
-let weigthElem = document.getElementById("weigth");
+    let city1Elem = document.getElementById("city1");
+    let city2Elem = document.getElementById("city2");
+    let date1Elem = document.getElementById("date1");
+    let companyElem = document.getElementById("company");
+    let advanceElem = document.getElementById("advance");
+    let weigthElem = document.getElementById("weigth");
 
-city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
-city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
-date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
-// companyElem.innerHTML = companyElem.innerHTML + companyL;
-advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
-weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
+    city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
+    city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
+    date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
+    // companyElem.innerHTML = companyElem.innerHTML + companyL;
+    advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
+    weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
 
-console.log(" "+departOriginL + " "+cityOriginL + " "+departDestinL+" "+cityDestinL+ " "+dateTravelL+" "+companyL+
-" "+freightL+" "+advanceL+" "+nTonsL);
 
     return false;
+}
+
+function spending(value, image, type) {
+
+    this.value = value
+    this.image = image
+    this.type = type;
+}
+
+
+
+function addSpending(idInput, typeSpend) {
+
+    var spendingInput = document.getElementById(idInput);
+
+    spendings.push(new spending(spendingInput.value, 0, typeSpend));
+
+    console.log(spendings);
+}
+
+
+function uploadSettlement() {
+
+    console.log(spendings);
+
+
+    
+    //Update Trucks drivers
+
+    // spending = {
+    //     conVehiculo: true,
+    //     vehiculo: truck.placaCabezote,
+    //     jefe: idUsuario
+
+
+    // }
+
+    var spendingN = {
+        valor: spendings[0].value,
+        imagen: spendings[0].image,
+        categoria: spendings[0].type
+
+    }
+
+    db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").collection("gastos").doc("1").set(spendingN).then(function () {
+
+
+    }).catch(function (error) {
+        console.error("Error: ", error);
+    });
+
+
+
+
+
+changePage('view-truck', 'legalization-others');
 }

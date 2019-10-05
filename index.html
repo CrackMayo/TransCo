@@ -271,7 +271,7 @@
 
                     <select name="type" id="input-create-travel-cityo" class="form-control"
                         aria-describedby="addon-wrapping" required>
-                        
+
                     </select>
                 </div>
                 <br><br>
@@ -366,28 +366,36 @@
 
     <section id="legalization-tolls" class="invisible" onclick="legalizationTolls()">
         <div class="headerToDo">
-            <center>
-                <div>
-                    <span id="title-tolls">Peajes</span>
-                    <div id="select-file">
-                        <img src="img/icons8-add-image-128.png" id="image-tolls">
-                        <input id="file-tolls" type="file">
+            <form class="form-group" onsubmit="return addSpending('inputCount','Peaje');">
+
+                <center>
+                    <div>
+                        <span id="title-tolls">Peajes</span>
+                        <div id="select-file">
+                            <img src="img/icons8-add-image-128.png" id="image-tolls">
+                            <input class="form-control" id="file-tolls" type="file" required>
+                        </div>
                     </div>
-                </div>
-            </center>
-            <br>
-            <input type="number" id="inputCount" placeholder="Ingrese el monto de la factura...">
-            <button id="add" onclick="addSpending('inputCount','Peaje');">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                    <g>
+                </center>
+                <br>
+                <input class="form-control" type="number" id="inputCount" placeholder="Ingrese el monto de la factura..." required>
+
+                <button type="submit" id="add">
+
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                        xml:space="preserve">
                         <g>
-                            <path class="fill"
-                                d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            <g>
+                                <path class="fill"
+                                    d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+
+            </form>
+
         </div>
         <div class="allListItms">
             <ul class="allCard" id="allCard">
@@ -413,28 +421,35 @@
 
     <section id="legalization-fuel" class="invisible" onclick="legalizationFuel()">
         <div class="headerToDo1">
-            <center>
-                <div>
-                    <span id="title-tolls1">Comustible</span>
-                    <div id="select-file1">
-                        <img src="img/icons8-add-image-128.png" id="image-tolls1">
-                        <input id="file-tolls1" type="file">
+            <form class="form-group" onsubmit="return addSpending('inputCount1', 'Combustible');">
+
+                <center>
+                    <div>
+                        <span id="title-tolls1">Comustible</span>
+                        <div id="select-file1">
+                            <img src="img/icons8-add-image-128.png" id="image-tolls1">
+                            <input class="form-control" type="file" id="files" accept="image/*" name="files[]" required/>
+                            <!-- <input class="form-control" id="file-tolls1" type="file" required> -->
+                        </div>
                     </div>
-                </div>
-            </center>
-            <br>
-            <input type="number" id="inputCount1" placeholder="Ingrese el monto de la factura...">
-            <button id="add1"  onclick="addSpending('inputCount1', 'Combustible');">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                    <g>
+                </center>
+                <br>
+                <input class="form-control" type="number" id="inputCount1" placeholder="Ingrese el monto de la factura..." required>
+                <button class="form-control" type="submit" id="add1">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                        xml:space="preserve">
                         <g>
-                            <path class="fill"
-                                d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            <g>
+                                <path class="fill"
+                                    d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+
+            </form>
+
         </div>
         <div class="allListItms1">
             <ul class="allCard1" id="allCard1">
@@ -459,28 +474,34 @@
     </section>
     <section id="legalization-parking" class="invisible" onclick="legalizationParking()">
         <div class="headerToDo2">
-            <center>
-                <div>
-                    <span id="title-tolls2">Parqueadero</span>
-                    <div id="select-file2">
-                        <img src="img/icons8-add-image-128.png" id="image-tolls2">
-                        <input id="file-tolls2" type="file">
+            <form class="form-group" onsubmit="return addSpending('inputCount2', 'Parqueadero')">
+
+                <center>
+                    <div>
+                        <span id="title-tolls2">Parqueadero</span>
+                        <div id="select-file2">
+                            <img src="img/icons8-add-image-128.png" id="image-tolls2">
+                            <input class="form-control" id="file-tolls2" type="file" required>
+                        </div>
                     </div>
-                </div>
-            </center>
-            <br>
-            <input type="number" id="inputCount2" placeholder="Ingrese el monto de la factura...">
-            <button id="add2">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                    <g>
+                </center>
+                <br>
+                <input class="form-control" type="number" id="inputCount2" placeholder="Ingrese el monto de la factura..." required>
+                <button type="submit" id="add2">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                        xml:space="preserve">
                         <g>
-                            <path class="fill"
-                                d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            <g>
+                                <path class="fill"
+                                    d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+
+            </form>
+
         </div>
         <div class="allListItms2">
             <ul class="allCard2" id="allCard2">
@@ -505,28 +526,34 @@
     </section>
     <section id="legalization-washed" class="invisible" onclick="legalizationWashed()">
         <div class="headerToDo3">
-            <center>
-                <div>
-                    <span id="title-tolls3">Lavadas</span>
-                    <div id="select-file3">
-                        <img src="img/icons8-add-image-128.png" id="image-tolls3">
-                        <input id="file-tolls3" type="file">
+            <form class="form-group" onsubmit="return addSpending('inputCount3','Lavada')">
+
+                <center>
+                    <div>
+                        <span id="title-tolls3">Lavadas</span>
+                        <div id="select-file3">
+                            <img src="img/icons8-add-image-128.png" id="image-tolls3">
+                            <input class="form-control" id="file-tolls3" type="file" required>
+                        </div>
                     </div>
-                </div>
-            </center>
-            <br>
-            <input type="number" id="inputCount3" placeholder="Ingrese el monto de la factura...">
-            <button id="add3">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                    <g>
+                </center>
+                <br>
+                <input class="form-control" type="number" id="inputCount3" placeholder="Ingrese el monto de la factura..." required>
+                <button type="submit" id="add3">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                        xml:space="preserve">
                         <g>
-                            <path class="fill"
-                                d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            <g>
+                                <path class="fill"
+                                    d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+
+            </form>
+
         </div>
         <div class="allListItms3">
             <ul class="allCard3" id="allCard3">
@@ -551,39 +578,45 @@
     </section>
     <section id="legalization-others" class="invisible" onclick="legalizationOthers()">
         <div class="headerToDo4">
-            <center>
-                <div>
-                    <span id="title-tolls4">Otros</span>
-                    <div id="select-file4">
-                        <img src="img/icons8-add-image-128.png" id="image-tolls4">
-                        <input id="file-tolls4" type="file">
-                    </div>
-                </div>
-            </center>
+            <form class="form-group" onsubmit="return addSpending('inputCount4', '0') ">
 
-            <br>
-            <div>
-                <select name="type" id="inputOption" class="form-control" aria-describedby="addon-wrapping">
-                    <option value="Auxilio">Auxilio de movilización</option>
-                    <option value="Cargue">Cargue</option>
-                    <option value="Descargue">Descargue</option>
-                    <option value="Llantas">Llantas</option>
-                    <option value="Mantenimiento">Mantenimiento</option>
-                </select>
-            </div>
-            <br>
-            <input type="number" id="inputCount4" placeholder="Ingrese el monto de la factura...">
-            <button id="add4">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                    y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                    <g>
+                <center>
+                    <div>
+                        <span id="title-tolls4">Otros</span>
+                        <div id="select-file4">
+                            <img src="img/icons8-add-image-128.png" id="image-tolls4">
+                            <input class="form-control" id="file-tolls4" type="file" required>
+                        </div>
+                    </div>
+                </center>
+
+                <br>
+                <div>
+                    <select name="type" id="inputOption" class="form-control" aria-describedby="addon-wrapping">
+                        <option value="Auxilio">Auxilio de movilización</option>
+                        <option value="Cargue">Cargue</option>
+                        <option value="Descargue">Descargue</option>
+                        <option value="Llantas">Llantas</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                    </select>
+                </div>
+                <br>
+                <input class="form-control" type="number" id="inputCount4" placeholder="Ingrese el monto de la factura..." required>
+                <button type="submit" id="add4" >
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                        xml:space="preserve">
                         <g>
-                            <path class="fill"
-                                d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            <g>
+                                <path class="fill"
+                                    d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1 s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+
+            </form>
+
         </div>
         <div class="allListItms4">
             <ul class="allCard4" id="allCard4">

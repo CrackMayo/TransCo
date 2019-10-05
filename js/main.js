@@ -754,7 +754,7 @@ function createSettlement() {
         cityDestin, dateTravel, company, freight, advance, nTons));
 
 
-        console.log(spendings);
+    console.log(spendings);
 
     return false;
 }
@@ -783,11 +783,18 @@ function spendingHeader(departOrigin, cityOrigin, departDestin, cityDestin, date
 
 function addSpending(idInput, typeSpend) {
 
+    if (idInput === "inputCount4") {
+        typeSpend = document.getElementById("inputOption").value;
+
+    }
+
     var spendingInput = document.getElementById(idInput);
 
     spendings.push(new spending(spendingInput.value, 0, typeSpend));
 
     console.log(spendings);
+
+    return false;
 }
 
 
@@ -811,12 +818,12 @@ function uploadSettlement() {
 
     console.log(spendingH);
 
-     db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").set(spendingH).then(function () {
+    db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").set(spendingH).then(function () {
 
 
-     }).catch(function (error) {
-         console.error("Error: ", error);
-     });
+    }).catch(function (error) {
+        console.error("Error: ", error);
+    });
 
 
     // var spendingN = {

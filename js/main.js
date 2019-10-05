@@ -723,32 +723,38 @@ function isPlate(placa) {
 
 function createSettlement() {
 
-    let departOriginL = document.getElementById("input-create-travel-departmento").value;
-    let cityOriginL = document.getElementById("input-create-travel-cityo").value;
-    let departDestinL = document.getElementById("input-create-travel-departmentd").value;
-    let cityDestinL = document.getElementById("input-create-travel-cityd").value;
-    let dateTravelL = document.getElementById("input-create-travel-dateout").value;
-    let companyL = document.getElementById("input-create-travel-description").value;
-    let freightL = document.getElementById("input-create-travel-amoung").value;
-    let advanceL = document.getElementById("input-create-travel-output").value;
-    let nTonsL = document.getElementById("input-create-travel-weight").value;
+    let departOrigin = document.getElementById("input-create-travel-departmento").value;
+    let cityOrigin = document.getElementById("input-create-travel-cityo").value;
+    let departDestin = document.getElementById("input-create-travel-departmentd").value;
+    let cityDestin = document.getElementById("input-create-travel-cityd").value;
+    let dateTravel = document.getElementById("input-create-travel-dateout").value;
+    let company = document.getElementById("input-create-travel-description").value;
+    let freight = document.getElementById("input-create-travel-amoung").value;
+    let advance = document.getElementById("input-create-travel-output").value;
+    let nTons = document.getElementById("input-create-travel-weight").value;
 
     changePage('legalization-tolls', 'create-travel');
 
-    let city1Elem = document.getElementById("city1");
-    let city2Elem = document.getElementById("city2");
-    let date1Elem = document.getElementById("date1");
-    let companyElem = document.getElementById("company");
-    let advanceElem = document.getElementById("advance");
-    let weigthElem = document.getElementById("weigth");
+    // let city1Elem = document.getElementById("city1");
+    // let city2Elem = document.getElementById("city2");
+    // let date1Elem = document.getElementById("date1");
+    // let companyElem = document.getElementById("company");
+    // let advanceElem = document.getElementById("advance");
+    // let weigthElem = document.getElementById("weigth");
 
-    city1Elem.innerHTML = city1Elem.innerHTML + cityOriginL;
-    city2Elem.innerHTML = city2Elem.innerHTML + cityDestinL;
-    date1Elem.innerHTML = date1Elem.innerHTML + dateTravelL;
+    // city1Elem.innerHTML = city1Elem.innerHTML + cityOrigin;
+    // city2Elem.innerHTML = city2Elem.innerHTML + cityDestin;
+    // date1Elem.innerHTML = date1Elem.innerHTML + dateTravel;
     // companyElem.innerHTML = companyElem.innerHTML + companyL;
-    advanceElem.innerHTML = advanceElem.innerHTML + advanceL;
-    weigthElem.innerHTML = weigthElem.innerHTML + nTonsL;
+    // advanceElem.innerHTML = advanceElem.innerHTML + advance;
+    // weigthElem.innerHTML = weigthElem.innerHTML + nTons;
 
+
+    spendings.push(new spendingHeader(departOrigin, cityOrigin, departDestin,
+        cityDestin, dateTravel, company, freight, advance, nTons));
+
+
+        console.log(spendings);
 
     return false;
 }
@@ -758,6 +764,19 @@ function spending(value, image, type) {
     this.value = value
     this.image = image
     this.type = type;
+}
+
+function spendingHeader(departOrigin, cityOrigin, departDestin, cityDestin, dateTravel, company, freight, advance, nTons) {
+    this.departOrigin = departOrigin;
+    this.cityOrigin = cityOrigin;
+    this.departDestin = departDestin;
+    this.cityDestin = cityDestin;
+    this.dateTravel = dateTravel;
+    this.company = company;
+    this.freight = freight;
+    this.advance = advance;
+    this.nTons = nTons;
+
 }
 
 
@@ -777,34 +796,46 @@ function uploadSettlement() {
     console.log(spendings);
 
 
-    
-    //Update Trucks drivers
-
-    // spending = {
-    //     conVehiculo: true,
-    //     vehiculo: truck.placaCabezote,
-    //     jefe: idUsuario
-
-
-    // }
-
-    var spendingN = {
-        valor: spendings[0].value,
-        imagen: spendings[0].image,
-        categoria: spendings[0].type
+    let spendingH = {
+        departamentoOrigen: spendings[0].departOrigin,
+        municipioOrigen: spendings[0].cityOrigin,
+        departamentoDestino: spendings[0].departDestin,
+        municipioDestino: spendings[0].cityDestin,
+        fechaManifiesto: spendings[0].dateTravel,
+        empresa: spendings[0].company,
+        flete: spendings[0].freight,
+        anticipo: spendings[0].advance,
+        numeroToneladas: spendings[0].nTons
 
     }
 
-    db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").collection("gastos").doc("1").set(spendingN).then(function () {
+    console.log(spendingH);
+
+     db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").set(spendingH).then(function () {
 
 
-    }).catch(function (error) {
-        console.error("Error: ", error);
-    });
+     }).catch(function (error) {
+         console.error("Error: ", error);
+     });
+
+
+    // var spendingN = {
+    //     valor: spendings[0].value,
+    //     imagen: spendings[0].image,
+    //     categoria: spendings[0].type
+
+    // }
+
+    // db.collection('accounts').doc(idUsuario).collection("camiones").doc("SRM632").collection("liquidaciones").doc("1").collection("gastos").doc("1").set(spendingN).then(function () {
+
+
+    // }).catch(function (error) {
+    //     console.error("Error: ", error);
+    // });
 
 
 
 
 
-changePage('view-truck', 'legalization-others');
+    changePage('view-truck', 'legalization-others');
 }

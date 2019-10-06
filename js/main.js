@@ -513,6 +513,8 @@ function getDriverTruck() {
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
                 "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
+                "</span>" +  "<span>" +
+                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
                 "</div>" +
@@ -625,7 +627,7 @@ function viewTruck(Plate) {
 
     changePage('view-truck', 'section-initial-page');
 
-    console.log("current Plate" + currentPlate);
+    console.log("current Boss" + currentBoss);
 }
 function changeLegalization() {
     changePage('create-travel', 'view-truck');
@@ -865,10 +867,10 @@ function uploadSettlement() {
 
     }
 
-    db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).collection("liquidaciones").get().then(snapshot => {
+    db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").get().then(snapshot => {
         numberSettlemet = snapshot.size + 1;
 
-        db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).set(spendingH).then(function () {
+        db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).set(spendingH).then(function () {
 
             for (let i = 1; i <= spendings.length - 1; i++) {
 
@@ -880,7 +882,7 @@ function uploadSettlement() {
                 }
 
 
-                db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).collection("gastos").doc(i.toString()).set(spendingN).then(function () {
+                db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).collection("gastos").doc(i.toString()).set(spendingN).then(function () {
 
                     uploadImageSettlement(spendings[i].image,currentPlate,numberSettlemet,i);
 
@@ -914,7 +916,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
     var storageRef = storage.ref();
     var file = imagen;
     //dynamically set reference to the file name
-    var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ imagen.name);
+    var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ imagen.name);
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -924,7 +926,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
         snapshot.ref.getDownloadURL().then(function (DownloadURL) {
             url = DownloadURL;
 
-            db.collection('accounts').doc(idUsuario).collection('camiones').doc(plate).collection('liquidaciones').doc(size.toString()).collection('gastos').doc(count.toString()).update({ "imagenSettlement": url })
+            db.collection('accounts').doc(currentBoss).collection('camiones').doc(plate).collection('liquidaciones').doc(size.toString()).collection('gastos').doc(count.toString()).update({ "imagenSettlement": url })
                 .then(function () {
                     console.log("Document successfully updated!");
                     console.log(url);

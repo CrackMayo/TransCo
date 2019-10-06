@@ -1,5 +1,6 @@
 var spendings = [];
 var currentPlate;
+var currentBoss;
 
 
 function userDataLogin(userId) {
@@ -15,7 +16,7 @@ function userDataLogin(userId) {
 
         if (rol === "Conductor") {
 
-
+            currentBoss = snap.data().jefe;
             for (let i = 0; i < navElements.length - 1; i++) {
                 navElements[i].classList.add("invisible", "font-invisible");
             }
@@ -847,7 +848,6 @@ function addSpending(idInput, typeSpend, imgSpend) {
 
 function uploadSettlement() {
     let numberSettlemet;
-    let numberSpending;
 
     console.log(spendings);
 
@@ -879,9 +879,10 @@ function uploadSettlement() {
 
                 }
 
-                numberSpending = i;
 
                 db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).collection("gastos").doc(i.toString()).set(spendingN).then(function () {
+
+                    uploadImageSettlement(spendings[i].image,currentPlate,numberSettlemet,i);
 
 
                 }).catch(function (error) {
@@ -901,19 +902,44 @@ function uploadSettlement() {
         console.error("Error: ", error);
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     changePage('view-truck', 'legalization-others');
+}
+
+
+function uploadImageSettlement(imagen, plate, size, count) {
+
+
+
+    var url = 0;
+    var storageRef = storage.ref();
+    var file = imagen;
+    //dynamically set reference to the file name
+    var thisRef = storageRef.child('/' + idUsuario + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ imagen.name);
+
+    //put request upload file to firebase storage
+    thisRef.put(file).then(function (snapshot) {
+        alert("File Uploaded");
+        console.log('Uploaded a blob or file!');
+
+        snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            url = DownloadURL;
+
+            db.collection('accounts').doc(idUsuario).collection('camiones').doc(plate).collection('liquidaciones').doc(size.toString()).collection('gastos').doc(count.toString()).update({ "imagenSettlement": url })
+                .then(function () {
+                    console.log("Document successfully updated!");
+                    console.log(url);
+                   
+
+                }).catch(function (error) {
+
+                    console.log(error);
+                });
+
+
+
+        });
+
+
+    });
+
 }

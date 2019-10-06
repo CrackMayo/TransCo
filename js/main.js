@@ -189,18 +189,27 @@ function legalizationTolls() {
     document.getElementById('add').addEventListener('click', function () {
         var value = document.getElementById('inputCount').value;
         var imgField = document.getElementById('file-tolls').files[0];
-        if (value && imgField) {
-            if (isFileImage(imgField)) {
-                addItemAllCard(value);
-                addSpending('inputCount', 'Peaje', imgField);
-                var value = document.getElementById('inputCount').value = '';
-                document.getElementById('file-tolls').value='';
+        if (isPositiveNumber(value)) {
+            if (value && imgField) {
+                if (isFileImage(imgField)) {
+                    addItemAllCard(value);
+                    addSpending('inputCount', 'Peaje', imgField);
+                    var value = document.getElementById('inputCount').value = '';
+                    document.getElementById('file-tolls').value = '';
+                } else {
+                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                    return;
+                }
+
             } else {
-                alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
             }
-
+        } else {
+            return;
         }
+
+
+
 
     });
     function removeItem() {
@@ -253,18 +262,25 @@ function legalizationFuel() {
     document.getElementById('add1').addEventListener('click', function () {
         var value1 = document.getElementById('inputCount1').value;
         var imgField = document.getElementById('file-tolls1').files[0];
-        if (value1 && imgField) {
-            if (isFileImage(imgField)) {
-                addItemAllCard(value1);
-                addSpending('inputCount1', 'Combustible', imgField);
-                var value1 = document.getElementById('inputCount1').value = '';
-                document.getElementById('file-tolls1').value='';
+        if (isPositiveNumber(value1)) {
+            if (value1 && imgField) {
+                if (isFileImage(imgField)) {
+                    addItemAllCard(value1);
+                    addSpending('inputCount1', 'Combustible', imgField);
+                    var value1 = document.getElementById('inputCount1').value = '';
+                    document.getElementById('file-tolls1').value = '';
+                } else {
+                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                    return;
+                }
+
             } else {
-                alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
             }
-
+        } else {
+            return;
         }
+
 
     });
     function removeItem1() {
@@ -316,18 +332,26 @@ function legalizationParking() {
     document.getElementById('add2').addEventListener('click', function () {
         var value2 = document.getElementById('inputCount2').value;
         var imgField = document.getElementById('file-tolls2').files[0];
-        if (value2 && imgField) {
-            if (isFileImage(imgField)) {
-                addItemAllCard(value2);
-                addSpending('inputCount2', 'Parqueadero', imgField);
-                var value2 = document.getElementById('inputCount2').value = '';
-                document.getElementById('file-tolls2').value='';
+        if (isPositiveNumber(value2)) {
+            if (value2 && imgField) {
+                if (isFileImage(imgField)) {
+                    addItemAllCard(value2);
+                    addSpending('inputCount2', 'Parqueadero', imgField);
+                    var value2 = document.getElementById('inputCount2').value = '';
+                    document.getElementById('file-tolls2').value = '';
+                } else {
+                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                    return;
+                }
+
             } else {
-                alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
             }
+        } else {
 
+            return;
         }
+
 
     });
     function removeItem2() {
@@ -379,18 +403,25 @@ function legalizationWashed() {
     document.getElementById('add3').addEventListener('click', function () {
         var value3 = document.getElementById('inputCount3').value;
         var imgField = document.getElementById('file-tolls3').files[0];
-        if (value3 && imgField) {
-            if (isFileImage(imgField)) {
-                addItemAllCard(value3);
-                addSpending('inputCount3', 'Lavada', imgField);
-                var value3 = document.getElementById('inputCount3').value = '';
-                document.getElementById('file-tolls3').value='';
+        if (isPositiveNumber(value3)) {
+            if (value3 && imgField) {
+                if (isFileImage(imgField)) {
+                    addItemAllCard(value3);
+                    addSpending('inputCount3', 'Lavada', imgField);
+                    var value3 = document.getElementById('inputCount3').value = '';
+                    document.getElementById('file-tolls3').value = '';
+                } else {
+                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                    return;
+                }
+
             } else {
-                alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
             }
-
+        } else {
+            return;
         }
+
     });
     function removeItem3() {
         var item3 = this.parentNode.parentNode;
@@ -442,18 +473,26 @@ function legalizationOthers() {
     document.getElementById('add4').addEventListener('click', function () {
         var value4 = document.getElementById('inputCount4').value;
         var imgField = document.getElementById('file-tolls4').files[0];
-        if (value4 && imgField) {
-            if (isFileImage(imgField)) {
-                addItemAllCard(value4);
-                addSpending('inputCount4', '', imgField);
-                var value4 = document.getElementById('inputCount4').value = '';
-                document.getElementById('file-tolls4').value='';
+
+        if (isPositiveNumber(value4)) {
+            if (value4 && imgField) {
+                if (isFileImage(imgField)) {
+                    addItemAllCard(value4);
+                    addSpending('inputCount4', '', imgField);
+                    var value4 = document.getElementById('inputCount4').value = '';
+                    document.getElementById('file-tolls4').value = '';
+                } else {
+                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                    return;
+                }
+
             } else {
-                alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
             }
-
+        } else {
+            return;
         }
+
     });
     function removeItem4() {
         var item4 = this.parentNode.parentNode;
@@ -518,7 +557,7 @@ function getDriverTruck() {
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
                 "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
-                "</span>" +  "<span>" +
+                "</span>" + "<span>" +
                 "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
@@ -869,11 +908,11 @@ function uploadSettlement() {
         flete: spendings[0].freight,
         anticipo: spendings[0].advance,
         numeroToneladas: spendings[0].nTons,
-        totalCombustible: spendings[spendingsLength-1].totalCombustible,
-        totalPeajes: spendings[spendingsLength-1].totalPeajes,
-        totalParqueadero: spendings[spendingsLength-1].totalParqueadero,
-        totalLavadas: spendings[spendingsLength-1].totalLavada,
-        totalOtros: spendings[spendingsLength-1].totalOtros
+        totalCombustible: spendings[spendingsLength - 1].totalCombustible,
+        totalPeajes: spendings[spendingsLength - 1].totalPeajes,
+        totalParqueadero: spendings[spendingsLength - 1].totalParqueadero,
+        totalLavadas: spendings[spendingsLength - 1].totalLavada,
+        totalOtros: spendings[spendingsLength - 1].totalOtros
 
     }
 
@@ -882,7 +921,7 @@ function uploadSettlement() {
         numberSettlemet = snapshot.size + 1;
 
         db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).set(spendingH).then(function () {
-            
+
             for (let i = 1; i <= spendings.length - 2; i++) {
 
                 var spendingN = {
@@ -895,7 +934,7 @@ function uploadSettlement() {
 
                 db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).collection("gastos").doc(i.toString()).set(spendingN).then(function () {
 
-                    uploadImageSettlement(spendings[i].image,currentPlate,numberSettlemet,i);
+                    uploadImageSettlement(spendings[i].image, currentPlate, numberSettlemet, i);
 
 
                 }).catch(function (error) {
@@ -927,7 +966,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
     var storageRef = storage.ref();
     var file = imagen;
     //dynamically set reference to the file name
-    var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ count.toString());
+    var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/' + size.toString() + '/' + count.toString());
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -941,7 +980,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
                 .then(function () {
                     console.log("Document successfully updated!");
                     console.log(url);
-                   
+
 
                 }).catch(function (error) {
 
@@ -958,9 +997,9 @@ function uploadImageSettlement(imagen, plate, size, count) {
 }
 
 
-function summarySpendings(){
+function summarySpendings() {
 
-    changePage('summarySpendings','legalization-others');
+    changePage('summarySpendings', 'legalization-others');
     let spendingsList = document.getElementById("spendingsList");
 
     let fuelTotal = 0;
@@ -969,20 +1008,20 @@ function summarySpendings(){
     let washesTotal = 0;
     let othersTotal = 0;
 
-    for(let i = 1; i <= spendings.length - 1; i++ ){
+    for (let i = 1; i <= spendings.length - 1; i++) {
 
-        if(spendings[i].type === "Combustible"){
+        if (spendings[i].type === "Combustible") {
             fuelTotal += parseFloat(spendings[i].value);
-        }else if(spendings[i].type === "Peaje"){
+        } else if (spendings[i].type === "Peaje") {
             tollsTotal += parseFloat(spendings[i].value);
-        }else if(spendings[i].type === "Parqueadero"){
+        } else if (spendings[i].type === "Parqueadero") {
             parkingTotal += parseFloat(spendings[i].value);
-        }else if(spendings[i].type === "Lavada"){
+        } else if (spendings[i].type === "Lavada") {
             washesTotal += parseFloat(spendings[i].value);
-        }else{
+        } else {
             othersTotal += parseFloat(spendings[i].value);
         }
-        spendingsList.innerHTML = spendingsList.innerHTML + "<li>Gasto ( " + spendings[i].type + ")" + i + ": " + spendings[i].value +  "</li>" 
+        spendingsList.innerHTML = spendingsList.innerHTML + "<li>Gasto ( " + spendings[i].type + ")" + i + ": " + spendings[i].value + "</li>"
         console.log(spendings);
 
     }
@@ -1000,9 +1039,15 @@ function summarySpendings(){
 
     console.log(spendingsTotal);
 
+}
 
 
+function isPositiveNumber(number) {
 
-
+    if (Math.sign(number) > 0) {
+        return true;
+    } else {
+        return false;
+    }
 
 }

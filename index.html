@@ -216,11 +216,11 @@
                         aria-label="Marca" aria-describedby="addon-wrapping" required maxlength="15">
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-ejes" type="number" class="form-control" placeholder="Ejes"
-                        aria-label="Ejes" aria-describedby="addon-wrapping" required maxlength="6">
+                    <input id="input-create-ejes" type="number"  min="1" pattern="^[0-9]+" class="form-control" placeholder="Ejes"
+                        aria-label="Ejes" aria-describedby="addon-wrapping" required max="6">
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-truck-capacidad-carga" type="number" class="form-control"
+                    <input id="input-create-truck-capacidad-carga" type="number"  min="1" pattern="^[0-9]+" class="form-control"
                         placeholder="Capacidad de carga" aria-label="Capacidad de carga"
                         aria-describedby="addon-wrapping" required>
                 </div>
@@ -234,7 +234,7 @@
                         aria-label="Correo Conductor" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-truck-kilometraje" type="number" class="form-control"
+                    <input id="input-create-truck-kilometraje" type="number"  min="1" pattern="^[0-9]+" class="form-control"
                         placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping" required>
                 </div>
                 <div>
@@ -302,17 +302,17 @@
                     <input id="input-create-travel-description" type="text" class="form-control" placeholder="Empresa"
                         aria-label="Empresa" aria-describedby="addon-wrapping" required>
                 </div>
-
+ 
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-travel-amoung" type="number" class="form-control" placeholder="Flete"
+                    <input id="input-create-travel-amoung" type="number"  min="1" pattern="^[0-9]+" class="form-control" placeholder="Flete"
                         aria-label="Flete" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-travel-output" type="number" class="form-control" placeholder="Anticipo"
+                    <input id="input-create-travel-output" type="number"   min="1" pattern="^[0-9]+" class="form-control" placeholder="Anticipo"
                         aria-label="Anticipo" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-travel-weight" type="number" class="form-control"
+                    <input id="input-create-travel-weight" type="number"  min="1" pattern="^[0-9]+" class="form-control"
                         placeholder="Numero de toneladas" aria-label="Numero de toneladas"
                         aria-describedby="addon-wrapping" required>
                 </div>
@@ -378,7 +378,7 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount"
+                <input class="form-control" type="number" min="1" pattern="^[0-9]+" id="inputCount"
                     placeholder="Ingrese el monto de la factura..." required>
 
                 <button type="submit" id="add">
@@ -434,7 +434,7 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount1"
+                <input class="form-control" type="number"  min="1" pattern="^[0-9]+" id="inputCount1"
                     placeholder="Ingrese el monto de la factura..." required>
                 <button class="form-control" type="submit" id="add1">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -488,7 +488,7 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount2"
+                <input class="form-control" type="number"  min="1" pattern="^[0-9]+" id="inputCount2"
                     placeholder="Ingrese el monto de la factura..." required>
                 <button type="submit" id="add2">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -542,7 +542,7 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount3"
+                <input class="form-control" type="number"  min="1" pattern="^[0-9]+" id="inputCount3"
                     placeholder="Ingrese el monto de la factura..." required>
                 <button type="submit" id="add3">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -607,7 +607,7 @@
                     </select>
                 </div>
                 <br>
-                <input class="form-control" type="number" id="inputCount4"
+                <input class="form-control" type="number"  min="1" pattern="^[0-9]+" id="inputCount4"
                     placeholder="Ingrese el monto de la factura..." required>
                 <button type="submit" id="add4">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -798,11 +798,11 @@
                         aria-label="Marca" aria-describedby="addon-wrapping" required required maxlength="15">
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-update-ejes" type="number" class="form-control" placeholder="Ejes"
+                    <input id="input-update-ejes" type="number"  min="1" pattern="^[0-9]+" max="6" class="form-control" placeholder="Ejes"
                         aria-label="Ejes" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-update-truck-capacidad-carga" type="number" class="form-control"
+                    <input id="input-update-truck-capacidad-carga" type="number"  min="1" pattern="^[0-9]+" class="form-control"
                         placeholder="Capacidad de carga" aria-label="Capacidad de carga"
                         aria-describedby="addon-wrapping" required>
                 </div>
@@ -813,7 +813,7 @@
                 </div>
 
                 <div class="input-group flex-nowrap">
-                    <input id="input-update-truck-kilometraje" type="number" class="form-control"
+                    <input id="input-update-truck-kilometraje" type="number"  min="1" pattern="^[0-9]+" class="form-control"
                         placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="addon-wrapping" required>
                 </div>
                 <div>

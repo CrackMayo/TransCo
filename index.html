@@ -378,7 +378,8 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount" placeholder="Ingrese el monto de la factura..." required>
+                <input class="form-control" type="number" id="inputCount"
+                    placeholder="Ingrese el monto de la factura..." required>
 
                 <button type="submit" id="add">
 
@@ -433,7 +434,8 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount1" placeholder="Ingrese el monto de la factura..." required>
+                <input class="form-control" type="number" id="inputCount1"
+                    placeholder="Ingrese el monto de la factura..." required>
                 <button class="form-control" type="submit" id="add1">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
@@ -486,7 +488,8 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount2" placeholder="Ingrese el monto de la factura..." required>
+                <input class="form-control" type="number" id="inputCount2"
+                    placeholder="Ingrese el monto de la factura..." required>
                 <button type="submit" id="add2">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
@@ -539,7 +542,8 @@
                     </div>
                 </center>
                 <br>
-                <input class="form-control" type="number" id="inputCount3" placeholder="Ingrese el monto de la factura..." required>
+                <input class="form-control" type="number" id="inputCount3"
+                    placeholder="Ingrese el monto de la factura..." required>
                 <button type="submit" id="add3">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
@@ -603,8 +607,9 @@
                     </select>
                 </div>
                 <br>
-                <input class="form-control" type="number" id="inputCount4" placeholder="Ingrese el monto de la factura..." required>
-                <button type="submit" id="add4" >
+                <input class="form-control" type="number" id="inputCount4"
+                    placeholder="Ingrese el monto de la factura..." required>
+                <button type="submit" id="add4">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
                         xml:space="preserve">
@@ -636,10 +641,20 @@
 
             </ul>
         </div>
+        <div class="float" onclick="summarySpendings();">
+            <i class="fas fa-arrow-right my-float"></i>
+        </div>
+
+    </section>
+
+    <section id="summarySpendings" class="invisible">
+
+        <ul id="spendingsList" class="collapsible z-depth-0 guides" style="border: none;"></ul>
+
+
         <div class="float" onclick="uploadSettlement();">
             <i class="fas fa-check my-float"></i>
         </div>
-
     </section>
 
     <section id="create-balance" class="invisible">

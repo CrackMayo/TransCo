@@ -916,7 +916,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
     var storageRef = storage.ref();
     var file = imagen;
     //dynamically set reference to the file name
-    var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ imagen.name);
+    var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/'+size.toString()+'/'+ count.toString());
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -943,5 +943,25 @@ function uploadImageSettlement(imagen, plate, size, count) {
 
 
     });
+
+}
+
+
+function summarySpendings(){
+
+    changePage('summarySpendings','legalization-others');
+    let spendingsList = document.getElementById("spendingsList");
+
+    for(let i = 1; i <= spendings.length - 1; i++ ){
+
+        spendingsList.innerHTML = spendingsList.innerHTML + "<li>Gasto ( " + spendings[i].type + ")" + i + ": " + spendings[i].value +  "</li>" 
+        console.log(spendings);
+
+    }
+
+
+
+
+
 
 }

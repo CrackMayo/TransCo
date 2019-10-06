@@ -128,7 +128,79 @@ section {
 .card1 .detail {
     margin-left: 10px;
 }
+.card1 .query {
+    display: block;
+    align-items: center;
+}
+.card1 .radio{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: black;
+}
+.card1 #queryInputDest {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDate {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDest::placeholder{
+    color: white;
+}
+.card1 .labels{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 15px;
+}
 
+.card1 button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
 .card1 .posted {
     font-size: 10px;
     padding-top: 3px;

@@ -194,6 +194,7 @@ function legalizationTolls() {
                 addItemAllCard(value);
                 addSpending('inputCount', 'Peaje', imgField);
                 var value = document.getElementById('inputCount').value = '';
+                document.getElementById('file-tolls').value='';
             } else {
                 alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
@@ -257,6 +258,7 @@ function legalizationFuel() {
                 addItemAllCard(value1);
                 addSpending('inputCount1', 'Combustible', imgField);
                 var value1 = document.getElementById('inputCount1').value = '';
+                document.getElementById('file-tolls1').value='';
             } else {
                 alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
@@ -319,6 +321,7 @@ function legalizationParking() {
                 addItemAllCard(value2);
                 addSpending('inputCount2', 'Parqueadero', imgField);
                 var value2 = document.getElementById('inputCount2').value = '';
+                document.getElementById('file-tolls2').value='';
             } else {
                 alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
@@ -381,6 +384,7 @@ function legalizationWashed() {
                 addItemAllCard(value3);
                 addSpending('inputCount3', 'Lavada', imgField);
                 var value3 = document.getElementById('inputCount3').value = '';
+                document.getElementById('file-tolls3').value='';
             } else {
                 alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;
@@ -443,6 +447,7 @@ function legalizationOthers() {
                 addItemAllCard(value4);
                 addSpending('inputCount4', '', imgField);
                 var value4 = document.getElementById('inputCount4').value = '';
+                document.getElementById('file-tolls4').value='';
             } else {
                 alert("Debe seleccionar un formato de archivo valido (imagenes)");
                 return;

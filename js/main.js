@@ -852,7 +852,7 @@ function uploadSettlement() {
     let numberSettlemet;
 
     console.log(spendings);
-
+    let spendingsLength = spendings.length;
 
     let spendingH = {
         departamentoOrigen: spendings[0].departOrigin,
@@ -863,16 +863,22 @@ function uploadSettlement() {
         empresa: spendings[0].company,
         flete: spendings[0].freight,
         anticipo: spendings[0].advance,
-        numeroToneladas: spendings[0].nTons
+        numeroToneladas: spendings[0].nTons,
+        totalCombustible: spendings[spendingsLength-1].totalCombustible,
+        totalPeajes: spendings[spendingsLength-1].totalPeajes,
+        totalParqueadero: spendings[spendingsLength-1].totalParqueadero,
+        totalLavadas: spendings[spendingsLength-1].totalLavada,
+        totalOtros: spendings[spendingsLength-1].totalOtros
 
     }
 
+    console.log(spendingH);
     db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").get().then(snapshot => {
         numberSettlemet = snapshot.size + 1;
 
         db.collection('accounts').doc(currentBoss).collection("camiones").doc(currentPlate).collection("liquidaciones").doc(numberSettlemet.toString()).set(spendingH).then(function () {
-
-            for (let i = 1; i <= spendings.length - 1; i++) {
+            
+            for (let i = 1; i <= spendings.length - 2; i++) {
 
                 var spendingN = {
                     valor: spendings[i].value,
@@ -983,6 +989,9 @@ function summarySpendings(){
         totalLavada: washesTotal,
         totalOtros: othersTotal
     }
+
+
+    spendings.push(spendingsTotal);
 
     console.log(spendingsTotal);
 

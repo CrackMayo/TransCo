@@ -366,14 +366,14 @@
 
     <section id="legalization-tolls" class="invisible" onclick="legalizationTolls()">
         <div class="headerToDo">
-            <form class="form-group" onsubmit="return addSpending('inputCount','Peaje');">
+            <form class="form-group" onsubmit="return ">
 
                 <center>
                     <div>
                         <span id="title-tolls">Peajes</span>
                         <div id="select-file">
                             <img src="img/icons8-add-image-128.png" id="image-tolls">
-                            <input class="form-control" id="file-tolls" type="file" required>
+                            <input class="form-control" accept="image/*" id="file-tolls" type="file" required>
                         </div>
                     </div>
                 </center>
@@ -428,8 +428,7 @@
                         <span id="title-tolls1">Comustible</span>
                         <div id="select-file1">
                             <img src="img/icons8-add-image-128.png" id="image-tolls1">
-                            <input class="form-control" type="file" id="files" accept="image/*" name="files[]" required/>
-                            <!-- <input class="form-control" id="file-tolls1" type="file" required> -->
+                            <input class="form-control" accept="image/*" id="file-tolls1" type="file" required>
                         </div>
                     </div>
                 </center>
@@ -472,6 +471,7 @@
         </div>
 
     </section>
+
     <section id="legalization-parking" class="invisible" onclick="legalizationParking()">
         <div class="headerToDo2">
             <form class="form-group" onsubmit="return addSpending('inputCount2', 'Parqueadero')">
@@ -481,7 +481,7 @@
                         <span id="title-tolls2">Parqueadero</span>
                         <div id="select-file2">
                             <img src="img/icons8-add-image-128.png" id="image-tolls2">
-                            <input class="form-control" id="file-tolls2" type="file" required>
+                            <input class="form-control" accept="image/*" id="file-tolls2" type="file" required>
                         </div>
                     </div>
                 </center>
@@ -524,6 +524,7 @@
         </div>
 
     </section>
+
     <section id="legalization-washed" class="invisible" onclick="legalizationWashed()">
         <div class="headerToDo3">
             <form class="form-group" onsubmit="return addSpending('inputCount3','Lavada')">
@@ -533,7 +534,7 @@
                         <span id="title-tolls3">Lavadas</span>
                         <div id="select-file3">
                             <img src="img/icons8-add-image-128.png" id="image-tolls3">
-                            <input class="form-control" id="file-tolls3" type="file" required>
+                            <input class="form-control" accept="image/*" id="file-tolls3" type="file" required>
                         </div>
                     </div>
                 </center>
@@ -576,6 +577,7 @@
         </div>
 
     </section>
+
     <section id="legalization-others" class="invisible" onclick="legalizationOthers()">
         <div class="headerToDo4">
             <form class="form-group" onsubmit="return addSpending('inputCount4', '0') ">
@@ -585,7 +587,7 @@
                         <span id="title-tolls4">Otros</span>
                         <div id="select-file4">
                             <img src="img/icons8-add-image-128.png" id="image-tolls4">
-                            <input class="form-control" id="file-tolls4" type="file" required>
+                            <input class="form-control" accept="image/*" id="file-tolls4" type="file" required>
                         </div>
                     </div>
                 </center>
@@ -639,6 +641,7 @@
         </div>
 
     </section>
+
     <section id="create-balance" class="invisible">
         <br><br>
         <div id="container-register">
@@ -697,6 +700,7 @@
         </div>
 
     </section>
+
     <section id="account-recovery" class="invisible">
         <div id="container-account-recovery">
             <img src="img/Logo.PNG" id="icono-sign-in">

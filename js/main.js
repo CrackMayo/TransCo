@@ -185,10 +185,12 @@ function legalizationTolls() {
     var img1 = document.getElementsByClassName('imageBasic');
     img1.src = "/img/basicImage.png";
     document.getElementById('add').addEventListener('click', function () {
-        var value1 = document.getElementById('inputCount').value;
-        if (value1) {
-            addItemAllCard(value1);
-            var value1 = document.getElementById('inputCount').value = '';
+        var value = document.getElementById('inputCount').value;
+        var imgField = document.getElementById('file-tolls').files[0];
+        if (value && imgField) {
+            addItemAllCard(value);
+            addSpending('inputCount', 'Peaje');
+            var value = document.getElementById('inputCount').value = '';
         }
 
     });
@@ -241,8 +243,10 @@ function legalizationFuel() {
     img2.src = "/img/basicImage.png";
     document.getElementById('add1').addEventListener('click', function () {
         var value1 = document.getElementById('inputCount1').value;
-        if (value1) {
+        var imgField = document.getElementById('file-tolls1').files[0];
+        if (value1 && imgField) {
             addItemAllCard(value1);
+            addSpending('inputCount1', 'Combustible');
             var value1 = document.getElementById('inputCount1').value = '';
         }
 
@@ -295,8 +299,10 @@ function legalizationParking() {
     img3.src = "/img/basicImage.png";
     document.getElementById('add2').addEventListener('click', function () {
         var value2 = document.getElementById('inputCount2').value;
-        if (value2) {
+        var imgField = document.getElementById('file-tolls2').files[0];
+        if (value2 && imgField) {
             addItemAllCard(value2);
+            addSpending('inputCount2', 'Parqueadero');
             var value2 = document.getElementById('inputCount2').value = '';
         }
 
@@ -349,8 +355,10 @@ function legalizationWashed() {
     img4.src = "/img/basicImage.png";
     document.getElementById('add3').addEventListener('click', function () {
         var value3 = document.getElementById('inputCount3').value;
-        if (value3) {
+        var imgField = document.getElementById('file-tolls3').files[0];
+        if (value3 && imgField) {
             addItemAllCard(value3);
+            addSpending('inputCount3', 'Lavada');
             var value3 = document.getElementById('inputCount3').value = '';
         }
     });
@@ -402,8 +410,10 @@ function legalizationOthers() {
     img5.src = "/img/basicImage.png";
     document.getElementById('add4').addEventListener('click', function () {
         var value4 = document.getElementById('inputCount4').value;
-        if (value4) {
+        var imgField = document.getElementById('file-tolls4').files[0];
+        if (value4 && imgField) {
             addItemAllCard(value4);
+            addSpending('inputCount4', '');
             var value4 = document.getElementById('inputCount4').value = '';
         }
     });

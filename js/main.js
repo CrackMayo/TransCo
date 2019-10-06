@@ -188,9 +188,15 @@ function legalizationTolls() {
         var value = document.getElementById('inputCount').value;
         var imgField = document.getElementById('file-tolls').files[0];
         if (value && imgField) {
-            addItemAllCard(value);
-            addSpending('inputCount', 'Peaje');
-            var value = document.getElementById('inputCount').value = '';
+            if (isFileImage(imgField)) {
+                addItemAllCard(value);
+                addSpending('inputCount', 'Peaje', imgField);
+                var value = document.getElementById('inputCount').value = '';
+            } else {
+                alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                return;
+            }
+
         }
 
     });
@@ -245,9 +251,15 @@ function legalizationFuel() {
         var value1 = document.getElementById('inputCount1').value;
         var imgField = document.getElementById('file-tolls1').files[0];
         if (value1 && imgField) {
-            addItemAllCard(value1);
-            addSpending('inputCount1', 'Combustible');
-            var value1 = document.getElementById('inputCount1').value = '';
+            if (isFileImage(imgField)) {
+                addItemAllCard(value1);
+                addSpending('inputCount1', 'Combustible', imgField);
+                var value1 = document.getElementById('inputCount1').value = '';
+            } else {
+                alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                return;
+            }
+
         }
 
     });
@@ -301,9 +313,15 @@ function legalizationParking() {
         var value2 = document.getElementById('inputCount2').value;
         var imgField = document.getElementById('file-tolls2').files[0];
         if (value2 && imgField) {
-            addItemAllCard(value2);
-            addSpending('inputCount2', 'Parqueadero');
-            var value2 = document.getElementById('inputCount2').value = '';
+            if (isFileImage(imgField)) {
+                addItemAllCard(value2);
+                addSpending('inputCount2', 'Parqueadero', imgField);
+                var value2 = document.getElementById('inputCount2').value = '';
+            } else {
+                alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                return;
+            }
+
         }
 
     });
@@ -357,9 +375,15 @@ function legalizationWashed() {
         var value3 = document.getElementById('inputCount3').value;
         var imgField = document.getElementById('file-tolls3').files[0];
         if (value3 && imgField) {
-            addItemAllCard(value3);
-            addSpending('inputCount3', 'Lavada');
-            var value3 = document.getElementById('inputCount3').value = '';
+            if (isFileImage(imgField)) {
+                addItemAllCard(value3);
+                addSpending('inputCount3', 'Lavada', imgField);
+                var value3 = document.getElementById('inputCount3').value = '';
+            } else {
+                alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                return;
+            }
+
         }
     });
     function removeItem3() {
@@ -412,9 +436,15 @@ function legalizationOthers() {
         var value4 = document.getElementById('inputCount4').value;
         var imgField = document.getElementById('file-tolls4').files[0];
         if (value4 && imgField) {
-            addItemAllCard(value4);
-            addSpending('inputCount4', '');
-            var value4 = document.getElementById('inputCount4').value = '';
+            if (isFileImage(imgField)) {
+                addItemAllCard(value4);
+                addSpending('inputCount4', '', imgField);
+                var value4 = document.getElementById('inputCount4').value = '';
+            } else {
+                alert("Debe seleccionar un formato de archivo valido (imagenes)");
+                return;
+            }
+
         }
     });
     function removeItem4() {
@@ -771,8 +801,8 @@ function createSettlement() {
 
 function spending(value, image, type) {
 
-    this.value = value
-    this.image = image
+    this.value = value;
+    this.image = image;
     this.type = type;
 }
 
@@ -791,16 +821,16 @@ function spendingHeader(departOrigin, cityOrigin, departDestin, cityDestin, date
 
 
 
-function addSpending(idInput, typeSpend) {
+function addSpending(idInput, typeSpend, imgSpend) {
 
     if (idInput === "inputCount4") {
         typeSpend = document.getElementById("inputOption").value;
 
     }
 
-    var spendingInput = document.getElementById(idInput);
+    let spendingInput = document.getElementById(idInput);
 
-    spendings.push(new spending(spendingInput.value, 0, typeSpend));
+    spendings.push(new spending(spendingInput.value, imgSpend, typeSpend));
 
     console.log(spendings);
 

@@ -952,12 +952,39 @@ function summarySpendings(){
     changePage('summarySpendings','legalization-others');
     let spendingsList = document.getElementById("spendingsList");
 
+    let fuelTotal = 0;
+    let tollsTotal = 0;
+    let parkingTotal = 0;
+    let washesTotal = 0;
+    let othersTotal = 0;
+
     for(let i = 1; i <= spendings.length - 1; i++ ){
 
+        if(spendings[i].type === "Combustible"){
+            fuelTotal += parseFloat(spendings[i].value);
+        }else if(spendings[i].type === "Peaje"){
+            tollsTotal += parseFloat(spendings[i].value);
+        }else if(spendings[i].type === "Parqueadero"){
+            parkingTotal += parseFloat(spendings[i].value);
+        }else if(spendings[i].type === "Lavada"){
+            washesTotal += parseFloat(spendings[i].value);
+        }else{
+            othersTotal += parseFloat(spendings[i].value);
+        }
         spendingsList.innerHTML = spendingsList.innerHTML + "<li>Gasto ( " + spendings[i].type + ")" + i + ": " + spendings[i].value +  "</li>" 
         console.log(spendings);
 
     }
+
+    let spendingsTotal = {
+        totalCombustible: fuelTotal,
+        totalPeajes: tollsTotal,
+        totalParqueadero: parkingTotal,
+        totalLavada: washesTotal,
+        totalOtros: othersTotal
+    }
+
+    console.log(spendingsTotal);
 
 
 

@@ -983,7 +983,7 @@ ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
     opacity: 0;
 }
 #legalization-others{
-    padding: 240px 0 0 0;
+    padding: 315px 0 0 0;
 }
 .allListItms4{
     width: 100%;
@@ -1084,8 +1084,8 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
 	position:fixed;
 	width:40px;
 	height:40px;
-	bottom:40px;
-	right:40px;
+	bottom:21px;
+	right:51px;
 	background-color:orange;
 	color:#FFF;
 	border-radius:50px;

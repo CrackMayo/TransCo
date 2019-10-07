@@ -1,136 +1,227 @@
-html, body{
-    height:auto;
+html, body {
+    height: auto;
     background-color: #9e9e9e;
-    overflow: auto;    
+    overflow: auto;
 }
-.scrollable {
-    position:inherit;
-}
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-  }
-  tr:nth-of-type(odd) { 
-    background: #eee; 
-  }
-  th { 
-    background: #333; 
-    color: white; 
-    font-weight: bold; 
-  }
-  td, th { 
-    padding: 6px; 
-    border: 1px solid #ccc; 
-    text-align: left; 
-  }
 
-  @media screen and (max-width: 760px){
-  
-      /* Force table to not be like tables anymore */
-      table, thead, tbody, th, td, tr { 
-          display: block; 
-      }
-      
-      /* Hide table headers (but not display: none;, for accessibility) */
-      thead tr { 
-          position: absolute;
-          top: -9999px;
-          left: -9999px;
-      }
-      
-      tr { border: 1px solid #ccc; }
-      
-      td { 
-          border: none;
-          border-bottom: 1px solid #eee; 
-          position: relative;
-          padding-left: 50%; 
-      }
-      
-      td:before { 
-          position: absolute;
-          top: 6px;
-          left: 6px;
-          width: 45%; 
-          padding-right: 10px; 
-          white-space: nowrap;
-      }
-      td:nth-of-type(1):before { content: "comprobante"; }
-      td:nth-of-type(2):before { content: "Categoria"; }
-      td:nth-of-type(3):before { content: "Descripción"; }
-      td:nth-of-type(4):before { content: "Fecha"; }
-      td:nth-of-type(5):before { content: "Valor"; }
-  }
+.scrollable {
+    position: inherit;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+@media screen and (max-width: 760px) {
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    td:nth-of-type(1):before {
+        content: "comprobante";
+        top: 50px;
+    }
+    td:nth-of-type(2):before {
+        content: "Categoria";
+    }
+    td:nth-of-type(3):before {
+        content: "Valor";
+    }
+}
+
 section {
     background-color: #9e9e9e !important;
     height: 100%;
     width: 100%;
 }
-.size-profile-Truck{
+
+.size-profile-Truck {
     width: 50%;
     height: auto;
 }
-.newsfeed{
-    padding: 0 30px;
+
+.newsfeed {
+    padding: 0 10px;
 }
-.card1{
-    width:100%;
-    height:100%;
+
+.card1 {
+    width: 100%;
+    height: 100%;
     background: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     border-radius: 10px;
     font-size: 14px;
 }
-.card1 .picture{
+
+.card1 .picture {
     background-position: 50%;
     background-size: cover;
-    height: 200px;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-
 }
-.card1 .content1{
+
+.card1 .content1 {
     display: flex;
     flex-direction: column;
     padding: 15px 10px;
 }
-.card1 .header{
+
+.card1 .header {
     display: flex;
     align-items: center;
 }
-.card1 .profile-pic{
+
+.card1 .profile-pic {
     background-position: 50%;
     background-size: cover;
     height: 50px;
     width: 50px;
     border-radius: 50%;
 }
-.card1 .detail{
+
+.card1 .detail {
     margin-left: 10px;
 }
-.card1 .posted{
+.card1 .query {
+    display: block;
+    align-items: center;
+}
+.card1 .radio{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: black;
+}
+.card1 #queryInputDest {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDate {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDest::placeholder{
+    color: white;
+}
+.card1 .labels{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.card1 button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.card1 .posted {
     font-size: 10px;
     padding-top: 3px;
 }
-.card1 .footer{
+
+.card1 .footer {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
 }
-.card1 .footer .liquidation{
+
+.card1 .footer .liquidation {
     flex: 0 0 1;
 }
-.card1 .footer .spend{
+
+.card1 .footer .spend {
     flex: 0 0 1;
 }
-.card1 .footer i{
+
+.card1 .footer i {
     padding-right: 3px;
 }
 
-.headerToDo{
-    width:100%;
-    height: 244px;
+.headerToDo {
+    width: 100%;
+    height: 206px;
     position: fixed;
     padding: 15px;
     top: 0;
@@ -142,21 +233,23 @@ section {
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.noFill{
+
+.noFill {
     fill: none;
 }
-.headerToDo #inputCount{
+
+.headerToDo #inputCount {
     width: 100%;
-    height: 50px;
+    height: 40px;
     float: left;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-indent: 18px;
-    padding: 0 600px 10 0; 
+    padding: 0 600px 10 0;
     background: rgba(255, 255, 255, 0.2);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     border: 0px;
@@ -164,14 +257,14 @@ section {
     outline: none;
     appearance: none;
     font-family: 'Roboto', sans-serif;
-
 }
-.headerToDo button{
-    width: 50px;
-    height: 50px;
+
+.headerToDo button {
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 71%;
-    right: 15px;
+    top: 74%;
+    right: 12px;
     z-index: 2;
     appearance: none;
     border-radius: 25px;
@@ -180,36 +273,43 @@ section {
     box-shadow: none;
     outline: none;
     cursor: pointer;
-
 }
-.headerToDo button svg{
+
+.headerToDo button svg {
     width: 16px;
     height: 16px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
 }
-.headerToDo button svg .fill{
+
+.headerToDo button svg .fill {
     fill: orange;
 }
-#image-tolls{
+
+#image-tolls {
     margin: auto;
     display: block;
+    height: 74px;
+    width: 151px;
 }
-#select-file{
+
+#select-file {
     position: relative;
     padding: 0px;
     width: 133px;
-    margin: -18px;
-    top: -10px;
-    background:transparent;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
 }
-#title-tolls{
+
+#title-tolls {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-#select-file #file-tolls{
+
+#select-file #file-tolls {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -218,28 +318,32 @@ section {
     width: 100%;
     height: 100%;
     opacity: 0;
+}
 
+#legalization-tolls {
+    padding: 201px 0 0 0;
 }
-#legalization-tolls{
+
+#legalization-fuel {
     padding: 240px 0 0 0;
 }
-#legalization-fuel{
+
+#legalization-parking {
     padding: 240px 0 0 0;
 }
-#legalization-parking{
-    padding: 240px 0 0 0;
-}
-.allListItms{
+
+.allListItms {
     width: 100%;
     float: left;
     padding: 15px;
 }
-.allCard{
+
+.allCard {
     width: 100%;
     float: left;
-
 }
-ul.allCard li{
+
+ul.allCard li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -252,26 +356,30 @@ ul.allCard li{
     position: relative;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;    
+    padding: 14px 100px 14px 14px;
 }
-ul.allCard li:last-of-type{
+
+ul.allCard li:last-of-type {
     margin: 0;
 }
-ul.allCard li .buttons{
+
+ul.allCard li .buttons {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 33px;
     right: 0;
 }
-ul.allCard li .contentCard{
+
+ul.allCard li .contentCard {
     width: 240px;
     height: 100px;
     position: relative;
-    top:0px;
+    top: 0px;
     left: 0;
 }
-ul.allCard li .contentCard .imageBasic{
+
+ul.allCard li .contentCard .imageBasic {
     width: 100px;
     height: 100px;
     background-image: url('../img/basicImage.png');
@@ -279,14 +387,16 @@ ul.allCard li .contentCard .imageBasic{
     position: relative;
     float: left;
 }
-ul.allCard li .contentCard .valueBasic{
+
+ul.allCard li .contentCard .valueBasic {
     width: 80px;
     height: 50px;
     position: relative;
     float: left;
     top: 35px;
 }
-ul.allCard li .buttons button{
+
+ul.allCard li .buttons button {
     width: 50px;
     height: 50px;
     float: left;
@@ -298,16 +408,18 @@ ul.allCard li .buttons button{
     appearance: none;
     cursor: pointer;
 }
-ul.allCard li .buttons button:last-of-type:before{
-content: '';
-width: 1px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 0;
-background: #edf0f1;
+
+ul.allCard li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
 }
-ul.allCard li .buttons button svg{
+
+ul.allCard li .buttons button svg {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -315,21 +427,22 @@ ul.allCard li .buttons button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard li .buttons button svg .fill{
+
+ul.allCard li .buttons button svg .fill {
     transition: fill 0.2s ease;
 }
-ul.allCard li .buttons button.remove svg .fill{
-    fill:#c0cecb;
-}
-ul.allCard li .buttons button.remove:hover svg .fill{
-    fill:#e85656;
+
+ul.allCard li .buttons button.remove svg .fill {
+    fill: #c0cecb;
 }
 
+ul.allCard li .buttons button.remove:hover svg .fill {
+    fill: #e85656;
+}
 
-
-.headerToDo1{
-    width:100%;
-    height: 244px;
+.headerToDo1 {
+    width: 100%;
+    height: 206px;
     position: fixed;
     padding: 15px;
     top: 0;
@@ -341,15 +454,16 @@ ul.allCard li .buttons button.remove:hover svg .fill{
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.headerToDo1 #inputCount1{
+
+.headerToDo1 #inputCount1 {
     width: 100%;
-    height: 50px;
+    height: 40px;
     float: left;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-indent: 18px;
-    padding: 0 600px 10 0; 
+    padding: 0 600px 10 0;
     background: rgba(255, 255, 255, 0.2);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -360,14 +474,14 @@ ul.allCard li .buttons button.remove:hover svg .fill{
     outline: none;
     appearance: none;
     font-family: 'Roboto', sans-serif;
-
 }
-.headerToDo1 button{
-    width: 50px;
-    height: 50px;
+
+.headerToDo1 button {
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 71%;
-    right: 15px;
+    top: 74%;
+    right: 12px;
     z-index: 2;
     appearance: none;
     border-radius: 25px;
@@ -376,36 +490,43 @@ ul.allCard li .buttons button.remove:hover svg .fill{
     box-shadow: none;
     outline: none;
     cursor: pointer;
-
 }
-.headerToDo1 button svg{
+
+.headerToDo1 button svg {
     width: 16px;
     height: 16px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
 }
-.headerToDo1 button svg .fill{
+
+.headerToDo1 button svg .fill {
     fill: orange;
 }
-#image-tolls1{
+
+#image-tolls1 {
     margin: auto;
     display: block;
+    height: 74px;
+    width: 151px;
 }
-#select-file1{
+
+#select-file1 {
     position: relative;
     padding: 0px;
     width: 133px;
-    margin: -18px;
-    top: -10px;
-    background:transparent;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
 }
-#title-tolls1{
+
+#title-tolls1 {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-#select-file1 #file-tolls1{
+
+#select-file1 #file-tolls1 {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -415,20 +536,23 @@ ul.allCard li .buttons button.remove:hover svg .fill{
     height: 100%;
     opacity: 0;
 }
-#legalization-fuel{
-    padding: 240px 0 0 0;
+
+#legalization-fuel {
+    padding: 201px 0 0 0;
 }
-.allListItms1{
+
+.allListItms1 {
     width: 100%;
     float: left;
     padding: 15px;
 }
-.allCard1{
+
+.allCard1 {
     width: 100%;
     float: left;
-
 }
-ul.allCard1 li{
+
+ul.allCard1 li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -441,40 +565,47 @@ ul.allCard1 li{
     position: relative;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;    
+    padding: 14px 100px 14px 14px;
 }
-ul.allCard1 li:last-of-type{
+
+ul.allCard1 li:last-of-type {
     margin: 0;
 }
-ul.allCard1 li .buttons1{
+
+ul.allCard1 li .buttons1 {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 33px;
     right: 0;
 }
-ul.allCard1 li .contentCard1{
+
+ul.allCard1 li .contentCard1 {
     width: 240px;
     height: 100px;
     position: relative;
-    top:0px;
+    top: 0px;
     left: 0;
 }
-ul.allCard1 li .contentCard1 .imageBasic1{
+
+ul.allCard1 li .contentCard1 .imageBasic1 {
     width: 100px;
     height: 100px;
     background-repeat: no-repeat;
     position: relative;
+    background-image: url('../img/basicImage.png');
     float: left;
 }
-ul.allCard1 li .contentCard1 .valueBasic1{
+
+ul.allCard1 li .contentCard1 .valueBasic1 {
     width: 80px;
     height: 50px;
     position: relative;
     float: left;
     top: 35px;
 }
-ul.allCard1 li .buttons1 button{
+
+ul.allCard1 li .buttons1 button {
     width: 50px;
     height: 50px;
     float: left;
@@ -486,16 +617,18 @@ ul.allCard1 li .buttons1 button{
     appearance: none;
     cursor: pointer;
 }
-ul.allCard1 li .buttons1 button:last-of-type:before{
-content: '';
-width: 1px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 0;
-background: #edf0f1;
+
+ul.allCard1 li .buttons1 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
 }
-ul.allCard1 li .buttons1 button svg{
+
+ul.allCard1 li .buttons1 button svg {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -503,19 +636,22 @@ ul.allCard1 li .buttons1 button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard1 li .buttons1 button svg .fill{
+
+ul.allCard1 li .buttons1 button svg .fill {
     transition: fill 0.2s ease;
 }
-ul.allCard1 li .buttons1 button.remove1 svg .fill{
-    fill:#c0cecb;
-}
-ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
-    fill:#e85656;
+
+ul.allCard1 li .buttons1 button.remove1 svg .fill {
+    fill: #c0cecb;
 }
 
-.headerToDo2{
-    width:100%;
-    height: 244px;
+ul.allCard1 li .buttons1 button.remove1:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo2 {
+    width: 100%;
+    height: 206px;
     position: fixed;
     padding: 15px;
     top: 0;
@@ -527,15 +663,16 @@ ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.headerToDo2 #inputCount2{
+
+.headerToDo2 #inputCount2 {
     width: 100%;
-    height: 50px;
+    height: 40px;
     float: left;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-indent: 18px;
-    padding: 0 600px 10 0; 
+    padding: 0 600px 10 0;
     background: rgba(255, 255, 255, 0.2);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -546,14 +683,14 @@ ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
     outline: none;
     appearance: none;
     font-family: 'Roboto', sans-serif;
-
 }
-.headerToDo2 button{
-    width: 50px;
-    height: 50px;
+
+.headerToDo2 button {
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 71%;
-    right: 15px;
+    top: 74%;
+    right: 12px;
     z-index: 2;
     appearance: none;
     border-radius: 25px;
@@ -562,36 +699,43 @@ ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
     box-shadow: none;
     outline: none;
     cursor: pointer;
-
 }
-.headerToDo2 button svg{
+
+.headerToDo2 button svg {
     width: 16px;
     height: 16px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
 }
-.headerToDo2 button svg .fill{
+
+.headerToDo2 button svg .fill {
     fill: orange;
 }
-#image-tolls2{
+
+#image-tolls2 {
     margin: auto;
     display: block;
+    height: 74px;
+    width: 151px;
 }
-#select-file2{
+
+#select-file2 {
     position: relative;
     padding: 0px;
     width: 133px;
-    margin: -18px;
-    top: -10px;
-    background:transparent;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
 }
-#title-tolls2{
+
+#title-tolls2 {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-#select-file2 #file-tolls2{
+
+#select-file2 #file-tolls2 {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -601,20 +745,23 @@ ul.allCard1 li .buttons1 button.remove1:hover svg .fill{
     height: 100%;
     opacity: 0;
 }
-#legalization-parking{
-    padding: 240px 0 0 0;
+
+#legalization-parking {
+    padding: 201px 0 0 0;
 }
-.allListItms2{
+
+.allListItms2 {
     width: 100%;
     float: left;
     padding: 15px;
 }
-.allCard2{
+
+.allCard2 {
     width: 100%;
     float: left;
-
 }
-ul.allCard2 li{
+
+ul.allCard2 li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -627,40 +774,47 @@ ul.allCard2 li{
     position: relative;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;    
+    padding: 14px 100px 14px 14px;
 }
-ul.allCard2 li:last-of-type{
+
+ul.allCard2 li:last-of-type {
     margin: 0;
 }
-ul.allCard2 li .buttons2{
+
+ul.allCard2 li .buttons2 {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 33px;
     right: 0;
 }
-ul.allCard2 li .contentCard2{
+
+ul.allCard2 li .contentCard2 {
     width: 240px;
     height: 100px;
     position: relative;
-    top:0px;
+    top: 0px;
     left: 0;
 }
-ul.allCard2 li .contentCard2 .imageBasic2{
+
+ul.allCard2 li .contentCard2 .imageBasic2 {
     width: 100px;
     height: 100px;
     background-repeat: no-repeat;
     position: relative;
+    background-image: url('../img/basicImage.png');
     float: left;
 }
-ul.allCard2 li .contentCard2 .valueBasic2{
+
+ul.allCard2 li .contentCard2 .valueBasic2 {
     width: 80px;
     height: 50px;
     position: relative;
     float: left;
     top: 35px;
 }
-ul.allCard2 li .buttons2 button{
+
+ul.allCard2 li .buttons2 button {
     width: 50px;
     height: 50px;
     float: left;
@@ -672,16 +826,18 @@ ul.allCard2 li .buttons2 button{
     appearance: none;
     cursor: pointer;
 }
-ul.allCard2 li .buttons2 button:last-of-type:before{
-content: '';
-width: 1px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 0;
-background: #edf0f1;
+
+ul.allCard2 li .buttons2 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
 }
-ul.allCard2 li .buttons2 button svg{
+
+ul.allCard2 li .buttons2 button svg {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -689,19 +845,22 @@ ul.allCard2 li .buttons2 button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard2 li .buttons2 button svg .fill{
+
+ul.allCard2 li .buttons2 button svg .fill {
     transition: fill 0.2s ease;
 }
-ul.allCard2 li .buttons2 button.remove2 svg .fill{
-    fill:#c0cecb;
-}
-ul.allCard2 li .buttons2 button.remove2:hover svg .fill{
-    fill:#e85656;
+
+ul.allCard2 li .buttons2 button.remove2 svg .fill {
+    fill: #c0cecb;
 }
 
-.headerToDo3{
-    width:100%;
-    height: 244px;
+ul.allCard2 li .buttons2 button.remove2:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo3 {
+    width: 100%;
+    height: 206px;
     position: fixed;
     padding: 15px;
     top: 0;
@@ -713,15 +872,16 @@ ul.allCard2 li .buttons2 button.remove2:hover svg .fill{
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.headerToDo3 #inputCount3{
+
+.headerToDo3 #inputCount3 {
     width: 100%;
-    height: 50px;
+    height: 40px;
     float: left;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-indent: 18px;
-    padding: 0 600px 10 0; 
+    padding: 0 600px 10 0;
     background: rgba(255, 255, 255, 0.2);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -732,14 +892,14 @@ ul.allCard2 li .buttons2 button.remove2:hover svg .fill{
     outline: none;
     appearance: none;
     font-family: 'Roboto', sans-serif;
-
 }
-.headerToDo3 button{
-    width: 50px;
-    height: 50px;
+
+.headerToDo3 button {
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 71%;
-    right: 15px;
+    top: 74%;
+    right: 12px;
     z-index: 2;
     appearance: none;
     border-radius: 25px;
@@ -748,36 +908,43 @@ ul.allCard2 li .buttons2 button.remove2:hover svg .fill{
     box-shadow: none;
     outline: none;
     cursor: pointer;
-
 }
-.headerToDo3 button svg{
+
+.headerToDo3 button svg {
     width: 16px;
     height: 16px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
 }
-.headerToDo3 button svg .fill{
+
+.headerToDo3 button svg .fill {
     fill: orange;
 }
-#image-tolls3{
+
+#image-tolls3 {
     margin: auto;
     display: block;
+    height: 74px;
+    width: 151px;
 }
-#select-file3{
+
+#select-file3 {
     position: relative;
     padding: 0px;
     width: 133px;
-    margin: -18px;
-    top: -10px;
-    background:transparent;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
 }
-#title-tolls3{
+
+#title-tolls3 {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-#select-file3 #file-tolls3{
+
+#select-file3 #file-tolls3 {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -787,20 +954,23 @@ ul.allCard2 li .buttons2 button.remove2:hover svg .fill{
     height: 100%;
     opacity: 0;
 }
-#legalization-washed{
-    padding: 240px 0 0 0;
+
+#legalization-washed {
+    padding: 201px 0 0 0;
 }
-.allListItms3{
+
+.allListItms3 {
     width: 100%;
     float: left;
     padding: 15px;
 }
-.allCard3{
+
+.allCard3 {
     width: 100%;
     float: left;
-
 }
-ul.allCard3 li{
+
+ul.allCard3 li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -813,40 +983,47 @@ ul.allCard3 li{
     position: relative;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;    
+    padding: 14px 100px 14px 14px;
 }
-ul.allCard3 li:last-of-type{
+
+ul.allCard3 li:last-of-type {
     margin: 0;
 }
-ul.allCard3 li .buttons3{
+
+ul.allCard3 li .buttons3 {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 33px;
     right: 0;
 }
-ul.allCard3 li .contentCard3{
+
+ul.allCard3 li .contentCard3 {
     width: 240px;
     height: 100px;
     position: relative;
-    top:0px;
+    top: 0px;
     left: 0;
 }
-ul.allCard3 li .contentCard3 .imageBasic3{
+
+ul.allCard3 li .contentCard3 .imageBasic3 {
     width: 100px;
     height: 100px;
     background-repeat: no-repeat;
     position: relative;
+    background-image: url('../img/basicImage.png');
     float: left;
 }
-ul.allCard3 li .contentCard3 .valueBasic3{
+
+ul.allCard3 li .contentCard3 .valueBasic3 {
     width: 80px;
     height: 50px;
     position: relative;
     float: left;
     top: 35px;
 }
-ul.allCard3 li .buttons3 button{
+
+ul.allCard3 li .buttons3 button {
     width: 50px;
     height: 50px;
     float: left;
@@ -858,16 +1035,18 @@ ul.allCard3 li .buttons3 button{
     appearance: none;
     cursor: pointer;
 }
-ul.allCard3 li .buttons3 button:last-of-type:before{
-content: '';
-width: 1px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 0;
-background: #edf0f1;
+
+ul.allCard3 li .buttons3 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
 }
-ul.allCard3 li .buttons3 button svg{
+
+ul.allCard3 li .buttons3 button svg {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -875,18 +1054,22 @@ ul.allCard3 li .buttons3 button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard3 li .buttons3 button svg .fill{
+
+ul.allCard3 li .buttons3 button svg .fill {
     transition: fill 0.2s ease;
 }
-ul.allCard3 li .buttons3 button.remove3 svg .fill{
-    fill:#c0cecb;
+
+ul.allCard3 li .buttons3 button.remove3 svg .fill {
+    fill: #c0cecb;
 }
-ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
-    fill:#e85656;
+
+ul.allCard3 li .buttons3 button.remove3:hover svg .fill {
+    fill: #e85656;
 }
-.headerToDo4{
-    width:100%;
-    height: 320px;
+
+.headerToDo4 {
+    width: 100%;
+    height: 273px;
     position: fixed;
     padding: 15px;
     top: 0;
@@ -898,15 +1081,16 @@ ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
     border-bottom-left-radius: 10px;
     font-family: 'Roboto', sans-serif;
 }
-.headerToDo4 #inputCount4{
+
+.headerToDo4 #inputCount4 {
     width: 100%;
-    height: 50px;
+    height: 40px;
     float: left;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-indent: 18px;
-    padding: 0 600px 10 0; 
+    padding: 0 600px 10 0;
     background: rgba(255, 255, 255, 0.2);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -918,23 +1102,24 @@ ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
     appearance: none;
     font-family: 'Roboto', sans-serif;
 }
-.headerToDo4 #inputOption{
+
+.headerToDo4 #inputOption {
     width: 100%;
-    height: 50px;
+    height: 40px;
     color: #fff;
     background: rgba(245, 181, 7, 0.7);
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-
 }
-.headerToDo4 button{
-    width: 50px;
-    height: 50px;
+
+.headerToDo4 button {
+    width: 40px;
+    height: 40px;
     position: absolute;
-    top: 76%;
-    right: 16px;
+    top: 78%;
+    right: 12px;
     z-index: 2;
     appearance: none;
     border-radius: 25px;
@@ -943,36 +1128,43 @@ ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
     box-shadow: none;
     outline: none;
     cursor: pointer;
-
 }
-.headerToDo4 button svg{
+
+.headerToDo4 button svg {
     width: 16px;
     height: 16px;
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin: -8px 0 0 -8px;
 }
-.headerToDo4 button svg .fill{
+
+.headerToDo4 button svg .fill {
     fill: orange;
 }
-#image-tolls4{
+
+#image-tolls4 {
     margin: auto;
     display: block;
+    height: 74px;
+    width: 151px;
 }
-#select-file4{
+
+#select-file4 {
     position: relative;
     padding: 0px;
     width: 133px;
-    margin: -18px;
-    top: -10px;
-    background:transparent;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
 }
-#title-tolls4{
+
+#title-tolls4 {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-#select-file4 #file-tolls4{
+
+#select-file4 #file-tolls4 {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -982,20 +1174,23 @@ ul.allCard3 li .buttons3 button.remove3:hover svg .fill{
     height: 100%;
     opacity: 0;
 }
-#legalization-others{
-    padding: 240px 0 0 0;
+
+#legalization-others {
+    padding: 269px 0 0 0;
 }
-.allListItms4{
+
+.allListItms4 {
     width: 100%;
     float: left;
     padding: 15px;
 }
-.allCard4{
+
+.allCard4 {
     width: 100%;
     float: left;
-
 }
-ul.allCard4 li{
+
+ul.allCard4 li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -1008,40 +1203,47 @@ ul.allCard4 li{
     position: relative;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
     margin: 0 0 10px 0;
-    padding: 14px 100px 14px 14px;    
+    padding: 14px 100px 14px 14px;
 }
-ul.allCard4 li:last-of-type{
+
+ul.allCard4 li:last-of-type {
     margin: 0;
 }
-ul.allCard4 li .buttons4{
+
+ul.allCard4 li .buttons4 {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 33px;
     right: 0;
 }
-ul.allCard4 li .contentCard4{
+
+ul.allCard4 li .contentCard4 {
     width: 240px;
     height: 100px;
     position: relative;
-    top:0px;
+    top: 0px;
     left: 0;
 }
-ul.allCard4 li .contentCard4 .imageBasic4{
+
+ul.allCard4 li .contentCard4 .imageBasic4 {
     width: 100px;
     height: 100px;
     background-repeat: no-repeat;
     position: relative;
+    background-image: url('../img/basicImage.png');
     float: left;
 }
-ul.allCard4 li .contentCard4 .valueBasic4{
+
+ul.allCard4 li .contentCard4 .valueBasic4 {
     width: 80px;
     height: 50px;
     position: relative;
     float: left;
     top: 35px;
 }
-ul.allCard4 li .buttons4 button{
+
+ul.allCard4 li .buttons4 button {
     width: 50px;
     height: 50px;
     float: left;
@@ -1053,16 +1255,18 @@ ul.allCard4 li .buttons4 button{
     appearance: none;
     cursor: pointer;
 }
-ul.allCard4 li .buttons4 button:last-of-type:before{
-content: '';
-width: 1px;
-height: 30px;
-position: absolute;
-top: 10px;
-left: 0;
-background: #edf0f1;
+
+ul.allCard4 li .buttons4 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
 }
-ul.allCard4 li .buttons4 button svg{
+
+ul.allCard4 li .buttons4 button svg {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -1070,88 +1274,267 @@ ul.allCard4 li .buttons4 button svg{
     left: 50%;
     margin: -11px 0 0 -11px;
 }
-ul.allCard4 li .buttons4 button svg .fill{
+
+ul.allCard4 li .buttons4 button svg .fill {
     transition: fill 0.2s ease;
 }
-ul.allCard4 li .buttons4 button.remove4 svg .fill{
-    fill:#c0cecb;
-}
-ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
-    fill:#e85656;
+
+ul.allCard4 li .buttons4 button.remove4 svg .fill {
+    fill: #c0cecb;
 }
 
-.float{
-	position:fixed;
-	width:40px;
-	height:40px;
-	bottom:40px;
-	right:40px;
-	background-color:orange;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
+ul.allCard4 li .buttons4 button.remove4:hover svg .fill {
+    fill: #e85656;
 }
-.my-float{
-	margin-top:14px;
+
+#view-truck {
+    padding: 3px 0 0 0;
 }
-.my-float1{
-	margin-top:24px;
+
+.containerAll {
+    width: 100%;
+    float: left;
+    padding: 10px;
+}
+
+ul.allViewTruck {
+    width: 100%;
+    float: left;
+}
+
+ul.allViewTruck li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    line-height: 22px;
+    background: #FFF;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 15px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allViewTruck li:last-of-type {
+    margin: 0;
+}
+
+ul.allViewTruck li .buttons {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+}
+
+ul.allViewTruck li .containerAll {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allViewTruck li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: relative;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allViewTruck li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allViewTruck li .buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+.float {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 51px;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+    margin-top: 14px;
+}
+#create-balance{
+    padding: 5px;
+}
+.general-content{
+    padding: 0 3px;
+}
+#container-legalization-aceept{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+#container-legalization-aceept .balnceHeader {
+    display: flex;
+    align-items: center;
+}
+
+.balnceHeader .profile-pic {
+    background-position: 50%;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.headerContent{
+  justify-content: center;
+  align-items: center;
+}
+.balnceHeader .detail-legalization {
+    margin-left: 7px;
+}
+.balnceHeader .detail-legalization2{
+    display: flex;
+}
+.balnceHeader .detail-legalization2 .margin{
+    padding: 10px;
+}
+.balnceHeader .detail-legalization2 .date{
+    float: right;
+}
+.balnceHeader .detail-legalization2 .advancement{
+    float: left;
+}
+.positonImage{
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+.valueTotal{
+    font-family: 'Roboto', sans-serif;
+    color:red;
+    font-size: 20px;
+}
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+}
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popup .btnClosePopup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popup .btnClosePopup:hover{
+    color: black;
+}
+.popup h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popup h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.overlayAccepted{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlayAccepted.active{
+    visibility: visible;
+}
+.popupAcepted{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popupAcepted .btnClosePopup1{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popupAcepted .btnClosePopup1:hover{
+    color: black;
+}
+.popupAcepted h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popupAcepted h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
 }
 .nav-link {
     padding: 0rem 1rem !important;
 }
-
-.line_menu{
-    width: 100%;
-    height: 0.5%;
-    background-color: #818181;
-}
-
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    right: 0;
-    left: 200%;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav .span_sidenav{
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav .span_sidenav:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }  
-
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main_main_menu #main_schedules #main_stadistics #main_logIn{
-    transition: margin-left .5s;
-    padding: 20px;
-  }
 
 .secundary-menu {
     display: none;
@@ -1251,7 +1634,50 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
 #input-register-password2 {
     margin-bottom: 5%;
 }
-
+#create-travel{
+    padding: 5px 0 0 0;
+}
+#container-legalization{
+    padding: 0 9px;
+}
+.legalizationCard{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px
+}
+#inputOption {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+#InputDate {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
 #container-register {
     width: 50%;
     height: 96%;
@@ -1261,6 +1687,7 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
     padding: 2% 10% 0% 10%;
     margin-left: 25%;
 }
+
 #container-register {
     width: 50%;
     height: auto;
@@ -1270,6 +1697,7 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
     padding: 2% 10% 0% 10%;
     margin-left: 25%;
 }
+
 #container-account-recovery {
     background-color: white;
     display: block;
@@ -1279,35 +1707,24 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
     margin-left: 25%;
     padding: 0% 10% 0% 10%;
 }
-.position-element{
+
+.position-element {
     text-align: left;
-    right:50%;
+    right: 50%;
 }
-.font-invisible{
-    font-size: 0% !important;
-}
+
 #title-register {
     font-size: 2rem;
     margin-left: 10%;
 }
-#img_menu{
-    right: 1.5%;
-    width: 7%;
-    position: absolute;
-    top: 20%;
-}
+
 #size-string-travel {
     text-align: left;
 }
+
 #forgot-password-responsive {
     display: none;
     color: black;
-}
-
-#menu-icon{
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 10%;
 }
 
 #forgot-password-responsive:hover {
@@ -1320,15 +1737,9 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
         display: inline;
         margin-bottom: 8%;
     }
-
-    .sidenav{
-        left: 102%;
-    }
-
     .navbar {
         padding: 0rem 1rem;
     }
-
     #logo {
         height: 49px;
         margin-top: -42%;
@@ -1339,9 +1750,6 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
     #icono-sign-in {
         margin-top: 22%;
         width: 97%;
-    }
-    #img_menu{
-        width: 10%;
     }
     #input-create-truck-kilometraje {
         margin-bottom: 9%;
@@ -1377,21 +1785,11 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
     #div-sign-up-link {
         margin-top: 10%;
     }
-    #img_menu{
-        width: 12%;
-    }
     .btn-sign-in {
         text-align: center;
     }
-    .sidenav{
-        left: 102%;
-    }
     .btn-sign-in {
         margin-bottom: 15%;
-    }  
-
-    .sidenav{
-        left: 104%;
     }
 }
 
@@ -1412,9 +1810,3 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill{
         height: 53%;
     }
 }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-} 

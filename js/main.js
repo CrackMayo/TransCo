@@ -216,14 +216,19 @@ function legalizationTolls() {
         var item = this.parentNode.parentNode;
         var parent = item.parentNode;
         parent.removeChild(item);
+        spendings.splice(parseInt(item.id),1);
+        console.log(spendings);
+
     }
     function addItemAllCard(text) {
         var list = document.getElementById("allCard");
-
         var item = document.createElement('li');
+        let id = spendings.length;
+        item.setAttribute("id", "" + id);
 
         var card = document.createElement('div');
         card.classList.add('contentCard');
+        
 
 
         var report = document.createElement('img');
@@ -287,12 +292,15 @@ function legalizationFuel() {
         var item1 = this.parentNode.parentNode;
         var parent1 = item1.parentNode;
         parent1.removeChild(item1);
+        spendings.splice(parseInt(item1.id),1);
+        console.log(spendings);
+
     }
     function addItemAllCard(text1) {
         var list1 = document.getElementById('allCard1');
-
         var item1 = document.createElement('li');
-
+        let id = spendings.length;
+        item1.setAttribute("id", "" + id);
         var card1 = document.createElement('div');
         card1.classList.add('contentCard1');
 
@@ -358,11 +366,15 @@ function legalizationParking() {
         var item2 = this.parentNode.parentNode;
         var parent2 = item2.parentNode;
         parent2.removeChild(item2);
+        spendings.splice(parseInt(item2.id),1);
+        console.log(spendings);
     }
     function addItemAllCard(text2) {
         var list2 = document.getElementById('allCard2');
 
         var item2 = document.createElement('li');
+        let id = spendings.length;
+        item2.setAttribute("id", "" + id);
 
         var card2 = document.createElement('div');
         card2.classList.add('contentCard2');
@@ -427,11 +439,15 @@ function legalizationWashed() {
         var item3 = this.parentNode.parentNode;
         var parent3 = item3.parentNode;
         parent3.removeChild(item3);
+        spendings.splice(parseInt(item3.id),1);
+        console.log(spendings);
     }
     function addItemAllCard(text3) {
         var list3 = document.getElementById('allCard3');
 
         var item3 = document.createElement('li');
+        let id = spendings.length;
+        item3.setAttribute("id", "" + id);
 
         var card3 = document.createElement('div');
         card3.classList.add('contentCard3');
@@ -498,12 +514,15 @@ function legalizationOthers() {
         var item4 = this.parentNode.parentNode;
         var parent4 = item4.parentNode;
         parent4.removeChild(item4);
+        spendings.splice(parseInt(item4.id),1);
+        console.log(spendings);
     }
     function addItemAllCard(text4) {
         var list4 = document.getElementById('allCard4');
 
         var item4 = document.createElement('li');
-
+        let id = spendings.length;
+        item4.setAttribute("id", "" + id);
         var card4 = document.createElement('div');
         card4.classList.add('contentCard4');
 
@@ -858,6 +877,7 @@ function spending(value, image, type) {
     this.value = value;
     this.image = image;
     this.type = type;
+    this.deleted = false;
 }
 
 function spendingHeader(departOrigin, cityOrigin, departDestin, cityDestin, dateTravel, company, freight, advance, nTons) {

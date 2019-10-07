@@ -128,9 +128,9 @@ function legalizationTolls() {
     var img1 = document.getElementsByClassName('imageBasic');
     img1.src = "/img/basicImage.png";
     document.getElementById('add').addEventListener('click', function () {
-        var value1 = document.getElementById('inputCount').value;
-        if (value1) {
-            addItemAllCard(value1);
+        var value = document.getElementById('inputCount').value;
+        if (value) {
+            addItemAllCard(value);
             var value1 = document.getElementById('inputCount').value = '';
         }
 
@@ -141,7 +141,7 @@ function legalizationTolls() {
         parent.removeChild(item);
     }
     function addItemAllCard(text) {
-        var list = document.getElementById("allCard");
+        var list = document.getElementById('allCard');
 
         var item = document.createElement('li');
 
@@ -151,7 +151,7 @@ function legalizationTolls() {
 
         var report = document.createElement('img');
         report.classList.add('imageBasic');
-        report.innerHTML = img1;
+        report.innerHTML = img;
 
         var valueTolls = document.createElement('span');
         valueTolls.classList.add('valueBasic');
@@ -174,7 +174,6 @@ function legalizationTolls() {
 
 
         list.insertBefore(item, list.childNodes[0]);
-
     }
 }
 

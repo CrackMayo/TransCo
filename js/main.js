@@ -521,11 +521,31 @@ function uploadImageTruck(imagen, placa) {
     });
 
 }
+
+    var openPopup=document.getElementById('btnOpen');
+    overlay=document.getElementById('overlay');
+    popup=document.getElementById('popup');
+    btnClosePopup=document.getElementById('btnClosePopup');
+    openPopup.addEventListener('click',function(){
+        overlay.classList.add('active');
+    });
+    btnClosePopup.addEventListener('click',function(){
+        overlay.classList.remove('active');
+    });
+
+    var openPopupacepted=document.getElementById('btnaccept');
+    overlay1=document.getElementById('overlayAccepted');
+    popup1=document.getElementById('popupAcepted');
+    btnClosePopup=document.getElementById('btnClosePopup1');
+    openPopupacepted.addEventListener('click',function(){
+        overlay1.classList.add('active');
+    });
+    btnClosePopup.addEventListener('click',function(){
+        overlay1.classList.remove('active');
+    });
+
 function viewTruck() {
     changePage('view-truck', 'section-initial-page');
-}
-function changeLegalization() {
-    changePage('create-travel', 'view-truck');
 }
 
 function loadTruck(placa) {

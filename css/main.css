@@ -59,6 +59,7 @@ td, th {
     }
     td:nth-of-type(1):before {
         content: "comprobante";
+        top: 50px;
     }
     td:nth-of-type(2):before {
         content: "Categoria";
@@ -1376,11 +1377,153 @@ ul.allViewTruck li .buttons button svg {
 .my-float {
     margin-top: 14px;
 }
-
-.my-float1 {
-    margin-top: 24px;
+#create-balance{
+    padding: 5px;
+}
+.general-content{
+    padding: 0 3px;
+}
+#container-legalization-aceept{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+#container-legalization-aceept .balnceHeader {
+    display: flex;
+    align-items: center;
 }
 
+.balnceHeader .profile-pic {
+    background-position: 50%;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.headerContent{
+  justify-content: center;
+  align-items: center;
+}
+.balnceHeader .detail-legalization {
+    margin-left: 7px;
+}
+.balnceHeader .detail-legalization2{
+    display: flex;
+}
+.balnceHeader .detail-legalization2 .margin{
+    padding: 10px;
+}
+.balnceHeader .detail-legalization2 .date{
+    float: right;
+}
+.balnceHeader .detail-legalization2 .advancement{
+    float: left;
+}
+.positonImage{
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+.valueTotal{
+    font-family: 'Roboto', sans-serif;
+    color:red;
+    font-size: 20px;
+}
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+}
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popup .btnClosePopup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popup .btnClosePopup:hover{
+    color: black;
+}
+.popup h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popup h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.overlayAccepted{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlayAccepted.active{
+    visibility: visible;
+}
+.popupAcepted{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popupAcepted .btnClosePopup1{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popupAcepted .btnClosePopup1:hover{
+    color: black;
+}
+.popupAcepted h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popupAcepted h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
 .nav-link {
     padding: 0rem 1rem !important;
 }

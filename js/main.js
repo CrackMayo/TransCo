@@ -877,7 +877,6 @@ function spending(value, image, type) {
     this.value = value;
     this.image = image;
     this.type = type;
-    this.deleted = false;
 }
 
 function spendingHeader(departOrigin, cityOrigin, departDestin, cityDestin, dateTravel, company, freight, advance, nTons) {

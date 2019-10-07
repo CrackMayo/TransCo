@@ -65,12 +65,6 @@ td, th {
         content: "Categoria";
     }
     td:nth-of-type(3):before {
-        content: "Descripción";
-    }
-    td:nth-of-type(4):before {
-        content: "Fecha";
-    }
-    td:nth-of-type(5):before {
         content: "Valor";
     }
 }

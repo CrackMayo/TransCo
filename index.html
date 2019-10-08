@@ -368,7 +368,7 @@
                                 <input type="text" id="queryInputDest" placeholder="Lugar de destino...">
 
                             </div>
-                            <button id="add">
+                            <button>
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 800 800">
                                     <g>
@@ -381,7 +381,9 @@
 
                     </div>
                     <div class="footer">
-                        <div class="liquidation" onclick="changePage('create-travel','view-truck')">
+                        <div class="liquidation" onclick="changeLegalization();
+                        cargarDepartamentos('input-create-travel-departmento');
+                        cargarDepartamentos('input-create-travel-departmentd')">
                             <i class="fas fa-route"></i>
                             <span>Legalización</span>
                         </div>
@@ -790,60 +792,126 @@
     </section>
 
     <section id="create-balance" class="invisible">
-        <br><br>
-        <div id="container-register">
-            <span id="title-register">Balance General</span>
-            <br><br>
+        <div class="general-content">
+            <div id="container-legalization-aceept">
+                <center><span id="title-register">Legalización de Gatos</span></center>
+                <br>
+                <center>
+                    <div class="headerContent">
+                        <div class="balnceHeader">
+                            <div><img src="img/fotoviascamiones_2.png" class="profile-pic" alt=""></div>
+                            <div class="detail-legalization">
+                                <p class="name">Ciudad Origen: <span> Medellín</span></p>
+                                <p class="name">Ciudad Destino: <span> Bogotá</span></p>
+                                <p class="name"><span>Fecha de Salida:</span> 7/12/1998 </p>
+                            </div>
+                        </div>
+                        <div class="balnceHeader">
+                            <div>
+                                <div class="detail-legalization2">
+                                    <div class="date">
+                                        <p class="name"><span>Empresa:</span> Corona </p>
+                                    </div>
+                                    <div class="margin">
 
-            <p id="city1" class="post-text"><span class="ht">Ciudad de Salida</span> medelllin</p>
-            <p id="city2" class="post-text"><span class="ht">Ciudad de Regreso</span> medellin</p>
-            <p id="date1" class="post-text"><span class="ht">Fecha de Salida</span> 345. </p>
-            <p id="advance" class="post-text"><span class="ht">Adelanto</span> 345. </p>
-            <p id="weigth" class="post-text"><span class="ht"> Numero de Toneladas</span> 345</p>
+                                    </div>
+                                    <div class="advancement">
+                                        <p class="name"><span>Numero de Toneladas: </span><span> 3500 </span> Kg </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="balnceHeader">
+                            <div>
+                                <div class="detail-legalization2">
+                                    <div class="date">
+                                        <p class="name"><span>Flete: </span> 5000000</p>
+                                    </div>
+                                    <div class="margin">
 
-
-            <br>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('create-spend','create-balance')">Añadir Gasto</button>
+                                    </div>
+                                    <div class="advancement">
+                                        <p class="name"><span>Anticipo: </span> 200000 </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Comprobante</th>
+                            <th>Categoria</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="img/basicImage.png" class="positonImage"></td>
+                            <td>Mantenimiento</td>
+                            <td>1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/basicImage.png" class="positonImage"></td>
+                            <td>Mantenimiento</td>
+                            <td>1.500.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <div class="detail-legalization">
+                    <p class="name">Valor Peajes: <span> 1000</span></p>
+                    <p class="name">Valor Combustible: <span> 1000</span></p>
+                    <p class="name">Valor Paruqadero: <span>1000</span></p>
+                    <p class="name">Valor Lavadas: <span>1000</span></p>
+                    <p class="name">Valor Otros: <span>1000</span></p>
+                    <p class="valueTotal">Valor Total de Gastos: <span>5000</span></p>
+                </div>
+                <center>
+                    <div>
+                        <button id="btnaccept" type="button" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Aprobar</span>
+                        </button>
+                        <button type="button" id="btnOpen" class="btn btn-secondary btn-sm btnOpen">
+                            <i class="fas fa-times"></i>
+                            <span>Rechazar</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm"
+                            onclick="changePage('view-truck','create-balance')">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Atras</span>
+                        </button>
+                    </div>
+                </center>
+                <br>
             </div>
+        </div>
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btnClosePopup" class="btnClosePopup"><i class="fas fa-times"></i></a>
+                <h3>Motivo Del Rechazo</h3>
+                <br>
+                <h4>Detalle los motivos por los cuales no fue aprobada la legalización</h4>
+                <div class="contentInputs">
+                    <input type="text" class="" name="" id="">
+                    <button class="btn btn-secondary btn-sm">
+                        <i class="far fa-paper-plane"></i>
+                        <span>Enviar</span>
+                    </button>
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Comprobante</th>
-                        <th>Categoria</th>
-                        <th>Descripción</th>
-                        <th>Fecha</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>img</td>
-                        <td>Mantenimiento</td>
-                        <td>Reparación motor</td>
-                        <td>15/09/2019</td>
-                        <td>1.500.000</td>
-                    </tr>
-                    <tr>
-                        <td>img</td>
-                        <td>Mantenimiento</td>
-                        <td>Reparación motor</td>
-                        <td>15/09/2019</td>
-                        <td>1.500.000</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-            <br>
-
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm"
-                    onclick="changePage('section-initial-page','create-balance')">Cancelar</button>
             </div>
-            <br>
+        </div>
+        <div class="overlayAccepted" id="overlayAccepted">
+            <div class="popupAcepted" id="popupAcepted">
+                <a href="#" id="btnClosePopup1" class="btnClosePopup1"><i class="fas fa-times"></i></a>
+                <h3>Legalización Aceptada</h3>
+                <br>
+                <h4>Usted ha aceptado que la información reportada es correcta.</h4>
+            </div>
         </div>
 
     </section>

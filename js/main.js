@@ -216,7 +216,7 @@ function legalizationTolls() {
         var item = this.parentNode.parentNode;
         var parent = item.parentNode;
         parent.removeChild(item);
-        spendings.splice(parseInt(item.id),1);
+        spendings.splice(parseInt(item.id), 1);
         console.log(spendings);
 
     }
@@ -228,7 +228,7 @@ function legalizationTolls() {
 
         var card = document.createElement('div');
         card.classList.add('contentCard');
-        
+
 
 
         var report = document.createElement('img');
@@ -292,7 +292,7 @@ function legalizationFuel() {
         var item1 = this.parentNode.parentNode;
         var parent1 = item1.parentNode;
         parent1.removeChild(item1);
-        spendings.splice(parseInt(item1.id),1);
+        spendings.splice(parseInt(item1.id), 1);
         console.log(spendings);
 
     }
@@ -366,7 +366,7 @@ function legalizationParking() {
         var item2 = this.parentNode.parentNode;
         var parent2 = item2.parentNode;
         parent2.removeChild(item2);
-        spendings.splice(parseInt(item2.id),1);
+        spendings.splice(parseInt(item2.id), 1);
         console.log(spendings);
     }
     function addItemAllCard(text2) {
@@ -439,7 +439,7 @@ function legalizationWashed() {
         var item3 = this.parentNode.parentNode;
         var parent3 = item3.parentNode;
         parent3.removeChild(item3);
-        spendings.splice(parseInt(item3.id),1);
+        spendings.splice(parseInt(item3.id), 1);
         console.log(spendings);
     }
     function addItemAllCard(text3) {
@@ -514,7 +514,7 @@ function legalizationOthers() {
         var item4 = this.parentNode.parentNode;
         var parent4 = item4.parentNode;
         parent4.removeChild(item4);
-        spendings.splice(parseInt(item4.id),1);
+        spendings.splice(parseInt(item4.id), 1);
         console.log(spendings);
     }
     function addItemAllCard(text4) {
@@ -1070,3 +1070,26 @@ function isPositiveNumber(number) {
     }
 
 }
+
+
+var openPopup = document.getElementById('btnOpen');
+overlay = document.getElementById('overlay');
+popup = document.getElementById('popup');
+btnClosePopup = document.getElementById('btnClosePopup');
+openPopup.addEventListener('click', function () {
+    overlay.classList.add('active');
+});
+btnClosePopup.addEventListener('click', function () {
+    overlay.classList.remove('active');
+});
+
+var openPopupacepted = document.getElementById('btnaccept');
+overlay1 = document.getElementById('overlayAccepted');
+popup1 = document.getElementById('popupAcepted');
+btnClosePopup = document.getElementById('btnClosePopup1');
+openPopupacepted.addEventListener('click', function () {
+    overlay1.classList.add('active');
+});
+btnClosePopup.addEventListener('click', function () {
+    overlay1.classList.remove('active');
+});

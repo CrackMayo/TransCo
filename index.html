@@ -27,7 +27,7 @@
                         <a class="nav-link" data-target="modal-IniciarSesion">
                             Inicio<span class="sr-only">(current)</span></a>
                     </li>
-                    <li id="generalBalance1" class="nav-item">
+                    <li id="account1" class="nav-item">
                         <a class="nav-link" onclick="changePage('account','section-initial-page');accountInfo();">
                             Cuenta</a>
                     </li>
@@ -565,7 +565,7 @@
         <div id="main_account">
             <div id="div_account">
                 <div id="div_profile_picture">
-                    <img src="img/profile picture.png" id="img_profile_account" alt="profile">
+                    <img src="" id="img_profile_account" alt="profile">
                 </div>
                 <div id="div_info_account">
                     <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments');"><img
@@ -591,15 +591,14 @@
         <div id="div_edit_account">
             <form onsubmit="return updateAccountInfo()">
                 <div id="div_profile_picture">
-                    <img src="img/profile picture.png" id="img_profile_account" alt="profile">
-                    <button type="button" id="choose_profile_picture" class="btn btn-secondary">Elegir otra
-                        foto...</button>
+                    <img src="img/profilePictureDefault.png" id="img_profile_account" alt="profile">
+                    <input class="form-control" accept="image/*" id="imgProfileAccount" type="file">
                 </div>
                 <div id="div_input_account">
                     <span>Número de celular</span>
                     <div class="input-group flex-nowrap">
                         <input id="input-account-phone" type="number" class="form-control" placeholder="Número celular"
-                            aria-label="Número celular" aria-describedby="addon-wrapping" required>
+                            aria-label="Número celular" aria-describedby="addon-wrapping" required min="1000000000">
                     </div>
                     <div class="dropdown-register btn-group">
                         <p>Departamento:</p>

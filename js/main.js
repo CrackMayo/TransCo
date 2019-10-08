@@ -5,6 +5,7 @@ var nip;
 var typeAccount;
 var city;
 var departament;
+var imagenProfile;
 
 function userDataLogin(userId) {
     let lista = document.getElementById("listaCamiones");
@@ -20,9 +21,10 @@ function userDataLogin(userId) {
         typeAccount = snap.data().rol;
         city = snap.data().municipio;
         departament = snap.data().departamento;
+        imagenProfile = snap.data().imagenPerfil;
 
         console.log("name: " + name + " email: " + email + " phone: " + phone + " nip: " + nip + " typeAccount: " + typeAccount +
-            " city: " + city + " departament: " + departament);
+            " city: " + city + " departament: " + departament+ "imagen:"+imagenProfile);
 
         let conVehiculo = snap.data().conVehiculo;
         let navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
@@ -516,6 +518,7 @@ function accountInfo() {
     let cityInfo = document.getElementById("cityInfo");
     let departamentInfo = document.getElementById("departamentInfo");
     let phoneUpdate = document.getElementById("input-account-phone");
+    let imagen = document.getElementById('img_profile_account');
 
     nameInfo.innerHTML = "Nombre: " + name;
     emailInfo.innerHTML = "Correo: " + email;
@@ -524,6 +527,7 @@ function accountInfo() {
     typeAccInfo.innerHTML = "Tipo de cuenta: " + typeAccount;
     cityInfo.innerHTML = "Ciudad: " + city;
     departamentInfo.innerHTML = "Departamento: " + departament;
+    imagen.src = imagenProfile;
 
     phoneUpdate.value = phone;
 }
@@ -531,6 +535,7 @@ function accountInfo() {
 function getAccountUpdateInfo(fase) {
     let selectDepartament = document.getElementById("select-account-departaments");
     let selectCitys = document.getElementById("select-account-municipality");
+
     if (fase === 1) {
         for (let i = 0; i < selectDepartament.length; i++) {
             if (departament === selectDepartament[i].value) {
@@ -552,6 +557,7 @@ function updateAccountInfo() {
     let phoneUpdate = document.getElementById("input-account-phone").value;
     let selectDepartamentUpdate = document.getElementById("select-account-departaments").value;
     let selectCitysUpdate = document.getElementById("select-account-municipality").value;
+    let imagen = document.getElementById('imgProfileAccount').files[0];
 
     console.log(" " + phoneUpdate + " " + selectDepartamentUpdate + " " + selectCitysUpdate);
 
@@ -571,7 +577,7 @@ function updateAccountInfo() {
         departament = selectDepartamentUpdate;
         city = selectCitysUpdate;
 
-        
+        uploadImageProfile(imagen);
         // userDataLogin(idUsuario);
         accountInfo();
         changePage('account', 'edit_account');
@@ -587,4 +593,45 @@ function updateAccountInfo() {
     
 
     return false;
+}
+
+
+function uploadImageProfile(imagen) {
+
+
+
+    let url = 0;
+    // Created a Storage Reference with root dir
+    let storageRef = storage.ref();
+    // Get the file from DOM
+    let file = imagen;
+    // console.log(file);
+
+    //dynamically set reference to the file name
+    let thisRef = storageRef.child('/' + idUsuario + '/imagenPerfil/' + imagen.name);
+
+    //put request upload file to firebase storage
+    thisRef.put(file).then(function (snapshot) {
+        alert("File Uploaded");
+        console.log('Uploaded a blob or file!');
+
+        snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            url = DownloadURL;
+
+            db.collection('accounts').doc(idUsuario).update({ "imagenPerfil": url })
+                .then(function () {
+                    console.log("Document successfully updated!");
+                    console.log(url);
+                }).catch(function (error) {
+
+                    console.log(error);
+                });
+
+
+
+        });
+
+
+    });
+
 }

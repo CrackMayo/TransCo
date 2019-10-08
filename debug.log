@@ -136,3 +136,6 @@
 [1002/115133.733:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1002/115133.734:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [1002/115133.734:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/114323.111:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/114323.119:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1008/114323.120:ERROR:crash_report_database_win.cc(469)] failed to stat report

@@ -8,6 +8,20 @@ html, body {
     position: inherit;
 }
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 200%;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -295,6 +309,32 @@ section {
     width: 151px;
 }
 
+#menu-icon {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.line_menu {
+    width: 100%;
+    height: 0.5%;
+    background-color: #818181;
+}
+.sidenav .span_sidenav {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
 #select-file {
     position: relative;
     padding: 0px;
@@ -318,6 +358,13 @@ section {
     width: 100%;
     height: 100%;
     opacity: 0;
+}
+
+#img_menu{
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    width: 18%;
 }
 
 #legalization-tolls {
@@ -1744,6 +1791,9 @@ ul.allViewTruck li .buttons button svg {
         height: 49px;
         margin-top: -42%;
     }
+    .sidenav{
+        left: 102%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -1790,6 +1840,9 @@ ul.allViewTruck li .buttons button svg {
     }
     .btn-sign-in {
         margin-bottom: 15%;
+    }
+    .sidenav{
+        left: 104%;
     }
 }
 

@@ -361,7 +361,7 @@ section {
 }
 
 #img_menu{
-    position: fixed;
+    position: absolute;
     top: 2%;
     right: 2%;
     width: 18%;

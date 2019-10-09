@@ -575,7 +575,6 @@ function getDriverTruck() {
                 "<div class='card-body'>" +
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
-                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "View" + "</span>" +
                 "</span>" + "<span>" +
                 "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
                 "</span>" + "</center>" +

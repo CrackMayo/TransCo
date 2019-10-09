@@ -576,16 +576,16 @@ function getDriverTruck() {
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
                 "</span>" + "<span>" +
-                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
+                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
                 "</div>" +
                 "<div class='card-footer'>" +
                 "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
-                + "" + child.data().capacidadCarga + "" + "</p>" +
+                + "" + child.data().capacidadCarga + " Toneladas" + "</p>" +
                 "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
                 + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
-                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
+                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Número de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
                 "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
                 "</div>" +
                 "</div>" +
@@ -619,19 +619,17 @@ function obtenerCamion() {
                 "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
                 "<div class='card-body'>" +
                 "<div class='action-btns'>" +
-                "<center>" + "<span>" +
-                "<i onclick='loadTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Modificar" + "</span>" +
-                "</span>" + "<span>" +
-                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='material-icons'>" + "share" + "</i>" + "<span class='val'>" + "Ver Camion" + "</span>" +
+                "<center>"  + "<span>" +
+                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
                 "</div>" +
                 "<div class='card-footer'>" +
                 "<p id='capacidadCarga' class='post-text'>" + "<span class='ht'>" + "Capacidad de Carga: " + "</span>"
-                + "" + child.data().capacidadCarga + "" + "</p>" +
+                + "" + child.data().capacidadCarga + " Toneladas" + "</p>" +
                 "<p id='km' class='post-text'>" + "<span class='ht'>" + "Kilometraje: " + "</span>" + "" + child.data().kilometraje + "" + "</p>"
                 + "<p id='marca' class='post-text'>" + "<span class='ht'>" + "Marca Cabezote: " + "</span>" + "" + child.data().marcaCabezote + "" + "</p>" +
-                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Numero de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
+                "<p id='numEjes' class='post-text'>" + "<span class='ht'>" + "Número de Ejes: " + "</span>" + "" + child.data().numeroEjes + "" + "</p>" +
                 "<p id='placaTrailer' class='post-text'>" + "<span class='ht'>" + "Placa Trailer: " + "</span>" + "" + child.data().placaTrailer + "" + "</p>" +
                 "</div>" +
                 "</div>" +
@@ -684,6 +682,11 @@ function uploadImageTruck(imagen, placa) {
 
 }
 function viewTruck(Plate) {
+    let btnUpdate = document.getElementById("btnUpdate");
+    btnUpdate.setAttribute("onclick","loadTruck('"+Plate+"');");
+    console.log(Plate);
+  
+
     loadSettlementsListOwner(Plate);
 
     currentPlate = Plate;
@@ -733,7 +736,7 @@ function changeLegalization() {
 function loadTruck(placa) {
 
     console.log(placa);
-    changePage('update-truck', 'section-initial-page');
+    changePage('update-truck', 'view-truck');
 
 
     var updateElements = [document.getElementById("input-update-truck-placa"), document.getElementById("input-update-truck-marca"),

@@ -22,67 +22,6 @@ html, body {
     transition: 0.5s;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tr:nth-of-type(odd) {
-    background: #eee;
-}
-
-th {
-    background: #333;
-    color: white;
-    font-weight: bold;
-}
-
-td, th {
-    padding: 6px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-@media screen and (max-width: 760px) {
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    tr {
-        border: 1px solid #ccc;
-    }
-    td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-    }
-    td:before {
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-    }
-    td:nth-of-type(1):before {
-        content: "comprobante";
-        top: 50px;
-    }
-    td:nth-of-type(2):before {
-        content: "Categoria";
-    }
-    td:nth-of-type(3):before {
-        content: "Valor";
-    }
-}
-
 section {
     background-color: #9e9e9e !important;
     height: 100%;
@@ -102,7 +41,7 @@ section {
     width: 100%;
     height: 100%;
     background: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: -3px;
     border-radius: 10px;
     font-size: 14px;
 }
@@ -1361,7 +1300,7 @@ ul.allViewTruck li {
     position: relative;
     border-radius: 10px;
     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
-    margin: 0 0 15px 0;
+    margin: 0 0 7px 0;
     padding: 14px 100px 14px 14px;
 }
 
@@ -1433,18 +1372,21 @@ ul.allViewTruck li .buttons button svg {
     margin-top: 14px;
 }
 #create-balance{
-    padding: 5px;
+    padding: 0px;
 }
 .general-content{
-    padding: 0 3px;
+    padding: 0 10px;
+    margin-top: 7px;
 }
 #container-legalization-aceept{
     width: 100%;
     height: 100%;
-    background: #ffffff;
-    margin-bottom: 8px;
+    background: orange;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;    
+    margin-bottom: 3px;
     border-radius: 10px;
-    font-size: 14px;
 }
 #container-legalization-aceept .balnceHeader {
     display: flex;
@@ -1454,38 +1396,18 @@ ul.allViewTruck li .buttons button svg {
 .balnceHeader .profile-pic {
     background-position: 50%;
     background-size: cover;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
+    margin-left: 10px;
 }
 .headerContent{
   justify-content: center;
   align-items: center;
 }
 .balnceHeader .detail-legalization {
-    margin-left: 7px;
-}
-.balnceHeader .detail-legalization2{
-    display: flex;
-}
-.balnceHeader .detail-legalization2 .margin{
-    padding: 10px;
-}
-.balnceHeader .detail-legalization2 .date{
-    float: right;
-}
-.balnceHeader .detail-legalization2 .advancement{
-    float: left;
-}
-.positonImage{
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-}
-.valueTotal{
-    font-family: 'Roboto', sans-serif;
-    color:red;
-    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .overlay{
     background: rgba(0,0,0,.3);
@@ -1862,4 +1784,156 @@ ul.allViewTruck li .buttons button svg {
     #container-account-recovery {
         height: 53%;
     }
+}
+.allListOwnerLeg {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -7px;
+}
+
+.allCardOwnerLeg {
+    width: 100%;
+    float: left;
+}
+ul.allCardOwnerLeg li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 5px 0;
+    padding: 8px 12px 8px 12px;
+}
+
+ul.allCardOwnerLeg li:last-of-type {
+    margin: 0;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg {
+    width: 100%;
+    height: 125px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg .imageOwnerLeg {
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg .valueOwnerLeg {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    top: 40px;
+}
+.viewTotalLiquidation {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -27px;
+}
+
+.listTotal {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.listTotal .contentValueTotal {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+}
+
+.listTotal .headerValueTotal {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+
+.listTotal .detailLiguidation {
+    margin-left: 10px;
+    width: 100%;
+}
+.listTotal button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.listTotal .detailLiguidation .valueDetail{
+    float:right;
+}
+.listTotal .footerOptionOwner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+}
+
+.listTotal .footerOptionOwner .accepted {
+    flex: 0 0 1;
+}
+
+.listTotal .footerOptionOwner .error {
+    flex: 0 0 1;
+}
+.listTotal .footerOptionOwner .back {
+    flex: 0 0 1;
+}
+.listTotal .footerOptionOwner i {
+    padding-right: 3px;
+}
+hr.lineTotal {
+    border-top: 1px solid orange;
+}
+.headerCompanyHeigth {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderCompanyHeigth {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderCompanyHeigth .moveRight{
+    float:right;
+}
+.headerTonsAdvancement {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderTonsAdvancement {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderTonsAdvancement .moveRight{
+    float:right;
 }

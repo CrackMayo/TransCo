@@ -596,6 +596,9 @@ function getDriverTruck() {
     });
 
 }
+function cambiar(){
+    changePage('view-truck', 'section-initial-page');
+}
 
 function obtenerCamion() {
     let lista = document.getElementById("listaCamiones");
@@ -1092,4 +1095,15 @@ openPopupacepted.addEventListener('click', function () {
 });
 btnClosePopup.addEventListener('click', function () {
     overlay1.classList.remove('active');
+});
+
+var openPopupOther = document.getElementById('openPopUpOther');
+overlayOther = document.getElementById('overlayOther');
+popupOther = document.getElementById('popupOther');
+btnClosePopupOthers = document.getElementById('btnClosePopupOthers');
+openPopupOther.addEventListener('click', function () {
+    overlayOther.classList.add('active');
+});
+btnClosePopupOthers.addEventListener('click', function () {
+    overlayOther.classList.remove('active');
 });

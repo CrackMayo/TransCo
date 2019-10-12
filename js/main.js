@@ -1238,8 +1238,8 @@ function changeToSettlement(settlementId) {
     changePage('create-balance', 'view-truck')
     let settlementHeader = document.getElementById("settlementHeaderView");
     let listSpendings = document.getElementById("listSpendings")
-    let sectionSettlement = document.getElementById("create-balance")
-    //sectionSettlement.innerHTML = "";
+    let settlementSummary = document.getElementById("settlementSummary");
+    settlementSummary.innerHTML = "";
     listSpendings.innerHTML = "";
     settlementHeader.innerHTML = "";
 
@@ -1315,7 +1315,44 @@ function changeToSettlement(settlementId) {
 
                 });
             });
+
+
+
+            settlementSummary.innerHTML = settlementSummary.innerHTML +  "<div class='listTotal'>"+
+            "<div class='contentValueTotal'>"+
+                "<div class='headerValueTotal'>"+
+                    "<div class='detailLiguidation'>"+
+                        "<p class='name'>Total Peajes:         <span class='valueDetail'>"+ snapshot.data().totalPeajes+"</span></p>"+
+                        "<p class='name'>Total Combustible:    <span class='valueDetail'>"+ snapshot.data().totalCombustible+"</span></p>"+
+                        "<p class='name'>Total Parqueadero:    <span class='valueDetail'>"+ snapshot.data().totalParqueadero+"</span></p>"+
+                        "<p class='name'>Total Lavadas:        <span class='valueDetail'>"+ snapshot.data().totalLavadas+"</span></p>"+
+                        "<p class='name'>Total Otros:          <span class='valueDetail'>"+ snapshot.data().totalOtros+"</span></p>"+
+                        "<hr class='lineTotal'>"+
+                        "<p class='name'>Valor Total de Gatos: <span class='valueDetail'> 15000</span></p>"+
+                    "</div>"+
+                "</div>"+
+                "<br>"+
+                "<div class='footerOptionOwner'>"+
+                    "<div id='btnaccept' class='accepted'>"+
+                        "<i class='fas fa-check-circle'></i>"+
+                        "<span>Aprobar</span>"+
+                    "</div>"+
+                    "<div  id='btnOpen' class='error'>"+
+                        "<i class='fas fa-times'></i>"+
+                        "<span>Rechazar</span>"+
+                    "</div>"+
+                    "<div class='back' onclick='changeToTruckview()'>"+
+                        "<i class='fas fa-arrow-left'></i>"+
+                        "<span>Atras</span>"+
+                    "</div>"+
+                "</div>"+
+            "</div>"+
+        "</div>"
+
         });
     });
 }
 
+function changeToTruckview() {
+    changePage('view-truck', 'create-balance');
+}

@@ -1,6 +1,7 @@
 var spendings = [];
 var currentPlate;
 var currentBoss;
+var plateView;
 
 
 function userDataLogin(userId) {
@@ -619,7 +620,7 @@ function obtenerCamion() {
                 "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
                 "<div class='card-body'>" +
                 "<div class='action-btns'>" +
-                "<center>"  + "<span>" +
+                "<center>" + "<span>" +
                 "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
@@ -683,10 +684,10 @@ function uploadImageTruck(imagen, placa) {
 }
 function viewTruck(Plate) {
     let btnUpdate = document.getElementById("btnUpdate");
-    btnUpdate.setAttribute("onclick","loadTruck('"+Plate+"');");
+    btnUpdate.setAttribute("onclick", "loadTruck('" + Plate + "');");
     console.log(Plate);
-  
 
+    plateView = Plate;
     loadSettlementsListOwner(Plate);
 
     currentPlate = Plate;
@@ -1166,7 +1167,7 @@ function loadSettlementsListOwner(plate) {
             var change = "'create-balance','view-truck'";
 
             snapshot.forEach(function (child) {
-
+                id = child.id;
                 numArrive = child.data().municipioDestino;
                 numDeparture = child.data().municipioOrigen;
                 date = child.data().fechaManifiesto;
@@ -1174,8 +1175,9 @@ function loadSettlementsListOwner(plate) {
                 console.log(numDeparture);
 
 
+
                 listSettlements.innerHTML = listSettlements.innerHTML + "<li><span>" + numDeparture + "</span><span>-</span><span>" + numArrive + "</span><br><span>" + date + "</span>" +
-                    "<div class='buttons'>" + "<button class='report' onclick='changeToSettlement();'>" + "<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 482.2 482.2'style='enable-background:new 0 0 482.2 482.2;' xml:space='preserve'><circle style='fill:#FFD05B;' cx='241.1' cy='241.1' r='241.1'/><polygon style='fill:#ACB3BA;'points='180.9,103.1 180.9,159.1 124.9,159.1 124.9,402.2 378.2,402.2 378.2,103.1 ' />"
+                    "<div class='buttons'>" + "<button id='" + child.id + "' class='report' onclick='changeToSettlement(this);'>" + "<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 482.2 482.2'style='enable-background:new 0 0 482.2 482.2;' xml:space='preserve'><circle style='fill:#FFD05B;' cx='241.1' cy='241.1' r='241.1'/><polygon style='fill:#ACB3BA;'points='180.9,103.1 180.9,159.1 124.9,159.1 124.9,402.2 378.2,402.2 378.2,103.1 ' />"
                 "+<polygon style='fill:#FFFFFF;'points='160,379.1 160,323.1 104,323.1 104,80 357.3,80 357.3,379.1 ' /><g><polygon style='fill:#CED5E0;' points='160,379.1 104,323.1 160,323.1 ' /><rect x='141.2' y='198.2' style='fill:#CED5E0;' width='178.8' height='10.7' /><rect x='141.2' y='226.5' style='fill:#CED5E0;' width='178.8' height='10.7' /><rect x='141.2' y='254.9' style='fill:#CED5E0;' width='178.8' height='10.7' /><rect x='141.2' y='283.3' style='fill:#CED5E0;' width='106.6' height='10.7' /></g>"
                     + "<g><path style='fill:#54C0EB;'d='M164.9,131.2c0,5-2,8.2-5.9,9.7l7.9,11.1h-8.5l-6.9-9.9h-4.8v9.9h-6.9v-31.1h11.8c4.8,0,8.3,0.8,10.3,2.4C163.8,124.9,164.9,127.6,164.9,131.2z M156.5,134.9c0.9-0.8,1.3-2,1.3-3.7s-0.4-2.8-1.3-3.4c-0.9-0.6-2.4-0.9-4.7-0.9h-5.2v9.2h5.1C154,136,155.7,135.6,156.5,134.9z' /><path style='fill:#54C0EB;'d='M194.4,120.9v6.2h-15.5v6.4h13.9v5.9h-13.9v6.4h16v6.1H172v-31.1h22.4V120.9z' /><path style='fill:#54C0EB;'d='M222.5,123.6c2.2,1.9,3.3,4.7,3.3,8.5s-1.1,6.6-3.4,8.4c-2.2,1.8-5.7,2.7-10.3,2.7H208v8.7h-6.9v-31.1h11C216.8,120.9,220.3,121.8,222.5,123.6z M217.4,135.9c0.8-0.9,1.2-2.3,1.2-4.1s-0.5-3.1-1.6-3.8c-1.1-0.8-2.8-1.1-5-1.1h-4v10.5h4.7C215,137.3,216.6,136.8,217.4,135.9z' /><path style='fill:#54C0EB;'d='M257.3,147.7c-3.1,3.1-7,4.6-11.6,4.6s-8.5-1.5-11.6-4.6s-4.7-6.9-4.7-11.5s1.6-8.4,4.7-11.5c3.1-3.1,7-4.6,11.6-4.6s8.5,1.5,11.6,4.6s4.7,6.9,4.7,11.5C262,140.8,260.5,144.6,257.3,147.7z M255,136.2c0-2.8-0.9-5.1-2.7-7.1c-1.8-2-4-2.9-6.6-2.9s-4.8,1-6.6,2.9c-1.8,2-2.7,4.3-2.7,7.1s0.9,5.1,2.7,7.1c1.8,1.9,4,2.9,6.6,2.9s4.8-1,6.6-2.9C254.1,141.4,255,139,255,136.2z' /><path style='fill:#54C0EB;'d='M293.1,131.2c0,5-2,8.2-5.9,9.7l7.9,11.1h-8.5l-6.9-9.9h-4.8v9.9H268v-31.1h11.8c4.8,0,8.3,0.8,10.3,2.4C292.1,124.9,293.1,127.6,293.1,131.2z M284.8,134.9c0.9-0.8,1.3-2,1.3-3.7s-0.4-2.8-1.3-3.4c-0.9-0.6-2.4-0.9-4.7-0.9h-5.2v9.2h5.1C282.3,136,283.9,135.6,284.8,134.9z' /><path style='fill:#54C0EB;' d='M312.8,126.9V152h-6.9v-25.1h-8.8v-6h24.5v6H312.8z'/></g>"
                     + "<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></button>"
@@ -1231,8 +1233,71 @@ function loadSettlementsListOwner(plate) {
 }
 
 
-function changeToSettlement() {
+function changeToSettlement(settlementId) {
 
     changePage('create-balance', 'view-truck')
+    let settlementSection = document.getElementById("create-balance");
+    settlementSection.innerHTML = "";
+    
+
+
+    db.collection('accounts').doc(idUsuario).get().then(snapshot => {
+        let user;
+        if (snapshot.data().rol === "Propietario") {
+            user = idUsuario;
+
+        } else {
+            user = snapshot.data().jefe;
+        }
+
+
+        db.collection('accounts').doc(user).collection("camiones").doc(plateView).collection("liquidaciones").doc(settlementId.id).get().then(snapshot => {
+
+
+         
+      
+          
+            settlementSection.innerHTML = settlementSection.innerHTML + "<div class='general-content'>"+
+            "<div id='container-legalization-aceept'>"+
+                "<center><span id='title-register'>Legalización de Gastos</span></center>"+
+                "<br>"+
+                    "<div class='headerContent'>"+
+                        "<div class='balnceHeader'>"+
+                            "<div><img src='img/fotoviascamiones_2.png' class='profile-pic' alt=''></div>"+
+                            "<div class='detail-legalization'>"+
+                                "<p class='name'>Ciudad Origen: <span>"+ snapshot.data().municipioOrigen +"</span></p>"+
+                                "<p class='name'>Ciudad Destino: <span>"+ snapshot.data().municipioDestino +"</span></p>"+
+                                "<p class='name'><span>Fecha de Manifiesto: </span>"+ snapshot.data().fechaManifiesto +"</p>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
+                        "<div class='headerCompanyHeigth'>"+
+                        "<div class='balnceHeaderCompanyHeigth'>"+
+                            "<div class='detail-legalization'>"+
+                                "<span class='name'>Empresa: <span>"+ snapshot.data().empresa +"</span></span>"+
+                                "<span class='moveRight'>Flete: <span>"+ snapshot.data().flete +"</span></span>"+
+                            "</div>"+
+                        "</div>"+
+                        "</div>"+
+                        "<br>"+
+                        "<div class='headerTonsAdvancement'>"+
+                        "<div class='balnceHeaderTonsAdvancement'>"+
+                            "<div class='detail-legalization'>"+
+                                "<span class='name'>Toneladas: <span>"+ snapshot.data().numeroToneladas+"</span><span> T</span></span>"+
+                                "<span class='moveRight'>Anticipo: <span></span>"+ snapshot.data().anticipo+"</span>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
+                    "<br>"+
+           "</div>"+
+        "</div>"
+
+
+            
+        });
+
+    });
+
 
 }
+

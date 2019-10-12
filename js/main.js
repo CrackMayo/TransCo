@@ -1236,9 +1236,13 @@ function loadSettlementsListOwner(plate) {
 function changeToSettlement(settlementId) {
 
     changePage('create-balance', 'view-truck')
-    let settlementSection = document.getElementById("create-balance");
-    settlementSection.innerHTML = "";
-    
+    let settlementHeader = document.getElementById("settlementHeaderView");
+    let listSpendings = document.getElementById("listSpendings")
+    let sectionSettlement = document.getElementById("create-balance")
+    //sectionSettlement.innerHTML = "";
+    listSpendings.innerHTML = "";
+    settlementHeader.innerHTML = "";
+
 
 
     db.collection('accounts').doc(idUsuario).get().then(snapshot => {
@@ -1254,50 +1258,64 @@ function changeToSettlement(settlementId) {
         db.collection('accounts').doc(user).collection("camiones").doc(plateView).collection("liquidaciones").doc(settlementId.id).get().then(snapshot => {
 
 
-         
-      
-          
-            settlementSection.innerHTML = settlementSection.innerHTML + "<div class='general-content'>"+
-            "<div id='container-legalization-aceept'>"+
-                "<center><span id='title-register'>Legalización de Gastos</span></center>"+
-                "<br>"+
-                    "<div class='headerContent'>"+
-                        "<div class='balnceHeader'>"+
-                            "<div><img src='img/fotoviascamiones_2.png' class='profile-pic' alt=''></div>"+
-                            "<div class='detail-legalization'>"+
-                                "<p class='name'>Ciudad Origen: <span>"+ snapshot.data().municipioOrigen +"</span></p>"+
-                                "<p class='name'>Ciudad Destino: <span>"+ snapshot.data().municipioDestino +"</span></p>"+
-                                "<p class='name'><span>Fecha de Manifiesto: </span>"+ snapshot.data().fechaManifiesto +"</p>"+
-                            "</div>"+
-                        "</div>"+
-                    "</div>"+
-                        "<div class='headerCompanyHeigth'>"+
-                        "<div class='balnceHeaderCompanyHeigth'>"+
-                            "<div class='detail-legalization'>"+
-                                "<span class='name'>Empresa: <span>"+ snapshot.data().empresa +"</span></span>"+
-                                "<span class='moveRight'>Flete: <span>"+ snapshot.data().flete +"</span></span>"+
-                            "</div>"+
-                        "</div>"+
-                        "</div>"+
+
+
+
+            settlementHeader.innerHTML = settlementHeader.innerHTML +
+                "<div id='container-legalization-aceept'>" +
+                "<center><span id='title-register'>Legalización de Gastos</span></center>" +
+                "<br>" +
+                "<div class='headerContent'>" +
+                "<div class='balnceHeader'>" +
+                "<div><img src='img/fotoviascamiones_2.png' class='profile-pic' alt=''></div>" +
+                "<div class='detail-legalization'>" +
+                "<p class='name'>Ciudad Origen: <span>" + snapshot.data().municipioOrigen + "</span></p>" +
+                "<p class='name'>Ciudad Destino: <span>" + snapshot.data().municipioDestino + "</span></p>" +
+                "<p class='name'><span>Fecha de Manifiesto: </span>" + snapshot.data().fechaManifiesto + "</p>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "<div class='headerCompanyHeigth'>" +
+                "<div class='balnceHeaderCompanyHeigth'>" +
+                "<div class='detail-legalization'>" +
+                "<span class='name'>Empresa: <span>" + snapshot.data().empresa + "</span></span>" +
+                "<span class='moveRight'>Flete: <span>" + snapshot.data().flete + "</span></span>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "<br>" +
+                "<div class='headerTonsAdvancement'>" +
+                "<div class='balnceHeaderTonsAdvancement'>" +
+                "<div class='detail-legalization'>" +
+                "<span class='name'>Toneladas: <span>" + snapshot.data().numeroToneladas + "</span><span> T</span></span>" +
+                "<span class='moveRight'>Anticipo: <span></span>" + snapshot.data().anticipo + "</span>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "<br>" +
+                "</div>"
+
+            db.collection('accounts').doc(user).collection("camiones").doc(plateView).collection("liquidaciones").doc(settlementId.id).collection("gastos").get().then(snapshot2 => {
+
+                snapshot2.forEach(function (child) {
+                    id = child.id;
+                    
+                    console.log(id);
+               
+
+
+                    listSpendings.innerHTML = listSpendings.innerHTML + "<li>"+
+                    "<div class='contentCardOwnerLeg'>"+
+                        "<img alt='' src='" + child.data().imagenSettlement + "' class='imageOwnerLeg'>"+
+                        "<span class='valueOwnerLeg'>Categoría: <span>"+ child.data().categoria +"</span></span>"+
                         "<br>"+
-                        "<div class='headerTonsAdvancement'>"+
-                        "<div class='balnceHeaderTonsAdvancement'>"+
-                            "<div class='detail-legalization'>"+
-                                "<span class='name'>Toneladas: <span>"+ snapshot.data().numeroToneladas+"</span><span> T</span></span>"+
-                                "<span class='moveRight'>Anticipo: <span></span>"+ snapshot.data().anticipo+"</span>"+
-                            "</div>"+
-                        "</div>"+
+                        "<span class='valueOwnerLeg'>Valor: <span>"+ child.data().valor +"</span></span>"+
                     "</div>"+
-                    "<br>"+
-           "</div>"+
-        "</div>"
+                "</li>"
 
-
-            
+                });
+            });
         });
-
     });
-
-
 }
 

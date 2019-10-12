@@ -1131,7 +1131,16 @@ btnClosePopup.addEventListener('click', function () {
     overlay1.classList.remove('active');
 });
 
-
+var openNote = document.getElementById('openNote');
+overlayObservations = document.getElementById('overlayObservations');
+popupObservations = document.getElementById('popupObservations');
+btnClosePopupObservations = document.getElementById('btnClosePopupObservations');
+openNote.addEventListener('click', function () {
+    overlayObservations.classList.add('active');
+});
+btnClosePopupObservations.addEventListener('click', function () {
+    overlayObservations.classList.remove('active');
+});
 
 function loadSettlementsListOwner(plate) {
 

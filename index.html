@@ -460,6 +460,9 @@
 
             </ul>
         </div>
+        <div class="floatBack" onclick="changePage('create-travel','legalization-tolls')">
+            <i class="fas fa-arrow-left my-float-back"></i>
+        </div>
         <div class="float" onclick="changePage('legalization-fuel','legalization-tolls')">
             <i class="fas fa-arrow-right my-float"></i>
         </div>
@@ -513,6 +516,9 @@
                                 </li>-->
 
             </ul>
+        </div>
+        <div class="floatBack" onclick="changePage('legalization-tolls','legalization-fuel')">
+            <i class="fas fa-arrow-left my-float-back"></i>
         </div>
         <div class="float" onclick="changePage('legalization-parking','legalization-fuel')">
             <i class="fas fa-arrow-right my-float"></i>
@@ -568,6 +574,9 @@
 
             </ul>
         </div>
+        <div class="floatBack" onclick="changePage('legalization-fuel','legalization-parking')">
+            <i class="fas fa-arrow-left my-float-back"></i>
+        </div>
         <div class="float" onclick="changePage('legalization-washed','legalization-parking')">
             <i class="fas fa-arrow-right my-float"></i>
         </div>
@@ -621,6 +630,9 @@
                                         </li>-->
 
             </ul>
+        </div>
+        <div class="floatBack" onclick="changePage('legalization-parking','legalization-washed')">
+            <i class="fas fa-arrow-left my-float-back"></i>
         </div>
         <div class="float" onclick="changePage('legalization-others','legalization-washed')">
             <i class="fas fa-arrow-right my-float"></i>
@@ -686,11 +698,34 @@
                                             </li>-->
 
             </ul>
-        </div><!--
-        <div class="float" onclick="summarySpendings();">-->
-        <div class="float" onclick="changePage('sumaryLegalizationCreate','legalization-others')">
+        </div>
+        <div class="floatBackOthers" onclick="changePage('legalization-washed','legalization-others')">
+            <i class="fas fa-arrow-left my-float"></i>
+        </div>
+        <div class="floatNoteOthers" id="openNote">
+            <i class="fas fa-sticky-note my-float"></i>
+        </div>
+        <!--<div class="float" onclick="summarySpendings();">-->
+        <div class="floatOthers" onclick="changePage('sumaryLegalizationCreate','legalization-others')">
             <i class="fas fa-arrow-right my-float"></i>
         </div>
+        <div class="overlayObservations" id="overlayObservations">
+                <div class="popupObservations" id="popupObservations">
+                    <a href="#" id="btnClosePopupObservations" class="btnClosePopupObservations">
+                        <i class="fas fa-times"></i></a>
+                    <h3>Motivo Del Rechazo</h3>
+                    <br>
+                    <h4>Detalle los motivos por los cuales no fue aprobada la legalización</h4>
+                    <div class="contentInputsObservations">
+                        <input type="text" class="" name="" id="">
+                        <button class="btn btn-secondary btn-sm">
+                            <i class="far fa-paper-plane"></i>
+                            <span>Enviar</span>
+                        </button>
+                    </div>
+    
+                </div>
+            </div> 
 
     </section>
 
@@ -769,7 +804,8 @@
                         </div>
                     </div>
                 </div>
-        </div> 
+        </div>
+        
     </section>
 
     <section id="summarySpendings" class="invisible">

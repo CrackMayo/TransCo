@@ -169,7 +169,7 @@ function crearCamion() {
 
 
                     } else {
-                        console.log("Conductor no disponible");
+                        alert("Conductor no disponible");
                     }
                 })
         } else {
@@ -656,7 +656,7 @@ function uploadImageTruck(imagen, placa) {
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
-        alert("File Uploaded");
+        alert("Se ha creado un nuevo vehículo");
         console.log('Uploaded a blob or file!');
 
         snapshot.ref.getDownloadURL().then(function (DownloadURL) {

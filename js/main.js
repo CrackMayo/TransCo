@@ -999,7 +999,7 @@ function uploadSettlement() {
                 });
             }
 
-
+            alert("Legalización creada correctamente.");
 
         }).catch(function (error) {
             console.error("Error: ", error);
@@ -1011,7 +1011,9 @@ function uploadSettlement() {
         console.error("Error: ", error);
     });
 
-    changePage('view-truck', 'legalization-others');
+    loadSettlementsListOwner(plateView);
+    changePage('view-truck', 'summarySpendings');
+    
 }
 
 
@@ -1027,7 +1029,6 @@ function uploadImageSettlement(imagen, plate, size, count) {
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
-        alert("File Uploaded");
         console.log('Uploaded a blob or file!');
 
         snapshot.ref.getDownloadURL().then(function (DownloadURL) {
@@ -1132,16 +1133,16 @@ btnClosePopup.addEventListener('click', function () {
     overlay1.classList.remove('active');
 });
 
-var openNote = document.getElementById('openNote');
-overlayObservations = document.getElementById('overlayObservations');
-popupObservations = document.getElementById('popupObservations');
-btnClosePopupObservations = document.getElementById('btnClosePopupObservations');
-openNote.addEventListener('click', function () {
-    overlayObservations.classList.add('active');
-});
-btnClosePopupObservations.addEventListener('click', function () {
-    overlayObservations.classList.remove('active');
-});
+// var openNote = document.getElementById('openNote');
+// overlayObservations = document.getElementById('overlayObservations');
+// popupObservations = document.getElementById('popupObservations');
+// btnClosePopupObservations = document.getElementById('btnClosePopupObservations');
+// openNote.addEventListener('click', function () {
+//     overlayObservations.classList.add('active');
+// });
+// btnClosePopupObservations.addEventListener('click', function () {
+//     overlayObservations.classList.remove('active');
+// });
 
 function loadSettlementsListOwner(plate) {
 

@@ -103,14 +103,14 @@
                 </div>
 
             </form>
-
-            <div onclick="changePage('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has
-                    olvidado tu contraseña?</span></div>
-            <div id="div-sign-up-link"
-                onclick="changePage('register','sign-in'); cargarDepartamentos('select-register-departaments')">
-                <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
-            </div>
-
+            <div id="div_links_sign_up">
+                <div onclick="changePage('account-recovery','sign-in');"><span id="forgot-password-responsive">¿Has
+                        olvidado tu contraseña?</span></div>
+                <div id="div-sign-up-link"
+                    onclick="changePage('register','sign-in'); cargarDepartamentos('select-register-departaments')">
+                    <span id="sign-up-link">¿No tienes cuenta? ¡Registrate!</span>
+                </div>
+            </div>  
         </div>
     </section>
     <section id="register" class="invisible">
@@ -138,10 +138,10 @@
                         aria-label="Número celular" aria-describedby="addon-wrapping" required>
                 </div>
                 <div class="dropdown-register btn-group">
-                    <p>Seleccionar Tipo Usuario:</p>
-                    <div class="input-group flex-nowrap">
+                    <p>Tipo usuario:</p>
+                    <div class="div_dropdown_sign_up input-group flex-nowrap">
 
-                        <select name="type" id="select-register-rol" class="form-control"
+                        <select name="type" id="select-register-rol" class="dropdown_sign_up form-control"
                             aria-describedby="addon-wrapping" required>
                             <option></option>
                             <option value="Conductor">Conductor</option>
@@ -152,9 +152,9 @@
                 </div>
                 <div class="dropdown-register btn-group">
                     <p>Departamento:</p>
-                    <div class="input-group flex-nowrap">
+                    <div class="div_dropdown_sign_up input-group flex-nowrap">
 
-                        <select name="type" id="select-register-departaments" class="form-control"
+                        <select name="type" id="select-register-departaments" class="dropdown_sign_up form-control"
                             aria-describedby="addon-wrapping"
                             onchange="cargarMunicipios(this,'select-register-municipality');" required>
                             <option></option>
@@ -163,9 +163,9 @@
                 </div>
                 <div class="dropdown-register btn-group">
                     <p>Municipio:</p>
-                    <div class="input-group flex-nowrap">
+                    <div class="div_dropdown_sign_up input-group flex-nowrap">
 
-                        <select name="type" id="select-register-municipality" class="form-control"
+                        <select name="type" id="select-register-municipality" class="dropdown_sign_up form-control"
                             aria-describedby="addon-wrapping" required>
                             <option></option>
                         </select>
@@ -186,7 +186,7 @@
                         onclick="btnLook('input-register-password2', 'span-look-register2');">
                         <span id="span-look-register2" class="far fa-eye" aria-hidden="true"></span></button>
                 </div>
-                <div>
+                <div id="div_btns_sign_up">
                     <button type="button" class="btn btn-secondary btn-sm"
                         onclick="changePage('sign-in','register')">Cancelar</button>
                     <button type="submit" class="btn btn-secondary btn-sm">Registrarse</button>

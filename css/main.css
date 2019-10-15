@@ -1765,8 +1765,25 @@ ul.allViewTruck li .buttons button svg {
         height: 49px;
         margin-top: -42%;
     }
+    #div_btns_sign_up{
+        padding-bottom: 8%;
+        margin-top: 8%;
+    }
     .sidenav{
         left: 102%;
+    }
+    .dropdown_sign_up{
+        position: absolute !important;
+        right: 0%;
+        width: 90% !important;
+    }
+    .div_dropdown_sign_up{
+        width: 60%;
+        position: absolute;
+        right: 0%;
+    }
+    #div_links_sign_up{
+        padding-bottom: 15%;
     }
 }
 
@@ -1789,13 +1806,14 @@ ul.allViewTruck li .buttons button svg {
         padding-top: 15%;
     }
     #container-register {
-        width: 80%;
+        width: 90%;
         height: 80%;
-        margin-left: 10%;
+        margin-left: 5%;
     }
     #container-sign-in {
-        width: 70%;
-        margin-left: 15%;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 13.5%;
     }
     #register {
         padding-top: 18%;

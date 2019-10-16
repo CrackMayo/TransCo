@@ -34,6 +34,7 @@ section {
 }
 
 .newsfeed {
+    margin-top: 10px;
     padding: 0 10px;
 }
 
@@ -1291,7 +1292,7 @@ ul.allCard4 li .buttons4 button.remove4:hover svg .fill {
 }
 
 #view-truck {
-    padding: 3px 0 0 0;
+    padding: 0px 0 0 0;
 }
 
 .containerAll {
@@ -1384,7 +1385,18 @@ ul.allViewTruck li .buttons button svg {
     text-align: center;
     box-shadow: 2px 2px 3px #999;
 }
-
+.floatImg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 4%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
 .my-float-back {
     margin-top: 14px;
 }

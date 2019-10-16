@@ -339,12 +339,58 @@
     </section>
 
     <section id="view-truck" class="invisible">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">
+                        <img id="logo" src="img/Logo.PNG" alt="transco">
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" data-target="modal-IniciarSesion">
+                                    Inicio<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li id="generalBalance1" class="nav-item">
+                                <a class="nav-link" onclick="changePage('section-initial-page','account');">
+                                    Menu inicial</a>
+                            </li>
+                            <li id="generalBalance1" class="nav-item">
+                                <a class="nav-link" onclick="changePage('create-balance','account');">
+                                    Balance general</a>
+                            </li>
+                            <li id="createTravel" class="nav-item">
+                                <a class="nav-link" onclick="changePage('create-travel','account');">
+                                    Crear Viaje</a>
+                            </li>
+                            <li id="createTruck1" class="nav-item">
+                                <a class="nav-link" onclick="changePage('create-truck','account');">
+                                    Crear vehículo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="changePage('sign-in','account'); logOut() ">
+                                    Salir</a>
+                            </li>
+                    </div>
+                    <!-- <div class="secundary-menu">
+                        <li class="nav-item">
+                            
+                        </li>
+                        
+                    </div> -->
+                    <a>
+                        <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" onclick="openNav('account');">
+                    </a>
+        </nav>
         <div class="newsfeed">
             <div class="card1">
                 <div><img src="img/fotoviascamiones_2.png" class="picture" alt=""></div>
                 <div class="content1">
                     <div class="header">
-                        <div><img src="img/fotoviascamiones_2.png" class="profile-pic" alt=""></div>
+                        <div>
+                            <img src="img/fotoviascamiones_2.png" class="profile-pic" alt="">
+                            <div class="floatImg" onclick="changePage('section-initial-page','view-truck')">
+                                <i class="fas fa-arrow-left my-float"></i>
+                            </div>
+                        </div>
                         <div class="detail">
                             <p class="name">Placa Cabezote: <span id="placaCabezoteVT"></span></p>
                             <p class="name">Nombre Conductor: <span id="nombreConductorVT"></span></p>
@@ -373,9 +419,7 @@
                             <div>
                                 <label for="name" class="labels">Lugar de Destino</label>
                                 <input type="text" id="queryInputDest" placeholder="Lugar de destino...">
-
-                            </div>
-                            <button>
+                                <button>
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 800 800">
                                     <g>
@@ -383,9 +427,9 @@
                                             d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5 S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9 C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z" />
                                     </g>
                                 </svg>
-                            </button>
+                                </button>
+                            </div>                            
                         </div>
-
                     </div>
                     <div class="footer">
                         <div class="liquidation" onclick="changeLegalization();
@@ -905,6 +949,10 @@
                         </div>
                         <br>
                         <div class="footerOptionOwner">
+                            <div class="back" onclick="changePage('view-truck','create-balance')">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Atras</span>
+                            </div>
                             <div id="btnaccept" class="accepted">
                                 <i class="fas fa-check-circle"></i>
                                 <span>Aprobar</span>
@@ -912,11 +960,7 @@
                             <div  id="btnOpen" class="error">
                                 <i class="fas fa-times"></i>
                                 <span>Rechazar</span>
-                            </div>
-                            <div class="back" onclick="changePage('view-truck','create-balance')">
-                                <i class="fas fa-arrow-left"></i>
-                                <span>Atras</span>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>

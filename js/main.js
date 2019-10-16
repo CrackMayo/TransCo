@@ -2,6 +2,14 @@ var spendings = [];
 var currentPlate;
 var currentBoss;
 var plateView;
+var name;
+var email;
+var phone;
+var nip;
+var typeAccount;
+var city;
+var departament;
+var imagenProfile;
 
 
 function userDataLogin(userId) {
@@ -9,13 +17,24 @@ function userDataLogin(userId) {
     lista.innerHTML = "";
 
     db.collection('accounts').doc(userId).get().then(snap => {
-        var rol = snap.data().rol;
+        name = snap.data().nombre;
+        email = snap.id;
+        phone = snap.data().celular;
+        nip = snap.data().cedula;
+        typeAccount = snap.data().rol;
+        city = snap.data().municipio;
+        departament = snap.data().departamento;
+        imagenProfile = snap.data().imagenPerfil;
+
+
+
+
         let conVehiculo = snap.data().conVehiculo;
         var navElements = [document.getElementById("generalBalance2"), document.getElementById("generalBalance1"),
         document.getElementById("createTruck2"), document.getElementById("createTruck1"),
         document.getElementById("createTravel1"), document.getElementById("createTravel2")];
 
-        if (rol === "Conductor") {
+        if (typeAccount === "Conductor") {
 
             currentBoss = snap.data().jefe;
             for (let i = 0; i < navElements.length - 1; i++) {
@@ -1363,5 +1382,147 @@ function chargePage(ok){
         document.getElementById("charge-section").classList.remove("invisible");        
     }else{
         document.getElementById("charge-section").className += " invisible";
+    }
+}
+
+
+
+function accountInfo() {
+
+    let nameInfo = document.getElementById("nameInfo");
+    let emailInfo = document.getElementById("emailInfo");
+    let phoneInfo = document.getElementById("phoneInfo");
+    let nipInfo = document.getElementById("nipInfo");
+    let typeAccInfo = document.getElementById("typeAccInfo");
+    let cityInfo = document.getElementById("cityInfo");
+    let departamentInfo = document.getElementById("departamentInfo");
+    let phoneUpdate = document.getElementById("input-account-phone");
+    let imagen = document.getElementById('img_profile_account');
+
+    nameInfo.innerHTML = "Nombre: " + name;
+    emailInfo.innerHTML = "Correo: " + email;
+    phoneInfo.innerHTML = "Telefono: " + phone;
+    nipInfo.innerHTML = "NIP: " + nip;
+    typeAccInfo.innerHTML = "Tipo de cuenta: " + typeAccount;
+    cityInfo.innerHTML = "Ciudad: " + city;
+    departamentInfo.innerHTML = "Departamento: " + departament;
+    imagen.src = imagenProfile;
+
+    phoneUpdate.value = phone;
+}
+
+function getAccountUpdateInfo(fase) {
+    let selectDepartament = document.getElementById("select-account-departaments");
+    let selectCitys = document.getElementById("select-account-municipality");
+
+    if (fase === 1) {
+        for (let i = 0; i < selectDepartament.length; i++) {
+            if (departament === selectDepartament[i].value) {
+                selectDepartament.selectedIndex = i;
+                cargarMunicipios(selectDepartament, 'select-account-municipality');
+            }
+        }
+    } else {
+        for (let i = 0; i < selectCitys.length; i++) {
+            if (city === selectCitys[i].value) {
+                selectCitys.selectedIndex = i;
+            }
+        }
+    }
+
+}
+
+function updateAccountInfo() {
+    let phoneUpdate = document.getElementById("input-account-phone").value;
+    let selectDepartamentUpdate = document.getElementById("select-account-departaments").value;
+    let selectCitysUpdate = document.getElementById("select-account-municipality").value;
+    let imagen = document.getElementById('imgProfileAccount').files[0];
+
+    console.log(" " + phoneUpdate + " " + selectDepartamentUpdate + " " + selectCitysUpdate);
+
+
+    let user = {
+        celular: phoneUpdate,
+        departamento: selectDepartamentUpdate,
+        municipio: selectCitysUpdate
+
+    }
+
+
+
+    db.collection('accounts').doc(idUsuario).update(user).then(function () {
+        console.log("Datos de usuario actualizados");
+        phone = phoneUpdate;
+        departament = selectDepartamentUpdate;
+        city = selectCitysUpdate;
+
+        if(imagen!=null){
+            uploadImageProfile(imagen);
+        }
+
+        
+        // userDataLogin(idUsuario);
+        accountInfo();
+        changePage('div_account', 'edit_account');
+    }).catch(function (error) {
+        console.error("Error: ", error);
+    });
+
+
+
+
+
+
+    
+
+    return false;
+}
+
+
+function uploadImageProfile(imagen) {
+
+
+
+    let url = 0;
+    // Created a Storage Reference with root dir
+    let storageRef = storage.ref();
+    // Get the file from DOM
+    let file = imagen;
+    // console.log(file);
+
+    //dynamically set reference to the file name
+    let thisRef = storageRef.child('/' + idUsuario + '/imagenPerfil/' + imagen.name);
+
+    //put request upload file to firebase storage
+    thisRef.put(file).then(function (snapshot) {
+        alert("File Uploaded");
+        console.log('Uploaded a blob or file!');
+
+        snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            url = DownloadURL;
+
+            db.collection('accounts').doc(idUsuario).update({ "imagenPerfil": url })
+                .then(function () {
+                    console.log("Document successfully updated!");
+                    console.log(url);
+                }).catch(function (error) {
+
+                    console.log(error);
+                });
+
+
+
+        });
+
+
+    });
+
+}
+
+function editAccount(ok) {
+    if (ok) {
+        document.getElementById("edit_account").classList.remove("invisible");
+    } else {
+        document.getElementById("edit_account").className += " invisible";
     }
 }

@@ -28,6 +28,12 @@
                         <a class="nav-link" data-target="modal-IniciarSesion">
                             Inicio<span class="sr-only">(current)</span></a>
                     </li>
+
+                    <li id="account1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('account','section-initial-page');accountInfo();">
+                            Cuenta</a>
+                    </li>
+
                     <li id="generalBalance1" class="nav-item">
                         <a class="nav-link" onclick="changePage('create-balance','section-initial-page');">
                             Balance general</a>
@@ -62,7 +68,8 @@
             <img src="img/Logo.PNG" id="menu-icon" alt="logo">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
             <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="closeNav('main_menu');">Cuenta</span>
+            <span class="span_sidenav"
+                onclick="changePage('account','section-initial-page');closeNav('main_menu');accountInfo();">Cuenta</span>
             <span class="span_sidenav"
                 onclick="changePage('create-truck','section-initial-page');closeNav('main_menu');"
                 id="createTruck2">Crear vehículo</span>
@@ -1004,6 +1011,129 @@
             </div>
         </div>
     </section>
+
+    <section id="account" class="invisible">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="img/Logo.PNG" alt="transco">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-target="modal-IniciarSesion">
+                            Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('section-initial-page','account');">
+                            Menu inicial</a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-balance','account');">
+                            Balance general</a>
+                    </li>
+                    <li id="createTravel" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','account');">
+                            Crear Viaje</a>
+                    </li>
+                    <li id="createTruck1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-truck','account');">
+                            Crear vehículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="changePage('sign-in','account'); logOut() ">
+                            Salir</a>
+                    </li>
+            </div>
+            <!-- <div class="secundary-menu">
+                <li class="nav-item">
+                    
+                </li>
+                
+            </div> -->
+            <a>
+                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" onclick="openNav('account');">
+            </a>
+        </nav>
+        <div id="mySidenav_account" class="sidenav ">
+            <img src="img/Logo.PNG" id="menu-icon" alt="logo">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('account')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="changePage('section-initial-page','account');closeNav('account');">Menú
+                principal</span>
+            <span class="span_sidenav" onclick="changePage('create-truck','account');closeNav('account');"
+                id="createTruck2">Crear vehículo</span>
+            <span class="span_sidenav" onclick="closeNav('account');" id="generalBalance2">Balance general</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="changePage('sign-in','account');logOut();closeNav('account');">Log
+                out</span>
+        </div>
+        <div id="main_account">
+            <div id="div_account">
+                <div id="div_profile_picture">
+                    <img src="" id="img_profile_account" alt="profile">
+                </div>
+                <div id="div_info_account">
+                    <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments'); changePage('edit_account','div_account')"><img
+                            src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
+                    <span id="nameInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="emailInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="phoneInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="nipInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="typeAccInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="cityInfo" class="span_info_account"></span>
+                    <br>
+                    <span id="departamentInfo" class="span_info_account"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="edit_account" class="invisible">
+        <div id="div_edit_account">
+            <form onsubmit="return updateAccountInfo()">
+                <div id="div_profile_picture">
+                    <img src="img/profilePictureDefault.png" id="img_profile_account" alt="profile">
+                    <input class="form-control" accept="image/*" id="imgProfileAccount" type="file">
+                </div>
+                <div id="div_input_account">
+                    <span>Número de celular</span>
+                    <div class="input-group flex-nowrap">
+                        <input id="input-account-phone" type="number" class="form-control" placeholder="Número celular"
+                            aria-label="Número celular" aria-describedby="addon-wrapping" required min="1000000000">
+                    </div>
+                    <div class="dropdown-register btn-group">
+                        <p>Departamento:</p>
+                        <div class="input-group flex-nowrap">
+                            <select name="type" id="select-account-departaments" class="form-control"
+                                aria-describedby="addon-wrapping"
+                                onchange="cargarMunicipios(this,'select-account-municipality');" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="dropdown-register btn-group">
+                        <p>Municipio:</p>
+                        <div id="dropdown_account" class="input-group flex-nowrap">
+                            <select name="type" id="select-account-municipality" class="form-control"
+                                aria-describedby="addon-wrapping" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="btns_account">
+                    <button id="btn_save_account" type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-danger" onclick="editAccount(false); changePage('div_account','edit_account')">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
 
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>

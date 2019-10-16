@@ -4,7 +4,8 @@ var idUsuario;
 function cargarDepartamentos(idElemDep) {
 
     var departamentos = document.getElementById(idElemDep);
-
+    departamentos.innerHTML = '';
+    departamentos.innerHTML = '<option></option>';
 
     db.collection('departments').get().then(snapshot => {
 
@@ -12,10 +13,14 @@ function cargarDepartamentos(idElemDep) {
             var departamento = child.id;
             departamentos.options[departamentos.options.length] = new Option(departamento, departamento);
         });
+
+        if (idElemDep === "select-account-departaments") {
+            getAccountUpdateInfo(1);
+        }
     })
 }
 
-function cargarMunicipios(departamento,idElemCity) {
+function cargarMunicipios(departamento, idElemCity) {
     var municipios = document.getElementById(idElemCity);
     municipios.options.length = 0;
     db.collection('departments').doc(departamento.value).get().then(snap => {
@@ -23,6 +28,9 @@ function cargarMunicipios(departamento,idElemCity) {
         var municipio = snap.data();
         for (let i in municipio) {
             municipios.options[municipios.options.length] = new Option(municipio[i], municipio[i]);
+        }
+        if(idElemCity ==="select-account-municipality"){
+            getAccountUpdateInfo(2);
         }
     });
 }
@@ -113,7 +121,7 @@ function signUp() {
             }).catch(function (error) {
                 console.error("Error: ", error);
             });
-            
+
             alert("Usuario Creado!");
             data.user.sendEmailVerification();
             changePage('section-initial-page', 'register');
@@ -130,7 +138,7 @@ function signUp() {
             });
     } else {
         alert("Las contraseñas no coinciden");
-    }    
+    }
     return false;
 
 }

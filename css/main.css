@@ -253,6 +253,23 @@ section {
     margin-left: 10%;
     margin-bottom: 10%;
 }
+
+#charge{
+    background: gray;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 45%;
+    padding-left: 15%;
+    top: 0%;
+    left: 0%;
+}
+
+#charge_point{
+    margin-left: 26%;
+    margin-top: 24%;
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;

@@ -113,12 +113,11 @@ function signUp() {
             }).catch(function (error) {
                 console.error("Error: ", error);
             });
-
+            
             alert("Usuario Creado!");
             data.user.sendEmailVerification();
             changePage('section-initial-page', 'register');
             userDataLogin(emailUser);
-
 
         })
             .catch(function (error) {
@@ -131,7 +130,7 @@ function signUp() {
             });
     } else {
         alert("Las contraseñas no coinciden");
-    }
+    }    
     return false;
 
 }
@@ -154,7 +153,7 @@ function passwordRecovery() {
 
 function singIn() {
 
-
+    chargePage(true);
     // Get user info
     var email = document.getElementById("input-sign-in-username").value.toLowerCase();
     const password = document.getElementById("input-sign-in-password").value;
@@ -172,6 +171,7 @@ function singIn() {
             changePage('section-initial-page', 'sign-in');
 
         } else {
+            chargePage(false);
             alert("Verifica tu correo");
         }
 
@@ -185,7 +185,7 @@ function singIn() {
         } else {
             alert("El usuario o contraseña no es correcto");
         }
-
+        chargePage(false);
     });
     return false;
 

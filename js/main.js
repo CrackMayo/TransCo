@@ -36,9 +36,8 @@ function userDataLogin(userId) {
             navElements[4].classList.add("invisible", "font-invisible");
             navElements[5].classList.add("invisible", "font-invisible");
         }
-
-    });
-
+        chargePage(false);
+    });    
 }
 
 function openNav(section) {
@@ -593,6 +592,7 @@ function getDriverTruck() {
                 "</li>"
 
         })
+        chargePage(false);
     });
 
 }
@@ -1356,4 +1356,12 @@ function changeToSettlement(settlementId) {
 
 function changeToTruckview() {
     changePage('view-truck', 'create-balance');
+}
+
+function chargePage(ok){
+    if(ok){
+        document.getElementById("charge-section").classList.remove("invisible");        
+    }else{
+        document.getElementById("charge-section").className += " invisible";
+    }
 }

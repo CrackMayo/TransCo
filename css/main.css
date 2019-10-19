@@ -1385,6 +1385,18 @@ ul.allViewTruck li .buttons button svg {
     text-align: center;
     box-shadow: 2px 2px 3px #999;
 }
+.floatCancel {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 52%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
 .floatImg {
     position: absolute;
     width: 40px;

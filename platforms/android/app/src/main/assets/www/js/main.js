@@ -209,7 +209,7 @@ function legalizationTolls() {
         var value = document.getElementById('inputCount').value;
         var imgField = document.getElementById('file-tolls');
 
-        if(imgField.value !== ""){
+        if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
             alert(imgField.value);
             addItemAllCard(value);
@@ -219,7 +219,7 @@ function legalizationTolls() {
             imgField.value = "";
 
         }
-        
+
         // if (isPositiveNumber(value)) {
         //     if (value && imgField) {
         //         if (isFileImage(imgField)) {
@@ -297,25 +297,36 @@ function legalizationFuel() {
     img2.src = "/img/basicImage.png";
     document.getElementById('add1').addEventListener('click', function () {
         var value1 = document.getElementById('inputCount1').value;
-        var imgField = document.getElementById('file-tolls1').files[0];
-        if (isPositiveNumber(value1)) {
-            if (value1 && imgField) {
-                if (isFileImage(imgField)) {
-                    addItemAllCard(value1);
-                    addSpending('inputCount1', 'Combustible', imgField);
-                    var value1 = document.getElementById('inputCount1').value = '';
-                    document.getElementById('file-tolls1').value = '';
-                } else {
-                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
-                    return;
-                }
+        var imgField = document.getElementById('file-tolls1');
 
-            } else {
-                return;
-            }
-        } else {
-            return;
+        if (imgField.value !== "") {
+            //imgField.value.replace(/\s/g,'');
+            alert(imgField.value);
+            addItemAllCard(value1);
+            addSpending('inputCount1', 'Combustible', imgField.value);
+            var value1 = document.getElementById('inputCount1').value = '';
+            document.getElementById('file-tolls1').value = '';
+
         }
+        // if (isPositiveNumber(value1)) {
+        //     if (value1 && imgField) {
+        //         if (isFileImage(imgField)) {
+        //             addItemAllCard(value1);
+        //             addSpending('inputCount1', 'Combustible', imgField);
+        //             var value1 = document.getElementById('inputCount1').value = '';
+        //             document.getElementById('file-tolls1').value = '';
+        //         } else {
+        //             alert("Debe seleccionar un formato de archivo valido (imagenes)");
+        //             return;
+        //         }
+
+        //     } else {
+        //         return;
+        //     }
+        // } else {
+        //     return;
+        // }
+        return;
 
 
     });
@@ -370,26 +381,40 @@ function legalizationParking() {
     img3.src = "/img/basicImage.png";
     document.getElementById('add2').addEventListener('click', function () {
         var value2 = document.getElementById('inputCount2').value;
-        var imgField = document.getElementById('file-tolls2').files[0];
-        if (isPositiveNumber(value2)) {
-            if (value2 && imgField) {
-                if (isFileImage(imgField)) {
-                    addItemAllCard(value2);
-                    addSpending('inputCount2', 'Parqueadero', imgField);
-                    var value2 = document.getElementById('inputCount2').value = '';
-                    document.getElementById('file-tolls2').value = '';
-                } else {
-                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
-                    return;
-                }
+        var imgField = document.getElementById('file-tolls2');
 
-            } else {
-                return;
-            }
-        } else {
 
-            return;
+        if (imgField.value !== "") {
+            //imgField.value.replace(/\s/g,'');
+            alert(imgField.value);
+            addItemAllCard(value2);
+            addSpending('inputCount2', 'Parqueadero', imgField.value);
+            var value2 = document.getElementById('inputCount2').value = '';
+            document.getElementById('file-tolls2').value = '';
         }
+
+
+        // if (isPositiveNumber(value2)) {
+        //     if (value2 && imgField) {
+        //         if (isFileImage(imgField)) {
+        //             addItemAllCard(value2);
+        //             addSpending('inputCount2', 'Parqueadero', imgField);
+        //             var value2 = document.getElementById('inputCount2').value = '';
+        //             document.getElementById('file-tolls2').value = '';
+        //         } else {
+        //             alert("Debe seleccionar un formato de archivo valido (imagenes)");
+        //             return;
+        //         }
+
+        //     } else {
+        //         return;
+        //     }
+        // } else {
+
+        //     return;
+        // }
+
+        return;
 
 
     });
@@ -445,25 +470,40 @@ function legalizationWashed() {
     img4.src = "/img/basicImage.png";
     document.getElementById('add3').addEventListener('click', function () {
         var value3 = document.getElementById('inputCount3').value;
-        var imgField = document.getElementById('file-tolls3').files[0];
-        if (isPositiveNumber(value3)) {
-            if (value3 && imgField) {
-                if (isFileImage(imgField)) {
-                    addItemAllCard(value3);
-                    addSpending('inputCount3', 'Lavada', imgField);
-                    var value3 = document.getElementById('inputCount3').value = '';
-                    document.getElementById('file-tolls3').value = '';
-                } else {
-                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
-                    return;
-                }
+        var imgField = document.getElementById('file-tolls3');
 
-            } else {
-                return;
-            }
-        } else {
-            return;
+
+
+        if (imgField.value !== "") {
+            //imgField.value.replace(/\s/g,'');
+            alert(imgField.value);
+            addItemAllCard(value3);
+            addSpending('inputCount3', 'Lavada', imgField.value);
+            var value3 = document.getElementById('inputCount3').value = '';
+            document.getElementById('file-tolls3').value = '';
+            imgField.value = "";
         }
+
+
+        // if (isPositiveNumber(value3)) {
+        //     if (value3 && imgField) {
+        //         if (isFileImage(imgField)) {
+        //             addItemAllCard(value3);
+        //             addSpending('inputCount3', 'Lavada', imgField);
+        //             var value3 = document.getElementById('inputCount3').value = '';
+        //             document.getElementById('file-tolls3').value = '';
+        //         } else {
+        //             alert("Debe seleccionar un formato de archivo valido (imagenes)");
+        //             return;
+        //         }
+
+        //     } else {
+        //         return;
+        //     }
+        // } else {
+        //     return;
+        // }
+        return;
 
     });
     function removeItem3() {
@@ -519,26 +559,40 @@ function legalizationOthers() {
     console.log("other Plate" + currentPlate);
     document.getElementById('add4').addEventListener('click', function () {
         var value4 = document.getElementById('inputCount4').value;
-        var imgField = document.getElementById('file-tolls4').files[0];
+        var imgField = document.getElementById('file-tolls4');
 
-        if (isPositiveNumber(value4)) {
-            if (value4 && imgField) {
-                if (isFileImage(imgField)) {
-                    addItemAllCard(value4);
-                    addSpending('inputCount4', '', imgField);
-                    var value4 = document.getElementById('inputCount4').value = '';
-                    document.getElementById('file-tolls4').value = '';
-                } else {
-                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
-                    return;
-                }
 
-            } else {
-                return;
-            }
-        } else {
-            return;
+
+        if (imgField.value !== "") {
+            //imgField.value.replace(/\s/g,'');
+            alert(imgField.value);
+            addItemAllCard(value4);
+            addSpending('inputCount4', 'Otros', imgField.value);
+            var value4 = document.getElementById('inputCount4').value = '';
+            document.getElementById('file-tolls4').value = '';
+            imgField.value = "";
         }
+
+
+        // if (isPositiveNumber(value4)) {
+        //     if (value4 && imgField) {
+        //         if (isFileImage(imgField)) {
+        //             addItemAllCard(value4);
+        //             addSpending('inputCount4', '', imgField);
+        //             var value4 = document.getElementById('inputCount4').value = '';
+        //             document.getElementById('file-tolls4').value = '';
+        //         } else {
+        //             alert("Debe seleccionar un formato de archivo valido (imagenes)");
+        //             return;
+        //         }
+
+        //     } else {
+        //         return;
+        //     }
+        // } else {
+        //     return;
+        // }
+        return;
 
     });
     function removeItem4() {
@@ -1059,7 +1113,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
     var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/' + size.toString() + '/' + count.toString());
 
     //put request upload file to firebase storage
-    thisRef.putString(file, 'base64', {contentType:'image/jpeg'}).then(function (snapshot) {
+    thisRef.putString(file, 'base64', { contentType: 'image/jpeg' }).then(function (snapshot) {
         console.log('Uploaded a blob or file!');
 
         snapshot.ref.getDownloadURL().then(function (DownloadURL) {
@@ -1637,4 +1691,128 @@ function getPhoto(source) {
 //
 function onFail(message) {
     alert('Failed because: ' + message);
+}
+
+
+
+
+function capturePhoto2() {
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess2, onFail, {
+        quality: 50,
+        destinationType: destinationType.DATA_URL,
+        correctOrientation: true
+    });
+}
+
+
+function onPhotoDataSuccess2(imageData) {
+    // Uncomment to view the base64-encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    var smallImage = document.getElementById('image-tolls1');
+    var input = document.getElementById('file-tolls1');
+    input.value = imageData;
+
+    // Unhide image elements
+    //
+
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+function capturePhoto3() {
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess3, onFail, {
+        quality: 50,
+        destinationType: destinationType.DATA_URL,
+        correctOrientation: true
+    });
+}
+
+
+function onPhotoDataSuccess3(imageData) {
+    // Uncomment to view the base64-encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    var smallImage = document.getElementById('image-tolls2');
+    var input = document.getElementById('file-tolls2');
+    input.value = imageData;
+
+    // Unhide image elements
+    //
+
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+
+function capturePhoto4() {
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess4, onFail, {
+        quality: 50,
+        destinationType: destinationType.DATA_URL,
+        correctOrientation: true
+    });
+}
+
+
+function onPhotoDataSuccess4(imageData) {
+    // Uncomment to view the base64-encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    var smallImage = document.getElementById('image-tolls3');
+    var input = document.getElementById('file-tolls3');
+    input.value = imageData;
+
+    // Unhide image elements
+    //
+
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+function capturePhoto5() {
+    // Take picture using device camera and retrieve image as base64-encoded string
+    navigator.camera.getPicture(onPhotoDataSuccess5, onFail, {
+        quality: 50,
+        destinationType: destinationType.DATA_URL,
+        correctOrientation: true
+    });
+}
+
+
+function onPhotoDataSuccess5(imageData) {
+    // Uncomment to view the base64-encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    var smallImage = document.getElementById('image-tolls4');
+    var input = document.getElementById('file-tolls4');
+    input.value = imageData;
+
+    // Unhide image elements
+    //
+
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    smallImage.src = "data:image/jpeg;base64," + imageData;
 }

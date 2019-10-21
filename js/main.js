@@ -592,7 +592,7 @@ function getDriverTruck() {
                 + "</div>" +
                 "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
                 "<div class='card-body'>" +
-                "<div class='action-btns'>" +
+                "<div class='action-btns' onclick='viewTruck(" + '"' + child.id + '"' + ");'>" +
                 "<center>" + "<span>" +
                 "</span>" + "<span>" +
                 "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +

@@ -207,27 +207,38 @@ function legalizationTolls() {
     img1.src = "/img/basicImage.png";
     document.getElementById('add').addEventListener('click', function () {
         var value = document.getElementById('inputCount').value;
-        var imgField = document.getElementById('file-tolls').files[0];
-        if (isPositiveNumber(value)) {
-            if (value && imgField) {
-                if (isFileImage(imgField)) {
-                    addItemAllCard(value);
-                    addSpending('inputCount', 'Peaje', imgField);
-                    var value = document.getElementById('inputCount').value = '';
-                    document.getElementById('file-tolls').value = '';
-                } else {
-                    alert("Debe seleccionar un formato de archivo valido (imagenes)");
-                    return;
-                }
+        var imgField = document.getElementById('file-tolls');
 
-            } else {
-                return;
-            }
-        } else {
-            return;
+        if(imgField.value !== ""){
+
+            addItemAllCard(value);
+            addSpending('inputCount', 'Peaje', imgField);
+            var value = document.getElementById('inputCount').value = '';
+            document.getElementById('file-tolls').value = '';
+            imgField.value = "";
+
         }
+        
+        // if (isPositiveNumber(value)) {
+        //     if (value && imgField) {
+        //         if (isFileImage(imgField)) {
+        //             addItemAllCard(value);
+        //             addSpending('inputCount', 'Peaje', imgField);
+        //             var value = document.getElementById('inputCount').value = '';
+        //             document.getElementById('file-tolls').value = '';
+        //         } else {
+        //             alert("Debe seleccionar un formato de archivo valido (imagenes)");
+        //             return;
+        //         }
 
+        //     } else {
+        //         return;
+        //     }
+        // } else {
+        //     return;
+        // }
 
+        return;
 
 
     });
@@ -1556,10 +1567,12 @@ function onPhotoDataSuccess(imageData) {
     // Get image handle
     //
     var smallImage = document.getElementById('image-tolls');
+    var input = document.getElementById('file-tolls');
+    input.value = imageData;
 
     // Unhide image elements
     //
-   
+
 
     // Show the captured photo
     // The inline CSS rules are used to resize the image

@@ -100,12 +100,12 @@ function dropdownRegister(text) {
 function btnLook(id, span) {
     if (document.getElementById(id).type == "password") {
         document.getElementById(id).type = "text";
-        document.getElementById(span).classList.add("fa-eye-slash");
-        document.getElementById(span).classList.remove("fa-eye");
+        document.getElementById(span).classList.add("fa-eye");
+        document.getElementById(span).classList.remove("fa-eye-slash");
     } else {
         document.getElementById(id).type = "password";
-        document.getElementById(span).classList.remove("fa-eye-slash");
-        document.getElementById(span).classList.add("fa-eye");
+        document.getElementById(span).classList.remove("fa-eye");
+        document.getElementById(span).classList.add("fa-eye-slash");
     }
 }
 

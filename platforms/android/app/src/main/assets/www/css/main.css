@@ -1,0 +1,2349 @@
+html, body {
+    height: auto;
+    background-color: #9e9e9e;
+    overflow: auto;
+}
+
+.scrollable {
+    position: inherit;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 200%;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+section {
+    background-color: #9e9e9e !important;
+    height: 100%;
+    width: 100%;
+}
+
+.size-profile-Truck {
+    width: 50%;
+    height: auto;
+}
+
+.newsfeed {
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.card1 {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: -3px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.card1 .picture {
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card1 .content1 {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+}
+
+.card1 .header {
+    display: flex;
+    align-items: center;
+}
+
+.card1 .profile-pic {
+    background-position: 50%;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.card1 .detail {
+    margin-left: 10px;
+}
+.card1 .query {
+    display: block;
+    align-items: center;
+}
+.card1 .radio{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: black;
+}
+.card1 #queryInputDest {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDate {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+.card1 #queryInputDest::placeholder{
+    color: white;
+}
+.card1 .labels{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+.card1 button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.card1 .posted {
+    font-size: 10px;
+    padding-top: 3px;
+}
+
+.card1 .footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.card1 .footer .liquidation {
+    flex: 0 0 1;
+}
+
+.card1 .footer .spend {
+    flex: 0 0 1;
+}
+
+.card1 .footer i {
+    padding-right: 3px;
+}
+
+.headerToDo {
+    width: 100%;
+    height: 206px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.noFill {
+    fill: none;
+}
+
+.headerToDo #inputCount {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 74%;
+    right: 12px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerToDo button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.headerToDo button svg .fill {
+    fill: orange;
+}
+
+#image-tolls {
+    margin: auto;
+    display: block;
+    height: 74px;
+    width: 151px;
+}
+
+#menu-icon {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+#charge{
+    background: gray;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 45%;
+    padding-left: 15%;
+    top: 0%;
+    left: 0%;
+}
+
+#charge_point{
+    margin-left: 26%;
+    margin-top: 24%;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.line_menu {
+    width: 100%;
+    height: 0.5%;
+    background-color: #818181;
+}
+.sidenav .span_sidenav {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#select-file {
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
+}
+
+#title-tolls {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+#select-file #file-tolls {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#img_menu{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 18%;
+}
+
+#legalization-tolls {
+    padding: 201px 0 0 0;
+}
+
+#legalization-fuel {
+    padding: 240px 0 0 0;
+}
+
+#legalization-parking {
+    padding: 240px 0 0 0;
+}
+
+.allListItms {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.allCard {
+    width: 100%;
+    float: left;
+}
+
+ul.allCard li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allCard li:last-of-type {
+    margin: 0;
+}
+
+ul.allCard li .buttons {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+
+ul.allCard li .contentCard {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCard li .contentCard .imageBasic {
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/basicImage.png');
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+
+ul.allCard li .contentCard .valueBasic {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+
+ul.allCard li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allCard li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allCard li .buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.allCard li .buttons button svg .fill {
+    transition: fill 0.2s ease;
+}
+
+ul.allCard li .buttons button.remove svg .fill {
+    fill: #c0cecb;
+}
+
+ul.allCard li .buttons button.remove:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo1 {
+    width: 100%;
+    height: 206px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo1 #inputCount1 {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo1 button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 74%;
+    right: 12px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerToDo1 button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.headerToDo1 button svg .fill {
+    fill: orange;
+}
+
+#image-tolls1 {
+    margin: auto;
+    display: block;
+    height: 74px;
+    width: 151px;
+}
+
+#select-file1 {
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
+}
+
+#title-tolls1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+#select-file1 #file-tolls1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#legalization-fuel {
+    padding: 201px 0 0 0;
+}
+
+.allListItms1 {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.allCard1 {
+    width: 100%;
+    float: left;
+}
+
+ul.allCard1 li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allCard1 li:last-of-type {
+    margin: 0;
+}
+
+ul.allCard1 li .buttons1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+
+ul.allCard1 li .contentCard1 {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCard1 li .contentCard1 .imageBasic1 {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url('../img/basicImage.png');
+    float: left;
+}
+
+ul.allCard1 li .contentCard1 .valueBasic1 {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+
+ul.allCard1 li .buttons1 button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allCard1 li .buttons1 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allCard1 li .buttons1 button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.allCard1 li .buttons1 button svg .fill {
+    transition: fill 0.2s ease;
+}
+
+ul.allCard1 li .buttons1 button.remove1 svg .fill {
+    fill: #c0cecb;
+}
+
+ul.allCard1 li .buttons1 button.remove1:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo2 {
+    width: 100%;
+    height: 206px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo2 #inputCount2 {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo2 button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 74%;
+    right: 12px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerToDo2 button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.headerToDo2 button svg .fill {
+    fill: orange;
+}
+
+#image-tolls2 {
+    margin: auto;
+    display: block;
+    height: 74px;
+    width: 151px;
+}
+
+#select-file2 {
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
+}
+
+#title-tolls2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+#select-file2 #file-tolls2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#legalization-parking {
+    padding: 201px 0 0 0;
+}
+
+.allListItms2 {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.allCard2 {
+    width: 100%;
+    float: left;
+}
+
+ul.allCard2 li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allCard2 li:last-of-type {
+    margin: 0;
+}
+
+ul.allCard2 li .buttons2 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+
+ul.allCard2 li .contentCard2 {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCard2 li .contentCard2 .imageBasic2 {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url('../img/basicImage.png');
+    float: left;
+}
+
+ul.allCard2 li .contentCard2 .valueBasic2 {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+
+ul.allCard2 li .buttons2 button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allCard2 li .buttons2 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allCard2 li .buttons2 button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.allCard2 li .buttons2 button svg .fill {
+    transition: fill 0.2s ease;
+}
+
+ul.allCard2 li .buttons2 button.remove2 svg .fill {
+    fill: #c0cecb;
+}
+
+ul.allCard2 li .buttons2 button.remove2:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo3 {
+    width: 100%;
+    height: 206px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo3 #inputCount3 {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo3 button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 74%;
+    right: 12px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerToDo3 button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.headerToDo3 button svg .fill {
+    fill: orange;
+}
+
+#image-tolls3 {
+    margin: auto;
+    display: block;
+    height: 74px;
+    width: 151px;
+}
+
+#select-file3 {
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
+}
+
+#title-tolls3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+#select-file3 #file-tolls3 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#legalization-washed {
+    padding: 201px 0 0 0;
+}
+
+.allListItms3 {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.allCard3 {
+    width: 100%;
+    float: left;
+}
+
+ul.allCard3 li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allCard3 li:last-of-type {
+    margin: 0;
+}
+
+ul.allCard3 li .buttons3 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+
+ul.allCard3 li .contentCard3 {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCard3 li .contentCard3 .imageBasic3 {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url('../img/basicImage.png');
+    float: left;
+}
+
+ul.allCard3 li .contentCard3 .valueBasic3 {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+
+ul.allCard3 li .buttons3 button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allCard3 li .buttons3 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allCard3 li .buttons3 button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.allCard3 li .buttons3 button svg .fill {
+    transition: fill 0.2s ease;
+}
+
+ul.allCard3 li .buttons3 button.remove3 svg .fill {
+    fill: #c0cecb;
+}
+
+ul.allCard3 li .buttons3 button.remove3:hover svg .fill {
+    fill: #e85656;
+}
+
+.headerToDo4 {
+    width: 100%;
+    height: 273px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: orange;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo4 #inputCount4 {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.headerToDo4 #inputOption {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: rgba(245, 181, 7, 0.7);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.headerToDo4 button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 78%;
+    right: 12px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerToDo4 button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.headerToDo4 button svg .fill {
+    fill: orange;
+}
+
+#image-tolls4 {
+    margin: auto;
+    display: block;
+    height: 74px;
+    width: 151px;
+}
+
+#select-file4 {
+    position: relative;
+    padding: 0px;
+    width: 133px;
+    margin: -1px;
+    top: 0px;
+    background: transparent;
+}
+
+#title-tolls4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+#select-file4 #file-tolls4 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#legalization-others {
+    padding: 269px 0 0 0;
+}
+
+.allListItms4 {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+.allCard4 {
+    width: 100%;
+    float: left;
+}
+
+ul.allCard4 li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allCard4 li:last-of-type {
+    margin: 0;
+}
+
+ul.allCard4 li .buttons4 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+
+ul.allCard4 li .contentCard4 {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCard4 li .contentCard4 .imageBasic4 {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url('../img/basicImage.png');
+    float: left;
+}
+
+ul.allCard4 li .contentCard4 .valueBasic4 {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    float: left;
+    top: 35px;
+}
+
+ul.allCard4 li .buttons4 button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: absolute;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allCard4 li .buttons4 button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allCard4 li .buttons4 button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+
+ul.allCard4 li .buttons4 button svg .fill {
+    transition: fill 0.2s ease;
+}
+
+ul.allCard4 li .buttons4 button.remove4 svg .fill {
+    fill: #c0cecb;
+}
+
+ul.allCard4 li .buttons4 button.remove4:hover svg .fill {
+    fill: #e85656;
+}
+
+#view-truck {
+    padding: 0px 0 0 0;
+}
+
+.containerAll {
+    width: 100%;
+    float: left;
+    padding: 10px;
+}
+
+ul.allViewTruck {
+    width: 100%;
+    float: left;
+}
+
+ul.allViewTruck li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    line-height: 22px;
+    background: #FFF;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 7px 0;
+    padding: 14px 100px 14px 14px;
+}
+
+ul.allViewTruck li:last-of-type {
+    margin: 0;
+}
+
+ul.allViewTruck li .buttons {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+}
+
+ul.allViewTruck li .containerAll {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allViewTruck li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    position: relative;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+ul.allViewTruck li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+
+ul.allViewTruck li .buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+}
+.float {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 36%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+.floatCancel {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 52%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+.floatImg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 4%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+.my-float-back {
+    margin-top: 14px;
+}
+.floatBack {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 54%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+    margin-top: 14px;
+}
+.floatOthers {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 31%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+.floatBackOthers {
+    position: fixed;
+    width: 40px;
+    height: 39px;
+    bottom: 21px;
+    right: 59%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+.floatNoteOthers {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 21px;
+    right: 45%;
+    background-color: orange;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+#create-balance{
+    padding: 0px;
+}
+.general-content{
+    padding: 0 10px;
+    margin-top: 7px;
+}
+#container-legalization-aceept{
+    width: 100%;
+    height: 100%;
+    background: orange;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;    
+    margin-bottom: 3px;
+    border-radius: 10px;
+}
+#container-legalization-aceept .balnceHeader {
+    display: flex;
+    align-items: center;
+}
+
+.balnceHeader .profile-pic {
+    background-position: 50%;
+    background-size: cover;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.headerContent{
+  justify-content: center;
+  align-items: center;
+}
+.balnceHeader .detail-legalization {
+    margin-left: auto;
+    margin-right: auto;
+}
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+}
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popup .btnClosePopup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popup .btnClosePopup:hover{
+    color: black;
+}
+.popup h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popup h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.overlayAccepted{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlayAccepted.active{
+    visibility: visible;
+}
+.popupAcepted{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+}
+.popupAcepted .btnClosePopup1{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popupAcepted .btnClosePopup1:hover{
+    color: black;
+}
+.popupAcepted h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popupAcepted h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.nav-link {
+    padding: 0rem 1rem !important;
+}
+
+.secundary-menu {
+    display: none;
+}
+
+.btn-sign-in {
+    text-align: right;
+    margin-top: 5%;
+    display: block;
+    margin-bottom: 4%;
+}
+
+.invisible {
+    display: none;
+}
+
+.dropdown-register {
+    width: 100%;
+    margin-top: 2%;
+}
+
+.btn-look {
+    margin-top: 2%;
+}
+
+.input-account-recovery-div {
+    margin-bottom: 12%;
+}
+
+#logo {
+    width: 100px;
+    height: 60px;
+}
+
+#icono-sign-in {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#create-truck {
+    padding-top: 2%;
+}
+
+#account-recovery {
+    padding-top: 5%;
+}
+
+#forgot-password {
+    color: black;
+    margin-right: 5%;
+}
+
+#forgot-password:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+#sign-up-link {
+    color: black;
+}
+
+#sign-up-link:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+#container-sign-in {
+    background-color: white;
+    display: block;
+    width: 50%;
+    height: 73%;
+    text-align: center;
+    margin-left: 25%;
+    padding: 0% 10% 0% 10%;
+}
+
+#sign-in {
+    align-items: center;
+    padding-top: 5%;
+}
+
+#register {
+    text-align: center;
+    padding-top: 2.5%;
+}
+
+#icono-register {
+    width: 30%;
+}
+
+#container-title-register {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5%;
+}
+
+#input-register-password2 {
+    margin-bottom: 5%;
+}
+#create-travel{
+    padding: 5px 0 0 0;
+}
+#container-legalization{
+    padding: 0 9px;
+}
+.legalizationCard{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px
+}
+#inputOption {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+#InputDate {
+    width: 100%;
+    height: 40px;
+    float: left;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 600px 10 0;
+    background: rgba(247, 183, 7, 0.904);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+}
+#container-register {
+    width: 50%;
+    height: 96%;
+    display: block;
+    background-color: white;
+    text-align: center;
+    padding: 2% 10% 0% 10%;
+    margin-left: 25%;
+}
+
+#container-register {
+    width: 50%;
+    height: auto;
+    display: block;
+    background-color: white;
+    text-align: center;
+    padding: 2% 10% 0% 10%;
+    margin-left: 25%;
+}
+
+#container-account-recovery {
+    background-color: white;
+    display: block;
+    width: 50%;
+    height: 63%;
+    text-align: center;
+    margin-left: 25%;
+    padding: 0% 10% 0% 10%;
+}
+
+.position-element {
+    text-align: left;
+    right: 50%;
+}
+
+#title-register {
+    font-size: 2rem;
+    margin-left: 10%;
+}
+
+#size-string-travel {
+    text-align: left;
+}
+
+#forgot-password-responsive {
+    display: none;
+    color: black;
+}
+
+#forgot-password-responsive:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 991px) {
+    .secundary-menu {
+        display: inline;
+        margin-bottom: 8%;
+    }
+    .navbar {
+        padding: 0rem 1rem;
+    }
+    #logo {
+        height: 49px;
+        margin-top: -42%;
+    }
+    #div_btns_sign_up{
+        padding-bottom: 8%;
+        margin-top: 8%;
+    }
+    .sidenav{
+        left: 102%;
+    }
+    .dropdown_sign_up{
+        position: absolute !important;
+        right: 0%;
+        width: 90% !important;
+    }
+    .div_dropdown_sign_up{
+        width: 60%;
+        position: absolute;
+        right: 0%;
+    }
+    #div_links_sign_up{
+        padding-bottom: 15%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #icono-sign-in {
+        margin-top: 22%;
+        width: 97%;
+    }
+    #input-create-truck-kilometraje {
+        margin-bottom: 9%;
+    }
+    #container-account-recovery {
+        width: 70%;
+        margin-left: 15%;
+    }
+    #input-register-password2 {
+        margin-bottom: 5%;
+    }
+    #create-truck {
+        padding-top: 15%;
+    }
+    #container-register {
+        width: 90%;
+        height: 80%;
+        margin-left: 5%;
+    }
+    #container-sign-in {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 13.5%;
+    }
+    #register {
+        padding-top: 18%;
+    }
+    #forgot-password-responsive {
+        display: block;
+    }
+    #forgot-password {
+        display: none;
+    }
+    #div-sign-up-link {
+        margin-top: 10%;
+    }
+    .btn-sign-in {
+        text-align: center;
+    }
+    .btn-sign-in {
+        margin-bottom: 15%;
+    }
+    .sidenav{
+        left: 104%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #icono-sign-in {
+        width: 55%;
+    }
+    #register {
+        padding-top: 5%;
+    }
+    #create-truck {
+        padding-top: 3%;
+    }
+    #container-register {
+        height: 85%;
+    }
+    #container-account-recovery {
+        height: 53%;
+    }
+}
+.allListOwnerLeg {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -7px;
+}
+
+.allCardOwnerLeg {
+    width: 100%;
+    float: left;
+}
+ul.allCardOwnerLeg li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 5px 0;
+    padding: 8px 12px 8px 12px;
+}
+
+ul.allCardOwnerLeg li:last-of-type {
+    margin: 0;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg {
+    width: 100%;
+    height: 125px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg .imageOwnerLeg {
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+
+ul.allCardOwnerLeg li .contentCardOwnerLeg .valueOwnerLeg {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    top: 40px;
+}
+.viewTotalLiquidation {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -27px;
+}
+
+.listTotal {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.listTotal .contentValueTotal {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+}
+
+.listTotal .headerValueTotal {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+
+.listTotal .detailLiguidation {
+    margin-left: 10px;
+    width: 100%;
+}
+.listTotal button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.listTotal .detailLiguidation .valueDetail{
+    float:right;
+}
+.listTotal .footerOptionOwner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+}
+
+.listTotal .footerOptionOwner .accepted {
+    flex: 0 0 1;
+}
+
+.listTotal .footerOptionOwner .error {
+    flex: 0 0 1;
+}
+.listTotal .footerOptionOwner .back {
+    flex: 0 0 1;
+}
+.listTotal .footerOptionOwner i {
+    padding-right: 3px;
+}
+hr.lineTotal {
+    border-top: 1px solid orange;
+}
+.headerCompanyHeigth {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderCompanyHeigth {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderCompanyHeigth .moveRight{
+    float:right;
+}
+.headerTonsAdvancement {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderTonsAdvancement {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderTonsAdvancement .moveRight{
+    float:right;
+}
+
+.general-content-summary{
+    padding: 0 10px;
+    margin-top: 7px;
+}
+.container-legalization-summary{
+    width: 100%;
+    height: 100%;
+    background: orange;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;    
+    margin-bottom: 3px;
+    border-radius: 10px;
+}
+.container-legalization-summary .balnceHeaderSumary {
+    display: flex;
+    align-items: center;
+}
+
+.balnceHeaderSumary .profile-pic-summary {
+    background-position: 50%;
+    background-size: cover;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.headerContentSummary{
+  justify-content: center;
+  align-items: center;
+}
+.balnceHeaderSumary .detail-legalization-summary {
+    margin-left: auto;
+    margin-right: auto;
+}
+.headerCompanyHeigthSummary {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderCompanyHeigthSummary {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderCompanyHeigthSummary .moveRightSummary{
+    float:right;
+}
+.headerTonsAdvancementSummary {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+.balnceHeaderTonsAdvancementSummary {
+    margin-left: 10px;
+    width: 100%;
+}
+.balnceHeaderTonsAdvancementSummary .moveRightSummary{
+    float:right;
+}
+.allListLegSummary {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -7px;
+}
+
+.allCardLegSummary {
+    width: 100%;
+    float: left;
+}
+ul.allCardLegSummary li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 5px 0;
+    padding: 8px 12px 8px 12px;
+}
+
+ul.allCardLegSummary li:last-of-type {
+    margin: 0;
+}
+
+ul.allCardLegSummary li .contentCardLegSummary {
+    width: 100%;
+    height: 125px;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+ul.allCardLegSummary li .contentCardLegSummary .imageLegSummary {
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+
+ul.allCardLegSummary li .contentCardLegSummary .valueLegSummary {
+    width: 80px;
+    height: 50px;
+    position: relative;
+    top: 40px;
+}
+.viewTotalLiquidationSummary {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    margin-top: -27px;
+}
+
+.listTotalSummary {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.listTotalSummary .contentValueTotalSummary {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+}
+
+.listTotalSummary .headerValueTotalSummary {
+    display: flex;
+    align-items: center;
+    margin-right: 27px;
+    margin-left: 20px
+}
+
+.listTotalSummary .detailLiguidationSummary {
+    margin-left: 10px;
+    width: 100%;
+}
+.listTotalSummary button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 67%;
+    right: 15px;
+    z-index: 2;
+    appearance: none;
+    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.listTotalSummary .detailLiguidationSummary .valueDetailSummary{
+    float:right;
+}
+.listTotalSummary .footerOptionSummary {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+}
+
+.listTotalSummary .footerOptionSummary .accepted {
+    flex: 0 0 1;
+}
+
+.listTotalSummary .footerOptionSummary .error {
+    flex: 0 0 1;
+}
+.listTotalSummary .footerOptionSummary .back {
+    flex: 0 0 1;
+}
+.listTotalSummary .footerOptionSummary i {
+    padding-right: 3px;
+}
+hr.lineTotal {
+    border-top: 1px solid orange;
+}
+.overlayObservations{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlayObservations.active{
+    visibility: visible;
+}
+.popupObservations{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 9px;
+    text-align: center;
+    width: 600px;
+}
+.popupObservations .btnClosePopupObservations{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.popupObservations .btnClosePopupObservations:hover{
+    color: black;
+}
+.popupObservations h4{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.popupObservations h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+
+
+#img_profile_account{
+    width: 100%;
+}
+
+#div_info_account{
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+
+#edit_info_account{
+    position: absolute;
+    width: 7%;
+    right: 3%;
+    opacity: 0.5;
+}
+
+#div_edit_account{
+    background-color: white;
+    width: 80%;
+    margin: 10%;
+    position: fixed;
+    top: -10%;    
+    padding: 10% 10% 5% 10%;
+    display: flex;
+}
+
+#div_edit_account{
+    width: 80%;
+    margin: 10%;
+    top: 10%;
+    padding: 10%;
+    display: block;
+}
+
+#div_profile_picture{
+    width: 28%;
+    position: relative;
+}
+
+#div_profile_picture{
+    width: 50%;
+    margin: 0% 25%;
+    position: relative;
+}
+
+#div_input_account{
+    margin-left: 10%;
+    padding-top: 5%;
+}
+
+#btn_save_account{
+    margin-right: 10%;
+}
+
+#div_account{
+    background-color: white;
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+    padding: 4%;
+    position: relative;
+}

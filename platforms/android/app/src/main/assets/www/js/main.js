@@ -210,9 +210,10 @@ function legalizationTolls() {
         var imgField = document.getElementById('file-tolls');
 
         if(imgField.value !== ""){
-
+            //imgField.value.replace(/\s/g,'');
+            alert(imgField.value);
             addItemAllCard(value);
-            addSpending('inputCount', 'Peaje', imgField);
+            addSpending('inputCount', 'Peaje', imgField.value);
             var value = document.getElementById('inputCount').value = '';
             document.getElementById('file-tolls').value = '';
             imgField.value = "";
@@ -1058,7 +1059,7 @@ function uploadImageSettlement(imagen, plate, size, count) {
     var thisRef = storageRef.child('/' + currentBoss + '/camiones/' + plate + '/' + ' liquidaciones/' + size.toString() + '/' + count.toString());
 
     //put request upload file to firebase storage
-    thisRef.put(file).then(function (snapshot) {
+    thisRef.putString(file, 'base64', {contentType:'image/jpeg'}).then(function (snapshot) {
         console.log('Uploaded a blob or file!');
 
         snapshot.ref.getDownloadURL().then(function (DownloadURL) {

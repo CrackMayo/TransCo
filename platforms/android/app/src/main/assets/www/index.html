@@ -118,7 +118,7 @@
                     onclick="changePage('register','sign-in'); cargarDepartamentos('select-register-departaments')">
                     <span id="sign-up-link">¿No tienes cuenta? ¡Regístrate!</span>
                 </div>
-            </div>  
+            </div>
         </div>
     </section>
     <section id="register" class="invisible">
@@ -205,6 +205,21 @@
 
         </form>
     </section>
+    <section id="account-recovery" class="invisible">
+        <div id="container-account-recovery">
+            <img src="img/Logo.PNG" id="icono-sign-in">
+            <div class="input-account-recovery-div input-group flex-nowrap">
+                <input id="input-account-recovery-username" type="text" class="form-control" placeholder="E-mail"
+                    aria-label="E-mail" aria-describedby="addon-wrapping">
+            </div>
+            <div class="btn-account-recovery">
+                <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="changePage('sign-in','account-recovery')">Cancelar</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="passwordRecovery()">
+                    Recuperar</button>
+            </div>
+        </div>
+    </section>
     <section id="create-truck" class="invisible">
         <div id="container-register">
             <div id="container-title-register">
@@ -216,8 +231,9 @@
                     <input type="file" id="files" accept="image/*" name="files[]" multiple />
                 </div>
                 <div class="input-group flex-nowrap">
-                    <input id="input-create-truck-placa" type="text" class="form-control" placeholder="Placa del cabezote"
-                        aria-label="Placa" aria-describedby="addon-wrapping" required maxlength="6" minlength="6">
+                    <input id="input-create-truck-placa" type="text" class="form-control"
+                        placeholder="Placa del cabezote" aria-label="Placa" aria-describedby="addon-wrapping" required
+                        maxlength="6" minlength="6">
                 </div>
                 <div class="input-group flex-nowrap">
                     <input id="input-create-truck-marca" type="text" class="form-control" placeholder="Marca"
@@ -340,46 +356,46 @@
     </section>
 
     <section id="view-truck" class="invisible">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">
-                        <img id="logo" src="img/Logo.PNG" alt="transco">
-                    </a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" data-target="modal-IniciarSesion">
-                                    Inicio<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li id="generalBalance1" class="nav-item">
-                                <a class="nav-link" onclick="changePage('section-initial-page','account');">
-                                    Menu inicial</a>
-                            </li>
-                            <li id="generalBalance1" class="nav-item">
-                                <a class="nav-link" onclick="changePage('create-balance','account');">
-                                    Balance general</a>
-                            </li>
-                            <li id="createTravel" class="nav-item">
-                                <a class="nav-link" onclick="changePage('create-travel','account');">
-                                    Crear Viaje</a>
-                            </li>
-                            <li id="createTruck1" class="nav-item">
-                                <a class="nav-link" onclick="changePage('create-truck','account');">
-                                    Crear vehículo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" onclick="changePage('sign-in','account'); logOut() ">
-                                    Salir</a>
-                            </li>
-                    </div>
-                    <!-- <div class="secundary-menu">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="img/Logo.PNG" alt="transco">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-target="modal-IniciarSesion">
+                            Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('section-initial-page','account');">
+                            Menu inicial</a>
+                    </li>
+                    <li id="generalBalance1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-balance','account');">
+                            Balance general</a>
+                    </li>
+                    <li id="createTravel" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-travel','account');">
+                            Crear Viaje</a>
+                    </li>
+                    <li id="createTruck1" class="nav-item">
+                        <a class="nav-link" onclick="changePage('create-truck','account');">
+                            Crear vehículo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="changePage('sign-in','account'); logOut() ">
+                            Salir</a>
+                    </li>
+            </div>
+            <!-- <div class="secundary-menu">
                         <li class="nav-item">
                             
                         </li>
                         
                     </div> -->
-                    <a>
-                        <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" onclick="openNav('account');">
-                    </a>
+            <a>
+                <img src="img/MenuBtn.png" id="img_menu" class="secundary-menu nav-link" onclick="openNav('account');">
+            </a>
         </nav>
         <div class="newsfeed">
             <div class="card1">
@@ -420,7 +436,7 @@
                             <div>
                                 <label for="name" class="labels">Lugar de Destino</label>
                                 <input type="text" id="queryInputDest" placeholder="Lugar de destino...">
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                     <div class="footer">
@@ -462,7 +478,8 @@
                         <span id="title-tolls">Peajes</span>
                         <div id="select-file">
                             <img src="img/post_placeholder.png" id="image-tolls">
-                            <input class="form-control" id="file-tolls" onclick="capturePhoto();" type="button" value="" required>
+                            <input class="form-control" id="file-tolls" onclick="capturePhoto();" type="button" value=""
+                                required>
                         </div>
                     </div>
                 </center>
@@ -521,7 +538,8 @@
                         <span id="title-tolls1">Comustible</span>
                         <div id="select-file1">
                             <img src="img/post_placeholder.png" id="image-tolls1">
-                            <input class="form-control" id="file-tolls1" onclick="capturePhoto2();" type="button" value="" required>
+                            <input class="form-control" id="file-tolls1" onclick="capturePhoto2();" type="button"
+                                value="" required>
                         </div>
                     </div>
                 </center>
@@ -578,7 +596,8 @@
                         <span id="title-tolls2">Parqueadero</span>
                         <div id="select-file2">
                             <img src="img/post_placeholder.png" id="image-tolls2">
-                            <input class="form-control" id="file-tolls2" onclick="capturePhoto3();" type="button" value="" required>
+                            <input class="form-control" id="file-tolls2" onclick="capturePhoto3();" type="button"
+                                value="" required>
 
                         </div>
                     </div>
@@ -636,7 +655,8 @@
                         <span id="title-tolls3">Lavadas</span>
                         <div id="select-file3">
                             <img src="img/post_placeholder.png" id="image-tolls3">
-                            <input class="form-control" id="file-tolls3" onclick="capturePhoto4();" type="button" value="" required>
+                            <input class="form-control" id="file-tolls3" onclick="capturePhoto4();" type="button"
+                                value="" required>
                         </div>
                     </div>
                 </center>
@@ -693,7 +713,8 @@
                         <span id="title-tolls4">Otros</span>
                         <div id="select-file4">
                             <img src="img/post_placeholder.png" id="image-tolls4">
-                            <input class="form-control" id="file-tolls4" onclick="capturePhoto5();" type="button" value="" required>
+                            <input class="form-control" id="file-tolls4" onclick="capturePhoto5();" type="button"
+                                value="" required>
                         </div>
                     </div>
                 </center>
@@ -749,7 +770,7 @@
         <div class="floatNoteOthers" id="openNote">
             <i class="fas fa-sticky-note my-float"></i>
         </div>
-        <!--<div class="float" onclick="summarySpendings();">-->   
+        <!--<div class="float" onclick="summarySpendings();">-->
         <div class="floatOthers" onclick="changePage('summarySpendings','legalization-others'), summarySpendings()">
             <i class="fas fa-arrow-right my-float"></i>
         </div>
@@ -930,61 +951,61 @@
             </ul>
         </div>
         <div id="settlementSummary" class="viewTotalLiquidation">
-                <div class="listTotal">
-                    <div class="contentValueTotal">
-                        <div class="headerValueTotal">
-                            <div class="detailLiguidation">
-                                <p class="name">Total Peajes:         <span class="valueDetail"> 2000</span></p>
-                                <p class="name">Total Combustible:    <span class="valueDetail"> 1000</span></p>
-                                <p class="name">Total Parqueadero:    <span class="valueDetail"> 1000</span></p>
-                                <p class="name">Total Lavadas:        <span class="valueDetail"> 1000</span></p>
-                                <p class="name">Total Otros:          <span class="valueDetail"> 10000</span></p>
-                                <hr class="lineTotal">
-                                <p class="name">Valor Total de Gatos: <span class="valueDetail"> 15000</span></p>
-                            </div>
+            <div class="listTotal">
+                <div class="contentValueTotal">
+                    <div class="headerValueTotal">
+                        <div class="detailLiguidation">
+                            <p class="name">Total Peajes: <span class="valueDetail"> 2000</span></p>
+                            <p class="name">Total Combustible: <span class="valueDetail"> 1000</span></p>
+                            <p class="name">Total Parqueadero: <span class="valueDetail"> 1000</span></p>
+                            <p class="name">Total Lavadas: <span class="valueDetail"> 1000</span></p>
+                            <p class="name">Total Otros: <span class="valueDetail"> 10000</span></p>
+                            <hr class="lineTotal">
+                            <p class="name">Valor Total de Gatos: <span class="valueDetail"> 15000</span></p>
                         </div>
-                        <br>
-                        <div class="footerOptionOwner">
-                            <div class="back" onclick="changePage('view-truck','create-balance')">
-                                <i class="fas fa-arrow-left"></i>
-                                <span>Atras</span>
-                            </div>
-                            <div id="btnaccept" class="accepted">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Aprobar</span>
-                            </div>
-                            <div  id="btnOpen" class="error">
-                                <i class="fas fa-times"></i>
-                                <span>Rechazar</span>
-                            </div>                            
+                    </div>
+                    <br>
+                    <div class="footerOptionOwner">
+                        <div class="back" onclick="changePage('view-truck','create-balance')">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Atras</span>
+                        </div>
+                        <div id="btnaccept" class="accepted">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Aprobar</span>
+                        </div>
+                        <div id="btnOpen" class="error">
+                            <i class="fas fa-times"></i>
+                            <span>Rechazar</span>
                         </div>
                     </div>
                 </div>
-        </div> 
+            </div>
+        </div>
         <div class="overlay" id="overlay">
-                <div class="popup" id="popup">
-                    <a href="#" id="btnClosePopup" class="btnClosePopup"><i class="fas fa-times"></i></a>
-                    <h3>Motivo Del Rechazo</h3>
-                    <br>
-                    <h4>Detalle los motivos por los cuales no fue aprobada la legalización</h4>
-                    <div class="contentInputs">
-                        <input type="text" class="" name="" id="">
-                        <button class="btn btn-secondary btn-sm">
-                            <i class="far fa-paper-plane"></i>
-                            <span>Enviar</span>
-                        </button>
-                    </div>
-    
+            <div class="popup" id="popup">
+                <a href="#" id="btnClosePopup" class="btnClosePopup"><i class="fas fa-times"></i></a>
+                <h3>Motivo Del Rechazo</h3>
+                <br>
+                <h4>Detalle los motivos por los cuales no fue aprobada la legalización</h4>
+                <div class="contentInputs">
+                    <input type="text" class="" name="" id="">
+                    <button class="btn btn-secondary btn-sm">
+                        <i class="far fa-paper-plane"></i>
+                        <span>Enviar</span>
+                    </button>
                 </div>
+
             </div>
-            <div class="overlayAccepted" id="overlayAccepted">
-                <div class="popupAcepted" id="popupAcepted">
-                    <a href="#" id="btnClosePopup1" class="btnClosePopup1"><i class="fas fa-times"></i></a>
-                    <h3>Legalización Aceptada</h3>
-                    <br>
-                    <h4>Usted ha aceptado que la información reportada es correcta.</h4>
-                </div>
+        </div>
+        <div class="overlayAccepted" id="overlayAccepted">
+            <div class="popupAcepted" id="popupAcepted">
+                <a href="#" id="btnClosePopup1" class="btnClosePopup1"><i class="fas fa-times"></i></a>
+                <h3>Legalización Aceptada</h3>
+                <br>
+                <h4>Usted ha aceptado que la información reportada es correcta.</h4>
             </div>
+        </div>
     </section>
     <section id="update-truck" class="invisible">
         <form class="form-group" onsubmit="return  updateTruck()">
@@ -1039,7 +1060,7 @@
 
     <section id="charge-section" class="invisible">
         <div id="charge">
-            <img src="img/Logo.PNG" alt="icon_charge" id="icon_charge">            
+            <img src="img/Logo.PNG" alt="icon_charge" id="icon_charge">
             <div id="charge_point" class="spinner-grow text-light" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -1113,7 +1134,8 @@
                     <img src="" id="img_profile_account" alt="profile">
                 </div>
                 <div id="div_info_account">
-                    <a onclick="editAccount(true); cargarDepartamentos('select-account-departaments'); changePage('edit_account','div_account')"><img
+                    <a
+                        onclick="editAccount(true); cargarDepartamentos('select-account-departaments'); changePage('edit_account','div_account')"><img
                             src="img/edit icon.png" alt="edit" id="edit_info_account"></a>
                     <span id="nameInfo" class="span_info_account"></span>
                     <br>
@@ -1167,7 +1189,8 @@
                 </div>
                 <div id="btns_account">
                     <button id="btn_save_account" type="submit" class="btn btn-success">Guardar</button>
-                    <button type="button" class="btn btn-danger" onclick="editAccount(false); changePage('div_account','edit_account')">Cancelar</button>
+                    <button type="button" class="btn btn-danger"
+                        onclick="editAccount(false); changePage('div_account','edit_account')">Cancelar</button>
                 </div>
             </form>
 

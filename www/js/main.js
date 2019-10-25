@@ -778,6 +778,9 @@ function viewTruck(Plate) {
     currentPlate = Plate;
     let labelPLate = document.getElementById("placaCabezoteVT");
     let driverName = document.getElementById("nombreConductorVT");
+    driverName.innerHTML = "";
+    labelPLate.innerHTML = ""
+
 
     db.collection('accounts').doc(idUsuario).get().then(snap => {
         if (snap.data().rol === "Propietario") {

@@ -778,17 +778,26 @@ function viewTruck(Plate) {
     currentPlate = Plate;
     let labelPLate = document.getElementById("placaCabezoteVT");
     let driverName = document.getElementById("nombreConductorVT");
+    let truckPicture = document.getElementById("truckPicture");
+
     driverName.innerHTML = "";
-    labelPLate.innerHTML = ""
+    labelPLate.innerHTML = "";
+    truckPicture.src = "";
 
-
+   
     db.collection('accounts').doc(idUsuario).get().then(snap => {
+
+        // db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).get().then(snap => {
+        //     truckPicture.src = snap.data().imagenCamion;
+        // });
+
         if (snap.data().rol === "Propietario") {
             db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).get().then(snap => {
                 let mailDriver = snap.data().conductorActual;
+                truckPicture.src = snap.data().imagenCamion;
                 db.collection('accounts').doc(mailDriver).get().then(snap => {
                     driverName.innerHTML = driverName.innerHTML + snap.data().nombre;
-
+                    
 
                 });
 
@@ -797,17 +806,12 @@ function viewTruck(Plate) {
 
         } else {
             db.collection('accounts').doc(idUsuario).get().then(snap => {
-
-
+                db.collection('accounts').doc(snap.data().jefe).collection("camiones").doc(currentPlate).get().then(snap => {
+                    truckPicture.src = snap.data().imagenCamion;
+                });
+            
                 driverName.innerHTML = driverName.innerHTML + snap.data().nombre;
-
-
-
-
             });
-
-
-
         }
 
     });

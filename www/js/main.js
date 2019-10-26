@@ -703,10 +703,10 @@ function obtenerCamion() {
                 + "" + child.id + "" + "</p>" + "</center>"
                 + "</div>" +
                 "<img class='post-img card-img' src='" + child.data().imagenCamion + "'>" +
-                "<div class='card-body'>" +
+                "<div class='card-body' onclick='viewTruck(" + '"' + child.id + '"' + ");'>" +
                 "<div class='action-btns'>" +
                 "<center>" + "<span>" +
-                "<i onclick='viewTruck(" + '"' + child.id + '"' + ");' class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +
+                "<i class='fas fa-eye'>" + "</i>" + "<span class='val'>" + " Ver Camión" + "</span>" +
                 "</span>" + "</center>" +
                 "</div>" +
                 "</div>" +
@@ -778,11 +778,15 @@ function viewTruck(Plate) {
     currentPlate = Plate;
     let labelPLate = document.getElementById("placaCabezoteVT");
     let driverName = document.getElementById("nombreConductorVT");
-    let truckPicture = document.getElementById("truckPicture");
+    //let truckPicture = document.getElementById("truckPicture");
+    let truckPictureBig = document.getElementById("truckPictureBig");
+    let btnModificar = document.getElementById("btnUpdate");
+    let btnModificarIcon = document.getElementById("imgBtnUpdate");
 
     driverName.innerHTML = "";
     labelPLate.innerHTML = "";
-    truckPicture.src = "";
+    //truckPicture.src = "";
+    truckPictureBig.src = "";
 
    
     db.collection('accounts').doc(idUsuario).get().then(snap => {
@@ -792,9 +796,12 @@ function viewTruck(Plate) {
         // });
 
         if (snap.data().rol === "Propietario") {
+            btnModificar.classList.remove("invisible");
+            btnModificarIcon.classList.remove("invisible");
             db.collection('accounts').doc(idUsuario).collection("camiones").doc(currentPlate).get().then(snap => {
                 let mailDriver = snap.data().conductorActual;
-                truckPicture.src = snap.data().imagenCamion;
+                //truckPicture.src = snap.data().imagenCamion;
+                truckPictureBig.src = snap.data().imagenCamion;
                 db.collection('accounts').doc(mailDriver).get().then(snap => {
                     driverName.innerHTML = driverName.innerHTML + snap.data().nombre;
                     
@@ -805,12 +812,16 @@ function viewTruck(Plate) {
 
 
         } else {
+            btnModificar.classList.add("invisible");
+            btnModificarIcon.classList.add("invisible");
             db.collection('accounts').doc(idUsuario).get().then(snap => {
+                driverName.innerHTML = driverName.innerHTML + snap.data().nombre;
                 db.collection('accounts').doc(snap.data().jefe).collection("camiones").doc(currentPlate).get().then(snap => {
-                    truckPicture.src = snap.data().imagenCamion;
+                    //truckPicture.src = snap.data().imagenCamion;
+                    truckPictureBig.src = snap.data().imagenCamion;
                 });
             
-                driverName.innerHTML = driverName.innerHTML + snap.data().nombre;
+                
             });
         }
 
@@ -1061,7 +1072,8 @@ function uploadSettlement() {
         totalPeajes: spendings[spendingsLength - 1].totalPeajes,
         totalParqueadero: spendings[spendingsLength - 1].totalParqueadero,
         totalLavadas: spendings[spendingsLength - 1].totalLavada,
-        totalOtros: spendings[spendingsLength - 1].totalOtros
+        totalOtros: spendings[spendingsLength - 1].totalOtros,
+        totalLegalizacion2: spendings[spendingsLength - 1].totalLegalizacion
 
     }
 
@@ -1148,8 +1160,35 @@ function uploadImageSettlement(imagen, plate, size, count) {
 
 
 function summarySpendings() {
+    let city1 = document.getElementById("city1");
+    let city2 = document.getElementById("city2");
+    let departureDate = document.getElementById("departureDate");
+    let comapanyName = document.getElementById("comapanyName");
+    let FleteValue = document.getElementById("FleteValue");
+    let loadTons = document.getElementById("loadTons");
+    let advanceTrip= document.getElementById("advanceTrip");
 
-    changePage('summarySpendings', 'legalization-others');
+    let tollsTotalElement = document.getElementById("tollsTotal");
+    let gasTotalElement = document.getElementById("gasTotal");
+    let parkingTotalElement = document.getElementById("parkingTotal");
+    let washesTotalElement = document.getElementById("washesTotal");
+    let othersTotalElement = document.getElementById("othersTotal");
+    let settlementTotalElement = document.getElementById("settlementTotal");
+    
+
+    console.log(spendings[0]);
+    city1.innerHTML = "Ciudad Origen: "+ spendings[0].cityOrigin;
+    city2.innerHTML = "Ciudad Destino: " + spendings[0].cityDestin;
+    departureDate.innerHTML = "Fecha Salida: " + spendings[0].dateTravel;
+    comapanyName.innerHTML = "Empresa: " + spendings[0].company;
+    FleteValue.innerHTML = "Flete: " + spendings[0].freight;
+    loadTons.innerHTML = "Toneladas: " + spendings[0].nTons + " T";
+    advanceTrip.innerHTML = "Anticipo: " + spendings[0].advance;
+    
+
+    
+
+    changePage('sumaryLegalizationCreate', 'legalization-others');
     let spendingsList = document.getElementById("spendingsList");
 
     let fuelTotal = 0;
@@ -1157,6 +1196,7 @@ function summarySpendings() {
     let parkingTotal = 0;
     let washesTotal = 0;
     let othersTotal = 0;
+    let settlementTotal;
 
     for (let i = 1; i <= spendings.length - 1; i++) {
 
@@ -1171,20 +1211,29 @@ function summarySpendings() {
         } else {
             othersTotal += parseFloat(spendings[i].value);
         }
-        spendingsList.innerHTML = spendingsList.innerHTML + "<li>Gasto ( " + spendings[i].type + ")" + i + ": " + spendings[i].value + "</li>"
+        
         console.log(spendings);
 
     }
+    
+    settlementTotal = parseFloat(tollsTotal) + parseFloat(fuelTotal) + parseFloat(parkingTotal) + parseFloat(washesTotal) + parseFloat(othersTotal);
+    tollsTotalElement.innerHTML = "Total Peajes: " + tollsTotal;
+    gasTotalElement.innerHTML = "Total Combustible: " + fuelTotal;
+    parkingTotalElement.innerHTML = "Total Parqueadero: " + parkingTotal;
+    washesTotalElement.innerHTML= "Total Lavadas: " + washesTotal;
+    othersTotalElement.innerHTML = "Total Otros: " + othersTotal;
+    settlementTotalElement.innerHTML = "Valor Total de Gatos: " + settlementTotal;
 
     let spendingsTotal = {
         totalCombustible: fuelTotal,
         totalPeajes: tollsTotal,
         totalParqueadero: parkingTotal,
         totalLavada: washesTotal,
-        totalOtros: othersTotal
+        totalOtros: othersTotal,
+        totalLegalizacion: settlementTotal
     }
 
-
+    alert(spendingsTotal.totalLegalizacion);
     spendings.push(spendingsTotal);
 
     console.log(spendingsTotal);
@@ -1421,7 +1470,7 @@ function changeToSettlement(settlementId) {
                 "<p class='name'>Total Lavadas:        <span class='valueDetail'>" + snapshot.data().totalLavadas + "</span></p>" +
                 "<p class='name'>Total Otros:          <span class='valueDetail'>" + snapshot.data().totalOtros + "</span></p>" +
                 "<hr class='lineTotal'>" +
-                "<p class='name'>Valor Total de Gatos: <span class='valueDetail'> 15000</span></p>" +
+                "<p class='name'>Valor Total de Gatos: <span class='valueDetail'>" + snapshot.data().totalLegalizacion2+ "</span></p>" +
                 "</div>" +
                 "</div>" +
                 "<br>" +

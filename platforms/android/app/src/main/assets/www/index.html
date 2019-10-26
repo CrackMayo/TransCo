@@ -399,11 +399,11 @@
         </nav>
         <div class="newsfeed">
             <div class="card1">
-                <div><img src="img/fotoviascamiones_2.png" class="picture" alt=""></div>
+                <div><img id="truckPictureBig" src="img/fotoviascamiones_2.png" class="picture" alt=""></div>
                 <div class="content1">
                     <div class="header">
                         <div>
-                            <img id="truckPicture" src="img/fotoviascamiones_2.png" class="profile-pic" alt="">
+                            <!-- <img id="truckPicture" src="img/fotoviascamiones_2.png" class="profile-pic" alt=""> -->
                             <div class="floatImg" onclick="changePage('section-initial-page','view-truck')">
                                 <i class="fas fa-arrow-left my-float"></i>
                             </div>
@@ -452,7 +452,7 @@
                             <span>Estadistias</span>
                         </div>
                         <div class="spend"></div>
-                        <i class="fas fa-file-invoice-dollar"></i>
+                        <i  id="imgBtnUpdate" class="fas fa-file-invoice-dollar"></i>
                         <span id="btnUpdate">Modificar Camión</span>
                     </div>
                 </div>
@@ -771,7 +771,7 @@
             <i class="fas fa-sticky-note my-float"></i>
         </div>
         <!--<div class="float" onclick="summarySpendings();">-->
-        <div class="floatOthers" onclick="changePage('summarySpendings','legalization-others'), summarySpendings()">
+        <div class="floatOthers" onclick="changePage('sumaryLegalizationCreate','legalization-others'), summarySpendings()">
             <i class="fas fa-arrow-right my-float"></i>
         </div>
         <div class="overlayObservations" id="overlayObservations">
@@ -803,17 +803,17 @@
                     <div class="balnceHeaderSumary">
                         <div><img src="img/fotoviascamiones_2.png" class="profile-pic-summary" alt=""></div>
                         <div class="detail-legalization-summary">
-                            <p class="name">Ciudad Origen: <span> Medellín</span></p>
-                            <p class="name">Ciudad Destino: <span> Bogotá</span></p>
-                            <p class="name"><span>Fecha de Salida:</span> 7/12/1998 </p>
+                            <p id="city1" class="name"><span></span></p>
+                            <p id="city2" class="name"><span></span></p>
+                            <p id="departureDate" class="name"><span></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="headerCompanyHeigthSummary">
                     <div class="balnceHeaderCompanyHeigthSummary">
                         <div class="detail-legalization-summary">
-                            <span class="name">Empresa: <span> Corona</span></span>
-                            <span class="moveRightSummary">Flete: <span> 2000000</span></span>
+                            <span id="comapanyName" class="name"><span></span></span>
+                            <span id="FleteValue" class="moveRightSummary"><span></span></span>
                         </div>
                     </div>
                 </div>
@@ -821,8 +821,8 @@
                 <div class="headerTonsAdvancementSummary">
                     <div class="balnceHeaderTonsAdvancementSummary">
                         <div class="detail-legalization-summary">
-                            <span class="name">Toneladas: <span> 3500</span><span>kg</span></span>
-                            <span class="moveRightSummary">Anticipo: <span> 300000</span></span>
+                            <span id="loadTons" class="name"><span></span><span>T</span></span>
+                            <span id="advanceTrip" class="moveRightSummary"><span></span></span>
                         </div>
                     </div>
                 </div>
@@ -847,13 +847,13 @@
                 <div class="contentValueTotalSummary">
                     <div class="headerValueTotalSummary">
                         <div class="detailLiguidationSummary">
-                            <p class="name">Total Peajes: <span class="valueDetailSummary"> 2000</span></p>
-                            <p class="name">Total Combustible: <span class="valueDetailSummary"> 1000</span></p>
-                            <p class="name">Total Parqueadero: <span class="valueDetailSummary"> 1000</span></p>
-                            <p class="name">Total Lavadas: <span class="valueDetailSummary"> 1000</span></p>
-                            <p class="name">Total Otros: <span class="valueDetailSummary"> 10000</span></p>
+                            <p id="tollsTotal" class="name"><span class="valueDetailSummary"></span></p>
+                            <p id="gasTotal" class="name"><span class="valueDetailSummary"></span></p>
+                            <p id="parkingTotal" class="name"><span class="valueDetailSummary"></span></p>
+                            <p id="washesTotal" class="name"><span class="valueDetailSummary"></span></p>
+                            <p id="othersTotal" class="name"><span class="valueDetailSummary"></span></p>
                             <hr class="lineTotalSummary">
-                            <p class="name">Valor Total de Gatos: <span class="valueDetailSummary"> 15000</span></p>
+                            <p id="settlementTotal" class="name"><span class="valueDetailSummary"></span></p>
                         </div>
                     </div>
                     <br>
@@ -862,9 +862,9 @@
                             <i class="fas fa-arrow-left"></i>
                             <span>Atras</span>
                         </div>
-                        <div class="back" onclick="changePage('view-truck','sumaryLegalizationCreate')">
+                        <div class="back" onclick="changePage('view-truck','sumaryLegalizationCreate'), uploadSettlement();">
                             <i class="fas fa-arrow-right"></i>
-                            <span>Adelante</span>
+                            <span>Finalizar</span>
                         </div>
                     </div>
                 </div>

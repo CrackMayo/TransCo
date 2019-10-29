@@ -217,6 +217,7 @@ function legalizationTolls() {
             var value = document.getElementById('inputCount').value = '';
             document.getElementById('file-tolls').value = '';
             imgField.value = "";
+            imgField.src = "/img/post_placeholder.png";
 
         }
 
@@ -306,6 +307,7 @@ function legalizationFuel() {
             addSpending('inputCount1', 'Combustible', imgField.value);
             var value1 = document.getElementById('inputCount1').value = '';
             document.getElementById('file-tolls1').value = '';
+            imgField.src = "/img/post_placeholder.png";
 
         }
         // if (isPositiveNumber(value1)) {
@@ -391,6 +393,7 @@ function legalizationParking() {
             addSpending('inputCount2', 'Parqueadero', imgField.value);
             var value2 = document.getElementById('inputCount2').value = '';
             document.getElementById('file-tolls2').value = '';
+            imgField.src = "/img/post_placeholder.png";
         }
 
 
@@ -482,6 +485,7 @@ function legalizationWashed() {
             var value3 = document.getElementById('inputCount3').value = '';
             document.getElementById('file-tolls3').value = '';
             imgField.value = "";
+            imgField.src = "/img/post_placeholder.png";
         }
 
 
@@ -571,6 +575,7 @@ function legalizationOthers() {
             var value4 = document.getElementById('inputCount4').value = '';
             document.getElementById('file-tolls4').value = '';
             imgField.value = "";
+            imgField.src = "/img/post_placeholder.png";
         }
 
 

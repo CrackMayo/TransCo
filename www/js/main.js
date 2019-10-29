@@ -211,13 +211,12 @@ function legalizationTolls() {
 
         if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
-            alert(imgField.value);
             addItemAllCard(value);
             addSpending('inputCount', 'Peaje', imgField.value);
             var value = document.getElementById('inputCount').value = '';
             document.getElementById('file-tolls').value = '';
             imgField.value = "";
-            imgField.src = "/img/post_placeholder.png";
+            document.getElementById('image-tolls').src = "img/post_placeholder.png";
 
         }
 
@@ -302,12 +301,13 @@ function legalizationFuel() {
 
         if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
-            alert(imgField.value);
             addItemAllCard(value1);
             addSpending('inputCount1', 'Combustible', imgField.value);
             var value1 = document.getElementById('inputCount1').value = '';
             document.getElementById('file-tolls1').value = '';
-            imgField.src = "/img/post_placeholder.png";
+            imgField.value = "";
+            document.getElementById('image-tolls1').src = "img/post_placeholder.png";
+
 
         }
         // if (isPositiveNumber(value1)) {
@@ -388,12 +388,12 @@ function legalizationParking() {
 
         if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
-            alert(imgField.value);
             addItemAllCard(value2);
             addSpending('inputCount2', 'Parqueadero', imgField.value);
             var value2 = document.getElementById('inputCount2').value = '';
             document.getElementById('file-tolls2').value = '';
-            imgField.src = "/img/post_placeholder.png";
+            imgField.value = "";
+            document.getElementById('image-tolls2').src = "img/post_placeholder.png";
         }
 
 
@@ -479,13 +479,12 @@ function legalizationWashed() {
 
         if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
-            alert(imgField.value);
             addItemAllCard(value3);
             addSpending('inputCount3', 'Lavada', imgField.value);
             var value3 = document.getElementById('inputCount3').value = '';
             document.getElementById('file-tolls3').value = '';
             imgField.value = "";
-            imgField.src = "/img/post_placeholder.png";
+            document.getElementById('image-tolls3').src = "img/post_placeholder.png";
         }
 
 
@@ -569,13 +568,12 @@ function legalizationOthers() {
 
         if (imgField.value !== "") {
             //imgField.value.replace(/\s/g,'');
-            alert(imgField.value);
             addItemAllCard(value4);
             addSpending('inputCount4', 'Otros', imgField.value);
             var value4 = document.getElementById('inputCount4').value = '';
             document.getElementById('file-tolls4').value = '';
             imgField.value = "";
-            imgField.src = "/img/post_placeholder.png";
+            document.getElementById('image-tolls4').src = "img/post_placeholder.png";
         }
 
 
@@ -840,6 +838,15 @@ function viewTruck(Plate) {
 }
 function changeLegalization() {
     changePage('create-travel', 'view-truck');
+    document.getElementById("input-create-travel-departmento").value="";
+    document.getElementById("input-create-travel-cityo").value="";
+    document.getElementById("input-create-travel-departmentd").value="";
+    document.getElementById("input-create-travel-cityd").value="";
+    document.getElementById("input-create-travel-dateout").value = "";
+    document.getElementById("input-create-travel-description").value = "";
+    document.getElementById("input-create-travel-amoung").value = "";
+    document.getElementById("input-create-travel-output").value = "";
+    document.getElementById("input-create-travel-weight").value = "";
 }
 
 function loadTruck(placa) {
@@ -1107,7 +1114,15 @@ function uploadSettlement() {
                     console.error("Error: ", error);
                 });
             }
-
+            document.getElementById("input-create-travel-departmento").value="";
+            document.getElementById("input-create-travel-cityo").value="";
+            document.getElementById("input-create-travel-departmentd").value="";
+            document.getElementById("input-create-travel-cityd").value="";
+            document.getElementById("input-create-travel-dateout").value = "";
+            document.getElementById("input-create-travel-description").value = "";
+            document.getElementById("input-create-travel-amoung").value = "";
+            document.getElementById("input-create-travel-output").value = "";
+            document.getElementById("input-create-travel-weight").value = "";
             alert("Legalización creada correctamente.");
 
         }).catch(function (error) {
@@ -1237,8 +1252,6 @@ function summarySpendings() {
         totalOtros: othersTotal,
         totalLegalizacion: settlementTotal
     }
-
-    alert(spendingsTotal.totalLegalizacion);
     spendings.push(spendingsTotal);
 
     console.log(spendingsTotal);

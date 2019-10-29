@@ -160,7 +160,9 @@ section {
     justify-content: space-between;
     padding-top: 20px;
 }
-
+.card1 .footerT {
+    padding-top: 0px;
+}
 .card1 .footer .liquidation {
     flex: 0 0 1;
 }
@@ -2350,7 +2352,7 @@ hr.lineTotal {
 }
 .chartSize{
     position: relative;
-    padding-bottom: 60%;
+    padding-bottom: 57%;
     height: 0;
     overflow:hidden;
     margin-left: -20px;
@@ -2360,7 +2362,7 @@ hr.lineTotal {
     top: 0;
     left: 0;
     width:100%;
-    height:50%;
+    height:100%;
 }
 .tituleStatistics{
     font-family: 'Roboto', sans-serif;
@@ -2370,6 +2372,7 @@ hr.lineTotal {
     text-align: center;
 }
 .textStatistics{
+    margin-bottom: 18px;
     margin-top: 17px;
     font-family: 'Roboto', sans-serif;
     font-size: 13px;

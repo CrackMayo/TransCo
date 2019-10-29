@@ -1355,7 +1355,7 @@ function changeToStatistics(settlementId) {
                 var data = google.visualization.arrayToDataTable([
                     ['Gasto', 'Valor'],
                     ['Peaje', parseFloat(snapshot.data().totalPeajes)],
-                    ['Combustible',  parseFloat(snapshot.data().totalCombustible)],
+                    ['Diésel',  parseFloat(snapshot.data().totalCombustible)],
                     ['Parqueadero', parseFloat(snapshot.data().totalParqueadero)],
                     ['Lavadas',   parseFloat(snapshot.data().totalLavadas)],
                     ['Otros', parseFloat(snapshot.data().totalOtros)]
